@@ -1,5 +1,5 @@
 import React from "react";
-import Rightsection from "@/Components/sectionFive/Rightsection";
+import Rightsection from "@/Components/sectionFive/RightSection";
 import Leftsection from "@/Components/sectionFive/Leftsection";
 
 export default function index() {
