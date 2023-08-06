@@ -1,9 +1,10 @@
 import React from "react";
+import Link from 'next/link'
 
 export default function index() {
   const Singin_logo = "images/SignIn_logo.png";
   return (
-   
+
     <div className=" w-1/3  bg-white p-10  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
       <div className=" flex">
         <ul className="flex justify-between w-72">
@@ -11,10 +12,11 @@ export default function index() {
             <img className="flex" src={Singin_logo} />
           </li>
           <li>
-
-            <p className="text-right pl-6 text-[#7000ED]">
-              Don’t have an account? Sign Up.
-            </p>
+            <Link href='signup'>
+              <p className="text-right pl-6 text-[#7000ED]">
+                Don’t have an account? Sign Up.
+              </p>
+            </Link>
           </li>
         </ul>
       </div>

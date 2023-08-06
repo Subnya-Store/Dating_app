@@ -5,7 +5,7 @@ import Id_verification from './ID_Verification'
 import Questions from './Questions'
 
 export default function index() {
-  const [state, setState] = useState("questions")
+  const [state, setState] = useState("signup")
 
   console.log(state)
   return (

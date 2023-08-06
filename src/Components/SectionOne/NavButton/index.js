@@ -12,7 +12,11 @@ export default function index() {
             <button className=' bg-pinkColor shadow-lg  py-2  px-6  font-medium rounded-full  text-white '>Sign in</button>
           </Link>
         </li>
-        <li className=' cursor-pointer  pr-6'><button className=' bg-pinkColor shadow-lg  py-2  px-6  font-medium rounded-full  text-white '>Create Account</button></li>
+        <li className=' cursor-pointer  pr-6'>
+          <Link href='signup'>
+            <button className=' bg-pinkColor shadow-lg  py-2  px-6  font-medium rounded-full  text-white '>Create Account</button>
+          </Link>
+        </li>
         <li className=' cursor-pointer  pr-6  pt-3 text-xl font-medium text-[#050062]'><RiSearchLine /></li>
       </ul>
 
