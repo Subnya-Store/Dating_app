@@ -12,7 +12,7 @@ export default function index({ setState }) {
               <img className="flex" src={sign_up_img} />
             </li>
             <li className=' w-32'>
-              <Link href='/signin' className="  text-[#7000ED]">
+              <Link href='signin' className="  text-[#7000ED]">
                 Already have a account? <br />Sign In.
               </Link>
             </li>
