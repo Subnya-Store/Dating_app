@@ -16,7 +16,7 @@ export default function index({ setState, onSignIn }) {
             </li>
             <li className=' w-32'>
 
-              <Link href='signin' className="  text-[#7000ED]">
+              <Link href='signIn' className="  text-[#7000ED]">
                 Already have a account? <br />Sign In. </Link>
 
             </li>
