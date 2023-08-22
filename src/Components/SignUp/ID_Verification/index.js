@@ -15,7 +15,7 @@ export default function index({setState}) {
             <li className=' w-32'>
   
              
-              <Link  href='signin' className="  text-[#7000ED]">
+              <Link  href='/signin' className="  text-[#7000ED]">
               Already have a account? <br/>Sign In. </Link>
             </li>
           </ul>
