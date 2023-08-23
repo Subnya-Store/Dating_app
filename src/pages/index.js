@@ -15,7 +15,7 @@ export default function index() {
       {/* <div className="clip  z-20 absolute   w-full object-cover bg-black  h-full ">
           <BgShapes />
         </div> */}
-        <div className="bg-[url('/images/banner-shape.png')]   relative  mx-14 rounded-t-3xl h-full bg-center pt-16   pb-36 bg-no-repeat bg-cover">
+        <div className="bg-[url('/Images/banner-shape.png')]   relative  mx-14 rounded-t-3xl h-full bg-center pt-16   pb-36 bg-no-repeat bg-cover">
           <div className="">
         
           <SectionOne />

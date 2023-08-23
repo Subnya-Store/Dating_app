@@ -4,7 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { HiOutlineUserGroup } from "react-icons/hi";
 
 export default function index() {
-  const arrow_img = "images/arrow-img.png";
+  const arrow_img = "Images/arrow-img.png";
   return (
     <div className="  relative w-[48%]">
       <h6 className="text-[#FD166F]   font-bold  border-b-2   w-24  mb-2 text-lg">

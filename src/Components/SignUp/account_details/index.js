@@ -21,11 +21,11 @@ export default function index({ setState }) {
         <div className=" text-4xl font-bold py-4 capitalize"> Account DetailsS</div>
         <div className="inline-flex gap-5 pt-1 pb-1">
           <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
-            <img className=" object-contain px-4" src="images/Google_img.png " /> Sign in
+            <img className=" object-contain px-4" src="Images/Google_img.png " /> Sign in
             with google
           </button>
           <button className="bg-[#7000ED] flex rounded-xl text-white  px-4 p-2">
-            <img src="images/facbook_signin.png" className=" object-contain" />
+            <img src="Images/facbook_signin.png" className=" object-contain" />
           </button>
         </div>
         <div className="pt-1 pb-1 font-medium ">

@@ -9,7 +9,7 @@ export default function index() {
 
   console.log(state)
   return (
-    <div className="bg-[url('/images/Signup_img.png')] py-4 bg-center  bg-no-repeat h-screen ">
+    <div className="bg-[url('/Images/Signup_img.png')] py-4 bg-center  bg-no-repeat h-screen ">
       
       {
         state == "signup" && <Sign_up setState={setState} /> ||

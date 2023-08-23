@@ -1,8 +1,8 @@
 import React from "react";
 
 export default function index() {
-  const phone_img = "images/Phone_img.png";
-  const mail_img = " images/mail_img.png";
+  const phone_img = "Images/Phone_img.png";
+  const mail_img = " Images/mail_img.png";
   return (
     <div className="bg-[#FD166F] ">
       <div className="text-white  py-16 px-24">

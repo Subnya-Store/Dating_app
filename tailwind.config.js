@@ -19,8 +19,8 @@ module.exports = {
         lightGray:"var(--light-gray)"
       },
       backgroundImage: {
-        'hero-pattern': "url('/Images/Ellipse.png')",
-        'bg-shape': "url('/Images/shape-bg.(.jpeg')",
+        'hero-pattern': "url('/ImagesEllipse.png')",
+        'bg-shape': "url('/Imagesshape-bg.(.jpeg')",
       }
 
     },
