@@ -7,8 +7,7 @@ export default function index() {
         heading:"Mia,22"
       },
       {
-      
-       
+    
      img:'Images/imgsecond.png',
         heading:"Marie, 24"
       },
