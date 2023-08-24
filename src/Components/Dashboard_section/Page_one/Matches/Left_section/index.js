@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function index() {
     const array = [{
         img:'Images/img_1.png',
@@ -12,7 +13,7 @@ export default function index() {
         heading:"Marie, 24"
       },
       {
-        img:'Imagesimg_1.png',
+        img:'Images/img_1.png',
         heading:"Charlotte, 24"
 
       },
