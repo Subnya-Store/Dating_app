@@ -60,4 +60,22 @@
   .nav_list ul li span{
     @apply  text-[#FD2579] pr-2
   }
+  .right_header {
+     ul{
+      @apply flex  items-center  justify-end;
+      li{
+        @apply inline
+      }
+      li span {
+        @apply  mr-2 text-base font-medium text-[#050062]
+      }
+    }
+    figure {
+       @apply w-[100%]  ;
+       img{
+        @apply w-[30%] rounded-full inline-flex  overflow-hidden
+      }
+    }
+   
+  }
 }
