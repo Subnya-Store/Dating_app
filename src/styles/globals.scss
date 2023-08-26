@@ -1,0 +1,81 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --pink-color: #fd166f;
+  --blue-color: #7000ed;
+  --light-gray: #d9d9d9;
+  --black-color: #000000;
+  --white-color: #fff;
+  --color-primary: rgba(255, 255, 255, 0.63);
+}
+
+*{
+  @apply m-0 p-0;
+  
+}
+  .side_menu {
+  @apply bg-white h-screen ;
+ .side_logo  {
+    @apply mt-7;
+    img{
+        @apply w-[70%];
+    }
+  }
+
+  h3{
+    @apply text-[#050062]  mt-7 text-xl font-bold;
+  }
+  .matches_box{
+    @apply bg-[#FD2579] text-center mt-5 py-2;
+   h4 {
+   @apply  text-xl  font-medium text-[#fff]
+    }
+  }
+  .support_links {
+   h5 {
+    @apply text-[#050062] font-medium  text-xl mt-7  capitalize mb-3
+    }
+    @apply mt-2 ;
+    ul li{
+
+   @apply flex text-[#050062] text-lg  font-medium  leading-10 items-center;
+   span{
+    @apply text-[#FD2579] pr-2 
+   }
+   img{
+    @apply w-[80%] object-contain
+   }
+    }
+    
+  }
+} 
+
+.dash_header {
+  .nav_list ul li {
+    @apply flex items-center text-[#050062] text-lg font-medium pr-5
+  }
+  .nav_list ul li span{
+    @apply  text-[#FD2579] pr-2
+  }
+  .right_header {
+     ul{
+      @apply flex  items-center  justify-end;
+      li{
+        @apply inline
+      }
+      li span {
+        @apply  mr-2 text-base font-medium text-[#050062]
+      }
+    }
+    figure {
+       @apply w-[100%]  ;
+       img{
+        @apply w-[30%] rounded-full inline-flex  overflow-hidden
+      }
+    }
+   
+  }
+}

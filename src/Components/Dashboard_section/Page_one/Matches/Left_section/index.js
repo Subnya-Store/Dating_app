@@ -6,13 +6,12 @@ export default function index() {
         heading:"Mia,22"
       },
       {
-      
-       
+    
      img:'Images/imgsecond.png',
         heading:"Marie, 24"
       },
       {
-        img:'Imagesimg_1.png',
+        img:'Images/img_1.png',
         heading:"Charlotte, 24"
 
       },
