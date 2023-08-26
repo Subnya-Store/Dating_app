@@ -121,7 +121,7 @@ export default function Index() {
 
           {/* Question 2  */}
           {questionIndex === 1 && e.options && e.options.length > 0 && (
-            <div>
+            <div className=" mx-10 border border-[#7000ED] rounded-md"> 
               <div className="flex justify-center items-center flex-col">
                 <div className="">
                   <div className=" gap-6 flex">
@@ -154,7 +154,7 @@ export default function Index() {
           )}
           {/* Question 3  */}
           {questionIndex === 2 && e.options && e.options.length > 0 && (
-            <div>
+            <div className=" mx-10 border border-[#7000ED] rounded-md">
               <div className="flex justify-center items-center flex-col">
                 <div className="">
                   <div className=" gap-6 flex">
