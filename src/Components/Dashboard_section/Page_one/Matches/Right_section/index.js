@@ -35,8 +35,8 @@ export default function Index() {
   ];
 
   return (
-    <div className="bg-white m-4  w-[50%] rounded-md ">
-      <div className="  px-4 py-2 flex justify-between ">
+    <div className="bg-white   m-auto w-[50%] rounded-md ">
+      <div className="  px-4 py-4 flex justify-between items-center ">
        
         <div>
         <h2 className="text-[#050062] text-lg font-bold">Improve your Matches</h2>
@@ -242,7 +242,7 @@ export default function Index() {
 
 <div className="flex justify-end">
 
-            <button className="border text-center w-[20%] text-white bg-[#7000ED] border-[#7000ED] py-2  m-auto rounded-md  cursor-pointer "
+            <button className="border text-center w-[20%]  text-white bg-[#7000ED] border-[#7000ED] py-2 my-2  m-auto rounded-md  cursor-pointer "
 
               onClick={() => setQuestionIndex(questionIndex + 1)}
               

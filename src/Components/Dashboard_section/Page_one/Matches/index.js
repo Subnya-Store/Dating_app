@@ -5,8 +5,8 @@ import Activity_folder from '@/Components/Dashboard_section/Page_one/Matches/Act
 
 export default function index() {
   return (
-    <div className="">
-      <h2 className=" text-white text-lg px-4"> Matches</h2>
+    <div className="container mx-auto px-4">
+      <h2 className=" text-white text-lg "> Matches</h2>
       <div className="flex">
         <Left_section />
         <Right_section />
