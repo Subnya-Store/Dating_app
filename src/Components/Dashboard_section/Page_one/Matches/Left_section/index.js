@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 export default function index() {
     const array = [{
         img:'Images/img_1.png',
@@ -19,7 +20,7 @@ export default function index() {
     ]
   return (
     
-    <div className='flex bg-white m-4'>
+    <div className='flex bg-white m-4  rounded-md '>
         {
         array.map(e => <div className='p-4'>
         
