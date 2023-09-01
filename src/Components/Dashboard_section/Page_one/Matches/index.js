@@ -5,13 +5,15 @@ import Activity_folder from '@/Components/Dashboard_section/Page_one/Matches/Act
 
 export default function index() {
   return (
-    <div className="">
-      <h2 className=" text-white text-lg px-4"> Matches</h2>
+    <div className=" py-6">
+    <div className="container mx-auto px-6">
+      {/* <h2 className=" text-white text-lg "> Matches</h2> */}
       <div className="flex">
         <Left_section />
         <Right_section />
       </div>
       <Activity_folder />
+    </div>
     </div>
   );
 }
