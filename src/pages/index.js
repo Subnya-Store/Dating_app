@@ -10,7 +10,7 @@ import BgShapes from "@/Components/BgShapes";
 import SectionSteps from "@/Components/SectionSteps";
 // https://wallpapercave.com/wp/wp11705135.jpg
 export default function index() {
-  const [contruction, setConstruction] = useState(false)
+  const [contruction, setConstruction] = useState(true)
   return (
     <div>
       {!contruction ?
