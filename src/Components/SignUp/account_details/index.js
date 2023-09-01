@@ -49,7 +49,6 @@ export default function index({ setState }) {
               </div>
             </li>
             <li>
-
               <div>
                 <label> confirm</label>
                 <input

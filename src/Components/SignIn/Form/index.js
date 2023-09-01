@@ -55,9 +55,11 @@ export default function index() {
         />
       </div>
       <div className="pt-4 pb-4">
-        <button className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+        <Link href="/Dashboard">
+        <button  className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
           Sign in
         </button>
+        </Link>
       </div>
     </div>
   );

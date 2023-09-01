@@ -116,8 +116,8 @@ export default function Index() {
   ];
 
   return (
-    <div className="bg-white m-4  w-[50%] rounded-md ">
-      <div className="  px-4 py-2 flex justify-between ">
+    <div className="bg-white   m-auto w-[50%] rounded-md ">
+      <div className="  px-4 py-4 flex justify-between items-center ">
        
         <div>
         <h2 className="text-[#050062] text-lg font-bold">Improve your Matches</h2>
@@ -146,11 +146,193 @@ export default function Index() {
            ))}
    
           </div>
-        </ul>
-        
-      )
-      ) }
-   
+
+          {/* {questionIndex === 0 && (
+            <div>
+              <div className="flex justify-center items-center flex-col">
+
+                <div className=" text-center mb-2  bg-white rounded-[8.94px] border border-violet-700">
+                  <div className="opacity-70 text-black text-base pt-1 font-medium capitalize">
+                    Upload
+                  </div>
+                </div>
+              </div>
+            </div>lo
+            <div>
+              hello
+            </div>
+          )} */}
+      
+          {/* Question 1  */}
+
+         
+            {questionIndex === 0 && e.options && e.options.length > 0 && (
+            <div className=" mx-10 border border-[#7000ED] rounded-md">
+              <div className="flex justify-center items-center flex-col">
+                <div className="">
+                  <div className=" gap-48 flex">
+                    <div>
+                      {e.options.slice(0, 3).map((option, optionIndex) => (
+                        <div
+                          key={optionIndex} className="" >
+                          <div >
+                            {option}
+                          </div>
+                        </div>
+                      ))}
+
+                    </div>
+
+                    <div> {e.options.slice(3, 5).map((option, optionIndex) => (
+                      <div
+                        key={optionIndex} className="" >
+                        <div >
+                          {option}
+                        </div>
+                      </div>
+                    ))} </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          )}
+
+          {/* Question 2  */}
+          {questionIndex === 1 && e.options && e.options.length > 0 && (
+            <div className=" mx-10 border border-[#7000ED] rounded-md"> 
+              <div className="flex justify-center items-center flex-col">
+                <div className="">
+                  <div className=" gap-6 flex">
+                    <div>
+                      {e.options.slice(0, 3).map((option, optionIndex) => (
+                        <div
+                          key={optionIndex} className="" >
+                          <div >
+                            {option}
+                          </div>
+                        </div>
+                      ))}
+
+                    </div>
+
+                    <div> {e.options.slice(3, 5).map((option, optionIndex) => (
+                      <div
+                        key={optionIndex} className="" >
+                        <div >
+                          {option}
+                        </div>
+                      </div>
+                    ))} </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          )}
+          {/* Question 3  */}
+          {questionIndex === 2 && e.options && e.options.length > 0 && (
+            <div className=" mx-10 border border-[#7000ED] rounded-md">
+              <div className="flex justify-center items-center flex-col">
+                <div className="">
+                  <div className=" gap-6 flex">
+                    <div>
+                      {e.options.slice(0, 3).map((option, optionIndex) => (
+                        <div
+                          key={optionIndex} className="" >
+                          <div >
+                            {option}
+                          </div>
+                        </div>
+                      ))}
+
+                    </div>
+
+                    <div> {e.options.slice(3, 5).map((option, optionIndex) => (
+                      <div
+                        key={optionIndex} className="" >
+                        <div >
+                          {option}
+                        </div>
+                      </div>
+                    ))} </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          )}
+
+{/* Question 4 */}
+{questionIndex === 3 && e.options && e.options.length > 0 && (
+            <div>
+              <div className="flex justify-center items-center flex-col">
+                <div className="">
+                  <div className=" gap-6 flex">
+                    <div>
+                      {e.options.slice(0, 3).map((option, optionIndex) => (
+                        <div
+                          key={optionIndex} className="" >
+                          <div >
+                            {option}
+                          </div>
+                        </div>
+                      ))}
+
+                    </div>
+
+                    <div> {e.options.slice(3, 5).map((option, optionIndex) => (
+                      <div
+                        key={optionIndex} className="" >
+                        <div >
+                          {option}
+                        </div>
+                      </div>
+                    ))} </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          )}
+
+
+          {/* Question 5 */}
+          {questionIndex === 4 && e.options && e.options.length > 0 && (
+            <div>
+              <div className="flex justify-center items-center flex-col">
+                {e.options.map((option, optionIndex) => (
+                  <div
+                    key={optionIndex}
+                    className="w-[360.78px] text-center   bg-white rounded-[3.94px] border border-violet-700"
+                  >
+                    <div className="opacity-70 text-black text-base py-3 font-medium capitalize">
+                      {option}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+
+<div className="flex justify-end">
+
+            <button className="border text-center w-[20%]  text-white bg-[#7000ED] border-[#7000ED] py-2 my-2  m-auto rounded-md  cursor-pointer "
+
+              onClick={() => setQuestionIndex(questionIndex + 1)}
+              
+            >
+              Next
+            </button>
+          </div>
+         
+        </div>
+      ))}
     </div>
     
     </div>
