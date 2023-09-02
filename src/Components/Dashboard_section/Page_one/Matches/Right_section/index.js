@@ -28,6 +28,14 @@ export default function Index() {
       {
         category: "E",
         answer: " Air travel is no problem 200 miles"
+      },
+      {
+        category: "F",
+        answer: "79-80"
+      },
+      {
+        category: "G",
+        answer: "80-85"
       }
       ],
     },
@@ -111,10 +119,15 @@ export default function Index() {
       question: "Question 5",
       questionis:
         "Are you comfortable with meeting people from a different background than yourself?  ",
-      options: ["Yes", "No"],
+      options: [{
+        category: "",
+        answer: "Yes"
+      }, {
+        category: "",
+        answer: "No"
+      }],
     },
   ];
-
   return (
     <div className="bg-white m-4  w-[50%] rounded-md  px-10  ">
       <div className="   py-2 flex justify-between ">
@@ -131,37 +144,36 @@ export default function Index() {
       </div>
       {/* question section */}
       <div>
-        {
-          arrayquest.map((x, i) => (
-            <ul className={`${i == questionIndex ? "" : "hidden"}`}>
-              {x.questionis}
-              <div className="  border-[#7000ED]  border px-10 rounded-xl">
+        {arrayquest.map((x, i) => (
+          <div onClick={() => console.log(x)} className={`${i === questionIndex ? "flex  border-[#7000ED] border px-10 rounded-xl justify-center items-center flex-col" : "hidden"}`}>
+            {x.questionis}
+            <div className="grid grid-cols-2 grid-rows-3 gap-4 text-center">
+              {x.options.map((option, index) => (
+                <div className={`border border-red-400 ${index === x.options.length - 1 ? "hidden" : ""}`} key={index}>
+                  {option.category}
+                  {option.answer}
+                </div>
+              ))}
+             
+            </div>
 
-                {x.options.map((option) => (
-                  // <div className=" grid grid-cols-2 gap-x-8 ">
-                  //   {option.category}:{option.answer} </div>
-                  <ul className=" flex gap-4">
-                    <li>  {option.category}</li>
-                    <li>  {option.answer}</li>
-                  </ul>
-                ))}
-
-              </div>
-            </ul>
-
-          )
-          )}
-
+            <div className={`border border-red-400 ${i == 4 ? "hidden" : ""}`}>
+              {x.options.slice(-1)[0].category}
+              {x.options.slice(-1)[0].answer}
+            </div>
+          </div>
+        ))}
       </div>
+
       {/* button  */}
-      <div className="flex justify-end">
+      {questionIndex > 3 ? '' : <div className="flex justify-end">
         <button
           onClick={() => setQuestionIndex(questionIndex + 1)}
           className="cursor-pointer capitalize border  text-center text-white bg-[#7000ED] border-[#7000ED] w-[20%] rounded-md py-2 justify-end"
         >
           Next
         </button>
-      </div>
+      </div>}
     </div>
   );
 }
