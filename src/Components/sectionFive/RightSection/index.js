@@ -1,12 +1,16 @@
-import React from 'react'
+import React from "react";
+import Image from "next/image";
 
 export default function index() {
-  const Contact_img='Images/Contact_img.png'
   return (
-    
-      <div className=' py-5'>
-        <img src={Contact_img} className=' w-full h-full object-contain'/>
-      </div>
-
-  )
+    <div className="">
+      <Image
+        src="/Images/Contact_img.png"
+        width={600}
+        height={600}
+        alt="Picture "
+        className="object-contain"
+      />
+    </div>
+  );
 }

@@ -1,10 +1,17 @@
 import React from 'react'
-
+import Image from 'next/image' 
 export default function index() {
-  const Logo_img = './Images/logo-img.png'
+
   return (
-    <div className=' pt-2'>
-     <img  className='w-36 ' src={Logo_img}/>
+    <div className='flex justify-center'>
+        <Image
+      src="/Images/logo-img.png"
+      className='  object-contain'
+      width={210}
+      height={110}
+      alt="logo"
+    />
+    
     </div>
   )
 }

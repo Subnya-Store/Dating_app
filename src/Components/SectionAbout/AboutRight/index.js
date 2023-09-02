@@ -1,10 +1,17 @@
 import React from 'react'
+import Image from 'next/image'
 
 export default function index() {
-  const About_img = 'Images/about-img.png'
+ 
   return (
     <div className=' w-[50%]'> 
-    <img src={About_img}></img>
+     <Image
+      src="/Images/about-img.png"
+      width={700}
+      height={700}
+      alt="about img"
+    />
+   
     </div>
   )
 }

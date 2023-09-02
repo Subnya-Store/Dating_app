@@ -6,20 +6,19 @@ import { RiSearchLine } from 'react-icons/ri'
 export default function index() {
   return (
     <div>
-      <ul className='flex justify-end  pt-6'>
-        <li className=' cursor-pointer  pr-6'>
+      <ul className='flex'>
+        <li className=' cursor-pointer  pr-8'>
           <Link href='signIn'>
-            <button className=' bg-pinkColor shadow-lg  py-2  px-6  font-medium rounded-full  text-white '>Sign in</button>
+            <button className=' bg-pinkColor  text-base shadow-lg  py-2   px-9  font-medium rounded-full  text-white '>Sign in</button>
           </Link>
         </li>
         <li className=' cursor-pointer  pr-6'>
           <Link href='signup'>
-            <button className=' bg-pinkColor shadow-lg  py-2  px-6  font-medium rounded-full  text-white '>Create Account</button>
+            <button className=' bg-pinkColor shadow-lg text-base py-2  px-9  font-medium rounded-full  text-white '>Create Account</button>
           </Link>
         </li>
-        <li className=' cursor-pointer  pr-6  pt-3 text-xl font-medium text-[#050062]'><RiSearchLine /></li>
+        <li className='cursor-pointer pr-6  pt-3  text-2xl font-medium text-[#050062]'><RiSearchLine /></li>
       </ul>
-
     </div >
   )
 }

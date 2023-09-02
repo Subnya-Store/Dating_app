@@ -6,7 +6,7 @@ export default function index() {
     <div className="right_header ">
       <ul>
         <li>
-          <button className="bg-[#FD2579]   mr-8 rounded-full items-center text-center cursor-pointer font-semibold text-white py-2 px-4">
+          <button className="bg-[#FD2579] mr-8 rounded-full items-center text-center cursor-pointer font-semibold text-white py-2 px-4">
             Upgrade now
           </button>
         </li>

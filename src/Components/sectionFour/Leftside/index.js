@@ -1,11 +1,16 @@
 import React from "react";
+import Image from 'next/image'
 
 export default function index() {
-  const membership_img = "Images/membership_img.png";
   return (
     <div>
-      <div className="p-24">
-        <img src={membership_img} className=" w-full object-cover" />
+      <div className="">
+      <Image
+      src="/Images/membership_img.png"
+      width={500}
+      height={500}
+      alt="Picture"
+    />
       </div>
     </div>
   );

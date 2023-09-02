@@ -4,7 +4,7 @@ import RightSection from '@/Components/SectionTwo/RightSection'
 
 export default function index() {
   return (
-    <div className="flex  justify-between py-16 px-24 justify-items-center "> 
+    <div className="flex  justify-between  py-24  justify-items-center "> 
       <LeftSection/>
       <RightSection/>
     </div>
