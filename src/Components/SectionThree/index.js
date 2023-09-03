@@ -4,11 +4,11 @@ import SectionRight from '@/Components/SectionThree/SectionRight'
 
 export default function index() {
   return (
-    <div className='flex bg-gradient-to-t from-[#FF80B4] to-[#D74EFF] '>
-      
-        < SectionLeft/>
+    <div className=' bg-gradient-to-t from-[#FF80B4] to-[#D74EFF] '>
+        <div className='flex'>
+      < SectionLeft/>
         <SectionRight/>
-      
+      </div>
     </div>
   )
 }

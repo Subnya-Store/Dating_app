@@ -2,7 +2,8 @@ import React from 'react'
 
 export default function index() {
   return (
-    <div className='text-white w-[60%] px-16'>
+    
+    <div className='text-white w-[60%] px-20'>
       <div>
         <h2 className=' text-5xl font-bold capitalize pt-24'> Trust and Safety</h2>
 

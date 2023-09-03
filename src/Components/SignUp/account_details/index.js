@@ -18,7 +18,7 @@ export default function index({ setState }) {
             </li>
           </ul>
         </div>
-        <div className=" text-4xl font-bold py-4 capitalize"> Account DetailsS</div>
+        <div className=" text-4xl font-bold py-4 capitalize"> Account Details</div>
         <div className="inline-flex gap-5 pt-1 pb-1">
           <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
             <img className=" object-contain px-4" src="Images/Google_img.png " /> Sign in
