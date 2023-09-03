@@ -13,9 +13,9 @@ export default function index() {
           <Left_section />
           <Right_section />
         </div>
-        <div className="flex">
-          <Activity_folder />
-          <div className=" ">
+        <div className="flex gap-x-20">
+       <div className="w-[40%]">   <Activity_folder /></div>
+          <div className="w-[60%]">
             <h2 className=" text-white text-lg px-4 font-bold" >Chat Request</h2>
 
 

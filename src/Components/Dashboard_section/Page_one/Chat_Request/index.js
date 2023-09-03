@@ -41,7 +41,7 @@ export default function index() {
       
     ]
     return (
-        <div className='  bg-white m-4  rounded-md grid grid-cols-2 gap-x-8 '>
+        <div className='  bg-white m-4  rounded-2xl grid grid-cols-2 gap-x-8 '>
         
             {array.map(e =>
                 <div >

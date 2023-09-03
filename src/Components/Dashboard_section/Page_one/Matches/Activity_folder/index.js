@@ -55,7 +55,7 @@ const users="./Images/user_img.png";
 const email= "./Images/email-icon.png";
 const search= "./Images/search-icon.png";
   return (
-    <div className="activity_box my-10 w-[45%]  rounded-2xl bg-white py-6">
+    <div className="activity_box my-10  rounded-2xl bg-white py-6">
       <div className="container mx-auto   px-6">
         <div>
               <ul className="flex justify-between items-center">
