@@ -1,9 +1,9 @@
 import React from 'react'
 import DashboardMenu from './DashboardMenu'
-export default function index() {
+export default function index({SetState}) {
   return (
     <div>
-        < DashboardMenu/>
+        < DashboardMenu SetState={SetState}/>
     </div>
   )
 }
