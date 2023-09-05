@@ -11,7 +11,7 @@ export default function index() {
     //   <NavButton/>
     //  </div>
    
-    <div className=" grid grid-cols-3 items-center ">
+    <div className=" grid grid-cols-3  gap-4 items-center ">
       <Navbar />
       <HeaderLogo />
       <NavButton />
