@@ -60,8 +60,8 @@ export default function DashboardMenu({ SetState }) {
         main_manu.map(x => (
           <>
            
-            <div className="matches_box">
-              <h4>{x.menu}</h4>
+            <div onClick={()=>SetState('matches')} className="matches_box cursor-pointer">
+              <h4 >{x.menu}</h4>
             </div>
           </>
         ))

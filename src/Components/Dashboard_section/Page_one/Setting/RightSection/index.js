@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function index() {
   return (
-    <div className=" mt-5">
+    <div className=" w-[70%] ">
       <div className="bg-[#FFF] p-10   rounded-3xl  shadow-2xl">
         <h4 className="text-[#050062]  py-3 text-3xl capitalize font-bold">
           Account

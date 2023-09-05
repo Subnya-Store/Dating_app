@@ -5,13 +5,19 @@ import RightSection from "./RightSection";
 
 export default function index() {
   return (
-    <div className="container  mx-auto px-4">
+    <div className="  mx-auto ">
       <AccountMenu />
 
      
-        <div className=" grid  grid-cols-2">
+        <div className="flex ">
+          <div className="w-[30%]">
           <LeftSection />
+          </div>
+          <div className="w-[70%]">
           <RightSection />
+          </div>
+         
+          
         </div>
       </div>
   );
