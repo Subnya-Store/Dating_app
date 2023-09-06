@@ -8,7 +8,7 @@ import Activity from '@/Components/Dashboard_section/Page_one/Matches/Activity_f
 export default function Dashboard() {
   const [State,SetState]=useState('matches')
   return (
-    <div className='flex   w-[100%] flex-row  overflow-hidden'>
+    <div className='flex  h-screen w-[100%] flex-row  '>
       <Side_menu SetState={SetState}/>
       <div className='w-[100%]'>
         <Header />

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Index() {
+export default function Index({ SetState }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const heading = [
@@ -41,6 +41,7 @@ export default function Index() {
           </li>
         ))}
       </ul>
+      
     </div>
   );
 }
