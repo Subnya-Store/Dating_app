@@ -1,23 +1,28 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import Dashboard_section from '@/Components/Dashboard_section';
 import Side_menu from '@/Components/Dashboard_section/Side_menu';
 import Header from '@/Components/Dashboard_section/Header';
 import Setting from '@/Components/Dashboard_section/Page_one/Setting'
 import Activity from '@/Components/Dashboard_section/Page_one/Matches/Activity_folder'
+import Inbox from '@/Components/Dashboard_section/Page_one/inbox'
+// import Matches 
 
 export default function Dashboard() {
-  const [State,SetState]=useState('matches')
+  const [State, SetState] = useState('matches')
+  const [stateHeader, setStateHeader] = useState("Setting");
+  console.log(stateHeader)
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
-      <Side_menu SetState={SetState}/>
+      <Side_menu setStateHeader={setStateHeader} />
       <div className='w-[100%]'>
-        <Header />
-        {State=='matches'&&<Dashboard_section /> || State=='Setting'&&<Setting/>  }
-     
-
-
+        <Header stateHeader={stateHeader} setStateHeader={setStateHeader} />
+        {
+         stateHeader == 'Matches'&& <Dashboard_section stateHeader={stateHeader} setStateHeader={setStateHeader} /> || 
+        stateHeader == 'Setting' && <Setting stateHeader={stateHeader} setStateHeader={setStateHeader}/> ||
+        stateHeader == 'Inbox' && <Inbox stateHeader={stateHeader} setStateHeader={setStateHeader}/>
+}
       </div>
 
     </div>
   )
-}
+}// inbox ko yahan call karao

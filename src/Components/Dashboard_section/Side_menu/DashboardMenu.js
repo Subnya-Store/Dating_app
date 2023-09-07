@@ -1,8 +1,8 @@
 import React from "react";
 import { AiFillSetting } from "react-icons/ai";
 import { AiFillQuestionCircle } from "react-icons/ai";
-
-export default function DashboardMenu({ SetState }) { 
+//humay state yahan tak lani hay 
+export default function DashboardMenu({ setStateHeader }) { 
   const sideBar_arr = [
     {
       Logo: "Images/logo-img.png",
@@ -60,7 +60,7 @@ export default function DashboardMenu({ SetState }) {
         main_manu.map(x => (
           <>
            
-            <div onClick={()=>SetState('matches')} className="matches_box cursor-pointer">
+            <div onClick={()=>setStateHeader('Matches')} className="matches_box cursor-pointer">
               <h4 >{x.menu}</h4>
             </div>
           </>
@@ -72,7 +72,7 @@ export default function DashboardMenu({ SetState }) {
     
       {Support_menu.map(x => (
         <>
-          <div onClick={() => console.log(y)} className="container mx-auto px-4">
+          <div onClick={()=>console.log(x)} className="container mx-auto px-4">
 
             <h3>{x.heading}</h3>
           </div>
@@ -91,7 +91,7 @@ export default function DashboardMenu({ SetState }) {
               <ul className="flex gap-4" >
                 <li><img src={x.listImg} /></li>
                 <li> 
-                <button onClick={() =>SetState("Setting")} className="text-[#050062] font-bold"> {x.listHeading}</button>
+                <button onClick={() =>setStateHeader(x.listHeading)} className="text-[#050062] font-bold"> {x.listHeading}</button>
                 </li>
                 
               </ul>

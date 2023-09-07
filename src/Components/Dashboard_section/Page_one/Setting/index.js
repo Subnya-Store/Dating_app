@@ -7,7 +7,7 @@ import Rightsectiontwo from '@/Components/Dashboard_section/Page_one/Setting/Acc
 import RightsectionThree from '@/Components/Dashboard_section/Page_one/Setting/AccountMenu/RightSectionThree'
 import RightsectionFour from '@/Components/Dashboard_section/Page_one/Setting/AccountMenu/RightSectionFour'
 export default function index() {
-  const [StateSetting, SetStateSetting] = useState('Settings')
+  const [StateSetting, SetStateSetting] = useState('Account')
   console.log(StateSetting, '<== check this')
   return (
     <div className="  mx-auto ">
