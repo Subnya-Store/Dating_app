@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Index({ SetState }) {
+export default function Index({ SetStateSetting }) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const heading = [
@@ -35,7 +35,7 @@ export default function Index({ SetState }) {
               activeIndex === i ? 'bg-[#FD2579] p-4 m-2 text-[#050062]  w-40 rounded-2xl bg-opacity-60 text-lg' : 'bg-white p-2 m-2 text-[#FD2579]  w-40 text-lg'
             }`}
             key={i}
-            onClick={() => setActiveIndex(i)} 
+            onClick={() => (setActiveIndex(i),SetStateSetting(x.heading))} 
           >
             {x.heading}
           </li>
