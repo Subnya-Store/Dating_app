@@ -8,7 +8,7 @@ export default function index() {
     <div>
       <ul className='flex'>
         <li className=' cursor-pointer  pr-8'>
-          <Link href='signIn'>
+          <Link href='signin'>
             <button className=' bg-pinkColor  text-base shadow-lg  py-2   px-9  font-medium rounded-full  text-white '>Sign in</button>
           </Link>
         </li>

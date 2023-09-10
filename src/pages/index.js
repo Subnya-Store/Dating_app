@@ -27,7 +27,7 @@ export default function index() {
               </div>
             </div>
           </div>
-          <div className=''>
+          <div className='-mt-[500px]'>
           <SectionAbout  />
           </div>
           <SectionSteps />
