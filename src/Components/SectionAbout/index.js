@@ -5,13 +5,13 @@ import Image from "next/image";
 
 export default function index() {
   return (
-    <div className=" bg-[#7000ED] pt-[530px] relative pb-10 -z-10   px-16 ">
-      <div className="container mx-auto px-20">
-        <div className="flex justify-between ">
+    <div className=" bg-[#7000ED] pt-10 relative pb-10 -z-10   md:px-16 md:mt-[-30%] mt-[-90%]  ">
+      <div className="container mx-auto px-20 md:pt-96 pt-96 ">
+        <div className="md:flex justify-between ">
           <AboutLeft />
           <AboutRight />
         </div>
-        <div className=" absolute top-[70%] left-[37%]">
+        <div className=" md:absolute md:top-[70%] md:left-[37%]  ">
           <Image
             src="/Images/arrow-img.png"
             width={300}

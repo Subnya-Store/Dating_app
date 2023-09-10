@@ -6,11 +6,11 @@ export default function index() {
     <div className=" bg-[#7000ED]   py-32 ">
       <div className="container px-20 mx-auto">
 
-     <div className="flex justify-between">
-     <div className="w-[50%]">
+     <div className="md:flex justify-between">
+     <div className="md:w-[50%]">
         <Leftside />
       </div>
-      <div className="w-[50%]">
+      <div className="md:w-[50%]">
         <Rightside />
       </div>
      </div>

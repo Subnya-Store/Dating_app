@@ -8,17 +8,17 @@ export default function index() {
   return (
     <div className="felx  pl-5">
       <div className=" justify-end flex">
-        <h3 className="border-b-4 border-[#212121] text-xl pt-3 pb-3 w-32 text-right font-bold text-[#FD166F]">
+        <h3 className="border-b-4 border-[#212121] md:text-xl text-base pt-3 pb-3 w-32 text-right font-bold text-[#FD166F]">
           How it works
         </h3>
       </div>
       <div className=" justify-end flex pt-4  ">
-        <h1 className="flex text-3xl font-bold w-54 text-right">
+        <h1 className="flex md:text-3xl text-lg font-bold w-54 text-right">
           You’re Just
         </h1>
       </div>
       <div className=" justify-end flex  pb-4 ">
-        <h1 className="flex text-3xl font-bold w-54 text-right  text-[#7000ED]">
+        <h1 className="flex md:text-3xl text-lg font-bold w-54 text-right  text-[#7000ED]">
           3 Steps Away
         </h1>
       </div>
@@ -27,7 +27,7 @@ export default function index() {
           <img className="flex" src={Create_account} />
         </li>
         <li>
-          <p className="  text-2xl font-bold  ">
+          <p className="  md:text-2xl font-bold  ">
             Create <br />
             Account
           </p>
@@ -45,13 +45,15 @@ export default function index() {
           <img className="flex" src={Enjoydate} />
         </li>
         <li>
-          <p className="  text-2xl font-bold  ">
+          <p className=" text-2xl font-bold  ">
             Enjoy
             <br />
             Date
           </p>
         </li>
       </ul>
+
+      
       <div className=" justify-end flex pt-4 pb-4">
         <p className="flex font-medium  text-sm">
           Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt

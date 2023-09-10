@@ -5,7 +5,7 @@ export default function index() {
   const Singin_logo = "Images/SignIn_logo.png";
   return (
 
-    <div className=" w-1/3  bg-white p-10  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
+    <div className=" md:w-1/3  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
       <div className=" flex">
         <ul className="flex justify-between w-72">
           <li>

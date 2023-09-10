@@ -5,7 +5,7 @@ import SectionRight from '@/Components/SectionThree/SectionRight'
 export default function index() {
   return (
     <div className=' bg-gradient-to-t from-[#FF80B4] to-[#D74EFF] '>
-        <div className='flex'>
+        <div className='md:flex'>
       < SectionLeft/>
         <SectionRight/>
       </div>

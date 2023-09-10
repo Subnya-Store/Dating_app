@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function index() {
   return (
-    <div className=" mt-20">
+    <div className=" md:mt-20">
       <div className="bg-[url('/Images/Ellipse-1.png')]  overflow-auto   py-28 bg-no-repeat  w-[100%]  bg-cover bg-center">
         <div className="container mx-auto px-20">
           <div className=" flex  justify-center flex-col m-auto text-center items-center">
@@ -15,7 +15,7 @@ export default function index() {
               alt="Picture"
             />
 
-            <p className="text-white text-lg   mb-3  m-auto w-2/5">
+            <p className="text-white md:text-lg text-base  mb-3  m-auto md:w-2/5">
               Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt
               iaculis mollis.
             </p>

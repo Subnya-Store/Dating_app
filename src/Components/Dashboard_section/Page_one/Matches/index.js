@@ -12,9 +12,12 @@ export default function index() {
           <Left_section />
           <Right_section />
         </div>
-        <div className="flex">
+        <div className="flex gap-12">
+          <div className=' w-[35%]'>
           <Activity_folder />
-          <div className=" ">
+          </div>
+          
+          <div className=" w-[65%] ">
             <h2 className=" text-white text-lg px-4 font-bold" >Chat Request</h2>
 
 

@@ -6,17 +6,17 @@ import { HiOutlineUserGroup } from "react-icons/hi";
 
 export default function index() {
   return (
-    <div className=" w-[48%]  pb-14">
-      <h6 className="text-[#FD166F]   font-bold  border-b-2   w-24  mb-2 text-lg">
+    <div className=" md:w-[48%]  pb-14">
+      <h6 className="text-[#FD166F]   font-bold  border-b-2   w-36  mb-2 text-lg md:text-2xl ">
         About Us
       </h6>
-      <h5 className="  text-5xl   font-medium text-white">
+      <h5 className="  md:text-5xl text-lg   font-medium text-white">
         <span className="text-[#FFA500]">Love </span>Can Happen
       </h5>
-      <h4 className="text-5xl   capitalize font-medium text-[#66D300] mt-2">
+      <h4 className="md:text-5xl text-lg   capitalize font-medium text-[#66D300] mt-2">
         Any where , Any time
       </h4>
-      <p className="mt-2 text-white  text-base">
+      <p className="mt-2 text-white  md:text-base text-sm">
         Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt
         iaculis mollis eget. Facilisis dolor nisi tincidunt augue volutpat amet
         diam odio lacus. Urna tellus sed scelerisque.
