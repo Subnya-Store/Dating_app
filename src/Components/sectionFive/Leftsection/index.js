@@ -15,7 +15,7 @@ export default function index() {
           </p>
         </div>
         <div>
-          <h1 className=" text-5xl uppercase  font-medium pt-3 pb-3">
+          <h1 className=" md:text-5xl text-lg uppercase  font-medium pt-3 pb-3">
             Get in Touch
           </h1>
         </div>
@@ -47,13 +47,12 @@ export default function index() {
             type="text"
             placeholder="Your Message"
           />
-          <div className="inline-flex gap-5">
+          <div className="md:inline-flex md:gap-5">
             <input
-              className="rounded-full  text-black bg-[#FFFFFFA1]  px-4 flex placeholder:text-black outline-none  w-80"
-              type="text"
+            className="rounded-full bg-[#FFFFFFA1] text-black py-2 mb-4  px-4 flex placeholder:text-black outline-none  w-80"              type="text"
               placeholder="Your Message"
             />
-            <button className="bg-[#A629F6] cursor-pointer flex rounded-full capitalize font-medium text-white  px-9  py-2">
+            <button className="bg-[#A629F6] cursor-pointer flex rounded-full capitalize font-medium text-white  py-2 mb-4  px-4 ">
               Send
             </button>
           </div>

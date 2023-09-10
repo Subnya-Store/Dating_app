@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function index() {
  
   return (
-    <div className=' w-[50%]'> 
+    <div className=' md:w-[50%]'> 
      <Image
       src="/Images/about-img.png"
       width={700}

@@ -8,7 +8,7 @@ export default function index({ setState, onSignIn }) {
 
   return (
     <div>
-      <div className=" w-1/3  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
+      <div className=" md:w-1/3  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
         <div className=" flex">
           <ul className="flex justify-between w-80">
             <li>

@@ -9,8 +9,11 @@ export default function index() {
 
   console.log(state)
   return (
-    <div className="bg-[url('/Images/Signup_img.png')] py-4 bg-center  bg-no-repeat h-screen ">
-      
+    // <div className=" relative bg-[url('/Images/Signup_img.png')] md:py-4 bg-center  bg-no-repeat md:h-screen ">
+    //         <div className="  absolute  before:content-[]   bg-[#0500629e]    bottom-0 top-0 left-0 w-[100%]  h-[100%] ">
+    <div className=" relative bg-[url('/Images/Signup_img.png')] md:py-4 bg-center  bg-no-repeat md:h-screen  ">
+    <div className="  absolute  before:content-[]   bg-[#0500629e]    bottom-0 top-0 left-0 w-[100%]  h-[100%] ">
+
       {
         state == "signup" && <Sign_up setState={setState} /> ||
         state == "SignIn" && <Account_details setState={setState} /> ||
@@ -19,6 +22,7 @@ export default function index() {
         
       }
 
+    </div>
     </div>
   )
 }

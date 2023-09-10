@@ -10,11 +10,33 @@ export default function index() {
     //   <HeaderLogo/>
     //   <NavButton/>
     //  </div>
+   <div>
+ <div className=" md:grid md:grid-cols-3 md:items-center hidden">
    
-    <div className=" grid grid-cols-3  gap-4 items-center ">
-      <Navbar />
+   <Navbar/>
       <HeaderLogo />
       <NavButton />
-      </div>
+   </div>
+
+   <div className="   items-center md:hidden">
+   
+   
+   <div className="flex justify-center">
+     <HeaderLogo />
+     </div>
+     <div className="flex justify-center py-2">
+     <NavButton />
+     </div>
+      <Navbar className="flex justify-center py-2 "/>
+      
+   </div>
+
+   </div>
+   
+
+
+      
+    
+      
   );
 }
