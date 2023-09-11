@@ -11,7 +11,7 @@ export default function index() {
           <AboutLeft />
           <AboutRight />
         </div>
-        <div className=" md:absolute md:top-[70%] md:left-[37%]  ">
+        <div className="hidden md:flex md:absolute md:top-[65%] md:left-[37%]  ">
           <Image
             src="/Images/arrow-img.png"
             width={300}

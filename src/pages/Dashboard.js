@@ -9,7 +9,7 @@ import Inbox from '@/Components/Dashboard_section/Page_one/inbox'
 
 export default function Dashboard() {
   const [State, SetState] = useState('matches')
-  const [stateHeader, setStateHeader] = useState("Setting");
+  const [stateHeader, setStateHeader] = useState("Matches");
   console.log(stateHeader)
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
