@@ -30,7 +30,7 @@ export default function index() {
                 </button>
               </li>
               <li>
-                <button className="bg-[#fff] border-[#FD2579] border  rounded-md items-center text-center cursor-pointer font-semibold text-[#FD2579] py-2 px-4 mt-1 md:mt-0">
+                <button className="bg-[#fff] border-[#FD2579] border  rounded-md items-center text-center cursor-pointer font-semibold text-[#FD2579] py-2 px-4 mt-1">
                   Remove
                 </button>
               </li>
