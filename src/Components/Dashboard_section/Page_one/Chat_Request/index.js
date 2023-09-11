@@ -45,7 +45,7 @@ export default function index() {
         
             {array.map(e =>
                 <div >
-                    <ul className='flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2 '>
+                    <ul className='md:flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2 '>
                         <li>
                             <figure className='flex gap-2'>
                                 <img className=' w-14 rounded-[50%]' src={e.img} />
