@@ -32,7 +32,7 @@ export default function index() {
 
   ]
   return (
-    <div className='  bg-white m-4  rounded-2xl '>
+    <div className='  bg-white m-4  rounded-2xl w-[80%] h-[60%] overflow-y-auto '>
       {/* <div className="p-2">
         <Input icon={<MagnifyingGlassIcon className="h-5 w-5" />} label="Search" />
       </div> */}

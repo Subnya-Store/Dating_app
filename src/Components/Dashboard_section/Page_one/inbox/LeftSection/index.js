@@ -55,7 +55,7 @@ export default function index() {
 
     ]
     return (
-        <div className='  bg-white m-4  rounded-2xl h-[75%] overflow-y-scroll '>
+        <div className='  bg-white m-4  rounded-2xl h-[60%] overflow-y-scroll w-[80%] '>
             {/* <div className="p-2">
         <Input icon={<MagnifyingGlassIcon className="h-5 w-5" />} label="Search" />
       </div> */}
