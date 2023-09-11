@@ -32,7 +32,7 @@ export default function Index({ SetStateSetting }) {
         {heading.map((x, i) => (
           <li
             className={`${
-              activeIndex === i ? 'bg-[#FD2579] p-4 m-2 text-[#050062]  w-40 rounded-2xl bg-opacity-60 text-lg' : 'bg-white p-2 m-2 text-[#FD2579]  w-40 text-lg'
+              activeIndex === i ? 'bg-[#FD2579] p-4 m-2 text-[#050062]  w-48 rounded-2xl bg-opacity-60 text-lg' : 'bg-white p-2 m-2 text-[#FD2579]  text-lg'
             }`}
             key={i}
             onClick={() => (setActiveIndex(i),SetStateSetting(x.heading))} 

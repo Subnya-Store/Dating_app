@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function index() {
   return (
-    <div className=" w-[70%] ">
+    <div className=" md:w-[70%] ">
       <div className="bg-[#FFF] p-10   rounded-3xl  shadow-2xl">
         <h4 className="text-[#050062]  py-3 text-3xl capitalize font-bold">
           Account
@@ -14,7 +14,7 @@ export default function index() {
             Avatar
           </h6>
           <div className=" my-4">
-            <ul className=" flex justify-between w-[55%] items-center">
+            <ul className=" md:flex justify-between w-[55%] items-center">
               <li>
                 <Image
                   src="/Images/imgsecond.png"
@@ -30,7 +30,7 @@ export default function index() {
                 </button>
               </li>
               <li>
-                <button className="bg-[#fff] border-[#FD2579] border  rounded-md items-center text-center cursor-pointer font-semibold text-[#FD2579] py-2 px-4">
+                <button className="bg-[#fff] border-[#FD2579] border  rounded-md items-center text-center cursor-pointer font-semibold text-[#FD2579] py-2 px-4 mt-1 md:mt-0">
                   Remove
                 </button>
               </li>

@@ -15,11 +15,11 @@ export default function index() {
       {/* <AccountMenu  SetState={SetState} /> */}
 
 
-      <div className="flex ">
-        <div className="w-[30%]">
+      <div className="md:flex ">
+        <div className="md:w-[30%] ">
           <LeftSection SetStateSetting={SetStateSetting} />
         </div>
-        <div className="w-[70%]">
+        <div className="md:w-[70%]">
           {StateSetting == "Account" && <RightSection /> || StateSetting == 'Notifications' && < Rightsectionone /> ||
             StateSetting == 'Data Export' && < Rightsectiontwo /> || StateSetting == 'Apperance' && <RightsectionThree /> ||
             StateSetting == "Privacy Settings" && <RightsectionFour />
