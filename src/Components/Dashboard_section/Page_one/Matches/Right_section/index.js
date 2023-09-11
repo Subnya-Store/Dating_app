@@ -154,7 +154,7 @@ export default function Index() {
     },
   ];
   return (
-    <div className="bg-white m-4  md:w-[50%] rounded-md  px-10 py-2 ">
+    <div className="bg-white md:m-4  md:w-[50%] rounded-md  md:px-10 px-3 py-2 ">
       <div className="   py-2 flex justify-between ">
 
         <div>
@@ -172,7 +172,7 @@ export default function Index() {
         {arrayquest.map((x, i) => (
           <div onClick={() => console.log(x)} className={`${i === questionIndex ? "flex  flex-col" : "hidden"}`}>
             {x.questionis}
-            <div className=" border-[#7000ED] border  rounded-xl mr-10"> 
+            <div className=" border-[#7000ED] border  rounded-xl md:mr-10"> 
                <div className="grid grid-cols-2 grid-rows-3 gap-4 text-center px-5">
               {x.options.map((option, index) => (
                 <div className={`${index === x.options.length - 1 ? "hidden" : ""}`} key={index}>
@@ -183,7 +183,7 @@ export default function Index() {
              
             </div>
 
-            <div className={` ${i == 4 ? "hidden" : ""} flex   justify-center items-center flex-col`}>
+            <div className={` ${i == 4 ? "hidden" : ""} flex   justify-center items-center md:flex-col`}>
               {x.options.slice(-1)[0].category}
               {x.options.slice(-1)[0].answer}
             </div>
@@ -197,7 +197,7 @@ export default function Index() {
       {questionIndex > 3 ? '' : <div className="flex justify-end">
         <button
           onClick={() => setQuestionIndex(questionIndex + 1)}
-          className="cursor-pointer capitalize border  text-center text-white bg-[#7000ED] border-[#7000ED] w-[20%] rounded-md py-2 m-1 justify-end"
+          className="cursor-pointer capitalize border  text-center text-white bg-[#7000ED] border-[#7000ED] md:w-[20%] w-full rounded-md py-2 m-1 justify-end"
         >
           Next
         </button>

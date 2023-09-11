@@ -41,13 +41,13 @@ export default function index() {
       
     ]
     return (
-        <div className='  bg-white m-4  rounded-2xl grid grid-cols-2 gap-x-8 '>
+        <div className='  bg-white md:m-4  rounded-2xl grid grid-cols-2 gap-x-8 '>
         
             {array.map(e =>
                 <div >
                     <ul className='md:flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2 '>
                         <li>
-                            <figure className='flex gap-2'>
+                            <figure className='md:flex md:gap-2 sm:gap-1'>
                                 <img className=' w-14 rounded-[50%]' src={e.img} />
                                 <ul className='text-[#050062]'>
                                 <li className='font-bold '>{e.text}

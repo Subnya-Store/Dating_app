@@ -5,7 +5,7 @@ import Activity_folder from '@/Components/Dashboard_section/Page_one/Matches/Act
 import Chat_request from '@/Components/Dashboard_section/Page_one/Chat_Request'
 export default function index() {
   return (
-    <div className=" py-6">
+    <div className=" py-6 mx-auto">
       <div className="md:container mx-auto px-6">
         {/* <h2 className=" text-white text-lg "> Matches</h2> */}
         <div className="md:flex">
