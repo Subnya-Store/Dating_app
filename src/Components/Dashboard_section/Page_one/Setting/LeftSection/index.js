@@ -27,12 +27,12 @@ export default function Index({ SetStateSetting }) {
   ];
 
   return (
-    <div className="">
-      <ul className='p-8 text-[#FD2579] font-semibold pt-9'>
+    <div className=''>
+      <ul className='md:p-8 text-[#FD2579] font-semibold md:pt-9 flex md:grid'>
         {heading.map((x, i) => (
           <li
             className={`${
-              activeIndex === i ? 'bg-[#FD2579] p-4 m-2 text-[#050062]  w-48 rounded-2xl bg-opacity-60 text-lg' : 'bg-white p-2 m-2 text-[#FD2579]  text-lg'
+              activeIndex === i ? ' text-xs bg-[#FD2579] md:p-4 md:m-2 text-[#050062]  md:w-48 md:rounded-2xl bg-opacity-60 md:text-lg font-bold  m-1 p-1' : ' m-1 p-1 bg-white md:p-2 md:m-2 text-[#FD2579] font-bold text-xs md:text-lg'
             }`}
             key={i}
             onClick={() => (setActiveIndex(i),SetStateSetting(x.heading))} 

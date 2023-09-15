@@ -41,14 +41,14 @@ export default function DashboardMenu({ setStateHeader }) {
   const Logo = "Images/logo-img.png";
 
   return (
-    <div className="side_menu">
+    <div className="side_menu text-xs md:text-lg">
       {sideBar_arr.map(y => (
         <>
           <div onClick={() => console.log(y)} className="container mx-auto px-4">
             <div className="side_logo ">
               <img src={y.Logo} />
             </div>
-            <h3>{y.Menu_heading}</h3>
+            <h3 className="text-xs md:text-lg">{y.Menu_heading}</h3>
           </div>
           {/* <div className="matches_box">
             <h4>{y.headings_four}</h4>
@@ -61,7 +61,7 @@ export default function DashboardMenu({ setStateHeader }) {
           <>
            
             <div onClick={()=>setStateHeader('Matches')} className="matches_box cursor-pointer">
-              <h4 >{x.menu}</h4>
+              <h4 className="" >{x.menu}</h4>
             </div>
           </>
         ))

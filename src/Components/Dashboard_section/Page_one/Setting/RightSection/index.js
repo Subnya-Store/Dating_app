@@ -5,12 +5,12 @@ export default function index() {
   return (
     <div className=" md:w-[70%] ">
       <div className="bg-[#FFF] p-10   rounded-3xl  shadow-2xl">
-        <h4 className="text-[#050062]  py-3 text-3xl capitalize font-bold">
+        <h4 className="text-[#050062]  py-3 md:text-3xl capitalize font-bold text-xl">
           Account
         </h4>
         <hr />
         <div className=" my-2">
-          <h6 className="text-[#050062] text-base  font-semibold capitalize">
+          <h6 className="text-[#050062] md:text-base text-sm  font-semibold capitalize">
             Avatar
           </h6>
           <div className=" my-4">
@@ -25,12 +25,12 @@ export default function index() {
                 />
               </li>
               <li>
-                <button className="bg-[#FD2579]  rounded-md items-center text-center cursor-pointer font-semibold text-white py-2 px-4">
+                <button className=" md:text-base text-sm bg-[#FD2579]  rounded-md items-center text-center cursor-pointer font-semibold text-white py-2 px-4">
                   Upload
                 </button>
               </li>
               <li>
-                <button className="bg-[#fff] border-[#FD2579] border  rounded-md items-center text-center cursor-pointer font-semibold text-[#FD2579] py-2 px-4 mt-1">
+                <button className=" md:text-base text-sm bg-[#fff] border-[#FD2579] border  rounded-md items-center text-center cursor-pointer font-semibold text-[#FD2579] py-2 px-4 mt-1">
                   Remove
                 </button>
               </li>
@@ -42,7 +42,7 @@ export default function index() {
           <form>
             <div className=" grid  grid-cols-2  gap-4">
               <div>
-                <label className="block text-[#050062] pb-2 text-lg font-semibold capitalize">
+                <label className="block text-[#050062] pb-2  md:text-base text-sm font-semibold capitalize">
                   Display name
                 </label>
                 <input
@@ -52,7 +52,7 @@ export default function index() {
                 />
               </div>
               <div>
-                <label className="block text-[#050062] pb-2 text-lg font-semibold capitalize">
+                <label className="block text-[#050062] pb-2  md:text-base text-sm font-semibold capitalize">
                   Full name
                 </label>
                 <input
@@ -69,7 +69,7 @@ export default function index() {
 
             <div className=" grid  grid-cols-2  gap-4">
               <div>
-                <label className="block text-[#050062] pb-2 text-lg font-semibold capitalize">
+                <label className="block text-[#050062] pb-2 text-lg font-semibold capitalize  md:text-base text-sm">
                   Email Address
                 </label>
                 <input
@@ -79,7 +79,7 @@ export default function index() {
                 />
               </div>
               <div>
-                <label className="block text-[#050062] pb-2 text-lg font-semibold capitalize">
+                <label className="block text-[#050062] pb-2 text-lg font-semibold capitalize  md:text-base text-sm">
                   Phone Number
                 </label>
                 <input
@@ -96,7 +96,7 @@ export default function index() {
 
             <div className=" flex justify-between items-center">
               <div>
-                <label className="block text-[#050062]  pb-4 text-lg font-semibold capitalize">
+                <label className="block text-[#050062]  pb-4 text-lg font-semibold capitalize  md:text-base text-sm">
                   Linked Accounts
                 </label>
                 <div className="flex items-center">
@@ -109,7 +109,7 @@ export default function index() {
                   />
                   <a
                     href="/"
-                    className="text-[#FD2579] text-base font-semibold"
+                    className="text-[#FD2579] text-base font-semibold  md:text-base text-sm"
                   >
                     Sign in with Google
                   </a>
@@ -118,7 +118,7 @@ export default function index() {
               <div>
                 <span className="block text-right items-center">
                
-                  <button className="bg-[#fff]  border-[#FD2579] border  rounded-md items-center text-center cursor-pointer font-semibold text-[#FD2579] py-2 px-4">
+                  <button className="bg-[#fff]  border-[#FD2579] border  rounded-md items-center text-center cursor-pointer font-semibold text-[#FD2579] py-2 px-4  md:text-base text-sm">
                     Connect
                   </button>
                 </span>
@@ -131,15 +131,15 @@ export default function index() {
 
             <div className="flex justify-between items-center">
               <div>
-                <label className="block text-[#050062] pb-2 text-lg font-semibold capitalize">
+                <label className="block text-[#050062] pb-2  font-semibold capitalize  md:text-lg text-sm">
                   Linked Accounts
                 </label>
-                <p className="text-[#FD2579] text-base font-semibold">
+                <p className="text-[#FD2579] font-semibold  md:text-base text-sm">
                   By deleting your account you will lose your data.
                 </p>
               </div>
               <div>
-                <label className="block text-[#050062] pb-2 text-lg font-semibold capitalize">
+                <label className="block text-[#050062] pb-2  md:text-lg text-sm font-semibold capitalize">
                   Delete Account.
                 </label>
               </div>
@@ -149,7 +149,7 @@ export default function index() {
             </span>
 
             <div className="flex justify-end">
-              <button className="bg-[#FD2579]  rounded-md items-center text-center cursor-pointer font-semibold text-white py-2 px-4">
+              <button className="bg-[#FD2579]  rounded-md items-center text-center cursor-pointer font-semibold text-white py-2 px-4  md:text-base text-sm">
                 Save Changes
               </button>
             </div>
