@@ -5,11 +5,11 @@ import Leftsection from "@/Components/sectionFive/Leftsection";
 export default function index() {
   return (
     
-      <div className="md:flex">
-        <div className="md:w-[50%]">
+      <div className="md:flex md:py-20">
+        <div className="md:w-[55%]  ">
           <Leftsection />
         </div>
-        <div className="md:w-[40%]">
+        <div className="md:w-[45%] p-5  bg-white rounded-l-[15%] ml-[-80px] ">
           <Rightsection />
         </div>
       </div>

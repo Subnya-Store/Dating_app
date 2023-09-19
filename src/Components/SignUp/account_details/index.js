@@ -1,7 +1,13 @@
 import Link from 'next/link'
 import React from 'react'
 
+
 export default function index({ setState }) {
+
+
+
+
+
   const sign_up_img = 'Images/SignIn_logo.png/'
   return (
     <div>
@@ -20,9 +26,8 @@ export default function index({ setState }) {
         </div>
         <div className=" text-4xl font-bold py-4 capitalize"> Account Details</div>
         <div className="inline-flex gap-5 pt-1 pb-1">
-          <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
-            <img className=" object-contain px-4" src="Images/Google_img.png " /> Sign in
-            with google
+          <button  className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5" >
+            <img className=" object-contain px-4" src="Images/Google_img.png "  /> click me
           </button>
           <button className="bg-[#7000ED] flex rounded-xl text-white  px-4 p-2">
             <img src="Images/facbook_signin.png" className=" object-contain" />
@@ -54,7 +59,7 @@ export default function index({ setState }) {
                 <input
                   className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none "
                   type="password"
-                  placeholder=""
+                  placeholder="" onChange={e => setpassword(e.target.value)}
                 />
               </div>
             </li>
@@ -86,7 +91,7 @@ export default function index({ setState }) {
           </ul>
         </div>
         <div className="pt-1 pb-1">
-          <button onClick={() => setState("Id_verification")} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+          <button onClick={() => setState("phone_vericaction")} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
             Next
           </button>
         </div>

@@ -1,9 +1,22 @@
 import Link from 'next/link'
 import React from 'react'
+import axios from 'axios'
 
 // import SectionSteps from '@/Components/SectionSteps'
 
 export default function index({ setState, onSignIn }) {
+  const hitApi =() => {
+    console.log("clicked"),
+    axios.post("https://api101.investit.store/register", {
+      username: "waleed",
+      password: "admin",
+      email:'waleed@gmail.com'
+    })
+    .then(x=>console.log(x))
+  }
+ 
+
+
   const sign_up_img = 'Images/SignIn_logo.png/'
 
   return (
@@ -22,7 +35,7 @@ export default function index({ setState, onSignIn }) {
             </li>
           </ul>
         </div>
-        <div className=" text-4xl font-bold py-4 capitalize"> Sign up</div>
+        <div  className=" text-4xl font-bold py-4 capitalize cursor-pointer"> Sign up </div>
         <div className="inline-flex gap-5 pt-1 pb-1 ">
           <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
             <img className=" object-contain px-4" src="Images/Google_img.png " /> Sign in
@@ -80,7 +93,10 @@ export default function index({ setState, onSignIn }) {
           />
         </div>
         <div className="pt-1 pb-1">
-          <button onClick={() => setState("SignIn")} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+          <button
+           onClick={() => setState("SignIn")}
+          //  onClick={() => hitApi()}
+            className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
             Next
           </button>
         </div>

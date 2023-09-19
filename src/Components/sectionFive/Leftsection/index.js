@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function index() {
   return (
-    <div className="bg-[#FD166F] ">
+    <div className="bg-[#FD166F]  ">
       <div className="text-white py-20 px-20">
         <div className=" w-32 border-b-4 border-white">
           <h3 className="  text-2xl pt-5 pb-3"> Contact us</h3>

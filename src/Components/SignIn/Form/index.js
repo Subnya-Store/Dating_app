@@ -1,7 +1,16 @@
 import React from "react";
 import Link from 'next/link'
+import axios from 'axios'
 
 export default function index() {
+    const hitApi =() => {
+    console.log("clicked")
+    axios.post("https://api101.investit.store/login", {
+      username: "waleed",
+      password: "admin"
+    })
+    .then(x=>console.log(x))
+  }
   const Singin_logo = "Images/SignIn_logo.png";
   return (
 
@@ -55,11 +64,11 @@ export default function index() {
         />
       </div>
       <div className="pt-4 pb-4">
-        <Link href="/Dashboard">
-        <button  className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+        {/* <Link href="/Dashboard"> */}
+        <button onClick={()=>hitApi()}  className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
           Sign in
         </button>
-        </Link>
+        {/* </Link> */}
       </div>
     </div>
   );
