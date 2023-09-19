@@ -3,7 +3,7 @@ import React from 'react'
 import axios from 'axios'
 
 
-export default function index({ setState }) {
+export default function index({ setState,inputs,setInputs }) {
 
   // const hitApi =() => {
   //   axios.post("https://api101.investit.store/login", {
@@ -48,8 +48,9 @@ Verification</div>
         <div className="pt-1 pb-1 font-medium ">
           <label>Mobile Number</label>
           <input
+          onChange={e=>setInputs({...inputs,mobile_no:e.target.value})}
             className=" rounded-xl p-3  bg-[#FFF] m-1 flex border border-[#7000ED]  outline-none  w-72"
-            type="text"
+            type="number"
             placeholder="+1234578951564"
           />
         </div>
@@ -60,8 +61,10 @@ Verification</div>
                 <label> OTP Verification</label>
                 <div className='flex'> 
                 <input
+                          onChange={e=>setInputs({...inputs,otp_code:e.target.value})}
+
                   className=" rounded-xl w-56  bg-[#FFF]  flex  px-2 py-2 border border-[#7000ED]  outline-none"
-                  type="password"
+                  type="text"
                   placeholder="*************"
                 />
               

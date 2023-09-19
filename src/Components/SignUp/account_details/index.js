@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 
 
-export default function index({ setState }) {
+export default function index({ setState, setInputs, inputs }) {
 
 
 
@@ -26,8 +26,8 @@ export default function index({ setState }) {
         </div>
         <div className=" text-4xl font-bold py-4 capitalize"> Account Details</div>
         <div className="inline-flex gap-5 pt-1 pb-1">
-          <button  className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5" >
-            <img className=" object-contain px-4" src="Images/Google_img.png "  /> click me
+          <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5" >
+            <img className=" object-contain px-4" src="Images/Google_img.png " /> click me
           </button>
           <button className="bg-[#7000ED] flex rounded-xl text-white  px-4 p-2">
             <img src="Images/facbook_signin.png" className=" object-contain" />
@@ -36,6 +36,8 @@ export default function index({ setState }) {
         <div className="pt-1 pb-1 font-medium ">
           <label> Email Address</label>
           <input
+            onChange={e => setInputs({ ...inputs,email: e.target.value })}
+
             className=" rounded-xl p-2  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  w-72"
             type="email"
             placeholder="Michealjohn@gmail.com"
@@ -47,6 +49,8 @@ export default function index({ setState }) {
               <div>
                 <label> Password</label>
                 <input
+                  onChange={e => setInputs({ ...inputs, password: e.target.value })}
+
                   className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none"
                   type="password"
                   placeholder=""
@@ -57,9 +61,11 @@ export default function index({ setState }) {
               <div>
                 <label> confirm</label>
                 <input
+                  onChange={e => setInputs({ ...inputs, confirm: e.target.value })}
+
                   className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none "
-                  type="password"
-                  placeholder="" onChange={e => setpassword(e.target.value)}
+                  type="text"
+                  placeholder=""
                 />
               </div>
             </li>
@@ -72,6 +78,8 @@ export default function index({ setState }) {
               <div>
                 <label> Country</label>
                 <input
+                  onChange={e => setInputs({ ...inputs, country: e.target.value })}
+
                   className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none"
                   type="text"
                   placeholder="UAE"
@@ -82,6 +90,8 @@ export default function index({ setState }) {
               <div>
                 <label> City</label>
                 <input
+                  onChange={e => setInputs({ ...inputs, city: e.target.value })}
+
                   className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none "
                   type="text"
                   placeholder="New York"

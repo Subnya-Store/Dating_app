@@ -9,10 +9,15 @@ export default function index() {
   const [state, setState] = useState("signup")
   const [inputs,setInputs]=useState({
     username:'',
+    email:'',
     password:'',
     full_name:'',
     middle_name:'',
-    last_name:''
+    last_name:'',
+    country:'',
+    city:'',
+    mobile_no:'',
+    otp_code:''
   })
 
   console.log(inputs)
@@ -23,9 +28,9 @@ export default function index() {
     <div className="  absolute  before:content-[]   bg-[#0500629e]    bottom-0 top-0 left-0 w-[100%]  h-[100%] ">
 
       {
-        state == "signup" && <Sign_up setState={setState} /> ||
-        state == "SignIn" && <Account_details setState={setState} /> ||
-        state == "phone_vericaction" && <Phone_verifaction setState={setState}/>||
+        state == "signup" && <Sign_up setInputs={setInputs} inputs={inputs} setState={setState} /> ||
+        state == "AccountDetails" && <Account_details setInputs={setInputs} inputs={inputs} setState={setState} /> ||
+        state == "phone_vericaction" && <Phone_verifaction setInputs={setInputs} inputs={inputs}  setState={setState}/>||
         state == "Id_verification" && <Id_verification  setState={setState} /> ||
         state == 'questions' && <Questions setState={setState}/>
         

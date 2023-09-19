@@ -4,17 +4,17 @@ import axios from 'axios'
 
 // import SectionSteps from '@/Components/SectionSteps'
 
-export default function index({ setState, onSignIn }) {
-  const hitApi =() => {
+export default function index({ setState, setInputs, inputs }) {
+  const hitApi = () => {
     console.log("clicked"),
-    axios.post("https://api101.investit.store/register", {
-      username: "waleed",
-      password: "admin",
-      email:'waleed@gmail.com'
-    })
-    .then(x=>console.log(x))
+      axios.post("https://api101.investit.store/register", {
+        username: "waleed",
+        password: "admin",
+        email: 'waleed@gmail.com'
+      })
+        .then(x => console.log(x))
   }
- 
+
 
 
   const sign_up_img = 'Images/SignIn_logo.png/'
@@ -35,7 +35,7 @@ export default function index({ setState, onSignIn }) {
             </li>
           </ul>
         </div>
-        <div  className=" text-4xl font-bold py-4 capitalize cursor-pointer"> Sign up </div>
+        <div className=" text-4xl font-bold py-4 capitalize cursor-pointer"> Sign up </div>
         <div className="inline-flex gap-5 pt-1 pb-1 ">
           <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
             <img className=" object-contain px-4" src="Images/Google_img.png " /> Sign in
@@ -51,8 +51,9 @@ export default function index({ setState, onSignIn }) {
               <div>
                 <label> Full name</label>
                 <input
+                  onChange={e => setInputs({ ...inputs, full_name: e.target.value })}
                   className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none"
-                  type="email"
+                  type="text"
                   placeholder="Micheal"
                 />
               </div>
@@ -62,8 +63,9 @@ export default function index({ setState, onSignIn }) {
               <div>
                 <label> Middle name</label>
                 <input
+                  onChange={e => setInputs({ ...inputs, middle_name: e.target.value })}
                   className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none "
-                  type="email"
+                  type="text"
                   placeholder="Jhon"
                 />
               </div>
@@ -73,8 +75,9 @@ export default function index({ setState, onSignIn }) {
         <div className="pt-1 pb-1 font-medium ">
           <label> Last name</label>
           <input
+            onChange={e => setInputs({ ...inputs, last_name: e.target.value })}
             className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  "
-            type="email"
+            type="text"
             placeholder="Angelo"
           />
         </div>
@@ -87,15 +90,17 @@ export default function index({ setState, onSignIn }) {
 
           </ul>
           <input
+            onChange={e => setInputs({ ...inputs,username: e.target.value })}
+
             className=" rounded-xl bg-[#FFF]  p-2 flex border outline-none border-[#7000ED] w-44"
-            type="email"
+            type="text"
             placeholder="Micheal jhon angelo"
           />
         </div>
         <div className="pt-1 pb-1">
           <button
-           onClick={() => setState("SignIn")}
-          //  onClick={() => hitApi()}
+            onClick={() => setState("AccountDetails")}
+            //  onClick={() => hitApi()}
             className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
             Next
           </button>
