@@ -38,7 +38,7 @@ export default function index() {
               </div>
             </div>
           </div>
-          <div className='-mt-[50px]'>
+          <div >
           <SectionAbout  />
 
           </div>
