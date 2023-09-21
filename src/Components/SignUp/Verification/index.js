@@ -3,26 +3,14 @@ import React from 'react'
 import axios from 'axios'
 
 
-export default function index({ setState,inputs,setInputs }) {
+export default function index({ setState, inputs, setInputs }) {
 
-  // const hitApi =() => {
-  //   axios.post("https://api101.investit.store/login", {
-  //     username: "waleed",
-  //     password: "admin"
-  //   })
-  //   .then(x=>console.log(x))
-  // }
- 
-
-
-//   const hitApi = () => {
-//     axios.post('”https://api101.investit.store/login“')
-//     const [username, setusername] = useState({})
-//     const [password, setpassword] = useState({})
-//     const [full_name, setfull_name] = useState({})
-//         .then(x => console.log(x))
-//         .catch(x => console.log(x))
-// }
+  const hitApi =() => {
+    axios.post("https://api101.investit.store/register", {
+      inputs
+    })
+    .then(x=>console.log(x,'<== hogya'))
+  }
 
 
 
@@ -42,13 +30,13 @@ export default function index({ setState,inputs,setInputs }) {
             </li>
           </ul>
         </div>
-        <div className=" text-4xl font-bold py-4 capitalize"> phone <br/>
-Verification</div>
-        
+        <div className=" text-4xl font-bold py-4 capitalize"> phone <br />
+          Verification</div>
+
         <div className="pt-1 pb-1 font-medium ">
           <label>Mobile Number</label>
           <input
-          onChange={e=>setInputs({...inputs,mobile_no:e.target.value})}
+            onChange={e => setInputs({ ...inputs, mobile_no: e.target.value })}
             className=" rounded-xl p-3  bg-[#FFF] m-1 flex border border-[#7000ED]  outline-none  w-72"
             type="number"
             placeholder="+1234578951564"
@@ -59,31 +47,31 @@ Verification</div>
             <li>
               <div>
                 <label> OTP Verification</label>
-                <div className='flex'> 
-                <input
-                          onChange={e=>setInputs({...inputs,otp_code:e.target.value})}
+                <div className='flex'>
+                  <input
+                    onChange={e => setInputs({ ...inputs, otp_code: e.target.value })}
 
-                  className=" rounded-xl w-56  bg-[#FFF]  flex  px-2 py-2 border border-[#7000ED]  outline-none"
-                  type="text"
-                  placeholder="*************"
-                />
-              
-        
-          <button className="bg-[#66D300] font-medium flex rounded-xl text-white px-2 py-2 m-1">
-            <img src='images/CheckPink.png'/>
-          </button>
-     
+                    className=" rounded-xl w-56  bg-[#FFF]  flex  px-2 py-2 border border-[#7000ED]  outline-none"
+                    type="text"
+                    placeholder="*************"
+                  />
+
+
+                  <button onClick={hitApi} className="bg-[#66D300] font-medium flex rounded-xl text-white px-2 py-2 m-1">
+                    <img src='images/CheckPink.png' />
+                  </button>
+
                 </div>
-             
+
               </div>
             </li>
             <li>
-            
+
             </li>
           </ul>
         </div>
 
-       
+
         <div className="pt-1 pb-1">
           <button onClick={() => setState("Id_verification")} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
             Next
