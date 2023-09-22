@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function index() {
   return (
-    <div>index</div>
+    <div>
+      <img src='images/AboutUs.png' />
+    </div>
   )
 }
