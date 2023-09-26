@@ -62,7 +62,7 @@ export default function DashboardMenu({ setStateHeader }) {
   const Logo = "Images/logo-img.png";
 
   return (
-    <div className="side_menu text-xs md:text-lg">
+    <div className="side_menu text-xs md:text-lg ">
       {sideBar_arr.map(y => (
         <>
           <div onClick={() => console.log(y)} className="container mx-auto px-4">
