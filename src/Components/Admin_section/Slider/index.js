@@ -47,23 +47,17 @@ export default function Index() {
 
   ];
 
-  const itemsPerPage = 6;
-  const numPages = Math.ceil(array.length / itemsPerPage);
-
-
-  const pageIndices = Array.from({ length: numPages }, (_, index) => index);
-
   return (
     <div className="md:flex bg-white my-2 pt-2 px-10 rounded-md">
-      <Carousel  cols={6} rows={1} gap={10} loop>
-        {array.map((e,i) => (
+      <Carousel cols={6} rows={1} gap={10} loop>
+        {array.map((e, i) => (
           // <div key={pageIndex} className="flex">
-            <Carousel.Item key={i}>
-              <img className="w-full rounded-md" src={e.img} />
-              <div className=" mt-1 font-semibold flex justify-center text-[#050062] text-lg">
-                {e.heading}
-              </div>
-            </Carousel.Item>
+          <Carousel.Item key={i}>
+            <img className="w-full rounded-md" src={e.img} />
+            <div className=" mt-1 font-semibold flex justify-center text-[#050062] text-lg">
+              {e.heading}
+            </div>
+          </Carousel.Item>
           // </div>
         ))}
 
