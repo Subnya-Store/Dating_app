@@ -12,42 +12,36 @@ export default function index() {
   return (
     <div>
       <div className='flex w-full'>
-        <div className='w-[15%]'>
+        {/* <div className='w-[15%]'>
           <Side_bar />
-        </div>
-        <div className='w-[85%]'>
-        <div className=" relative bg-[url('/Images/Dashboard_pg1.png')]     w-[100%] h-screen  bg-center  bg-cover  bg-no-repeat   ">
-      <div className="  absolute  before:content-[]   bg-[#0500629e]  overflow-y-scroll  bottom-0 top-0 left-0 w-[100%]  h-[100%] ">
-          <Header />
-          <div className='mx-2'>
-          <Slider />
-          </div>
-          <div className='flex mx-2'>
-            <div className='w-[30%]'>
-              <Activity />
-            </div>
-            <div className='w-[40%]'>
-             <div className='my-10  rounded-2xl bg-white py-6 h-[50%] mx-2'> 
-             <img src='images/Vector.png' />
-             </div>
-              <div className='flex'>
-                <Work_at_Dating/>
-               <Improve_your_Matches/>
+        </div> */}
+        <div className="w-full relative bg-[url('/Images/Dashboard_pg1.png')] h-screen  bg-center  bg-cover  bg-no-repeat">
+          <div className="absolute flex justify-center  bg-[#0500629e]  overflow-y-auto  bottom-0 top-0 left-0 w-full ">
+            <div className=' w-[90%] '>
+              <Slider />
+              <div className='flex justify-between  w-full'>
+                <Activity />
+                <div className='w-full flex'>
+                  <div className=' rounded-2x pt-9  px-2 w-full'>
+                    <div className='w-[100%] mt-1 rounded-2xl h-[360px] bg-white'>
+                      hello
+                    </div>
+                    <div className='flex'>
+                      <Work_at_Dating />
+                      <Improve_your_Matches />
+                    </div>
+                  </div>
+                  <div>
+                    <May_Like />
+                    <Chat_Request />
+                  </div>
+                </div>
               </div>
 
             </div>
-            <div className='w-[30%]'>
-              <May_Like />
-              <Chat_Request/>
-            </div>
           </div>
         </div>
-
-
       </div>
-
-    </div>
-    </div>
     </div>
 
   )

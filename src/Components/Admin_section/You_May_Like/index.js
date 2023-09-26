@@ -27,9 +27,9 @@ export default function index() {
 
     ]
     return (
-        <div className=' pt-9'>
-            <h2 className=' text-white font-bold text-[29px] px-4'> You May Like</h2>
-            <div className=' bg-white md:m-4  rounded-2xl   md:w-[80%] w-full py-2 md:px-1'>
+        <div className='pt-8 '>
+            <h2 className=' text-white font-bold text-[29px] '> You May Like</h2>
+            <div className=' bg-white   rounded-2xl  w-full py-2 md:px-1'>
             {/* <div className="p-2">
         <Input icon={<MagnifyingGlassIcon className="h-5 w-5" />} label="Search" />
       </div> */}
