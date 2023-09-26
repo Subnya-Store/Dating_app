@@ -5,11 +5,12 @@ import axios from 'axios'
 export default function index() {
     const hitApi =() => {
     console.log("clicked")
-    axios.post("https://api101.investit.store/login", {
-      username: "waleed",
-      password: "admin"
-    })
-    .then(x=>console.log(x))
+    location.href ='/dashboard'
+    // axios.post("https://api101.investit.store/login", {
+    //   username: "waleed",
+    //   password: "admin"
+    // })
+    // .then(x=>console.log(x))
   }
   const Singin_logo = "Images/SignIn_logo.png";
   return (
