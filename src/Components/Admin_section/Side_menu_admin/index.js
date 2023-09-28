@@ -83,7 +83,7 @@ export default function DashboardMenu({ setStateHeader }) {
            
             <div onClick={()=>setStateHeader('Matches')} className="matches_box cursor-pointer">
               <ul className="flex justify-center gap-2">
-                <li> <img src="images/Dashboard.svg"/></li>
+                <li> <img src="Images/Dashboard.svg"/></li>
                 <li>
                 <h4 className="" >{x.menu}</h4>
                 </li>

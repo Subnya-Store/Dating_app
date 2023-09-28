@@ -58,7 +58,7 @@ export default function index({ setState, inputs, setInputs }) {
 
 
                   <button onClick={hitApi} className="bg-[#66D300] font-medium flex rounded-xl text-white px-2 py-2 m-1">
-                    <img src='images/CheckPink.png' />
+                    <img src='Images/CheckPink.png' />
                   </button>
 
                 </div>

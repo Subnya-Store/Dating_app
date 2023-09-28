@@ -3,9 +3,9 @@ import Link from 'next/link'
 import axios from 'axios'
 
 export default function index() {
-    const hitApi =() => {
+  const hitApi = () => {
     console.log("clicked")
-    location.href ='/dashboard'
+    // location.href ='/dashboard'
     // axios.post("https://api101.investit.store/login", {
     //   username: "waleed",
     //   password: "admin"
@@ -65,11 +65,11 @@ export default function index() {
         />
       </div>
       <div className="pt-4 pb-4">
-        {/* <Link href="/Dashboard"> */}
-        <button onClick={()=>hitApi()}  className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
-          Sign in
-        </button>
-        {/* </Link> */}
+        <Link href="/dashboard">
+          <button onClick={() => hitApi()} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+            Sign in
+          </button>
+        </Link>
       </div>
     </div>
   );

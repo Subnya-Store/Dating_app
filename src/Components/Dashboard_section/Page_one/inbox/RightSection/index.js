@@ -57,7 +57,7 @@ export default function index() {
         <ul className='flex  justify-between items-center gap-3 p-4 m-2 '>
           <li>
             <figure className='flex gap-2'>
-              <img className=' w-14 rounded-[50%]' src='/images/img_1.png' />
+              <img className=' w-14 rounded-[50%]' src='/Images/img_1.png' />
               <ul className='text-[#050062] '>
                 <li className='font-bold  mt-4'> wjdhjwehdjh
                 </li>
