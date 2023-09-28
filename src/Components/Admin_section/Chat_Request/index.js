@@ -5,26 +5,26 @@ import { AiOutlineSearch } from 'react-icons/ai'
 export default function index() {
     const array = [
         {
-            img: 'Images/img_1.png',
+            img: '/Images/img_1.png',
             text: "Marie",
             text2: "Thats sounds ",
             button_text: "New!"
         },
         {
-            img: 'Images/img_1.png',
+            img: '/Images/img_1.png',
             text: "Marie",
             text2: "Teacher, 23",
             button_text: "New!"
         },
         {
-            img: 'Images/img_1.png',
+            img: '/Images/img_1.png',
             text: "Marie",
             text2: "Teacher, 23",
             button_text: "New!"
         },
 
         {
-            img: 'Images/img_1.png',
+            img: '/Images/img_1.png',
             text: "Marie",
             text2: "Teacher, 23",
             button_text: "2"

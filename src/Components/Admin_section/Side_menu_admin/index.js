@@ -5,7 +5,7 @@ import { AiFillQuestionCircle } from "react-icons/ai";
 export default function DashboardMenu({ setStateHeader }) { 
   const sideBar_arr = [
     {
-      Logo: "Images/logo-img.png",
+      Logo: "/Images/logo-img.png",
       Menu_heading: "Main menu"
    
     },
@@ -23,15 +23,15 @@ export default function DashboardMenu({ setStateHeader }) {
   ];
   const list = [
     {
-      listImg: ["Images/settingImg.svg"],
+      listImg: ["/Images/settingImg.svg"],
       listHeading: "Setting"
     },
     {
-      listImg: ["Images/helpimg.svg"],
+      listImg: ["/Images/helpimg.svg"],
       listHeading: "Help"
     },
     {
-      listImg: ["Images/LogoutImg.svg"],
+      listImg: ["/Images/LogoutImg.svg"],
       listHeading: "Logout"
     }
 
@@ -40,26 +40,26 @@ export default function DashboardMenu({ setStateHeader }) {
   ]
   const list2 = [
     {
-      listImg: ["Images/Dash_match.svg"],
+      listImg: ["/Images/Dash_match.svg"],
       listHeading: "Matches"
     },
     {
-      listImg: ["Images/New_online.svg"],
+      listImg: ["/Images/New_online.svg"],
       listHeading: "New Online"
     },
     {
-      listImg: ["Images/Chat_req.svg"],
+      listImg: ["/Images/Chat_req.svg"],
       listHeading: "Chat Request"
     },
     {
-      listImg: ["Images/Dash_contact.svg"],
+      listImg: ["/Images/Dash_contact.svg"],
       listHeading: "Contacts"
     }
 
 
 
   ]
-  const Logo = "Images/logo-img.png";
+  const Logo = "/Images/logo-img.png";
 
   return (
     <div className="side_menu text-xs md:text-lg ">
@@ -83,7 +83,7 @@ export default function DashboardMenu({ setStateHeader }) {
            
             <div onClick={()=>setStateHeader('Matches')} className="matches_box cursor-pointer">
               <ul className="flex justify-center gap-2">
-                <li> <img src="Images/Dashboard.svg"/></li>
+                <li> <img src="/Images/Dashboard.svg"/></li>
                 <li>
                 <h4 className="" >{x.menu}</h4>
                 </li>

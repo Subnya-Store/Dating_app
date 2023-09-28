@@ -1,9 +1,9 @@
 import React from "react";
 
 export default function index() {
-  const Create_account = "Images/Create_account.png";
-  const Enjoydate = "Images/Enjoydate.png";
-  const Comparison = "Images/Comparison.png";
+  const Create_account = "/Images/Create_account.png";
+  const Enjoydate = "/Images/Enjoydate.png";
+  const Comparison = "/Images/Comparison.png";
 
   return (
     <div className="felx  pl-5">

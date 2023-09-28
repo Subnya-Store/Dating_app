@@ -17,7 +17,7 @@ export default function index({ setState, setInputs, inputs }) {
 
 
 
-  const sign_up_img = 'Images/SignIn_logo.png/'
+  const sign_up_img = '/Images/SignIn_logo.png/'
 
   return (
     <div>
@@ -38,11 +38,11 @@ export default function index({ setState, setInputs, inputs }) {
         <div className=" text-4xl font-bold py-4 capitalize cursor-pointer"> Sign up </div>
         <div className="inline-flex gap-5 pt-1 pb-1 ">
           <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
-            <img className=" object-contain px-4" src="Images/Google_img.png " /> Sign in
+            <img className=" object-contain px-4" src="/Images/Google_img.png " /> Sign in
             with google
           </button>
           <button className="bg-[#7000ED] flex rounded-xl text-white  px-4 p-2">
-            <img src="Images/facbook_signin.png" className=" object-contain" />
+            <img src="/Images/facbook_signin.png" className=" object-contain" />
           </button>
         </div>
         <div className=" flex">

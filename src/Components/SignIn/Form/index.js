@@ -12,7 +12,7 @@ export default function index() {
     // })
     // .then(x=>console.log(x))
   }
-  const Singin_logo = "Images/SignIn_logo.png";
+  const Singin_logo = "/Images/SignIn_logo.png";
   return (
 
     <div className=" md:w-1/3  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
@@ -33,11 +33,11 @@ export default function index() {
       <div className=" text-4xl font-bold py-4 capitalize"> Sign In</div>
       <div className="inline-flex gap-5 pt-6 pb-6 ">
         <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
-          <img className=" object-contain px-4" src="Images/Google_img.png " /> Sign in
+          <img className=" object-contain px-4" src="/Images/Google_img.png " /> Sign in
           with google
         </button>
         <button className="bg-[#7000ED] flex rounded-xl text-white  px-4 p-2">
-          <img src="Images/facbook_signin.png" className=" object-contain" />
+          <img src="/Images/facbook_signin.png" className=" object-contain" />
         </button>
       </div>
       <div className="pt-4 pb-4 font-medium ">

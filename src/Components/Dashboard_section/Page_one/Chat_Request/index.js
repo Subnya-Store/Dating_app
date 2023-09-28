@@ -3,37 +3,37 @@ import React from 'react'
 export default function index() {
     const array = [
         {
-            img: 'Images/img_1.png',
+            img: '/Images/img_1.png',
             text: "Marie",
             text2: "Teacher, 23",
             button_text: "Replay"
         },
         {
-            img: 'Images/img_1.png',
+            img: '/Images/img_1.png',
             text: "Marie",
             text2: "Teacher, 23",
             button_text: "Replay"
         },
         {
-            img: 'Images/img_1.png',
+            img: '/Images/img_1.png',
             text: "Marie",
             text2: "Teacher, 23",
             button_text: "Replay"
         },
         {
-            img: 'Images/img_1.png',
+            img: '/Images/img_1.png',
             text: "Marie",
             text2: "Teacher, 23",
             button_text: "Replay"
         },
         {
-            img: 'Images/img_1.png',
+            img: '/Images/img_1.png',
             text: "Marie",
             text2: "Teacher, 23",
             button_text: "Replay"
         },
         {
-            img: 'Images/img_1.png',
+            img: '/Images/img_1.png',
             text: "Marie",
             text2: "Teacher, 23",
             button_text: "Replay"

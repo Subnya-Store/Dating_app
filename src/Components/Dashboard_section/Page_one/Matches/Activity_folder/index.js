@@ -5,9 +5,9 @@ export default function index() {
   const activit_arr = [
     {
       user_img: "user",
-      // user_img: "./Images/user_img.png",
-      // email_img: "./Images/email-icon.png",
-      // search_img: "./Images/search-icon.png",
+      // user_img: "/Images/user_img.png",
+      // email_img: "/Images/email-icon.png",
+      // search_img: "/Images/search-icon.png",
       Act_heading: "  Activity",
       user_name: "Marie Campbell",
       hours: " 2 hours ago",
@@ -51,9 +51,9 @@ export default function index() {
       user_follow: "Searched you",
     },
   ];
-  const users = "./Images/user_img.png";
-  const email = "./Images/email-icon.png";
-  const search = "./Images/search-icon.png";
+  const users = "/Images/user_img.png";
+  const email = "/Images/email-icon.png";
+  const search = "/Images/search-icon.png";
   return (
     <div className="activity_box my-10  rounded-2xl bg-white py-6">
       <div className="container mx-auto min-w-[300px]   px-6">

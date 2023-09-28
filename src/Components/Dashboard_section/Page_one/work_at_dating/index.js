@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function index() {
-    const img ="Images/dating_work.svg";
+    const img ="/Images/dating_work.svg";
   return (
     <div className='bg-[#FD2579]  rounded-lg p-10'>
     <h2 className='text-white text-3xl font-bold pt-5 pb-5'>Work at Dating</h2>

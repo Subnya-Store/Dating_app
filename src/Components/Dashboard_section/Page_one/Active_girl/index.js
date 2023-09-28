@@ -3,12 +3,12 @@ import React, { useState, useEffect } from 'react';
 export default function Index({ user_index }) {
   const div = [
     {
-      picture: "Images/girl.png",
+      picture: "/Images/girl.png",
       text: "She Likes You 1",
-      picture2: "Images/hot_img.svg",
+      picture2: "/Images/hot_img.svg",
       button_text: "90% Match",
       nametext: 'Marie, 24',
-      profile_star: "Images/star.svg",
+      profile_star: "/Images/star.svg",
       text_buttom: 'Researcher at Tesla',
       text_para: 'A good listener, i love having a good talk to know each others’s side. Mountain over beach.',
       lefttop: '10+ Same Interests.',
@@ -16,12 +16,12 @@ export default function Index({ user_index }) {
       rightbutton: 'Message',
     },
     {
-      picture: "Images/girl2.png",
+      picture: "/Images/girl2.png",
       text: "She Likes You 2",
-      picture2: "Images/hot_img.svg",
+      picture2: "/Images/hot_img.svg",
       button_text: "90% Match",
       nametext: 'Marie, 24',
-      profile_star: "Images/star.svg",
+      profile_star: "/Images/star.svg",
       text_buttom: 'Researcher at Tesla',
       text_para: 'A good listener, i love having a good talk to know each others’s side. Mountain over beach.',
       lefttop: '10+ Same Interests.',
@@ -29,12 +29,12 @@ export default function Index({ user_index }) {
       rightbutton: 'Message',
     },
     {
-      picture: "Images/girl3.png",
+      picture: "/Images/girl3.png",
       text: "She Likes You 3",
-      picture2: "Images/hot_img.svg",
+      picture2: "/Images/hot_img.svg",
       button_text: "90% Match",
       nametext: 'Marie, 24',
-      profile_star: "Images/star.svg",
+      profile_star: "/Images/star.svg",
       text_buttom: 'Researcher at Tesla',
       text_para: 'A good listener, i love having a good talk to know each others’s side. Mountain over beach.',
       lefttop: '10+ Same Interests.',
@@ -42,12 +42,12 @@ export default function Index({ user_index }) {
       rightbutton: 'Message',
     },
     {
-      picture: "Images/girl.png",
+      picture: "/Images/girl.png",
       text: "She Likes You 4",
-      picture2: "Images/hot_img.svg",
+      picture2: "/Images/hot_img.svg",
       button_text: "90% Match",
       nametext: 'Marie, 24',
-      profile_star: "Images/star.svg",
+      profile_star: "/Images/star.svg",
       text_buttom: 'Researcher at Tesla',
       text_para: 'A good listener, i love having a good talk to know each others’s side. Mountain over beach.',
       lefttop: '10+ Same Interests.',
@@ -55,12 +55,12 @@ export default function Index({ user_index }) {
       rightbutton: 'Message',
     },
     {
-      picture: "Images/girl2.png",
+      picture: "/Images/girl2.png",
       text: "She Likes You 5",
-      picture2: "Images/hot_img.svg",
+      picture2: "/Images/hot_img.svg",
       button_text: "90% Match",
       nametext: 'Marie, 24',
-      profile_star: "Images/star.svg",
+      profile_star: "/Images/star.svg",
       text_buttom: 'Researcher at Tesla',
       text_para: 'A good listener, i love having a good talk to know each others’s side. Mountain over beach.',
       lefttop: '10+ Same Interests.',
@@ -107,10 +107,10 @@ export default function Index({ user_index }) {
                 <div>
                   {/* <div className={`bg-[url('/Images/girl.png')]  bg-center  bg-cover  bg-no-repeat w-auto h-60`}> */}
                   <div className=' w-auto drop-shadow-2xl'>
-                    {/* <div className="bg-[url('Images/Images/img_1.png')"> */}
+                    {/* <div className="bg-[url('/ImagesImages/img_1.png')"> */}
                     <img className=' rounded-lg' src={`${x.picture}`} />
                     <div className=" mt-[-80px]   relative   h-16   rounded-b-xl ">
-                      <img className=' h-20 rounded-b-lg' src='Images/backimg.png' />
+                      <img className=' h-20 rounded-b-lg' src='/Images/backimg.png' />
                       <div className=' px-5 py-7 align-middle  md:mt-[-80px] flex justify-between'>
                         <div className='flex justify-between  '>
                           <ul className='flex justify-between  w-auto gap-10 '>
@@ -164,14 +164,14 @@ export default function Index({ user_index }) {
 
             <div className='flex justify-between mt-4 absolute top-[40%] w-[40%]'>
               <img className='bg-white rounded-full h-16 w-16 text-white py-3 px-6  shadow-sm'
-                onClick={prevItem} src='Images/Arrow1.svg' />
+                onClick={prevItem} src='/Images/Arrow1.svg' />
               {/* <button
            
           >
             Previous
           </button> */}
               <img className='bg-[#FD2579] rounded-full h-16 w-16 text-white py-3 px-6'
-                onClick={nextItem} src='Images/Arrow.svg' />
+                onClick={nextItem} src='/Images/Arrow.svg' />
               {/* <button
           
           >

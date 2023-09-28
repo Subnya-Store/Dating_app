@@ -18,7 +18,7 @@ export default function index() {
     <div>
       {!contruction ?
         <div className='md:w-full md:h-screen overflow-hidden'>
-          <img className='md:w-full md:h-full' src='Images/cool.jpg'/>
+          <img className='md:w-full md:h-full' src='/Images/cool.jpg'/>
         </div>
         :
         <>

@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function index() {
-  const User_img = "Images/imgsecond.png";
+  const User_img = "/Images/imgsecond.png";
   return (
     <div className="right_header flex ">
       <ul>

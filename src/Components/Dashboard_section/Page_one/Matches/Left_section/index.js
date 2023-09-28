@@ -3,17 +3,17 @@ import React from 'react'
 export default function index({ setStateHeader, setuser_index }) {
   const array = [{
     id: 0,
-    img: 'Images/img_1.png',
+    img: '/Images/img_1.png',
     heading: "Mia,22"
   },
   {
     id: 1,
-    img: 'Images/imgsecond.png',
+    img: '/Images/imgsecond.png',
     heading: "Marie, 24"
   },
   {
     id: 2,
-    img: 'Images/img_1.png',
+    img: '/Images/img_1.png',
     heading: "Charlotte, 24"
   },
   ]

@@ -5,43 +5,43 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 export default function Index() {
   const array = [
     {
-      img: 'Images/img_1.png',
+      img: '/Images/img_1.png',
       heading: 'Mia, 22',
     },
     {
-      img: 'Images/imgsecond.png',
+      img: '/Images/imgsecond.png',
       heading: 'Marie, 24',
     },
     {
-      img: 'Images/img_1.png',
+      img: '/Images/img_1.png',
       heading: 'Charlotte, 24',
     },
     {
-      img: 'Images/img_1.png',
+      img: '/Images/img_1.png',
       heading: 'Charlotte, 24',
     },
     {
-      img: 'Images/img_1.png',
+      img: '/Images/img_1.png',
       heading: 'Mia, 22',
     },
     {
-      img: 'Images/imgsecond.png',
+      img: '/Images/imgsecond.png',
       heading: 'Marie, 24',
     },
     {
-      img: 'Images/img_1.png',
+      img: '/Images/img_1.png',
       heading: 'Charlotte, 24',
     },
     {
-      img: 'Images/img_1.png',
+      img: '/Images/img_1.png',
       heading: 'Charlotte, 24',
     },
     {
-      img: 'Images/img_1.png',
+      img: '/Images/img_1.png',
       heading: 'Charlotte, 88824',
     },
     {
-      img: 'Images/img_1.png',
+      img: '/Images/img_1.png',
       heading: 'Charlotte, 21224',
     },
 

@@ -13,10 +13,10 @@
 //      <h1 className='md:text-5xl text-lg font-bold capitalize flex justify-end'>What people <br/> say about us</h1>
 
 //      <div className='flex py-9'>
-//      <div> <img src='Images/testnomil.svg'/></div> 
+//      <div> <img src='/Images/testnomil.svg'/></div> 
 // <div>     <p className=' px-4 text-[18px]'> Lorem ipsum dolor sit amet consectetur. Nibh consequat malesuada facilisi imperdiet nibh dolor adipiscing ornare non. Vestibulum rutrum ac elit amet nam. Est mi at amet semper in.</p>
 // </div> 
-// <div className='felx mt-16'><img className='felx align-bottom' src='Images/testnomial2.png'/></div>   
+// <div className='felx mt-16'><img className='felx align-bottom' src='/Images/testnomial2.png'/></div>   
 //      </div>
      
 
@@ -71,10 +71,10 @@ export default function TestimonialSlider() {
           <div key={testimonial.id} className='testimonial-item p-3'>
             <img
               className='testimonial-image'
-              src='Images/testnomil.svg'
+              src='/Images/testnomil.svg'
               alt='Testimonial 1'
             />
-            <p className='testimonial-text  px-4 text-[18px]'>{testimonial.text}<img className='felx align-bottom' src='Images/testnomial2.png'/></p>
+            <p className='testimonial-text  px-4 text-[18px]'>{testimonial.text}<img className='felx align-bottom' src='/Images/testnomial2.png'/></p>
                
 
             

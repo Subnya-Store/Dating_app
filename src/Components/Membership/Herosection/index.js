@@ -11,7 +11,7 @@ export default function index() {
         <p className=' w-[50%] text-[23.185] font-[700]'> Simple to sign up as a member. The process usually takes less than 10 minutes, including your basic profile of your Ruleset of Desires.</p>
 
         </div>
-        <div className='flex justify-center'> <img src='./Images/Membershiphero.png'/></div>
+        <div className='flex justify-center'> <img src='/Images/Membershiphero.png'/></div>
     </div>
   )
 }

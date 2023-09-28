@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 export default function Index() {
   const [questionIndex, setQuestionIndex] = useState(0);
-  const camerImg = "Images/camera.png";
+  const camerImg = "/Images/camera.png";
 
   const arrayquest = [
     {

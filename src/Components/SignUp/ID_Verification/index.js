@@ -2,8 +2,8 @@ import React from 'react'
 import Link from 'next/link'
 
 export default function index({setState}) {
-    const sign_up_img ='Images/SignIn_logo.png/'
-    const id_varification ='Images/id_varification.png'
+    const sign_up_img ='/Images/SignIn_logo.png/'
+    const id_varification ='/Images/id_varification.png'
     return (
       <div>
             <div className=" md:w-1/3  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
@@ -44,7 +44,7 @@ export default function index({setState}) {
                <label> ID Card</label>
           <input
             className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none "
-            type="image" src="Images/input_image.png"
+            type="image" src="/Images/input_image.png"
             placeholder=""
           />
           <input
