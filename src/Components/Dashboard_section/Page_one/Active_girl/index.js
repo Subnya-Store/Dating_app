@@ -96,8 +96,8 @@ export default function Index({ user_index }) {
             {visibleItems.map((x, index) => (
               <div
 
-                className={`bg-white p-8 md:w-1/3 flex gap-2 rounded-xl ${index === 1
-                  ? 'lg:w-1/3  bg-white  md:mx-10 p-8 h-2/3 '
+                className={`bg-white p-8 md:w-fit flex gap-2 rounded-xl ${index === 1
+                  ? 'lg:w-fit  bg-white  md:mx-10 p-8 h-2/3 '
                   : 'lg:w-1/4 bg-white md:blur-sm  p-5 h-1/2 mt-10'
                   }`}
                 key={index}

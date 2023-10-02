@@ -21,9 +21,9 @@ export default function index({ setState, setInputs, inputs }) {
 
   return (
     <div>
-      <div className=" md:w-1/3  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
-        <div className=" flex">
-          <ul className="flex justify-between w-80">
+      <div className=" md:w-[400px]  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg  opacity-90">
+        <div className=" flex w-full">
+          <ul className="flex justify-between w-full">
             <li>
               <img className="flex" src={sign_up_img} />
             </li>
