@@ -39,7 +39,7 @@ export default function index() {
             </div>
           </div>
           <div >
-          <SectionAbout  />
+          <SectionAbout page={'about'} />
 
           </div>
           <SectionThree />

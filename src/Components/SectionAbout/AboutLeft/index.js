@@ -4,19 +4,20 @@ import { IoIosArrowDown } from "react-icons/io";
 import { HiOutlineUserGroup } from "react-icons/hi";
 
 
-export default function index() {
+export default function index({page}) {
+  let ABOUT = page == "about"
   return (
-    <div className=" md:w-[48%]  pb-14">
-      <h6 className="text-[#FD166F]   font-bold  border-b-2   w-36  mb-2 text-lg md:text-2xl ">
+    <div className={`md:w-[48%]  pb-14 ${ABOUT ? 'pt-10':'pt-2'}`} >
+      {page == 'about'?'':<h6 className="text-[#FD166F]   font-bold  border-b-2   w-36  mb-2 text-lg md:text-2xl ">
         About Us
-      </h6>
-      <h5 className="  md:text-5xl text-lg   font-medium text-white">
+      </h6>}
+      <h5 className={`  md:text-5xl text-lg   font-medium ${ABOUT ?'text-black':'text-white'} `}>
         <span className="text-[#FFA500]">Love </span>Can Happen
       </h5>
       <h4 className="md:text-5xl text-lg   capitalize font-medium text-[#66D300] mt-2">
         Any where , Any time
       </h4>
-      <p className="mt-2 text-white  md:text-base text-sm">
+      <p className={`mt-2 ${ABOUT?"text-black":"text-white"} md:text-base text-sm`}>
         Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt
         iaculis mollis eget. Facilisis dolor nisi tincidunt augue volutpat amet
         diam odio lacus. Urna tellus sed scelerisque.
@@ -61,7 +62,7 @@ export default function index() {
             Find your Partner
           </button>
         </form>
-       
+
       </div>
 
       <div className="flex justify-between  mt-10">
@@ -71,12 +72,12 @@ export default function index() {
               <HiOutlineUserGroup />
             </li>
             <li>
-              <span className=" mt-6 text-white pl-2   font-medium  text-xl">
+              <span className={`mt-6 ${ABOUT?"text-black":"text-white"} pl-2   font-medium  text-xl`}>
                 10k+ Members
               </span>
             </li>
           </ul>
-          <p className="mt-2 text-white  text-base">
+          <p className={`mt-2  text-base ${ABOUT?"text-black":"text-white"}`}>
             Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt
             iaculis mollis eget. Facilisis dolor nisi tincidunt augue volutpat
             amet diam odio lacus. Urna tellus sed scelerisque.
@@ -88,19 +89,19 @@ export default function index() {
               <AiOutlineHeart />
             </li>
             <li>
-              <span className=" mt-6 text-white pl-2  font-medium  text-xl">
+              <span className={` mt-6 pl-2  font-medium  text-xl ${ABOUT?"text-black":"text-white"}`}>
                 90% Progress
               </span>
             </li>
           </ul>
-          <p className="mt-2 text-white  text-base">
+          <p className={`mt-2 ${ABOUT?"text-black":"text-white"}  text-base`}>
             Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt
             iaculis mollis eget. Facilisis dolor nisi tincidunt augue volutpat
             amet diam odio lacus. Urna tellus sed scelerisque.
           </p>
         </div>
       </div>
-     
+
     </div>
   );
 }
