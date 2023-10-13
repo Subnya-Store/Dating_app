@@ -18,18 +18,18 @@ export default function Index() {
     {
       question: "Question 3",
       questionis: "What is your primary preferred meeting Age Group? ",
-      options: ["a) 18-30", "b) 18-30", "c) 18-30", "d) 18-30" ,"e) 18-30" ,"f) 18-30" ,"g) 18-30"],
+      options: ["a) 18-30", "b) 18-30", "c) 18-30", "d) 18-30", "e) 18-30", "f) 18-30", "g) 18-30"],
     },
     {
       question: "Question 4",
       questionis: "How far are you willing to travel to meet up? ",
-      options: ["A) 0-20 miles " ,"B) Up to 50 miles away ", "C) I can travel far up to 100 miles" , "D) I love travel 200 miles ", " E) Air travel is no problem 200 miles"],
+      options: ["A) 0-20 miles ", "B) Up to 50 miles away ", "C) I can travel far up to 100 miles", "D) I love travel 200 miles ", " E) Air travel is no problem 200 miles"],
     },
     {
       question: "Question 5",
       questionis:
         "Are you comfortable with meeting people from a different background than yourself?  ",
-        options: ["Yes / No"],
+      options: ["Yes / No"],
     },
   ];
 
@@ -38,13 +38,12 @@ export default function Index() {
       {arrayquest.map((e, index) => (
         <div
           key={index}
-          className={`${
-            index === questionIndex
+          className={`${index === questionIndex
               ? "bg-[#FFF] shadow-xl opacity-[0.92] backdrop-blur-[6.084905624389648px] w-[65%] m-auto  py-12 px-10  rounded-xl"
               : "hidden"
-          }`}
+            }`}
         >
-             {/* Question 1  */}
+          {/* Question 1  */}
           <div>
             <h2 className="text-center pb-4 capitalize text-lg text-black font-medium">
               {e.question}
@@ -71,7 +70,7 @@ export default function Index() {
               </div>
             </div>
           )}
-             {/* Question 2  */}
+          {/* Question 2  */}
           {questionIndex === 1 && (
             <div>
               <div className="flex justify-center items-center flex-col">
@@ -84,83 +83,83 @@ export default function Index() {
             </div>
           )}
 
-                 {/* Question 3  */}
+          {/* Question 3  */}
 
-{questionIndex === 2 && e.options && e.options.length > 0 && (
-  <div>
-    <div className="flex justify-center items-center flex-col">
-      <div className="">
-        <div className=" w-80 justify-between  flex"> 
-          <div>
-          {e.options.slice(0, 3).map((option, optionIndex) => (
-          <div
-            key={optionIndex} className="" >
-            <div >
-              {option}
-            </div>
-          </div>
-        ))}
-        
-             </div>
-       
-        <div> {e.options.slice(3, 6).map((option, optionIndex) => (
-          <div
-            key={optionIndex} className="" >
-            <div >
-              {option}
-            </div>
-          </div>
-        ))} </div>
-         </div>
-      <div className="w-80 flex justify-center pb-4">
-          <div className="" >
-            {e.options[6]}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-                  
-)}
-             {/* Question 4  */}
-             {questionIndex === 3 && e.options && e.options.length > 0 && (
-  <div>
-    <div className="flex justify-center items-center flex-col">
-      <div className="">
-        <div className=" pb-4 gap-6 flex"> 
-          <div>
-          {e.options.slice(0, 3).map((option, optionIndex) => (
-          <div
-            key={optionIndex} className="" >
-            <div >
-              {option}
-            </div>
-          </div>
-        ))}
-        
-             </div>
-       
-        <div> {e.options.slice(3, 5).map((option, optionIndex) => (
-          <div
-            key={optionIndex} className="" >
-            <div >
-              {option}
-            </div>
-          </div>
-        ))} </div>
-         </div>
-     
-      </div>
-    </div>
-  </div>
-                  
-)}
-      
-           
-        
+          {questionIndex === 2 && e.options && e.options.length > 0 && (
+            <div>
+              <div className="flex justify-center items-center flex-col">
+                <div className="">
+                  <div className=" w-80 justify-between  flex">
+                    <div>
+                      {e.options.slice(0, 3).map((option, optionIndex) => (
+                        <div
+                          key={optionIndex} className="" >
+                          <div >
+                            {option}
+                          </div>
+                        </div>
+                      ))}
 
-               {/* Question 5 */}
- {questionIndex === 4 && e.options && e.options.length > 0 && (
+                    </div>
+
+                    <div> {e.options.slice(3, 6).map((option, optionIndex) => (
+                      <div
+                        key={optionIndex} className="" >
+                        <div >
+                          {option}
+                        </div>
+                      </div>
+                    ))} </div>
+                  </div>
+                  <div className="w-80 flex justify-center pb-4">
+                    <div className="" >
+                      {e.options[6]}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          )}
+          {/* Question 4  */}
+          {questionIndex === 3 && e.options && e.options.length > 0 && (
+            <div>
+              <div className="flex justify-center items-center flex-col">
+                <div className="">
+                  <div className=" pb-4 gap-6 flex">
+                    <div>
+                      {e.options.slice(0, 3).map((option, optionIndex) => (
+                        <div
+                          key={optionIndex} className="" >
+                          <div >
+                            {option}
+                          </div>
+                        </div>
+                      ))}
+
+                    </div>
+
+                    <div> {e.options.slice(3, 5).map((option, optionIndex) => (
+                      <div
+                        key={optionIndex} className="" >
+                        <div >
+                          {option}
+                        </div>
+                      </div>
+                    ))} </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+          )}
+
+
+
+
+          {/* Question 5 */}
+          {questionIndex === 4 && e.options && e.options.length > 0 && (
             <div>
               <div className="flex justify-center items-center flex-col">
                 {e.options.map((option, optionIndex) => (
