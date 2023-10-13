@@ -1,8 +1,8 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 
 export default function index({ setState, inputs, setInputs }) {
-  const [image,setImage]=useState('/Images/input_image.png')
+  const [image, setImage] = useState('/Images/input_image.png')
   const sign_up_img = '/Images/SignIn_logo.png/'
   const id_varification = '/Images/id_varification.png'
 
@@ -11,7 +11,7 @@ export default function index({ setState, inputs, setInputs }) {
     const uploadedFile = e.target.files[0];
 
     // You may want to perform some validation on the uploaded file here
-console.log(uploadedFile)
+    console.log(uploadedFile)
     // Set the image in the state
     if (uploadedFile) {
       const imageURL = URL.createObjectURL(uploadedFile);
