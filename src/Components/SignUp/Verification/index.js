@@ -30,23 +30,25 @@ export default function index({ setState, inputs, setInputs }) {
             </li>
           </ul>
         </div>
-        <div className=" text-4xl font-bold py-4 capitalize"> phone <br />
+        <div className=" text-4xl font-bold py-4 capitalize"> Email <br />
           Verification</div>
 
-        <div className="pt-1 pb-1 font-medium ">
-          <label>Mobile Number</label>
+        {/* <div className="pt-1 pb-1 font-medium ">
+          <label>Verify your Email</label>
           <input
-            onChange={e => setInputs({ ...inputs, mobile_no: e.target.value })}
+            // onChange={e => setInputs({ ...inputs, mobile_no: e.target.value })}
             className=" rounded-xl p-3  bg-[#FFF] m-1 flex border border-[#7000ED]  outline-none  w-72"
-            type="number"
-            placeholder="+1234578951564"
+            value={inputs.email}
+            type="email"
+            placeholder="Michael@gmail.com"
           />
-        </div>
+        </div> */}
+        
         <div className=" flex mb-5">
           <ul className="flex gap-4 ">
             <li>
               <div>
-                <label> OTP Verification</label>
+              <label>Verification code sent to your email</label>
                 <div className='flex'>
                   <input
                     onChange={e => setInputs({ ...inputs, otp_code: e.target.value })}

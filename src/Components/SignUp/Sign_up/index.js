@@ -30,7 +30,8 @@ export default function index({ setState, setInputs, inputs }) {
             <li className=' w-32'>
 
               <Link href='signin' className="  text-[#7000ED]">
-                Already have a account? <br />Sign In. </Link>
+                Already have a account? <br />Sign In.
+              </Link>
 
             </li>
           </ul>
@@ -90,7 +91,7 @@ export default function index({ setState, setInputs, inputs }) {
 
           </ul>
           <input
-            onChange={e => setInputs({ ...inputs,username: e.target.value })}
+            onChange={e => setInputs({ ...inputs, username: e.target.value })}
 
             className=" rounded-xl bg-[#FFF]  p-2 flex border outline-none border-[#7000ED] w-44"
             type="text"

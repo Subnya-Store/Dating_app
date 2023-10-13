@@ -101,7 +101,7 @@ export default function index({ setState, setInputs, inputs }) {
           </ul>
         </div>
         <div className="pt-1 pb-1">
-          <button onClick={() => setState("phone_vericaction")} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+          <button onClick={() => setState("email_vericaction")} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
             Next
           </button>
         </div>

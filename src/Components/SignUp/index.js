@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import Sign_up from './Sign_up'
 import Account_details from './account_details'
 import Id_verification from './ID_Verification'
-import Phone_verifaction from '@/Components/SignUp/Verification'
+import Email_verifaction from '@/Components/SignUp/Verification'
 import Questions from './Questions'
 
 export default function index() {
-  const [state, setState] = useState("signup")
+  const [state, setState] = useState("Id_verification")
   const [inputs, setInputs] = useState({
     username: '',
     email: '',
@@ -16,8 +16,10 @@ export default function index() {
     last_name: '',
     country: '',
     city: '',
-    mobile_no: '',
-    otp_code: ''
+    otp_code: '',
+    ID_card:'',
+    age:'',
+    LegalID:''
   })
   return (
     <div className=" relative bg-[url('/Images/Signup_img.png')] md:py-4 bg-center  bg-no-repeat md:h-screen  ">
@@ -26,10 +28,8 @@ export default function index() {
         {
           state == "signup" && <Sign_up setInputs={setInputs} inputs={inputs} setState={setState} /> ||
           state == "AccountDetails" && <Account_details setInputs={setInputs} inputs={inputs} setState={setState} /> ||
-          state == "phone_vericaction" && <Phone_verifaction setInputs={setInputs} inputs={inputs} setState={setState} /> ||
-          state == "Id_verification" && <Id_verification setState={setState} /> 
-          
-
+          state == "email_vericaction" && <Email_verifaction setInputs={setInputs} inputs={inputs} setState={setState} /> ||
+          state == "Id_verification" && <Id_verification setInputs={setInputs} inputs={inputs} setState={setState} /> 
         }
 
       </div>
