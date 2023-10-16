@@ -4,9 +4,10 @@ import React, { useState } from "react";
 
 export default function Index() {
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [file_image, setfile_image] = useState('');
   const [Image, setImage] = useState("/Images/camera.png");
   const [Quest_answer, setQuest_answer] = useState({
-    questions: questionIndex+1,
+    questions: questionIndex + 1,
     answers: ''
   });
   const camerImg = "/Images/camera.png";
@@ -45,20 +46,30 @@ export default function Index() {
       .catch(x => console.log(x))
   }
 
+  const First_Quest = (e) => {
+    setQuestionIndex(questionIndex + 1)
+    // const formData = new FormData();
+    // formData.append('images', file_image);
+
+    // API.fetchPost(formData, '/quest_image')
+    //   .then(x => {
+    //     setQuestionIndex(questionIndex + 1)
+    //   })
+    //   .catch(x => console.log(x))
+  }
+
   const handleImageChange = (e) => {
     // Access the uploaded file
     const uploadedFile = e.target.files[0];
 
-    // You may want to perform some validation on the uploaded file here
-    // setfile_image(uploadedFile)
-    // Set the image in the state
+    setfile_image(uploadedFile)
     if (uploadedFile) {
       const imageURL = URL.createObjectURL(uploadedFile);
       // console.log(imageURL,uploadedFile)
       setImage(imageURL);
     }
   };
-console.log(Image,'checking')
+  // console.log(Image,'checking')
   return (
     <div className="h-screen flex justify-center">
       {arrayquest.map((e, index) => (
@@ -94,7 +105,7 @@ console.log(Image,'checking')
                     <label htmlFor="myfile" className="opacity-70 text-black text-base  font-medium capitalize m-auto">
                       Upload
                     </label>
-                    <input type="file" id="myfile" className="hidden" onChange={handleImageChange}/>
+                    <input type="file" id="myfile" className="hidden" onChange={handleImageChange} />
                   </div>
                 </div>
               </div>
@@ -102,22 +113,21 @@ console.log(Image,'checking')
             questionIndex === 1 && (
               <div>
                 <div className="flex justify-center items-center flex-col">
-                  <div className="w-[360.78px] text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700">
-                    <div className="opacity-70 text-black text-base py-3 font-medium capitalize">
-                      Example: Swedish
-                    </div>
+                  <div className="py-2 px-7 text-center  bg-white rounded-[3.94px] border border-violet-700 m-4">
+                    <input type="text" onChange={(e)=>setQuest_answer({...Quest_answer,answers: e.target.value})} placeholder="Example: Swedish" className="opacity-70  text-black text-base py-3 font-medium capitalize outline-none"/>
                   </div>
                 </div>
               </div>
             ) ||
             questionIndex === 2 && e.options && e.options.length > 0 && (
-              <div>
+              <div >
                 <div className="flex justify-center items-center flex-col">
                   <div className="">
                     <div className=" w-80 justify-between  flex">
                       <div>
                         {e.options.slice(0, 3).map((option, optionIndex) => (
                           <div
+                         onClick={()=>console.log(option)}
                             key={optionIndex} className="" >
                             <div >
                               {option}
@@ -197,12 +207,20 @@ console.log(Image,'checking')
           }
 
           <div className="border w-[20%] text-center text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md">
-            <button
-              onClick={() => setQuestionIndex(questionIndex + 1)}
-              className="cursor-pointer capitalize"
-            >
-              Next
-            </button>
+            {questionIndex == 0 ?
+              <button
+                onClick={First_Quest}
+                className="cursor-pointer capitalize"
+              >
+                Next
+              </button> :
+              <button
+                onClick={() => setQuestionIndex(questionIndex + 1)}
+                className="cursor-pointer capitalize"
+              >
+                Next
+              </button>
+            }
           </div>
           <div className="text-center cursor-pointer mt-3">
             {questionIndex + 1} of 5

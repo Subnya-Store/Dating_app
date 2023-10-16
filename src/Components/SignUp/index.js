@@ -6,7 +6,7 @@ import Email_verifaction from '@/Components/SignUp/Verification'
 import Questions from './Questions'
 
 export default function index() {
-  const [state, setState] = useState("questions")
+  const [state, setState] = useState("signup")
   const [inputs, setInputs] = useState({
     username: '',
     email: '',
