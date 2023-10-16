@@ -6,7 +6,7 @@ import Email_verifaction from '@/Components/SignUp/Verification'
 import Questions from './Questions'
 
 export default function index() {
-  const [state, setState] = useState("signup")
+  const [state, setState] = useState("questions")
   const [inputs, setInputs] = useState({
     username: '',
     email: '',
@@ -16,11 +16,12 @@ export default function index() {
     last_name: '',
     country: '',
     city: '',
-    otp_code: '',
+    code: '',
     ID_card:'',
     age:'',
     LegalID:''
   })
+  // console.log(inputs)
   return (
     <div className=" relative bg-[url('/Images/Signup_img.png')] md:py-4 bg-center  bg-no-repeat md:h-screen  ">
       <div className="  absolute  flex items-center  bg-[#0500629e]    bottom-0 top-0 left-0 w-[100%]  h-[100%] ">

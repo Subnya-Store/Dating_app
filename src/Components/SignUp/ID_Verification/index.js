@@ -1,17 +1,21 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
+import API from '@/API/API'
 
 export default function index({ setState, inputs, setInputs }) {
   const [image, setImage] = useState('/Images/input_image.png')
+  const [file_image, setfile_image] = useState('')
   const sign_up_img = '/Images/SignIn_logo.png/'
   const id_varification = '/Images/id_varification.png'
-
+  console.log(file_image, 'checkin')
   const handleImageChange = (e) => {
     // Access the uploaded file
     const uploadedFile = e.target.files[0];
 
     // You may want to perform some validation on the uploaded file here
-    console.log(uploadedFile)
+    setfile_image(uploadedFile)
+    setInputs({ ...inputs, ID_card: uploadedFile.name })
+
     // Set the image in the state
     if (uploadedFile) {
       const imageURL = URL.createObjectURL(uploadedFile);
@@ -19,7 +23,28 @@ export default function index({ setState, inputs, setInputs }) {
       setImage(imageURL);
     }
   };
+  const ID_Verify = (e) => {
+    // setState("questions")
 
+    const formData = new FormData();
+    formData.append('images', file_image);
+    formData.append('age', inputs.age);
+    formData.append('legal_id', inputs.LegalID);
+
+    API.fetchPost(
+      formData
+      ,
+      '/verify_id'
+    )
+      .then(x => {
+        if (x.data.msg == 'Id verification request!') {
+          setState("questions")
+        }
+      })
+      .catch(x => {
+        console.log(x)
+      })
+  }
   return (
     <div>
       <div className=" md:w-fit  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
@@ -49,10 +74,10 @@ export default function index({ setState, inputs, setInputs }) {
                 type="image"
                 // id="myfile"
                 src={image}
-                onChange={handleImageChange}
+                // onChange={handleImageChange}
                 placeholder=""
               />
-              <label for="myfile" className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex justify-center border border-[#7000ED]  outline-none ">
+              <label htmlFor="myfile" className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex justify-center border border-[#7000ED]  outline-none ">
                 upload
               </label >
               <input
@@ -68,8 +93,9 @@ export default function index({ setState, inputs, setInputs }) {
               <label> Age</label>
               <input
                 className=" rounded-xl p-2 w-34  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none"
-                type="date"
+                type="number"
                 placeholder=""
+                onChange={e => setInputs({ ...inputs, age: e.target.value })}
               />
               <div className=' pt-6 pl-2'>
                 <img className="flex" src={id_varification} />
@@ -82,12 +108,13 @@ export default function index({ setState, inputs, setInputs }) {
           <label> Legal ID</label>
           <input
             className=" rounded-xl p-2  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  w-72"
-            type="text"
+            type="number"
             placeholder=""
+            onChange={e => setInputs({ ...inputs, LegalID: e.target.value })}
           />
         </div>
         <div className="pt-1 pb-1">
-          <button onClick={() => setState("questions")} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+          <button onClick={ID_Verify} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
             Next
           </button>
         </div>

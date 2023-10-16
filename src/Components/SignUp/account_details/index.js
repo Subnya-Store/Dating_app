@@ -1,14 +1,21 @@
+import API from '@/API/API'
 import Link from 'next/link'
 import React from 'react'
 
 
 export default function index({ setState, setInputs, inputs }) {
 
-
-
-
-
   const sign_up_img = '/Images/SignIn_logo.png/'
+  const Make_acount = () => {
+    // setState("email_vericaction")
+    API.fetchPost(inputs, '/register')
+      .then(x => {
+        if (x.data.message == 'Verification email sent') {
+          setState("email_vericaction")
+        }
+      })
+      .catch(x => console.log(x))
+  }
   return (
     <div>
       <div className=" md:w-fit  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
@@ -36,7 +43,7 @@ export default function index({ setState, setInputs, inputs }) {
         <div className="pt-1 pb-1 font-medium ">
           <label> Email Address</label>
           <input
-            onChange={e => setInputs({ ...inputs,email: e.target.value })}
+            onChange={e => setInputs({ ...inputs, email: e.target.value })}
 
             className=" rounded-xl p-2  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  w-72"
             type="email"
@@ -101,7 +108,7 @@ export default function index({ setState, setInputs, inputs }) {
           </ul>
         </div>
         <div className="pt-1 pb-1">
-          <button onClick={() => setState("email_vericaction")} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+          <button onClick={Make_acount} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
             Next
           </button>
         </div>

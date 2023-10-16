@@ -1,8 +1,14 @@
 
+import API from "@/API/API";
 import React, { useState } from "react";
 
 export default function Index() {
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [Image, setImage] = useState("/Images/camera.png");
+  const [Quest_answer, setQuest_answer] = useState({
+    questions: questionIndex+1,
+    answers: ''
+  });
   const camerImg = "/Images/camera.png";
 
   const arrayquest = [
@@ -33,17 +39,37 @@ export default function Index() {
     },
   ];
 
+  const Quest_ans = () => {
+    API.fetchPost(Quest_answer, '/questionair')
+      .then(x => console.log(x))
+      .catch(x => console.log(x))
+  }
+
+  const handleImageChange = (e) => {
+    // Access the uploaded file
+    const uploadedFile = e.target.files[0];
+
+    // You may want to perform some validation on the uploaded file here
+    // setfile_image(uploadedFile)
+    // Set the image in the state
+    if (uploadedFile) {
+      const imageURL = URL.createObjectURL(uploadedFile);
+      // console.log(imageURL,uploadedFile)
+      setImage(imageURL);
+    }
+  };
+console.log(Image,'checking')
   return (
     <div className="h-screen flex justify-center">
       {arrayquest.map((e, index) => (
         <div
           key={index}
           className={`${index === questionIndex
-              ? "bg-[#FFF] shadow-xl opacity-[0.92] backdrop-blur-[6.084905624389648px] w-[65%] m-auto  py-12 px-10  rounded-xl"
-              : "hidden"
+            ? "bg-[#FFF] shadow-xl opacity-[0.92] backdrop-blur-[6.084905624389648px] w-[65%] m-auto  py-12 px-10  rounded-xl"
+            : "hidden"
             }`}
         >
-          {/* Question 1  */}
+          {/* Questions */}
           <div>
             <h2 className="text-center pb-4 capitalize text-lg text-black font-medium">
               {e.question}
@@ -53,129 +79,122 @@ export default function Index() {
             </h2>
           </div>
 
-          {questionIndex === 0 && (
-            <div>
-              <div className="flex justify-center items-center flex-col">
-                <div className="border w-[100px] py-4 px-4 m-auto bg-white">
-                  <img
-                    src={camerImg}
-                    className="w-full m-auto align-middle text-center object-contain"
-                  />
-                </div>
-                <div className="w-[144.78px] h-[37.54px] text-center mb-2 mt-4 bg-white rounded-[8.94px] border border-violet-700">
-                  <div className="opacity-70 text-black text-base pt-1 font-medium capitalize">
-                    Upload
+          {/* Answers  */}
+          {
+            questionIndex === 0 && (
+              <div>
+                <div className="flex justify-center items-center flex-col">
+                  <div className="border w-[100px] py-4 px-4 m-auto bg-white">
+                    <img
+                      src={Image}
+                      className="w-full m-auto align-middle text-center object-contain"
+                    />
+                  </div>
+                  <div className="w-[144.78px] h-[37.54px] text-center flex justify-center items-center my-2 bg-white rounded-[8.94px] border border-violet-700">
+                    <label htmlFor="myfile" className="opacity-70 text-black text-base  font-medium capitalize m-auto">
+                      Upload
+                    </label>
+                    <input type="file" id="myfile" className="hidden" onChange={handleImageChange}/>
                   </div>
                 </div>
               </div>
-            </div>
-          )}
-          {/* Question 2  */}
-          {questionIndex === 1 && (
-            <div>
-              <div className="flex justify-center items-center flex-col">
-                <div className="w-[360.78px] text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700">
-                  <div className="opacity-70 text-black text-base py-3 font-medium capitalize">
-                    Example: Swedish
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Question 3  */}
-
-          {questionIndex === 2 && e.options && e.options.length > 0 && (
-            <div>
-              <div className="flex justify-center items-center flex-col">
-                <div className="">
-                  <div className=" w-80 justify-between  flex">
-                    <div>
-                      {e.options.slice(0, 3).map((option, optionIndex) => (
-                        <div
-                          key={optionIndex} className="" >
-                          <div >
-                            {option}
-                          </div>
-                        </div>
-                      ))}
-
-                    </div>
-
-                    <div> {e.options.slice(3, 6).map((option, optionIndex) => (
-                      <div
-                        key={optionIndex} className="" >
-                        <div >
-                          {option}
-                        </div>
-                      </div>
-                    ))} </div>
-                  </div>
-                  <div className="w-80 flex justify-center pb-4">
-                    <div className="" >
-                      {e.options[6]}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          )}
-          {/* Question 4  */}
-          {questionIndex === 3 && e.options && e.options.length > 0 && (
-            <div>
-              <div className="flex justify-center items-center flex-col">
-                <div className="">
-                  <div className=" pb-4 gap-6 flex">
-                    <div>
-                      {e.options.slice(0, 3).map((option, optionIndex) => (
-                        <div
-                          key={optionIndex} className="" >
-                          <div >
-                            {option}
-                          </div>
-                        </div>
-                      ))}
-
-                    </div>
-
-                    <div> {e.options.slice(3, 5).map((option, optionIndex) => (
-                      <div
-                        key={optionIndex} className="" >
-                        <div >
-                          {option}
-                        </div>
-                      </div>
-                    ))} </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-          )}
-
-
-
-
-          {/* Question 5 */}
-          {questionIndex === 4 && e.options && e.options.length > 0 && (
-            <div>
-              <div className="flex justify-center items-center flex-col">
-                {e.options.map((option, optionIndex) => (
-                  <div
-                    key={optionIndex}
-                    className="w-[360.78px] text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700"
-                  >
+            ) ||
+            questionIndex === 1 && (
+              <div>
+                <div className="flex justify-center items-center flex-col">
+                  <div className="w-[360.78px] text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700">
                     <div className="opacity-70 text-black text-base py-3 font-medium capitalize">
-                      {option}
+                      Example: Swedish
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
-          )}
+            ) ||
+            questionIndex === 2 && e.options && e.options.length > 0 && (
+              <div>
+                <div className="flex justify-center items-center flex-col">
+                  <div className="">
+                    <div className=" w-80 justify-between  flex">
+                      <div>
+                        {e.options.slice(0, 3).map((option, optionIndex) => (
+                          <div
+                            key={optionIndex} className="" >
+                            <div >
+                              {option}
+                            </div>
+                          </div>
+                        ))}
 
+                      </div>
+
+                      <div> {e.options.slice(3, 6).map((option, optionIndex) => (
+                        <div
+                          key={optionIndex} className="" >
+                          <div >
+                            {option}
+                          </div>
+                        </div>
+                      ))} </div>
+                    </div>
+                    <div className="w-80 flex justify-center pb-4">
+                      <div className="" >
+                        {e.options[6]}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            ) ||
+            questionIndex === 3 && e.options && e.options.length > 0 && (
+              <div>
+                <div className="flex justify-center items-center flex-col">
+                  <div className="">
+                    <div className=" pb-4 gap-6 flex">
+                      <div>
+                        {e.options.slice(0, 3).map((option, optionIndex) => (
+                          <div
+                            key={optionIndex} className="" >
+                            <div >
+                              {option}
+                            </div>
+                          </div>
+                        ))}
+
+                      </div>
+
+                      <div> {e.options.slice(3, 5).map((option, optionIndex) => (
+                        <div
+                          key={optionIndex} className="" >
+                          <div >
+                            {option}
+                          </div>
+                        </div>
+                      ))} </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+            ) ||
+            questionIndex === 4 && e.options && e.options.length > 0 && (
+              <div>
+                <div className="flex justify-center items-center flex-col">
+                  {e.options.map((option, optionIndex) => (
+                    <div
+                      key={optionIndex}
+                      className="w-[360.78px] text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700"
+                    >
+                      <div className="opacity-70 text-black text-base py-3 font-medium capitalize">
+                        {option}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          }
 
           <div className="border w-[20%] text-center text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md">
             <button
