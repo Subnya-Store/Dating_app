@@ -1,3 +1,3 @@
-var apiUrl = 'https://api.smartxblockchain.com';
+var apiUrl = 'https://api101.investit.store';
 
 export default apiUrl;

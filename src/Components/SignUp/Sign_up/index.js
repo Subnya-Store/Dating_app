@@ -1,18 +1,19 @@
 import Link from 'next/link'
 import React from 'react'
 import axios from 'axios'
+import API from '@/API/API'
 
 // import SectionSteps from '@/Components/SectionSteps'
 
 export default function index({ setState, setInputs, inputs }) {
   const hitApi = () => {
-    console.log("clicked"),
-      axios.post("https://api101.investit.store/register", {
-        username: "waleed",
-        password: "admin",
-        email: 'waleed@gmail.com'
-      })
-        .then(x => console.log(x))
+    console.log("clicked")
+      // axios.post("https://api101.investit.store/register", {
+      //   username: "waleed",
+      //   password: "admin",
+      //   email: 'waleed@gmail.com'
+      // })
+      //   .then(x => console.log(x))
   }
 
 
