@@ -23,7 +23,7 @@ export default function index({ setState, inputs, setInputs }) {
   return (
     <div>
       <div className=" md:w-fit  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
-        <div className=" flex">
+        {/* <div className=" flex">
           <div className="flex justify-between w-80">
 
             <img className="flex" src={sign_up_img} />
@@ -33,7 +33,7 @@ export default function index({ setState, inputs, setInputs }) {
                 Already have a account? <br />Sign In. </Link>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className=" text-4xl font-bold py-4 capitalize">
           <div className=' justify-between flex'>
             ID Verification
