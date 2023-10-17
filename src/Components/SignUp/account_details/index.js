@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 
 
-export default function index({ setState, setInputs, inputs }) {
+export default function index({ setState, setInputs, inputs, toast }) {
 
   const sign_up_img = '/Images/SignIn_logo.png/'
   const Make_acount = () => {
@@ -12,7 +12,20 @@ export default function index({ setState, setInputs, inputs }) {
       .then(x => {
         if (x.data.message == 'Verification email sent') {
           setState("email_vericaction")
+        } else {
+
+          toast.error(x.data.check, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            })
         }
+        // console.log(x.data.check)
       })
       .catch(x => console.log(x))
   }

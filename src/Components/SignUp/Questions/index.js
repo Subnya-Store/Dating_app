@@ -2,14 +2,15 @@
 import API from "@/API/API";
 import React, { useState } from "react";
 
-export default function Index() {
+export default function Index({setState}) {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [file_image, setfile_image] = useState('');
   const [Image, setImage] = useState("/Images/camera.png");
   const [Quest_answer, setQuest_answer] = useState({
-    questions: questionIndex + 1,
+    questions: questionIndex,
     answers: ''
   });
+  console.log({ Quest_answer, questionIndex })
   const camerImg = "/Images/camera.png";
 
   const arrayquest = [
@@ -25,37 +26,48 @@ export default function Index() {
     {
       question: "Question 3",
       questionis: "What is your primary preferred meeting Age Group? ",
-      options: ["a) 18-30", "b) 18-30", "c) 18-30", "d) 18-30", "e) 18-30", "f) 18-30", "g) 18-30"],
+      options: ["18-30", "18-30", "18-30", "18-30", "18-30", "18-30", "18-30"],
     },
     {
       question: "Question 4",
       questionis: "How far are you willing to travel to meet up? ",
-      options: ["A) 0-20 miles ", "B) Up to 50 miles away ", "C) I can travel far up to 100 miles", "D) I love travel 200 miles ", " E) Air travel is no problem 200 miles"],
+      options: ["0-20 miles ", "Up to 50 miles away ", "I can travel far up to 100 miles", "I love travel 200 miles ", "Air travel is no problem 200 miles"],
     },
     {
       question: "Question 5",
       questionis:
         "Are you comfortable with meeting people from a different background than yourself?  ",
-      options: ["Yes / No"],
+      options: ["Yes", "No"],
     },
   ];
 
   const Quest_ans = () => {
     API.fetchPost(Quest_answer, '/questionair')
-      .then(x => console.log(x))
+      .then(x => {
+        if (questionIndex == 4) {
+          setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 }),
+          window.location.href='/signin'
+        } else {
+          setQuestionIndex(questionIndex + 1),
+            setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 }),
+            console.log(x)
+        }
+
+      })
       .catch(x => console.log(x))
   }
 
   const First_Quest = (e) => {
-    setQuestionIndex(questionIndex + 1)
-    // const formData = new FormData();
-    // formData.append('images', file_image);
+    const formData = new FormData();
+    formData.append('images', file_image);
 
-    // API.fetchPost(formData, '/quest_image')
-    //   .then(x => {
-    //     setQuestionIndex(questionIndex + 1)
-    //   })
-    //   .catch(x => console.log(x))
+    API.fetchPost(formData, '/quest_image')
+      .then(x => {
+        setQuestionIndex(questionIndex + 1)
+        // setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
+        // console.log(x)
+      })
+      .catch(x => console.log(x))
   }
 
   const handleImageChange = (e) => {
@@ -63,6 +75,7 @@ export default function Index() {
     const uploadedFile = e.target.files[0];
 
     setfile_image(uploadedFile)
+    // setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
     if (uploadedFile) {
       const imageURL = URL.createObjectURL(uploadedFile);
       // console.log(imageURL,uploadedFile)
@@ -114,7 +127,12 @@ export default function Index() {
               <div>
                 <div className="flex justify-center items-center flex-col">
                   <div className="py-2 px-7 text-center  bg-white rounded-[3.94px] border border-violet-700 m-4">
-                    <input type="text" onChange={(e)=>setQuest_answer({...Quest_answer,answers: e.target.value})} placeholder="Example: Swedish" className="opacity-70  text-black text-base py-3 font-medium capitalize outline-none"/>
+                    <input type="text"
+                      onChange={(e) =>
+                        setQuest_answer({ questions: questionIndex + 1, answers: e.target.value })
+                      }
+                      placeholder="Example: Swedish"
+                      className="opacity-70  text-black text-base py-3 font-medium capitalize outline-none" />
                   </div>
                 </div>
               </div>
@@ -123,31 +141,32 @@ export default function Index() {
               <div >
                 <div className="flex justify-center items-center flex-col">
                   <div className="">
-                    <div className=" w-80 justify-between  flex">
-                      <div>
-                        {e.options.slice(0, 3).map((option, optionIndex) => (
+                    <div className=" w-full   flex justify-center items-center">
+                      <div className="grid grid-cols-2 w-full">
+                        {e.options.slice(0, 6).map((option, optionIndex) => (
                           <div
-                         onClick={()=>console.log(option)}
-                            key={optionIndex} className="" >
-                            <div >
-                              {option}
+                            onClick={() => setQuest_answer({ questions: questionIndex + 1, answers: option })}
+                            key={optionIndex}
+                            className="flex justify-center items-center"
+                          >
+                            <div>
+                              {String.fromCharCode(65 + optionIndex)}. {option}
                             </div>
                           </div>
                         ))}
-
                       </div>
 
-                      <div> {e.options.slice(3, 6).map((option, optionIndex) => (
+                      {/* <div> {e.options.slice(3, 6).map((option, optionIndex) => (
                         <div
                           key={optionIndex} className="" >
                           <div >
                             {option}
                           </div>
                         </div>
-                      ))} </div>
+                      ))} </div> */}
                     </div>
                     <div className="w-80 flex justify-center pb-4">
-                      <div className="" >
+                      <div onClick={() => setQuest_answer({ questions: questionIndex + 1, answers: e.options[6] })} className="" >
                         {e.options[6]}
                       </div>
                     </div>
@@ -162,25 +181,19 @@ export default function Index() {
                   <div className="">
                     <div className=" pb-4 gap-6 flex">
                       <div>
-                        {e.options.slice(0, 3).map((option, optionIndex) => (
+                        {e.options.slice(0, 6).map((option, optionIndex) => (
                           <div
-                            key={optionIndex} className="" >
-                            <div >
-                              {option}
+                            onClick={() => setQuest_answer({ questions: questionIndex + 1, answers: option })}
+                            key={optionIndex}
+                            className="flex "
+                          >
+                            <div>
+                              {String.fromCharCode(65 + optionIndex)}. {option}
                             </div>
                           </div>
                         ))}
 
                       </div>
-
-                      <div> {e.options.slice(3, 5).map((option, optionIndex) => (
-                        <div
-                          key={optionIndex} className="" >
-                          <div >
-                            {option}
-                          </div>
-                        </div>
-                      ))} </div>
                     </div>
 
                   </div>
@@ -193,6 +206,7 @@ export default function Index() {
                 <div className="flex justify-center items-center flex-col">
                   {e.options.map((option, optionIndex) => (
                     <div
+                      onClick={() => setQuest_answer({ questions: questionIndex + 1, answers: option })}
                       key={optionIndex}
                       className="w-[360.78px] text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700"
                     >
@@ -215,7 +229,7 @@ export default function Index() {
                 Next
               </button> :
               <button
-                onClick={() => setQuestionIndex(questionIndex + 1)}
+                onClick={Quest_ans}
                 className="cursor-pointer capitalize"
               >
                 Next
