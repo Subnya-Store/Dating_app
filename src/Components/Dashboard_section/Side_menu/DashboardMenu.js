@@ -86,10 +86,17 @@ export default function DashboardMenu({ setStateHeader }) {
       <div className=" pt-10">
         {
           list.map(x => (
-            <div className="container mx-auto px-6 py-1">
+            <div onClick={()=>{
+              if(x.listHeading == 'Logout'){
+                localStorage.removeItem('user')
+                window.location.href='/signin'
+              }
+            }}  className="container mx-auto px-6 py-1">
 
               <ul className="flex gap-4" >
-                <li><img src={x.listImg} /></li>
+                <li>
+                  <img src={x.listImg} />
+                  </li>
                 <li> 
                 <button onClick={() =>setStateHeader(x.listHeading)} className="text-[#050062] font-bold"> {x.listHeading}</button>
                 </li>

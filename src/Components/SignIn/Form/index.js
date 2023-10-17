@@ -1,20 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from 'next/link'
 import axios from 'axios'
+import API from "@/API/API";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function index() {
+  const [credentials, setCredentials] = useState({
+    username: '',
+    password: ''
+  })
   const hitApi = () => {
     console.log("clicked")
-    // location.href ='/dashboard'
+    // window.location.href ='/dashboard'
     // axios.post("https://api101.investit.store/login", {
     //   username: "waleed",
     //   password: "admin"
     // })
     // .then(x=>console.log(x))
+    API.fetchPost(credentials, '/login')
+      .then(x => {
+        // console.log(x,'data')
+        if (x?.data?.message == 'User not found') {
+          toast.error(x?.data?.message, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          })
+        } else {
+          toast.success(x?.data?.message, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          })
+          localStorage.setItem('user',x?.data?.token)
+          window.location.href ='/dashboard'
+        }
+        // localStorage.setItem('user',x.data.token)
+      })
+      .catch(x => console.log(x, 'error'))
   }
   const Singin_logo = "/Images/SignIn_logo.png";
   return (
     <div className=" md:w-[450px]  bg-white p-8  flex flex-col  mx-16 rounded-2xl shadow-lg-z-10 opacity-90">
+      <ToastContainer />
       <div className=" flex">
         <ul className="flex justify-between w-full">
           <li>
@@ -44,6 +83,7 @@ export default function index() {
         <input
           className=" rounded-xl p-3  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  w-72"
           type="email"
+          onChange={e => setCredentials({ ...credentials, username: e.target.value })}
           placeholder="hello@yourdestinydating.com"
         />
       </div>
@@ -60,15 +100,16 @@ export default function index() {
         <input
           className=" rounded-xl bg-[#FFF]  p-3 flex border outline-none border-[#7000ED]  w-72"
           type="password"
+          onChange={e => setCredentials({ ...credentials, password: e.target.value })}
           placeholder="Password"
         />
       </div>
       <div className="pt-4 pb-4">
-        <Link href="/dashboard">
-          <button onClick={() => hitApi()} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
-            Sign in
-          </button>
-        </Link>
+        {/* <Link href="/dashboard"> */}
+        <button onClick={hitApi} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+          Sign in
+        </button>
+        {/* </Link> */}
       </div>
     </div>
   );

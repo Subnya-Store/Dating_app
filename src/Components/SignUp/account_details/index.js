@@ -47,7 +47,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
         <div className=" text-4xl font-bold py-4 capitalize"> Account Details</div>
         <div className="inline-flex gap-5 pt-1 pb-1">
           <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5" >
-            <img className=" object-contain px-4" src="/Images/Google_img.png " /> click me
+            <img className=" object-contain px-4" src="/Images/Google_img.png " /> signin with google
           </button>
           <button className="bg-[#7000ED] flex rounded-xl text-white  px-4 p-2">
             <img src="/Images/facbook_signin.png" className=" object-contain" />
