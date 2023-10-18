@@ -2,8 +2,9 @@
 import API from "@/API/API";
 import React, { useState } from "react";
 
-export default function Index({setState}) {
+export default function Index({ setState }) {
   const [questionIndex, setQuestionIndex] = useState(0);
+  const [optionIndexselected, setoptionIndexselected] = useState(null);
   const [file_image, setfile_image] = useState('');
   const [Image, setImage] = useState("/Images/camera.png");
   const [Quest_answer, setQuest_answer] = useState({
@@ -26,7 +27,7 @@ export default function Index({setState}) {
     {
       question: "Question 3",
       questionis: "What is your primary preferred meeting Age Group? ",
-      options: ["18-30", "18-30", "18-30", "18-30", "18-30", "18-30", "18-30"],
+      options: ["18-30", "31-40", "41-55", "56-66", "67-78", "79-89", "90-200"],
     },
     {
       question: "Question 4",
@@ -39,14 +40,20 @@ export default function Index({setState}) {
         "Are you comfortable with meeting people from a different background than yourself?  ",
       options: ["Yes", "No"],
     },
+    {
+      question: "Question 6",
+      questionis:
+        "Who are you interested in?",
+      options: ["male", "female"],
+    },
   ];
 
   const Quest_ans = () => {
     API.fetchPost(Quest_answer, '/questionair')
       .then(x => {
-        if (questionIndex == 4) {
-          setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 }),
-          window.location.href='/signin'
+        if (questionIndex == 5) {
+          setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
+          // window.location.href = '/signin'
         } else {
           setQuestionIndex(questionIndex + 1),
             setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 }),
@@ -58,6 +65,7 @@ export default function Index({setState}) {
   }
 
   const First_Quest = (e) => {
+    e.preventDefault()
     const formData = new FormData();
     formData.append('images', file_image);
 
@@ -67,6 +75,14 @@ export default function Index({setState}) {
         // setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
         // console.log(x)
       })
+      .catch(x => console.log(x))
+  }
+
+  const Last_quest = (e) => {
+    e.preventDefault()
+    // window.location.href = '/signin'
+    API.fetchPost({ interest: Quest_answer.answers }, '/interestedin')
+      .then(x => window.location.href = '/signin')
       .catch(x => console.log(x))
   }
 
@@ -140,34 +156,20 @@ export default function Index({setState}) {
             questionIndex === 2 && e.options && e.options.length > 0 && (
               <div >
                 <div className="flex justify-center items-center flex-col">
-                  <div className="">
+                  <div className="w-full">
                     <div className=" w-full   flex justify-center items-center">
-                      <div className="grid grid-cols-2 w-full">
-                        {e.options.slice(0, 6).map((option, optionIndex) => (
+                      <div className="grid grid-cols-2 content-evenly w-full">
+                        {e.options.slice(0, 7).map((option, optionIndex) => (
                           <div
-                            onClick={() => setQuest_answer({ questions: questionIndex + 1, answers: option })}
+                            onClick={() => (setQuest_answer({ questions: questionIndex + 1, answers: option }), setoptionIndexselected(optionIndex))}
                             key={optionIndex}
-                            className="flex justify-center items-center"
+                            className={`flex justify-center items-center `}
                           >
-                            <div>
+                            <div className={`${optionIndex == optionIndexselected && 'border text-white bg-[#7000ED] border-[#7000ED]'}`}>
                               {String.fromCharCode(65 + optionIndex)}. {option}
                             </div>
                           </div>
                         ))}
-                      </div>
-
-                      {/* <div> {e.options.slice(3, 6).map((option, optionIndex) => (
-                        <div
-                          key={optionIndex} className="" >
-                          <div >
-                            {option}
-                          </div>
-                        </div>
-                      ))} </div> */}
-                    </div>
-                    <div className="w-80 flex justify-center pb-4">
-                      <div onClick={() => setQuest_answer({ questions: questionIndex + 1, answers: e.options[6] })} className="" >
-                        {e.options[6]}
                       </div>
                     </div>
                   </div>
@@ -183,11 +185,11 @@ export default function Index({setState}) {
                       <div>
                         {e.options.slice(0, 6).map((option, optionIndex) => (
                           <div
-                            onClick={() => setQuest_answer({ questions: questionIndex + 1, answers: option })}
+                            onClick={() => (setQuest_answer({ questions: questionIndex + 1, answers: option }), setoptionIndexselected(optionIndex))}
                             key={optionIndex}
                             className="flex "
                           >
-                            <div>
+                            <div className={`${optionIndex == optionIndexselected && 'border text-white bg-[#7000ED] border-[#7000ED]'}`}>
                               {String.fromCharCode(65 + optionIndex)}. {option}
                             </div>
                           </div>
@@ -206,9 +208,26 @@ export default function Index({setState}) {
                 <div className="flex justify-center items-center flex-col">
                   {e.options.map((option, optionIndex) => (
                     <div
-                      onClick={() => setQuest_answer({ questions: questionIndex + 1, answers: option })}
+                      onClick={() => (setQuest_answer({ questions: questionIndex + 1, answers: option }), setoptionIndexselected(optionIndex))}
                       key={optionIndex}
-                      className="w-[360.78px] text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700"
+                      className={`w-[360.78px] text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700 ${optionIndex == optionIndexselected && ' text-white  border-[#7000ED]'}`}
+                    >
+                      <div className="opacity-70 text-black text-base py-3 font-medium capitalize">
+                        {option}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) ||
+            questionIndex === 5 && e.options && e.options.length > 0 && (
+              <div>
+                <div className="flex justify-center items-center flex-col">
+                  {e.options.map((option, optionIndex) => (
+                    <div
+                      onClick={() => (setQuest_answer({ questions: questionIndex + 1, answers: option }), setoptionIndexselected(optionIndex))}
+                      key={optionIndex}
+                      className={`w-[360.78px] text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700 ${optionIndex == optionIndexselected && ' text-white  border-[#7000ED]'}`}
                     >
                       <div className="opacity-70 text-black text-base py-3 font-medium capitalize">
                         {option}
@@ -221,23 +240,52 @@ export default function Index({setState}) {
           }
 
           <div className="border w-[20%] text-center text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md">
-            {questionIndex == 0 ?
+            {questionIndex == 0 &&
               <button
                 onClick={First_Quest}
                 className="cursor-pointer capitalize"
               >
-                Next
-              </button> :
+                First
+              </button> ||
+              questionIndex == 1  &&
               <button
                 onClick={Quest_ans}
                 className="cursor-pointer capitalize"
               >
                 Next
+              </button> ||
+              questionIndex == 2  &&
+              <button
+                onClick={Quest_ans}
+                className="cursor-pointer capitalize"
+              >
+                Next
+              </button> ||
+              questionIndex == 3  &&
+              <button
+                onClick={Quest_ans}
+                className="cursor-pointer capitalize"
+              >
+                Next
+              </button> ||
+              questionIndex == 4  &&
+              <button
+                onClick={Quest_ans}
+                className="cursor-pointer capitalize"
+              >
+                Next
+              </button> ||
+              questionIndex == 5 &&
+              <button
+                onClick={Last_quest}
+                className="cursor-pointer capitalize"
+              >
+                Last
               </button>
             }
           </div>
           <div className="text-center cursor-pointer mt-3">
-            {questionIndex + 1} of 5
+            {questionIndex + 1} of 6
           </div>
         </div>
       ))}

@@ -19,8 +19,6 @@ export default function index({setuser_index,setStateHeader}) {
           
           <div className=" md:w-[65%] ">
             <h2 className=" text-white text-lg px-4 font-bold" >Chat Request</h2>
-
-
             <Chat_request />
           </div>
 

@@ -8,15 +8,15 @@ import API from '@/API/API'
 export default function index({ setState, setInputs, inputs }) {
   const hitApi = () => {
     console.log("clicked")
-      // axios.post("https://api101.investit.store/register", {
-      //   username: "waleed",
-      //   password: "admin",
-      //   email: 'waleed@gmail.com'
-      // })
-      //   .then(x => console.log(x))
+    // axios.post("https://api101.investit.store/register", {
+    //   username: "waleed",
+    //   password: "admin",
+    //   email: 'waleed@gmail.com'
+    // })
+    //   .then(x => console.log(x))
   }
 
-
+console.log(inputs)
 
   const sign_up_img = '/Images/SignIn_logo.png/'
 
@@ -74,14 +74,27 @@ export default function index({ setState, setInputs, inputs }) {
             </li>
           </ul>
         </div>
-        <div className="pt-1 pb-1 font-medium ">
-          <label> Last name</label>
-          <input
-            onChange={e => setInputs({ ...inputs, last_name: e.target.value })}
-            className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  "
-            type="text"
-            placeholder="Angelo"
-          />
+        <div className='flex gap-4'>
+          <div className="pt-1 pb-1 font-medium ">
+            <label> Last name</label>
+            <input
+              onChange={e => setInputs({ ...inputs, last_name: e.target.value })}
+              className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  "
+              type="text"
+              placeholder="Angelo"
+            />
+          </div>
+          <div className="pt-1 pb-1 font-medium ">
+            <label> gender</label>
+            <select
+              className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED] " name='Gender'
+              placeholder='select gender'
+              onChange={e => (console.log(e.target.value),setInputs({ ...inputs, gender: e.target.value }))}>
+              <option></option>
+              <option>male</option>
+              <option>female</option>
+            </select>
+          </div>
         </div>
         <div>
           <ul className="flex w-72">

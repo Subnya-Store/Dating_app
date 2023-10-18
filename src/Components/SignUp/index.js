@@ -22,7 +22,8 @@ export default function index() {
     code: '',
     ID_card: '',
     age: '',
-    LegalID: ''
+    LegalID: '',
+    gender: ''
   })
   // console.log(inputs)
   return (

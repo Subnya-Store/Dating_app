@@ -1,4 +1,5 @@
-import React from 'react'
+import API from '@/API/API'
+import React,{useState,useEffect} from 'react'
 
 export default function index({ setStateHeader, setuser_index }) {
   const array = [{
@@ -17,6 +18,12 @@ export default function index({ setStateHeader, setuser_index }) {
     heading: "Charlotte, 24"
   },
   ]
+
+  // useEffect(()=>{
+  //   API.fetchGet('/matches')
+  //   .then(x=>console.log(x))
+  //   .catch(x=>console.log(x)) 
+  // },[])
   return (
 
     <div className='md:flex bg-white my-4  rounded-md '>
