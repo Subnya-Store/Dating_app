@@ -5,7 +5,7 @@ import React from 'react'
 
 export default function index({ setState, setInputs, inputs, toast }) {
 
-  const sign_up_img = '/Images/SignIn_logo.png/'
+  const sign_up_img = '/Images/SignIn_logo.png'
   const Make_acount = () => {
     // setState("email_vericaction")
     API.fetchPost(inputs, '/register')

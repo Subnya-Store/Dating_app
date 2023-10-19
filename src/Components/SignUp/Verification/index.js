@@ -17,7 +17,7 @@ export default function index({ setState, inputs, setInputs }) {
       .catch(x => console.log(x))
   }
 
-  const sign_up_img = '/Images/SignIn_logo.png/'
+  const sign_up_img = '/Images/SignIn_logo.png'
   return (
     <div>
       <div className=" md:w-fit  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">

@@ -5,7 +5,7 @@ import API from '@/API/API'
 export default function index({ setState, inputs, setInputs }) {
   const [image, setImage] = useState('/Images/input_image.png')
   const [file_image, setfile_image] = useState('')
-  const sign_up_img = '/Images/SignIn_logo.png/'
+  const sign_up_img = '/Images/SignIn_logo.png'
   const id_varification = '/Images/id_varification.png'
   console.log(file_image, 'checkin')
   const handleImageChange = (e) => {

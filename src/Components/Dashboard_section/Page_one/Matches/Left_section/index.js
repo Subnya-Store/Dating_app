@@ -27,11 +27,11 @@ const [Matches,setMatches]=useState(null)
   },[])
   return (
 
-    <div className='md:flex bg-white my-4  rounded-md '>
+    <div className='md:flex bg-white my-4  rounded-md grid grid-cols-2'>
       {
-        Matches&&Matches.map(e => <div onClick={()=>console.log(e)} className='p-4'>
+        Matches&&Matches.map(e => <div onClick={()=>console.log(e)} className='p-4 '>
 
-          <img onClick={() => (setuser_index(e.id), setStateHeader('Active_girl'))} className=' w-full  rounded-md' src={apiUrl+"/uploads/"+e.img} />
+          <img  onClick={() => (setuser_index(e.id), setStateHeader('Active_girl'))} className=' w-[200px] h-[200px]  rounded-md' src={apiUrl+"/Uploads/"+e.img} />
           <div className='p-1  mt-2 font-semibold flex justify-center text-[#050062] text-lg '>{e.user.full_name}</div>
         </div>)
       }

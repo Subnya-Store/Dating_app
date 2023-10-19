@@ -18,7 +18,7 @@ export default function index({ setState, setInputs, inputs }) {
 
 console.log(inputs)
 
-  const sign_up_img = '/Images/SignIn_logo.png/'
+  const sign_up_img = '/Images/SignIn_logo.png'
 
   return (
     <div>
