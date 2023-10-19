@@ -2,7 +2,7 @@
 import API from "@/API/API";
 import React, { useState } from "react";
 
-export default function Index({ setState }) {
+export default function Index({ setState , inputs }) {
   const [questionIndex, setQuestionIndex] = useState(0);
   const [optionIndexselected, setoptionIndexselected] = useState(null);
   const [file_image, setfile_image] = useState('');
@@ -49,7 +49,12 @@ export default function Index({ setState }) {
   ];
 
   const Quest_ans = () => {
-    API.fetchPost(Quest_answer, '/questionair')
+    API.fetchPost({
+      questions:Quest_answer.questions,
+      answers:Quest_answer.answers,
+      username:inputs.username,
+      full_name:inputs.full_name
+    }, '/questionair')
       .then(x => {
         if (questionIndex == 5) {
           setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
@@ -245,7 +250,7 @@ export default function Index({ setState }) {
                 onClick={First_Quest}
                 className="cursor-pointer capitalize"
               >
-                First
+                Next
               </button> ||
               questionIndex == 1  &&
               <button
@@ -280,7 +285,7 @@ export default function Index({ setState }) {
                 onClick={Last_quest}
                 className="cursor-pointer capitalize"
               >
-                Last
+                Next
               </button>
             }
           </div>

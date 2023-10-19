@@ -39,7 +39,7 @@ export default function index() {
 
       </div>
       <div>
-        {state == 'questions' && <Questions setState={setState} />}
+        {state == 'questions' && <Questions setState={setState} inputs={inputs} />}
       </div>
     </div>
   )

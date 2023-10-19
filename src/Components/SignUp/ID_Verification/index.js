@@ -30,6 +30,8 @@ export default function index({ setState, inputs, setInputs }) {
     formData.append('images', file_image);
     formData.append('age', inputs.age);
     formData.append('legal_id', inputs.LegalID);
+    formData.append('username', inputs.username);
+    formData.append('full_name', inputs.full_name);
 
     API.fetchPost(
       formData
