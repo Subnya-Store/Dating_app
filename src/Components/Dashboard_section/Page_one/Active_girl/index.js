@@ -1,3 +1,4 @@
+import API from '@/API/API';
 import apiUrl from '@/API/constant';
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
@@ -6,7 +7,8 @@ export default function Index() {
 
   const Selector_data = useSelector(x => x)
   const [currentIndex, setCurrentIndex] = useState(Selector_data.matches_index);
-
+  const [IndexUser, setIndexUser] = useState(null);
+  const [Request_found, setRequest_found] = useState(null)
   useEffect(() => {
 
     setCurrentIndex((prevIndex) => (prevIndex + 1) % Selector_data.matches.length);
@@ -22,13 +24,51 @@ export default function Index() {
     );
   };
 
-  // const visibleItems = [Selector_data.matches[currentIndex], Selector_data.matches[(currentIndex + 1) % Selector_data.matches.length], Selector_data.matches[(currentIndex + 2) % Selector_data.matches.length]];
+  const Request_sent = (to) => {
+    API.fetchPost({ to }, '/request_sent')
+      .then(x => setCurrentIndex((prevIndex) => (prevIndex + 1) % Selector_data.matches.length))
+      .catch(x => console.log(x))
+  }
+
+  let check
+  useEffect(() => {
+    Selector_data.matches.length > 2
+      ? setIndexUser(Selector_data.matches[(currentIndex + 1) % Selector_data.matches.length]?.user_id)
+      : setIndexUser(Selector_data.matches[currentIndex]?.user_id)
+
+  }, [currentIndex])
+
+
   const visibleItems = [
     Selector_data.matches[currentIndex],
     Selector_data.matches[(currentIndex + 1) % Selector_data.matches.length],
     Selector_data.matches[(currentIndex + 2) % Selector_data.matches.length]
   ];
-  console.log(Selector_data.matches)
+  // const visibleItemsforselectingCurrentUser =  [
+
+  //   Selector_data.matches[(currentIndex ) % Selector_data.matches.length]
+  // ];
+
+  // console.log(IndexUser);
+
+  const request_found = () => {
+    API.fetchPost({ to: IndexUser }, '/get_request')
+      .then(x => {
+        if (x.data.request != undefined) {
+          setRequest_found(x.data.request)
+        } else {
+          setRequest_found(null)
+        }
+      })
+      .catch(x => console.log(x))
+  }
+
+  useEffect(() => {
+    request_found()
+  }, [IndexUser])
+
+
+  // console.log(check)
   return (
     <div className=" relative bg-[url('/Images/Dashboard_pg1.png')]     w-[100%] h-full  bg-center  bg-cover  bg-no-repeat   ">
       <div className="  absolute  before:content-[]   bg-[#0500629e]  overflow-y-auto  bottom-0 top-0 left-0 w-[100%]  h-[100%] ">
@@ -36,6 +76,7 @@ export default function Index() {
           <div className='md:flex justify-center'>
             {visibleItems.map((x, index) => (
               <div
+                onClick={() => console.log(x)}
                 className={`bg-white p-8 md:w-fit flex gap-2 rounded-xl ${index === 1
                   ? 'lg:w-fit  bg-white  md:mx-10 p-8 h-2/3 '
                   : 'lg:w-fit bg-white md:blur-sm h-2/3  p-8  mt-10'
@@ -101,7 +142,20 @@ export default function Index() {
                         </div>
                       </div>
                       <div>
-                        <button className={` bg-[#FD2579] rounded-xl text-white py-3 px-6 ${index === 1 ? 'text-base' : ' text-xs py-0 px-6 '}`}>Message</button>
+                        {
+                          Request_found != null ?
+                            <button
+
+                              className={` bg-[#FD2579] rounded-xl text-white py-3 px-6 ${index === 1 ? 'text-base' : ' text-xs py-0 px-6 '}`}>
+                              {Request_found}
+                            </button> :
+                            <button
+                              onClick={() => { Request_sent(x.user_id) }}
+                              className={` bg-[#FD2579] rounded-xl text-white py-3 px-6 ${index === 1 ? 'text-base' : ' text-xs py-0 px-6 '}`}>
+                              Send Request
+                            </button>
+                        }
+
                       </div>
 
                     </div>
