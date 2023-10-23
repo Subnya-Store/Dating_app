@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Dashboard_section from '@/Components/Dashboard_section';
 import Side_menu from '@/Components/Dashboard_section/Side_menu';
 import Header from '@/Components/Dashboard_section/Header';
@@ -7,13 +7,20 @@ import Activity from '@/Components/Dashboard_section/Page_one/Matches/Activity_f
 import Inbox from '@/Components/Dashboard_section/Page_one/inbox'
 import Admin_section from '@/Components/Admin_section'
 import Active_girl from '@/Components/Dashboard_section/Page_one/Active_girl'
+import { useSelector } from 'react-redux';
 // import Matches 
 
 export default function Dashboard() {
-  const [State, SetState] = useState('matches')
-  const [stateHeader, setStateHeader] = useState("Matches");
+  const data = useSelector(x=>x)
+  const [State, SetState] = useState(data.state)
+  const [stateHeader, setStateHeader] = useState(data.state);
   const [user_index, setuser_index] = useState(null);
-  console.log(user_index)
+  console.log(data.state)
+
+  useEffect(()=>{
+    
+    setStateHeader('Inbox')
+  },[data.state])
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
       <Side_menu setStateHeader={setStateHeader} />

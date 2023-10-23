@@ -2,7 +2,8 @@ import React from 'react'
 import Leftsection from '@/Components/Dashboard_section/Page_one/inbox/LeftSection'
 import Rightsection from "@/Components/Dashboard_section/Page_one/inbox/RightSection"
 
-export default function index() {
+export default function index({setStateHeader}) {
+    // Matches
     return (
         <div className=" relative bg-[url('/Images/Dashboard_pg1.png')]     w-[100%] h-screen  bg-center  bg-cover  bg-no-repeat   ">
             <div className="  absolute  before:content-[]   bg-[#0500629e] md:overflow-hidden overflow-y-scroll   bottom-0 top-0 left-0 w-[100%]  h-[100%] ">
@@ -21,7 +22,7 @@ export default function index() {
 
 
                         <div className="md:px-4 py-1 justify-end md:flex hidden">
-                            <button className=" bg-white text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
+                            <button onClick={()=>setStateHeader('Matches')} className=" bg-white text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
                                 Back
                             </button>
                         </div>
