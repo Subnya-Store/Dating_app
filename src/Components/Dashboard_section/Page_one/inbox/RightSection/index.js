@@ -37,14 +37,14 @@ export default function index() {
   const [msg, setmsg] = useState('')
   const [msgArray, setmsgArray] = useState({})
   const [User_id, setUser_id] = useState(null)
-  const user=localStorage.getItem('user')
+  const user = localStorage.getItem('user')
 
   useEffect(() => {
     API.fetchGet('/get_conve')
       .then(x => {
-          setConversation(x.data.find_conve.id)
-          const user_data = Decode(user)
-          setUser_id(user_data.id)
+        setConversation(x.data.find_conve.id)
+        const user_data = Decode(user)
+        setUser_id(user_data.id)
       }
       )
       .catch(x => console.log(x))
@@ -54,7 +54,7 @@ export default function index() {
     API.fetchPost({ conversation_id }, '/get_conversation')
       .then(x => {
         setmsgArray(x.data.all_msgs)
-        
+
       })
       .catch(x => console.log(x))
   }, [conversation_id])
@@ -69,7 +69,7 @@ export default function index() {
         .catch(x => console.log(x))
   }
   return (
-    <div className='  bg-white md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] '>
+    <div className='  bg-white md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[700px] overflow-y-scroll'>
       <div >
         <ul className='flex  justify-between items-center gap-3 p-4 m-2 '>
           <li>
@@ -90,19 +90,20 @@ export default function index() {
         </ul>
 
       </div>
+      <div className='   '>
+        <div className=' h-[100%] overflow-y-scroll '>
+          {msgArray.length > 0 && msgArray.map((e, i) =>
+            <div key={i} onClick={() => console.log(e)} className="py-3 ">
+              <div className={`flex ${e.from == User_id ? 'justify-start px-4' : 'justify-end px-4'}`} >
+                <p className={`p-2 rounded-xl  ${e.from == User_id ? 'bg-[#D9D9D9]' : 'bg-[#FD166F]'}`}>{e.message}
+                </p>
+              </div>
 
-      <div className=' h-[72%] overflow-y-scroll '>
-        {msgArray.length > 0 && msgArray.map((e,i) =>
-          <div key={i} onClick={()=> console.log(e)} className="py-3 ">
-            <div className={`flex ${e.from == User_id?'justify-start px-4':'justify-end px-4'}`} >
-              <p className={`p-2 rounded-xl  ${e.from == User_id?'bg-[#D9D9D9]':'bg-[#FD166F]'}`}>{e.message}
-              </p>
+              {/* <div className=" flex justify-end px-4"> <p className="  bg-[#FD166F] p-2 rounded-xl text-white">{e.text2}</p></div> */}
             </div>
 
-            {/* <div className=" flex justify-end px-4"> <p className="  bg-[#FD166F] p-2 rounded-xl text-white">{e.text2}</p></div> */}
-          </div>
-
-        )}
+          )}
+        </div>
         <div>
           <ul className='flex justify-between bg-[#D9D9D9] rounded-full my-2'>
             <li className=' rounded-full justify-middle flex'>
@@ -110,8 +111,12 @@ export default function index() {
 
                 <div>
                   <div className=" flex gap-3 ">
-                    <button type="search" className='rounded-[100%] shadow-lg p-3'><i> < AiOutlinePlus size={"25px"} className="text-red-700" /> </i></button>
-                    <input className=' bg-[#D9D9D9] text-[#FD166F] placeholder:text-[#FD166F]' type="text" placeholder="Type here" onChange={e => setmsg(e.target.value)} />
+                    <button className='rounded-[100%] shadow-lg p-3'>
+                      <i>
+                        < AiOutlinePlus size={"25px"} className="text-red-700" />
+                      </i>
+                    </button>
+                    <input className='w-full bg-[#D9D9D9] text-[#FD166F] placeholder:text-[#FD166F]' type="text" placeholder="Type here" onChange={e => setmsg(e.target.value)} />
                   </div>
                 </div>
               </form>
@@ -120,6 +125,7 @@ export default function index() {
           </ul>
         </div>
       </div>
+
 
     </div>
   )
