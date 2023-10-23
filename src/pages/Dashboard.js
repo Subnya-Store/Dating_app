@@ -11,30 +11,29 @@ import { useSelector } from 'react-redux';
 // import Matches 
 
 export default function Dashboard() {
-  const data = useSelector(x=>x)
+  const data = useSelector(x => x)
   const [State, SetState] = useState(data.state)
   const [stateHeader, setStateHeader] = useState(data.state);
   const [user_index, setuser_index] = useState(null);
-  console.log(data.state)
 
-  useEffect(()=>{
-    
+
+  useEffect(() => {
+
     setStateHeader('Inbox')
-  },[data.state])
+  }, [data.state])
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
       <Side_menu setStateHeader={setStateHeader} />
       <div className='w-[100%] overflow-y-hidden'>
         <Header stateHeader={stateHeader} setStateHeader={setStateHeader} />
         {
-         stateHeader == 'Matches'&& <Dashboard_section setuser_index={setuser_index} stateHeader={stateHeader} setStateHeader={setStateHeader} /> || 
-        stateHeader == 'Setting' && <Setting stateHeader={stateHeader} setStateHeader={setStateHeader}/> ||
-        stateHeader == 'Inbox' && <Inbox stateHeader={stateHeader} setStateHeader={setStateHeader}/> ||
-        stateHeader == 'Admin' && <Admin_section stateHeader={stateHeader} setStateHeader={setStateHeader}/> ||
-        stateHeader == 'Active_girl' && <Active_girl user_index={user_index} stateHeader={stateHeader} setStateHeader={setStateHeader}/> 
+          stateHeader == 'Matches' && <Dashboard_section setuser_index={setuser_index} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          stateHeader == 'Setting' && <Setting stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          stateHeader == 'Inbox' && <Inbox stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          stateHeader == 'Admin' && <Admin_section stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          stateHeader == 'Active_girl' && <Active_girl user_index={user_index} stateHeader={stateHeader} setStateHeader={setStateHeader} />
 
-
-}
+        }
       </div>
 
     </div>

@@ -2,12 +2,12 @@ import React from "react";
 import { AiFillSetting } from "react-icons/ai";
 import { AiFillQuestionCircle } from "react-icons/ai";
 //humay state yahan tak lani hay 
-export default function DashboardMenu({ setStateHeader }) { 
+export default function DashboardMenu({ setStateHeader }) {
   const sideBar_arr = [
     {
       Logo: "/Images/logo-img.png",
       Menu_heading: "Main menu"
-   
+
     },
   ];
   const Support_menu = [
@@ -63,81 +63,69 @@ export default function DashboardMenu({ setStateHeader }) {
 
   return (
     <div className="side_menu text-xs md:text-lg ">
-      {sideBar_arr.map(y => (
-        <>
-          <div onClick={() => console.log(y)} className="container mx-auto px-4">
+      {sideBar_arr.map((y,i) => (
+          <div key={i} onClick={() => console.log(y)} className="container mx-auto px-4">
             <div className="side_logo ">
               <img src={y.Logo} />
             </div>
             <h3 className="text-xs md:text-lg">{y.Menu_heading}</h3>
           </div>
-          {/* <div className="matches_box">
-            <h4>{y.headings_four}</h4>
-          </div> */}
-
-        </>
       ))}
       {
-        main_manu.map(x => (
-          <>
-           
-            <div onClick={()=>setStateHeader('Matches')} className="matches_box cursor-pointer">
-              <ul className="flex justify-center gap-2">
-                <li> <img src="/Images/Dashboard.svg"/></li>
-                <li>
+        main_manu.map((x, i) => (
+          <div key={i} onClick={() => setStateHeader('Matches')} className="matches_box cursor-pointer">
+            <ul className="flex justify-center gap-2">
+              <li> <img src="/Images/Dashboard.svg" /></li>
+              <li>
                 <h4 className="" >{x.menu}</h4>
-                </li>
-              </ul>
-            </div>
-          </>
+              </li>
+            </ul>
+          </div>
         ))
       }
       <div className=" pt-10">
         {
-          list2.map(x => (
-            <div className="container mx-auto px-6 py-2">
+          list2.map((x, i) => (
+            <div key={i} className="container mx-auto px-6 py-2">
 
               <ul className="flex gap-4" >
                 <li><img src={x.listImg} /></li>
-                <li> 
-                <button onClick={() =>setStateHeader(x.listHeading)} className="text-[#050062] font-bold"> {x.listHeading}</button>
+                <li>
+                  <button onClick={() => setStateHeader(x.listHeading)} className="text-[#050062] font-bold"> {x.listHeading}</button>
                 </li>
-                
+
               </ul>
             </div>
 
           ))
         }
       </div>
-      
+
       <div className="border-b-[#000000] mt-10 border-2 ml-2 mr-2">
 
       </div>
-    
-      {Support_menu.map(x => (
-        <>
-          <div onClick={()=>console.log(x)} className="container mx-auto px-4">
+
+      {Support_menu.map((x, i) => (
+       
+          <div key={i} onClick={() => console.log(x)} className="container mx-auto px-4">
 
             <h3>{x.heading}</h3>
           </div>
-
-
-        </>
       ))}
-    
+
 
 
       <div className=" pt-10">
         {
-          list.map(x => (
-            <div className="container mx-auto px-6 py-1">
+          list.map((x, i) => (
+            <div key={i} className="container mx-auto px-6 py-1">
 
               <ul className="flex gap-4" >
                 <li><img src={x.listImg} /></li>
-                <li> 
-                <button onClick={() =>setStateHeader(x.listHeading)} className="text-[#050062] font-bold"> {x.listHeading}</button>
+                <li>
+                  <button onClick={() => setStateHeader(x.listHeading)} className="text-[#050062] font-bold"> {x.listHeading}</button>
                 </li>
-                
+
               </ul>
             </div>
 

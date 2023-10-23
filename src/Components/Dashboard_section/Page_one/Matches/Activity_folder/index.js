@@ -71,7 +71,7 @@ export default function index() {
           </li>
         </ul>
         {activit_arr.map((e, i) => (
-          <>
+          <div key={i}>
             <div className="flex justify-between  items-center w-full  mt-10">
               <div className="flex w-full items-center">
                 <span>
@@ -95,7 +95,7 @@ export default function index() {
               {/* <p className="text-[#050062]  font-bold text-base">{e.hours}</p> */}
             </div>
             <hr />
-          </>
+          </div>
         ))}
       </div>
     </div>

@@ -16,14 +16,6 @@ export default function Testing() {
             <div>testing api</div>
             <button onClick={() => hitApi()}>Login</button>
             <div>
-                {/* {
-                    data.map(x=>(
-                        <div className='border border-red-300'>
-                            name : {x.name}<br/>
-                            username : {x.username}
-                        </div>
-                    ))
-                } */}
                 <input type='text' placeholder='User id' onChange={e => setuser_id(e.target.value)} />
                 <input type='text' placeholder='id' onChange={e => setID(e.target.value)} />
             </div>

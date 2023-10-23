@@ -37,11 +37,14 @@ export default function index({ setStateHeader, setuser_index }) {
 
     <div className='md:flex bg-white my-4  rounded-md grid grid-cols-2'>
       {
-        Matches && Matches.map((e,i) => <div onClick={() => dispatch({type:'matches_index',payload:i})} className='p-4 '>
+        Matches && Matches.map((e, i) => (
+          <div key={i} onClick={() => dispatch({ type: 'matches_index', payload: i })} className='p-4 '>
 
-          <img onClick={() => (setuser_index(e.id), setStateHeader('Active_girl'))} className=' w-[200px] h-[200px]  rounded-md' src={apiUrl + "/Uploads/" + e.img} />
-          <div className='p-1  mt-2 font-semibold flex justify-center text-[#050062] text-lg '>{e.user.full_name}</div>
-        </div>)
+            <img onClick={() => (setuser_index(e.id), setStateHeader('Active_girl'))} className=' w-[200px] h-[200px]  rounded-md' src={apiUrl + "/Uploads/" + e.img} />
+            <div className='p-1  mt-2 font-semibold flex justify-center text-[#050062] text-lg '>{e.user.full_name}</div>
+          </div>
+        )
+        )
       }
     </div>
   )

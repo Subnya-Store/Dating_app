@@ -55,8 +55,8 @@ export default function index() {
                 <p className="text-[#050062] text-sm md:text-base">Get emails to find out what’s going on when you’re not online. You can turn these off.</p>
 
                 <div>  </div>
-                {textone.map(x => (
-                    <div className="flex gap-4 py-4 text-[#050062]" >
+                {textone.map((x,i) => (
+                    <div  key={i} className="flex gap-4 py-4 text-[#050062]" >
 
                         <div>      <Switch color="pink" defaultChecked /></div>
                         <div>
@@ -74,8 +74,8 @@ export default function index() {
                 <p className="text-[#FD2579] md:text-base font-semibold py-2 text-sm">Push notifications</p>
                 <p className="text-[#050062] text-sm md:text-base">Get emails to find out what’s going on when you’re not online. You can turn these off.</p>
 
-                {texttwo.map(x => (
-                    <div className="flex gap-4 py-4 text-[#050062]" >
+                {texttwo.map((x,i) => (
+                    <div  key={i} className="flex gap-4 py-4 text-[#050062]" >
 
                         <div>      <Switch color="pink" defaultChecked /></div>
                         <div>

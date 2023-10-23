@@ -37,8 +37,8 @@ export default function index() {
             <div className=' bg-white   rounded-2xl   min-w-[250px]  w-full py-2 px-2'>
 
                 {/* <div className=' '> */}
-                {array.map(e =>
-                    <div className='gap-4 py-2 w-full'>
+                {array.map((e,i) =>
+                    <div key={i} className='gap-4 py-2 w-full'>
                         <div className='flex w-full items-center'>
                             <div>
                                 <img className=' w-14 rounded-[50%]' src={e.img} />

@@ -75,8 +75,8 @@ export default function index() {
             
             </div> 
              <div className='overflow-y-scroll h-[80%]'>
-                {array.map(e =>
-                    <div >
+                {array.map((e,i) =>
+                    <div key={i} >
                         <ul className='flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2  '>
                             <li>
                                 <figure className='flex gap-2 overflow-y'>

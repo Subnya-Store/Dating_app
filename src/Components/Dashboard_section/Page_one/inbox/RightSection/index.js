@@ -42,7 +42,6 @@ export default function index() {
   useEffect(() => {
     API.fetchGet('/get_conve')
       .then(x => {
-        console.log(x),
           setConversation(x.data.find_conve.id)
           const user_data = Decode(user)
           setUser_id(user_data.id)
@@ -93,8 +92,8 @@ export default function index() {
       </div>
 
       <div className=' h-[72%] overflow-y-scroll '>
-        {msgArray.length > 0 && msgArray.map(e =>
-          <div onClick={()=> console.log(e)} className="py-3 ">
+        {msgArray.length > 0 && msgArray.map((e,i) =>
+          <div key={i} onClick={()=> console.log(e)} className="py-3 ">
             <div className={`flex ${e.from == User_id?'justify-start px-4':'justify-end px-4'}`} >
               <p className={`p-2 rounded-xl  ${e.from == User_id?'bg-[#D9D9D9]':'bg-[#FD166F]'}`}>{e.message}
               </p>

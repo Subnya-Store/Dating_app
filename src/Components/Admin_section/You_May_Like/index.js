@@ -31,8 +31,8 @@ export default function index() {
             <h2 className=' text-white font-bold text-[29px] '> You May Like</h2>
             <div className=' bg-white   rounded-2xl  w-full py-2 md:px-1'>
                 <div className='min-w-[250px]'>
-                    {array.map(e =>
-                        <div >
+                    {array.map((e,i) =>
+                        <div key={i} >
                             <ul className='flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2  '>
                                 <li>
                                     <figure className='flex gap-2'>
