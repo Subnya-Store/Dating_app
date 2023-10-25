@@ -24,36 +24,34 @@ export default function Dashboard() {
 
   // }, [Socket])
 
-  useEffect(() => {
-    Socket.on('connection');
-    Socket.on('recieve_hookup', (data) => {
-      API.fetchGet('/get_hook_up')
-        .then(x => {
-          if (x.data.msg == 'found!') {
-            setStateHeader('Inbox')
-            console.log(x, '<== checking api')
-          } else {
-            setStateHeader('Matches')
-          }
-        })
-        .catch(x => console.log(x))
-    })
-    Socket.on('recieve_breakup', (data) => {
-      API.fetchGet('/get_hook_up')
-        .then(x => {
-          if (x.data.msg == 'found!') {
-            setStateHeader('Inbox')
-            console.log(x, '<== checking api')
-          } else {
-            setStateHeader('Matches')
-          }
-        })
-        .catch(x => console.log(x))
-    })
-
-
-    // setStateHeader('Inbox')
-  }, [])
+  // useEffect(() => {
+  //   Socket.on('connection');
+  //   Socket.on('recieve_hookup', (data) => {
+  //     API.fetchGet('/get_hook_up')
+  //       .then(x => {
+  //         if (x.data.msg == 'found!') {
+  //           setStateHeader('Inbox')
+  //           console.log(x, '<== checking api')
+  //         } else {
+  //           setStateHeader('Matches')
+  //         }
+  //       })
+  //       .catch(x => console.log(x))
+  //   })
+  //   Socket.on('recieve_breakup', (data) => {
+  //     API.fetchGet('/get_hook_up')
+  //       .then(x => {
+  //         if (x.data.msg == 'found!') {
+  //           setStateHeader('Inbox')
+  //           console.log(x, '<== checking api')
+  //         } else {
+  //           setStateHeader('Matches')
+  //         }
+  //       })
+  //       .catch(x => console.log(x))
+  //   })
+  //   // setStateHeader('Inbox')
+  // }, [])
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
       <Side_menu setStateHeader={setStateHeader} />

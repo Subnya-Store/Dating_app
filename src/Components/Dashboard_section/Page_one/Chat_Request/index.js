@@ -70,13 +70,13 @@ export default function index({ setStateHeader }) {
 
         API.fetchPost({ hook_up_with: e.user_id }, '/hook_up')
             .then(x => (
-                // console.log(x)
-                dispatch({
-                    type: 'state',
-                    payload: 'Inbox'
-                }),
-                setStateHeader('Inbox'),
-                Socket.emit('send_hookup', 'hi')
+                console.log(x)
+                // dispatch({
+                //     type: 'state',
+                //     payload: 'Inbox'
+                // }),
+                // setStateHeader('Inbox'),
+                // Socket.emit('send_hookup', 'hi')
                 // window.location.href = '/dashboard/',
                 // window.location.reload()
 

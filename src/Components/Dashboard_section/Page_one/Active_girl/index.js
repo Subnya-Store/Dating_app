@@ -31,7 +31,7 @@ export default function Index() {
   const Request_sent = (to) => {
     API.fetchPost({ to }, '/request_sent')
       .then(x => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % Selector_data.matches.length),
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % Selector_data.matches.length)
         Socket.emit('send_request','hi')
       })
       .catch(x => console.log(x))
