@@ -10,25 +10,47 @@ import Active_girl from '@/Components/Dashboard_section/Page_one/Active_girl'
 import { useSelector } from 'react-redux';
 import API from '@/API/API';
 // import Matches 
+import io from 'socket.io-client'
+import apiUrl from '@/API/constant';
 
 export default function Dashboard() {
   const data = useSelector(x => x)
   const [State, SetState] = useState(data.state)
   const [stateHeader, setStateHeader] = useState('Matches');
+  const [datas, setdatas] = useState('')
   const [user_index, setuser_index] = useState(null);
+  const Socket = io(apiUrl)
+  // useEffect(() => {
 
+  // }, [Socket])
 
   useEffect(() => {
-    API.fetchGet('/get_hook_up')
-      .then(x => {
-        if (x.data.msg == 'found!') {
-          setStateHeader('Inbox')
-          console.log(x,'<== checking api')
-        }else{
-          setStateHeader('Matches')
-        }
-      })
-      .catch(x => console.log(x))
+    Socket.on('connection');
+    Socket.on('recieve_hookup', (data) => {
+      API.fetchGet('/get_hook_up')
+        .then(x => {
+          if (x.data.msg == 'found!') {
+            setStateHeader('Inbox')
+            console.log(x, '<== checking api')
+          } else {
+            setStateHeader('Matches')
+          }
+        })
+        .catch(x => console.log(x))
+    })
+    Socket.on('recieve_breakup', (data) => {
+      API.fetchGet('/get_hook_up')
+        .then(x => {
+          if (x.data.msg == 'found!') {
+            setStateHeader('Inbox')
+            console.log(x, '<== checking api')
+          } else {
+            setStateHeader('Matches')
+          }
+        })
+        .catch(x => console.log(x))
+    })
+
 
     // setStateHeader('Inbox')
   }, [])

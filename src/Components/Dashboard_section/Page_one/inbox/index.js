@@ -2,9 +2,12 @@ import React from 'react'
 import Leftsection from '@/Components/Dashboard_section/Page_one/inbox/LeftSection'
 import Rightsection from "@/Components/Dashboard_section/Page_one/inbox/RightSection"
 import API from '@/API/API'
+import io from 'socket.io-client'
+import apiUrl from '@/API/constant';
 
 export default function index({ setStateHeader }) {
     // Matches
+    const Socket = io(apiUrl)
     return (
         <div className=" relative bg-[url('/Images/Dashboard_pg1.png')]     w-[100%] h-screen  bg-center  bg-cover  bg-no-repeat   ">
             <div className="  absolute  before:content-[]   bg-[#0500629e] md:overflow-hidden overflow-y-scroll   bottom-0 top-0 left-0 w-[100%]  h-[100%] ">
@@ -28,7 +31,9 @@ export default function index({ setStateHeader }) {
                                     API.fetchGet('/unhook')
                                         .then(x => {
                                             // console.log(x)
-                                            setStateHeader('Matches')
+                                            setStateHeader('Matches');
+                                            Socket.on('connection');
+                                            Socket.emit('send_breakup','hi')
                                         })
                                         .catch(x => console.log(x))
                                 }}

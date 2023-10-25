@@ -3,14 +3,18 @@ import apiUrl from '@/API/constant';
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
+import io from 'socket.io-client'
+
 export default function Index() {
+
+  const Socket = io(apiUrl)
 
   const Selector_data = useSelector(x => x)
   const [currentIndex, setCurrentIndex] = useState(Selector_data.matches_index);
   const [IndexUser, setIndexUser] = useState(null);
   const [Request_found, setRequest_found] = useState(null)
   useEffect(() => {
-
+    Socket.on('connection')
     setCurrentIndex((prevIndex) => (prevIndex + 1) % Selector_data.matches.length);
   }, []);
 
@@ -26,7 +30,10 @@ export default function Index() {
 
   const Request_sent = (to) => {
     API.fetchPost({ to }, '/request_sent')
-      .then(x => setCurrentIndex((prevIndex) => (prevIndex + 1) % Selector_data.matches.length))
+      .then(x => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % Selector_data.matches.length),
+        Socket.emit('send_request','hi')
+      })
       .catch(x => console.log(x))
   }
 

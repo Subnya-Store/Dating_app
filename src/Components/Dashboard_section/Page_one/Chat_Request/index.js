@@ -2,8 +2,10 @@ import API from '@/API/API'
 import apiUrl from '@/API/constant'
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import io from 'socket.io-client'
 
 export default function index({ setStateHeader }) {
+    const Socket = io(apiUrl)
     const dispatch = useDispatch()
     const array = [
         {
@@ -45,25 +47,36 @@ export default function index({ setStateHeader }) {
 
     ]
     const [how_many_request, sethow_many_request] = useState({})
+    const [datas, setdatas] = useState('')
+
+    // useEffect(() => {
+
+    // }, [datas])
 
     useEffect(() => {
-        API.fetchGet('/request_find')
-            .then(x => (
-                sethow_many_request(x.data)
-            ))
-            .catch(x => console.log(x))
+        Socket.on('connection');
+        Socket.on('recieve_request', (data) => {
+            // setdatas(data)
+            API.fetchGet('/request_find')
+                .then(x => (
+                    sethow_many_request(x.data)
+                ))
+                .catch(x => console.log(x))
+            // console.log(data)
+        })
     }, [])
 
     const HookItUp = (e) => {
 
         API.fetchPost({ hook_up_with: e.user_id }, '/hook_up')
             .then(x => (
-                console.log(x)
-                // dispatch({
-                //     type: 'state',
-                //     payload: 'Inbox'
-                // }),
-                // setStateHeader('Inbox')
+                // console.log(x)
+                dispatch({
+                    type: 'state',
+                    payload: 'Inbox'
+                }),
+                setStateHeader('Inbox'),
+                Socket.emit('send_hookup', 'hi')
                 // window.location.href = '/dashboard/',
                 // window.location.reload()
 
@@ -74,7 +87,7 @@ export default function index({ setStateHeader }) {
         <div className='  bg-white md:m-4  rounded-2xl grid grid-cols-2 gap-x-8 '>
 
             {how_many_request.length > 0 && how_many_request.map((e, i) =>
-                <div  key={i} >
+                <div key={i} >
                     <ul className='md:flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2 '>
                         <li>
                             <figure className='md:flex md:gap-2 sm:gap-1'>
