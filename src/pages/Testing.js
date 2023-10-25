@@ -1,24 +1,22 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React, { useEffect } from 'react'
+import io from 'socket.io-client'
+// import io from Socket
 
+const socket = io("http://localhost:8080")
 export default function Testing() {
-    const [data, setData] = useState({})
-    const [user_id, setuser_id] = useState({})
-    const [ID, setID] = useState({})
-    const hitApi = () => {
-        axios.get('https://jsonplaceholder.typicode.com/posts/15')
-            .then(x => console.log(x))
-            .catch(x => console.log(x))
-    }
-    console.log(data)
+    useEffect(() => {
+        socket.on('connection', () => {
+            console.log(socket.id)
+        })
+        socket.on('send_msg', (data) => {
+            console.log('data')
+        })
+    }, [])
     return (
         <div>
-            <div>testing api</div>
-            <button onClick={() => hitApi()}>Login</button>
-            <div>
-                <input type='text' placeholder='User id' onChange={e => setuser_id(e.target.value)} />
-                <input type='text' placeholder='id' onChange={e => setID(e.target.value)} />
-            </div>
+            <button onClick={()=>socket.emit('send_msg','hello')}>
+                send 
+            </button>
         </div>
     )
 }

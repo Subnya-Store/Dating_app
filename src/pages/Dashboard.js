@@ -8,19 +8,30 @@ import Inbox from '@/Components/Dashboard_section/Page_one/inbox'
 import Admin_section from '@/Components/Admin_section'
 import Active_girl from '@/Components/Dashboard_section/Page_one/Active_girl'
 import { useSelector } from 'react-redux';
+import API from '@/API/API';
 // import Matches 
 
 export default function Dashboard() {
   const data = useSelector(x => x)
   const [State, SetState] = useState(data.state)
-  const [stateHeader, setStateHeader] = useState(data.state);
+  const [stateHeader, setStateHeader] = useState('Matches');
   const [user_index, setuser_index] = useState(null);
 
 
   useEffect(() => {
+    API.fetchGet('/get_hook_up')
+      .then(x => {
+        if (x.data.msg == 'found!') {
+          setStateHeader('Inbox')
+          console.log(x,'<== checking api')
+        }else{
+          setStateHeader('Matches')
+        }
+      })
+      .catch(x => console.log(x))
 
-    setStateHeader('Inbox')
-  }, [data.state])
+    // setStateHeader('Inbox')
+  }, [])
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
       <Side_menu setStateHeader={setStateHeader} />

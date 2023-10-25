@@ -35,7 +35,7 @@ export default function index() {
 
       <div className=' py-10'>
         {
-          plane.map(x => (
+          plane.map((x,i) => (
             <div key={i}>
               <ul className='flex justify-center gap-2 py-3'>
                 <li>

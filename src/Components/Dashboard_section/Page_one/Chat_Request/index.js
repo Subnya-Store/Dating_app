@@ -3,7 +3,7 @@ import apiUrl from '@/API/constant'
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-export default function index() {
+export default function index({ setStateHeader }) {
     const dispatch = useDispatch()
     const array = [
         {
@@ -55,22 +55,26 @@ export default function index() {
     }, [])
 
     const HookItUp = (e) => {
+
         API.fetchPost({ hook_up_with: e.user_id }, '/hook_up')
             .then(x => (
-                dispatch({
-                    type: 'state',
-                    payload: 'Inbox'
-                })),
-                // window.location.href='/dashboard/'
-                window.location.reload()
-            )
+                console.log(x)
+                // dispatch({
+                //     type: 'state',
+                //     payload: 'Inbox'
+                // }),
+                // setStateHeader('Inbox')
+                // window.location.href = '/dashboard/',
+                // window.location.reload()
+
+            ))
             .catch(x => console.log(x))
     }
     return (
         <div className='  bg-white md:m-4  rounded-2xl grid grid-cols-2 gap-x-8 '>
 
             {how_many_request.length > 0 && how_many_request.map((e, i) =>
-                <div onClick={() => console.log(e)} key={i} >
+                <div  key={i} >
                     <ul className='md:flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2 '>
                         <li>
                             <figure className='md:flex md:gap-2 sm:gap-1'>

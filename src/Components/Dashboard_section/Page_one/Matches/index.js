@@ -10,7 +10,7 @@ export default function index({setuser_index,setStateHeader}) {
         {/* <h2 className=" text-white text-lg "> Matches</h2> */}
         <div className="md:flex">
           <Left_section setuser_index={setuser_index} setStateHeader={setStateHeader}/>
-          <Right_section />
+          <Right_section setStateHeader={setStateHeader}/>
         </div>
         <div className="md:flex gap-12">
           <div className=' md:w-[35%]'>
@@ -19,7 +19,7 @@ export default function index({setuser_index,setStateHeader}) {
           
           <div className=" md:w-[65%] ">
             <h2 className=" text-white text-lg px-4 font-bold" >Chat Request</h2>
-            <Chat_request />
+            <Chat_request  setStateHeader={setStateHeader}/>
           </div>
 
         </div>

@@ -1,8 +1,9 @@
 import React from 'react'
 import Leftsection from '@/Components/Dashboard_section/Page_one/inbox/LeftSection'
 import Rightsection from "@/Components/Dashboard_section/Page_one/inbox/RightSection"
+import API from '@/API/API'
 
-export default function index({setStateHeader}) {
+export default function index({ setStateHeader }) {
     // Matches
     return (
         <div className=" relative bg-[url('/Images/Dashboard_pg1.png')]     w-[100%] h-screen  bg-center  bg-cover  bg-no-repeat   ">
@@ -12,7 +13,7 @@ export default function index({setStateHeader}) {
                     <div className='md:w-[50%] w-full'>
                         <div className="px-4 py-1">
                             <button className=" bg-transparent text-white  items-center text-center cursor-pointer font-semibold py-2 px-4 text-2xl">
-                            Inbox
+                                Inbox
                             </button>
                         </div>
                         <Leftsection />
@@ -22,12 +23,22 @@ export default function index({setStateHeader}) {
 
 
                         <div className="md:px-4 py-1 justify-end md:flex hidden">
-                            <button onClick={()=>setStateHeader('Matches')} className=" bg-white text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
-                                Back
+                            <button
+                                onClick={() => {
+                                    API.fetchGet('/unhook')
+                                        .then(x => {
+                                            // console.log(x)
+                                            setStateHeader('Matches')
+                                        })
+                                        .catch(x => console.log(x))
+                                }}
+                                className=" bg-white text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
+                                Break up
                             </button>
                         </div>
 
-                        <Rightsection /></div>
+                        <Rightsection />
+                    </div>
                 </div>
             </div>
         </div>
