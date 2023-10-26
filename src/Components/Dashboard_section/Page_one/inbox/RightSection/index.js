@@ -9,44 +9,31 @@ import apiUrl from '@/API/constant'
 
 const socket = io(apiUrl)
 
-export default function index() {
+export default function index({ Conversations_id, setConversation_id, setProfile, Profile }) {
   // const socket = io.8080
- 
+
   const [conversation_id, setConversation] = useState(1)
   const [msg, setmsg] = useState('')
   const [recieve_msgs, setrecieve_msg] = useState('')
   const [msgArray, setmsgArray] = useState({})
   const [User_id, setUser_id] = useState(null)
-  const [Profile, setProfile] = useState(null)
+
   const [aik, setaik] = useState(null)
   const user = localStorage.getItem('user')
+
 
   useEffect(() => {
     socket.on('connection', () => {
       console.log(socket.id)
     })
-    setConversation(null)
-    API.fetchGet('/get_conve')
-      .then(x => {
-        setConversation(x.data.find_conve.id)
-        const user_data = Decode(user)
-        setUser_id(user_data.id)
-        setProfile(x.data.User_data)
-        socket.emit("join_room", x.data.find_conve.id)
-        // console.log(x.data.find_conve.id,'<== get conversation')
-      }
-      )
-      .catch(x => console.log(x))
-  }, [socket])
-
-  useEffect(() => {
-    API.fetchPost({ conversation_id }, '/get_conversation')
+    socket.emit("join_room", Conversations_id)
+    Conversations_id != null && API.fetchPost({ conversation_id: Conversations_id }, '/get_conversation')
       .then(x => {
         setmsgArray(x.data.all_msgs)
 
       })
       .catch(x => console.log(x))
-  }, [conversation_id,recieve_msgs,msg])
+  }, [Conversations_id, recieve_msgs, msg])
 
   useEffect(() => {
     socket.on('connection', () => {
@@ -54,17 +41,17 @@ export default function index() {
     })
     socket.on('recieve_msg', (data) => {
       setrecieve_msg(data)
-      console.log(data,'<== receiver')
+      console.log(data, '<== receiver')
     })
   }, [])
 
   const Msg_now = (e) => {
     e.preventDefault(),
       API.fetchPost({
-        conversation_id,
+        conversation_id: Conversations_id,
         msg
       }, '/msg')
-        .then(x => (socket.emit('send_msg', {msg,room:conversation_id}),setmsg('')))
+        .then(x => (socket.emit('send_msg', { msg, room: Conversations_id }), setmsg('')))
         .catch(x => console.log(x))
   }
   // console.log(Profile)
@@ -74,10 +61,10 @@ export default function index() {
         <ul className='flex  justify-between items-center gap-3 p-4 m-2 '>
           <li>
             <figure className='flex gap-2'>
-              <img className=' w-14 rounded-[50%]' src="/Images/img_1.png" />
+              <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + Profile?.profile?.img || '/Images/video.png'} />
               <ul className='text-[#050062] '>
                 <li className='font-bold  mt-4'>
-                  {Profile?.user?.full_name}
+                  {Profile?.full_name}
                 </li>
               </ul>
             </figure>
@@ -117,7 +104,7 @@ export default function index() {
                         < AiOutlinePlus size={"25px"} className="text-red-700" />
                       </i>
                     </button>
-                    <input className='w-full bg-[#D9D9D9] text-[#FD166F] placeholder:text-[#FD166F]' type="text" placeholder="Type here" onChange={e => setmsg(e.target.value)} />
+                    <input className='w-full bg-[#D9D9D9] text-[#FD166F] placeholder:text-[#FD166F]' value={msg} type="text" placeholder="Type here" onChange={e => setmsg(e.target.value)} />
                   </div>
                 </div>
 

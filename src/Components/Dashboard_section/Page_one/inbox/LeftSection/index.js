@@ -1,9 +1,11 @@
 import API from '@/API/API'
+import apiUrl from '@/API/constant'
 import React, { useEffect, useState } from 'react'
 // import {MagnifyingGlassIcon} from "@heroicons/react/24/outline";
 import { AiOutlineSearch } from 'react-icons/ai'
 
-export default function index() {
+export default function index({setProfile, setConversation_id}) {
+
     
     const [Conversations, setConversation] = useState({})
     useEffect(() => {
@@ -34,22 +36,21 @@ export default function index() {
                         <ul className='flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2  '>
                             <li>
                                 <figure className='flex gap-2 overflow-y'>
-                                    <img className=' w-14 rounded-[50%]' src={"https://theelegance.pk/wp-content/uploads/2022/06/Eat-Sleep-Football-Repeat-Boy-Kid-100x100.jpg"} />
+                                    <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + e.user.profile.img} />
                                     <ul className='text-[#050062]'>
                                         <li className='font-bold '>
                                             {e.user.full_name}
-                                            
+
                                         </li>
                                         <li className='text-[#FD2579] '>
-                                            {/* {e.text2} */}
                                             {e?.lastMessage}
                                         </li>
                                     </ul>
                                 </figure>
                             </li>
                             <li>
-                                <button className="bg-[#e4cffc] text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
-                                    {e.button_text}
+                                <button onClick={()=>(setConversation_id(e.conve_id),setProfile(e.user))} className="bg-[#e4cffc] text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
+                                    Reply
                                 </button>
                             </li>
                         </ul>
