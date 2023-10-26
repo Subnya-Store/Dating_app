@@ -11,33 +11,7 @@ const socket = io(apiUrl)
 
 export default function index() {
   // const socket = io.8080
-  const array = [
-    {
-
-      text: "hey",
-      text2: "Thats sounds good, i get off work around......",
-
-    },
-    {
-
-      text: "whatsup",
-      text2: "Teacher, 23",
-
-    },
-    {
-
-      text: "Thats sounds good, i get off work around.",
-      text2: "Teacher, 23",
-
-    },
-
-    {
-
-      text: "Marie",
-      text2: "Typing....",
-    }
-
-  ]
+ 
   const [conversation_id, setConversation] = useState(1)
   const [msg, setmsg] = useState('')
   const [recieve_msgs, setrecieve_msg] = useState('')
