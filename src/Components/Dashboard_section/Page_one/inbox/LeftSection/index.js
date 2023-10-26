@@ -4,15 +4,20 @@ import React, { useEffect, useState } from 'react'
 // import {MagnifyingGlassIcon} from "@heroicons/react/24/outline";
 import { AiOutlineSearch } from 'react-icons/ai'
 
-export default function index({setProfile, setConversation_id}) {
+export default function index({setProfile, setConversation_id,recieve_msgs, setrecieve_msg,msg, setmsg }) {
 
     
-    const [Conversations, setConversation] = useState({})
+    const [Conversations, setConversation] = useState({msg, setmsg})
     useEffect(() => {
         API.fetchGet('/get_all_hookup')
             .then(x => setConversation(x.data.users))
             .catch(x => console.log(x))
     }, [])
+    useEffect(() => {
+        API.fetchGet('/get_all_hookup')
+            .then(x => setConversation(x.data.users))
+            .catch(x => console.log(x))
+    }, [recieve_msgs,setrecieve_msg,msg])
     return (
         <div className=' bg-white md:m-4  rounded-2xl h-[400px]   md:w-[80%] w-full py-2 md:px-1'>
             {/* <div className="p-2">

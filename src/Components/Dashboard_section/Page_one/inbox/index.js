@@ -8,6 +8,8 @@ import apiUrl from '@/API/constant';
 export default function index({ setStateHeader }) {
     const [Conversations_id, setConversation_id] = useState(null)
     const [Profile, setProfile] = useState(null)
+    const [recieve_msgs, setrecieve_msg] = useState('')
+    const [msg, setmsg] = useState('')
     // Matches
     const Socket = io(apiUrl)
     return (
@@ -21,7 +23,7 @@ export default function index({ setStateHeader }) {
                                 Inbox
                             </button>
                         </div>
-                        <Leftsection Conversations_id={Conversations_id} setConversation_id={setConversation_id} Profile={Profile} setProfile={setProfile} />
+                        <Leftsection msg={msg} setmsg={setmsg} recieve_msgs={recieve_msgs} setrecieve_msg={setrecieve_msg} Conversations_id={Conversations_id} setConversation_id={setConversation_id} Profile={Profile} setProfile={setProfile} />
                     </div >
 
                     <div className='md:w-[50%] w-full'>
@@ -44,7 +46,7 @@ export default function index({ setStateHeader }) {
                             </button>
                         </div> */}
 
-                        <Rightsection Conversations_id={Conversations_id} setConversation_id={setConversation_id} Profile={Profile} setProfile={setProfile} />
+                        <Rightsection msg={msg} setmsg={setmsg} recieve_msgs={recieve_msgs} setrecieve_msg={setrecieve_msg} Conversations_id={Conversations_id} setConversation_id={setConversation_id} Profile={Profile} setProfile={setProfile} />
                     </div>
                 </div>
             </div>
