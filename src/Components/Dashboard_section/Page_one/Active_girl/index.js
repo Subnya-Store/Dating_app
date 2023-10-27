@@ -43,8 +43,8 @@ export default function Index() {
 
   let check
   useEffect(() => {
-    Selector_data.matches.length > 2
-      ? setIndexUser(Selector_data.matches[(currentIndex + 1) % Selector_data.matches.length]?.user_id)
+    Selector_data.matches.length > 0
+      ? setIndexUser(Selector_data.matches[(currentIndex+1) % Selector_data.matches.length]?.user_id)
       : setIndexUser(Selector_data.matches[currentIndex]?.user_id)
 
   }, [currentIndex])
