@@ -13,6 +13,8 @@ export default function Index() {
   const [currentIndex, setCurrentIndex] = useState(Selector_data.matches_index);
   const [IndexUser, setIndexUser] = useState(null);
   const [Request_found, setRequest_found] = useState(null)
+  const [Loading, setLoading] = useState(true)
+  const [Refresh, setRefresh] = useState('')
   useEffect(() => {
     Socket.on('connection')
     setCurrentIndex((prevIndex) => (prevIndex + 1) % Selector_data.matches.length);
@@ -29,10 +31,12 @@ export default function Index() {
   };
 
   const Request_sent = (to) => {
+    setLoading(true)
     API.fetchPost({ to }, '/request_sent')
       .then(x => {
-        setCurrentIndex((prevIndex) => (prevIndex + 1) % Selector_data.matches.length)
-        Socket.emit('send_request','hi')
+        setRefresh('hi')
+        // setCurrentIndex((prevIndex) => (prevIndex + 1) % Selector_data.matches.length)
+        Socket.emit('send_request', 'hi')
       })
       .catch(x => console.log(x))
   }
@@ -59,12 +63,16 @@ export default function Index() {
   // console.log(IndexUser);
 
   const request_found = () => {
+    setLoading(true)
     API.fetchPost({ to: IndexUser }, '/get_request')
       .then(x => {
         if (x.data.request != undefined) {
           setRequest_found(x.data.request)
+          setLoading(false)
+          console.log(x.data)
         } else {
           setRequest_found(null)
+          setLoading(false)
         }
       })
       .catch(x => console.log(x))
@@ -72,7 +80,11 @@ export default function Index() {
 
   useEffect(() => {
     request_found()
-  }, [IndexUser])
+  }, [IndexUser,Refresh])
+
+  useEffect(() => {
+    request_found()
+  }, [])
 
 
   // console.log(check)
@@ -83,7 +95,7 @@ export default function Index() {
           <div className='md:flex justify-center'>
             {visibleItems.map((x, index) => (
               <div
-                onClick={() => console.log(x)}
+                // onClick={() => console.log(x)}
                 className={`bg-white p-8 md:w-fit flex gap-2 rounded-xl ${index === 1
                   ? 'lg:w-fit  bg-white  md:mx-10 p-8 h-2/3 '
                   : 'lg:w-fit bg-white md:blur-sm h-2/3  p-8  mt-10'
@@ -148,9 +160,9 @@ export default function Index() {
                           </div>
                         </div>
                       </div>
-                      <div>
+                      {Loading ? ('loading') : (<div>
                         {
-                          Request_found != null ?
+                          Request_found && Request_found == 'pending' ?
                             <button
 
                               className={` bg-[#FD2579] rounded-xl text-white py-3 px-6 ${index === 1 ? 'text-base' : ' text-xs py-0 px-6 '}`}>
@@ -163,7 +175,7 @@ export default function Index() {
                             </button>
                         }
 
-                      </div>
+                      </div>)}
 
                     </div>
                   </div>

@@ -36,16 +36,15 @@ export default function index({setProfile, setConversation_id,recieve_msgs, setr
             </ul>
             </div>
             <div className='overflow-y-scroll h-[80%]'>
-                {Conversations.length > 0 && Conversations.map((e, i) =>
+                {Conversations&&Conversations.length > 0 && Conversations.map((e, i) =>
                     <div key={e.conve_id} >
                         <ul className='flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2  '>
                             <li>
                                 <figure className='flex gap-2 overflow-y'>
-                                    <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + e.user.profile.img} />
+                                    <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + e?.user?.profile?.img} />
                                     <ul className='text-[#050062]'>
                                         <li className='font-bold '>
-                                            {e.user.full_name}
-
+                                            {e?.user?.full_name}
                                         </li>
                                         <li className='text-[#FD2579] '>
                                             {e?.lastMessage}
