@@ -186,24 +186,6 @@ export default function Index({ setState, inputs }) {
 
           {/* Answers  */}
           {
-            // questionIndex === 0 && (
-            //   <div>
-            //     <div className="flex justify-center items-center flex-col">
-            //       <div className="border w-[100px] py-4 px-4 m-auto bg-white">
-            //         <img
-            //           src={Image}
-            //           className="w-full m-auto align-middle text-center object-contain"
-            //         />
-            //       </div>
-            //       <div className="w-[144.78px] h-[37.54px] text-center flex justify-center items-center my-2 bg-white rounded-[8.94px] border border-violet-700">
-            //         <label htmlFor="myfile" className="opacity-70 text-black text-base  font-medium capitalize m-auto">
-            //           Upload
-            //         </label>
-            //         <input type="file" id="myfile" className="hidden" onChange={handleImageChange} />
-            //       </div>
-            //     </div>
-            //   </div>
-            // ) ||
             questionIndex === 0 && (
               <div>
                 <div className="flex justify-center items-center flex-col">
