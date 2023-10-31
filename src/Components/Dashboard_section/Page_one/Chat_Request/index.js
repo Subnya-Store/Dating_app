@@ -104,7 +104,7 @@ export default function index({ setStateHeader }) {
                                 <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + e?.user.profile?.img} />
                                 <ul className='text-[#050062]'>
                                     <li className='font-bold '>
-                                        {e.user.full_name}
+                                        {e?.user?.full_name}
                                     </li>
                                     <li>
                                         teacher {e?.user.profile?.age}

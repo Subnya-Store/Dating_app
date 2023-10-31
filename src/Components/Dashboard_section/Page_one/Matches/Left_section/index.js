@@ -41,7 +41,7 @@ export default function index({ setStateHeader, setuser_index }) {
           <div key={i} onClick={() => dispatch({ type: 'matches_index', payload: i })} className='p-4 '>
 
             <img onClick={() => (setuser_index(e.id), setStateHeader('Active_girl'))} className=' w-[200px] h-[200px]  rounded-md' src={apiUrl + "/Uploads/" + e.img} />
-            <div className='p-1  mt-2 font-semibold flex justify-center text-[#050062] text-lg '>{e.user.full_name}</div>
+            <div className='p-1  mt-2 font-semibold flex justify-center text-[#050062] text-lg '>{e?.user?.full_name}</div>
           </div>
         )
         )

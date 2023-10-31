@@ -17,6 +17,8 @@ export default function index({ Conversations_id, setConversation_id, setProfile
 
   const [msgArray, setmsgArray] = useState({})
   const [User_id, setUser_id] = useState(null)
+  const [Typing, setType] = useState('')
+  const [isTyping, setIsTyping] = useState(false);
 
   const [aik, setaik] = useState(null)
   const user = localStorage.getItem('user')
@@ -52,17 +54,58 @@ export default function index({ Conversations_id, setConversation_id, setProfile
       scrollToBottom()
     })
   }, [])
-  console.log(User_id)
+
+
+  useEffect(() => {
+    let typingTimeout;
+    let isTyping = false;
+    let duration = 200; // Default duration
+  
+    socket.on('connection', () => {
+      console.log(socket.id);
+    });
+  
+    const setIsTypingTrue = () => {
+      isTyping = true;
+      setIsTyping(isTyping);
+      clearTimeout(typingTimeout);
+  
+      // Set a new timeout with the updated duration
+      typingTimeout = setTimeout(() => {
+        isTyping = false;
+        setIsTyping(isTyping);
+      }, duration);
+    };
+  
+    socket.on('show_typing', (data) => {
+      setIsTypingTrue();
+      duration += 25; // Increase the duration based on a condition
+    });
+  
+    return () => {
+      socket.off('show_typing');
+      clearTimeout(typingTimeout);
+    };
+  }, [socket]);
+  
+
+
+  const sendTypingIndicator = () => {
+    socket.on('connection', () => {
+      console.log(socket.id)
+    })
+    socket.emit('typing', { userId: socket.id });
+  };
   const Msg_now = (e) => {
     e.preventDefault(),
       API.fetchPost({
         conversation_id: Conversations_id,
         msg
       }, '/msg')
-        .then(x => (socket.emit('send_msg', { msg, room: Conversations_id }), setmsg(''),scrollToBottom()))
+        .then(x => (socket.emit('send_msg', { msg, room: Conversations_id }), setmsg(''), scrollToBottom()))
         .catch(x => console.log(x))
   }
-  // console.log(Profile)
+  console.log(Typing, 'check this')
   return (
     <div className='  bg-white md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[700px] '>
       <div >
@@ -89,18 +132,18 @@ export default function index({ Conversations_id, setConversation_id, setProfile
       <div className='h-full'>
         <div className='overflow-y-scroll h-[75%] ' ref={messagesContainerRef} >
           {msgArray.length > 0 && msgArray.map((e, i) =>
-            <div  key={i} onClick={() => console.log(e)} className="">
-              <div  className={`flex ${e.from == User_id.id ? 'justify-start px-4' : 'justify-end px-4 mb-5'}`} >
-                <p  className={`p-2 m-2 rounded-xl  ${e.from == User_id.id ? 'bg-[#D9D9D9]' : 'bg-[#FD166F]'}`}>
+            <div key={i} onClick={() => console.log(e)} className="">
+              <div className={`flex ${e.from == User_id.id ? 'justify-start px-4' : 'justify-end px-4 mb-5'}`} >
+                <p className={`p-2 m-2 rounded-xl  ${e.from == User_id.id ? 'bg-[#D9D9D9]' : 'bg-[#FD166F]'}`}>
                   {e.message}
                 </p>
               </div>
             </div>
           )}
-          <div  className='mb-10'></div>
-          
-        </div>
+          <div className='mb-10'></div>
 
+        </div>
+        {isTyping ? <p className='h-[20px] w-full '>Someone is typing...</p> : <div className='h-[20px] w-full '></div>}
         <div>
           <ul className='flex justify-between bg-[#D9D9D9] rounded-full my-2'>
             <li className=' rounded-full justify-middle flex'>
@@ -113,7 +156,13 @@ export default function index({ Conversations_id, setConversation_id, setProfile
                         < AiOutlinePlus size={"25px"} className="text-red-700" />
                       </i>
                     </button>
-                    <input className='w-full bg-[#D9D9D9] text-[#FD166F] placeholder:text-[#FD166F]' value={msg} type="text" placeholder="Type here" onChange={e => setmsg(e.target.value)} />
+                    <input
+                      className='w-full bg-[#D9D9D9] text-[#FD166F] placeholder:text-[#FD166F]'
+                      value={msg}
+                      type="text"
+                      placeholder="Type here"
+                      // onKeyPress={sendTypingIndicator}
+                      onChange={e => (setmsg(e.target.value), sendTypingIndicator())} />
                   </div>
                 </div>
 

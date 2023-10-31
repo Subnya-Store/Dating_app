@@ -130,7 +130,7 @@ export default function Index() {
                     <div>
                       <div className='flex justify-between'>
                         <div className=' text-[#050062] text-[20px]'>
-                          {x.user.full_name}
+                          {x?.user?.full_name}
                         </div>
                         <div>
                           <img src={"/Images/star.svg"} />
