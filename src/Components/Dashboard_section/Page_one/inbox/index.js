@@ -28,24 +28,6 @@ export default function index({ setStateHeader }) {
 
                     <div className='md:w-[50%] w-full'>
 
-
-                        {/* <div className="md:px-4 py-1 justify-end md:flex hidden">
-                            <button
-                                onClick={() => {
-                                    API.fetchGet('/unhook')
-                                        .then(x => {
-                                            // console.log(x)
-                                            setStateHeader('Matches');
-                                            Socket.on('connection');
-                                            Socket.emit('send_breakup', 'hi')
-                                        })
-                                        .catch(x => console.log(x))
-                                }}
-                                className=" bg-white text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
-                                Break up
-                            </button>
-                        </div> */}
-
                         <Rightsection msg={msg} setmsg={setmsg} recieve_msgs={recieve_msgs} setrecieve_msg={setrecieve_msg} Conversations_id={Conversations_id} setConversation_id={setConversation_id} Profile={Profile} setProfile={setProfile} />
                     </div>
                 </div>
