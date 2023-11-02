@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillSetting } from "react-icons/ai";
 import { AiFillQuestionCircle } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 //humay state yahan tak lani hay 
 export default function DashboardMenu({ setStateHeader }) {
   const sideBar_arr = [
@@ -39,7 +40,7 @@ export default function DashboardMenu({ setStateHeader }) {
 
   ]
   const Logo = "/Images/logo-img.png";
-
+const dispatch=useDispatch()
   return (
     <div className="side_menu text-xs md:text-lg">
       {sideBar_arr.map((y, i) => (
@@ -56,7 +57,10 @@ export default function DashboardMenu({ setStateHeader }) {
         main_manu.map((x, i) => (
           <div  key={i}>
 
-            <div onClick={() => setStateHeader('Matches')} className="matches_box cursor-pointer">
+            <div onClick={() => (dispatch({
+              type:'state',
+              payload:x.menu
+            }),setStateHeader('Matches'))} className="matches_box cursor-pointer">
               <h4 className="" >{x.menu}</h4>
             </div>
           </div>

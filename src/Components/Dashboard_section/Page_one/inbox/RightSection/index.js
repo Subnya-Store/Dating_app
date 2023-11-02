@@ -5,13 +5,14 @@ import { AiOutlinePlus } from 'react-icons/ai'
 import Decode from 'jwt-decode'
 import io from 'socket.io-client'
 import apiUrl from '@/API/constant'
+import { useDispatch, useSelector } from 'react-redux'
 // import io from Socket
 
 const socket = io(apiUrl)
 
 export default function index({ Conversations_id, setConversation_id, setProfile, Profile, recieve_msgs, setrecieve_msg, msg, setmsg }) {
   // const socket = io.8080
-
+  const Selector_data = useSelector(x => x)
   const [conversation_id, setConversation] = useState(1)
   const messagesContainerRef = useRef(null);
 
@@ -31,6 +32,13 @@ export default function index({ Conversations_id, setConversation_id, setProfile
   };
 
   useEffect(() => {
+    setConversation_id(Selector_data.ConversationId)
+    //api now for seen
+    API.fetchPost({conversation_id:Selector_data.ConversationId},'/see_notify')
+    .then(x=>console.log('seen hogya'))
+  }, [Selector_data.ConversationId])
+
+  useEffect(() => {
     socket.on('connection', () => {
       console.log(socket.id)
     })
@@ -39,6 +47,8 @@ export default function index({ Conversations_id, setConversation_id, setProfile
       .then(x => {
         setUser_id(Decode(user))
         setmsgArray(x.data.all_msgs)
+        console.log(x.data,'<==== for profile'),
+        setProfile(x.data.Profile)
         scrollToBottom()
       })
       .catch(x => console.log(x))
@@ -104,13 +114,12 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         .then(x => (socket.emit('send_msg', { msg, room: Conversations_id }), setmsg(''), scrollToBottom()))
         .catch(x => console.log(x))
   }
-  console.log(Typing, 'check this')
   useEffect(() => {
     // Add this useEffect to scroll to the bottom initially and whenever msgArray or isTyping changes.
     scrollToBottom();
   }, [msgArray, isTyping]);
   return (
-    <div onClick={()=>console.log(Conversations_id)} className='  bg-white md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[700px] '>
+    <div onClick={() => console.log(Conversations_id)} className='  bg-white md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[700px] '>
       <div >
         <div className='flex  justify-between items-center gap-3 p-4 m-2 '>
           <div className='flex gap-2'>
@@ -160,7 +169,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
                     type="text"
                     placeholder="Type here"
                     onFocus={() => (API.fetchPost({ conversation_id: Conversations_id }, '/seen').then(x => socket.emit('seen', 'hi')))}
-                    onChange={e => (setmsg(e.target.value), sendTypingIndicator(),socket.emit('seen', 'hi'))}
+                    onChange={e => (setmsg(e.target.value), sendTypingIndicator(), socket.emit('seen', 'hi'))}
                   />
                 </div>
 

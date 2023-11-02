@@ -33,6 +33,11 @@ export default function Dashboard() {
     })
 
   }, [Socket])
+
+  useEffect(()=>{
+    setStateHeader(data.state)
+  },[data])
+
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
       <Side_menu setStateHeader={setStateHeader} />
