@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import moment from "moment/moment";
 import { useDispatch, useSelector } from 'react-redux'
+import io from 'socket.io-client'
+import apiUrl from '@/API/constant'
 
 
-export default function index({setStateHeader}) {
+export default function index({ setStateHeader }) {
   // const activit_arr = [
   //   {
   //     user_img: "user",
@@ -56,15 +58,18 @@ export default function index({setStateHeader}) {
   //   },
   // ];
 
+  const socket = io(apiUrl)
   const [activit_arr, setArr] = useState([])
   const dispatch = useDispatch()
-  const Selector_data=useSelector(x=>x)
+  const Selector_data = useSelector(x => x)
 
   useEffect(() => {
+   
     API.fetchGet('/get_notify')
-      .then(x => setArr(x.data))
-      .catch(x => console.log(x))
-  }, [])
+        .then(x => setArr(x.data))
+        .catch(x => console.log(x))
+
+  },[])
   // console.log(Selector_data.state)
   const users = "/Images/user_img.png";
   const email = "/Images/email-icon.png";
@@ -89,11 +94,11 @@ export default function index({setStateHeader}) {
           <div
             onClick={() => {
               dispatch({
-              type: 'ConversationId',
-              payload: e.conversation_id
-            }),
-            setStateHeader('Inbox')
-          }}
+                type: 'ConversationId',
+                payload: e.conversation_id
+              }),
+                setStateHeader('Inbox')
+            }}
             key={i}
           >
             <div className="flex justify-between  items-center w-full  mt-10">

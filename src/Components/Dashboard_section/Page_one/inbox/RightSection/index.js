@@ -43,7 +43,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
 
   useEffect(() => {
     socket.on('connection', () => {
-      console.log(socket.id)
+      console.log(socket.id,"<============== ye connected hy")
     })
     socket.emit("join_room", Conversations_id)
     Conversations_id != null && API.fetchPost({ conversation_id: Conversations_id }, '/get_conversation')
@@ -55,12 +55,15 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         scrollToBottom()
       })
       .catch(x => console.log(x))
+
+     
   }, [Conversations_id, recieve_msgs])
 
   useEffect(() => {
     socket.on('connection', () => {
       console.log(socket.id)
     })
+    
     socket.on('recieve_msg', (data) => {
       setrecieve_msg(data)
       console.log(data, '<== receiver')
@@ -77,6 +80,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
     socket.on('connection', () => {
       console.log(socket.id);
     });
+   
 
     const setIsTypingTrue = () => {
       isTyping = true;

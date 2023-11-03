@@ -25,7 +25,9 @@ export default function Dashboard() {
   // }, [Socket])
 
   useEffect(() => {
-    Socket.on('connection');
+    Socket.on('connection',(data)=>{
+      console.log(Socket.id,'<=== chech me')
+    });
     Socket.on('recieve_hookup', (data) => {
       API.fetchGet('/get_hook_up')
         .then(x => setdatas(x))
@@ -34,9 +36,6 @@ export default function Dashboard() {
 
   }, [Socket])
 
-  // useEffect(()=>{
-  //   setStateHeader(data.state)
-  // },[data])
 
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
