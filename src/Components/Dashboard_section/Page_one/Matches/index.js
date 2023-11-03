@@ -14,7 +14,7 @@ export default function index({setuser_index,setStateHeader}) {
         </div>
         <div className="md:flex gap-12">
           <div className=' md:w-[35%]'>
-          <Activity_folder />
+          <Activity_folder setStateHeader={setStateHeader}/>
           </div>
           
           <div className=" md:w-[65%] ">

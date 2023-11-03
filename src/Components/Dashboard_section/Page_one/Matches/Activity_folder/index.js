@@ -5,7 +5,7 @@ import moment from "moment/moment";
 import { useDispatch, useSelector } from 'react-redux'
 
 
-export default function index() {
+export default function index({setStateHeader}) {
   // const activit_arr = [
   //   {
   //     user_img: "user",
@@ -92,11 +92,7 @@ export default function index() {
               type: 'ConversationId',
               payload: e.conversation_id
             }),
-            dispatch({
-              type: 'state',
-              payload: 'Inbox'
-            })
-            // window.location.href='/Inbox'
+            setStateHeader('Inbox')
           }}
             key={i}
           >
@@ -120,7 +116,6 @@ export default function index() {
                   <div className="text-sm">{moment(e?.updatedAt, "YYYYMMDD").fromNow()}</div>
                 </div>
               </div>
-              {/* <p className="text-[#050062]  font-bold text-base">{e.hours}</p> */}
             </div>
             <hr />
           </div>
