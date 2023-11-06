@@ -8,55 +8,6 @@ import apiUrl from '@/API/constant'
 
 
 export default function index({ setStateHeader }) {
-  // const activit_arr = [
-  //   {
-  //     user_img: "user",
-  //     // user_img: "/Images/user_img.png",
-  //     // email_img: "/Images/email-icon.png",
-  //     // search_img: "/Images/search-icon.png",
-  //     Act_heading: "  Activity",
-  //     user_name: "Marie Campbell",
-  //     hours: " 2 hours ago",
-  //     user_follow: "is now following you",
-  //   },
-  //   {
-  //     user_img: "email",
-  //     user_name: "Jason Mamoa",
-  //     hours: " 1 hours ago",
-  //     user_follow: "messaged you",
-  //   },
-  //   {
-  //     user_img: "search",
-  //     user_name: "Alexa",
-  //     hours: " 30 hours ago",
-  //     user_follow: "Searched you",
-  //   },
-
-  //   {
-  //     user_img: "email",
-  //     user_name: "Jason Mamoa",
-  //     hours: " 15 minutes ago",
-  //     user_follow: "messaged you",
-  //   },
-  //   {
-  //     user_img: "user",
-  //     user_name: "Marie Campbell",
-  //     hours: " 2 hours ago",
-  //     user_follow: "is now following you",
-  //   },
-  //   {
-  //     user_img: "email",
-  //     user_name: "Jason Mamoa",
-  //     hours: "1 hours ago",
-  //     user_follow: "messaged you",
-  //   },
-  //   {
-  //     user_img: "search",
-  //     user_name: "Alexa",
-  //     hours: " 30 hours ago",
-  //     user_follow: "Searched you",
-  //   },
-  // ];
 
   const socket = io(apiUrl)
   const [activit_arr, setArr] = useState([])
@@ -64,13 +15,19 @@ export default function index({ setStateHeader }) {
   const Selector_data = useSelector(x => x)
 
   useEffect(() => {
-   
-    API.fetchGet('/get_notify')
+    socket.on('connection')
+    socket.on('show_notify', () => {
+      API.fetchGet('/get_notify')
         .then(x => setArr(x.data))
         .catch(x => console.log(x))
-
-  },[])
-  // console.log(Selector_data.state)
+    })
+  }, [socket])
+  useEffect(() => {
+    API.fetchGet('/get_notify')
+      .then(x => setArr(x.data))
+      .catch(x => console.log(x))
+  }, [])
+  console.log(activit_arr, "<=========================")
   const users = "/Images/user_img.png";
   const email = "/Images/email-icon.png";
   const search = "/Images/search-icon.png";
@@ -93,11 +50,11 @@ export default function index({ setStateHeader }) {
         {activit_arr?.length > 0 && activit_arr?.map((e, i) => (
           <div
             onClick={() => {
-              dispatch({
+              e?.type == 'msg' && dispatch({
                 type: 'ConversationId',
                 payload: e.conversation_id
               }),
-                setStateHeader('Inbox')
+                e?.type == 'msg' && setStateHeader('Inbox')
             }}
             key={i}
           >
@@ -106,7 +63,7 @@ export default function index({ setStateHeader }) {
                 <span>
                   <img
                     src={
-                      e?.type == 'user' && users ||
+                      e?.type == 'follow' && users ||
                       e?.type == 'msg' && email ||
                       e?.type == 'search' && search
                     }

@@ -2,26 +2,36 @@ import API from '@/API/API'
 import apiUrl from '@/API/constant'
 import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { FaUser } from 'react-icons/fa'
+import { BsStarFill } from 'react-icons/bs'
+import io from 'socket.io-client'
 
 export default function index({ setStateHeader, setuser_index }) {
   const dispatch = useDispatch()
-  const array = [{
-    id: 0,
-    img: '/Images/img_1.png',
-    heading: "Mia,22"
-  },
-  {
-    id: 1,
-    img: '/Images/imgsecond.png',
-    heading: "Marie, 24"
-  },
-  {
-    id: 2,
-    img: '/Images/img_1.png',
-    heading: "Charlotte, 24"
-  },
-  ]
+
+  const Socket = io(apiUrl)
+
   const [Matches, setMatches] = useState(null)
+  const [Hover, setHover] = useState(null)
+  const [following, setfollowing] = useState(null)
+
+  console.log(Hover)
+  useEffect(() => {
+    Socket.on('connection')
+    Socket.on('show_notify', () => {
+      API.fetchGet('/matches')
+        .then(x => (
+          dispatch({
+            type: 'matches',
+            payload: x.data.shuffledMates
+          }),
+          setMatches(x.data.shuffledMates),
+          setfollowing(x.data.Follower[0].isFollowing)
+        ))
+        .catch(x => console.log(x))
+    })
+
+  }, [Socket])
   useEffect(() => {
     API.fetchGet('/matches')
       .then(x => (
@@ -29,23 +39,41 @@ export default function index({ setStateHeader, setuser_index }) {
           type: 'matches',
           payload: x.data.shuffledMates
         }),
-        setMatches(x.data.shuffledMates)
+        setMatches(x.data.shuffledMates),
+        setfollowing(x.data.Follower[0].isFollowing)
       ))
       .catch(x => console.log(x))
+
   }, [])
   return (
 
-    <div className='md:flex bg-white my-4  rounded-md grid grid-cols-2'>
-      {
-        Matches && Matches.map((e, i) => (
-          <div key={i} onClick={() => dispatch({ type: 'matches_index', payload: i })} className='p-4 '>
-
-            <img onClick={() => (setuser_index(e.id), setStateHeader('Active_girl'))} className=' w-[200px] h-[200px]  rounded-md' src={apiUrl + "/Uploads/" + e.img} />
-            <div className='p-1  mt-2 font-semibold flex justify-center text-[#050062] text-lg '>{e?.user?.full_name}</div>
-          </div>
-        )
-        )
-      }
+    <div className='md:flex bg-white my-4 rounded-md grid grid-cols-2'>
+      {Matches && Matches.map((e, i) => (
+        <div onClick={() => console.log(e)} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} key={i} className='p-4 relative'>
+          {Hover && <div className='w-[200px] h-[200px] flex flex-col justify-evenly items-center rounded-md bg-opacity-20 bg-red-600 absolute'>
+            <div onClick={() => {
+              dispatch({ type: 'matches_index', payload: i })
+              setuser_index(e.id);
+              setStateHeader('Active_girl');
+            }} className='text-white flex font-bold text-md'>
+              <FaUser />
+              View Profile
+            </div>
+            {!following ? <div onClick={() => (API.fetchPost({ follow_user: e.id }, '/follow_me'), Socket.emit('notify', 'hi'))} className='text-white font-bold text-md flex '>
+              <BsStarFill />
+              Add to Favorite
+            </div> :
+              <BsStarFill size={30} color='white' />
+            }
+          </div>}
+          <img
+            className='w-[200px] h-[200px] rounded-md'
+            src={apiUrl + "/Uploads/" + e.img}
+          />
+          <div className='p-1 mt-2 font-semibold flex justify-center text-[#050062] text-lg'>{e?.user?.full_name}</div>
+        </div>
+      ))}
     </div>
+
   )
 }

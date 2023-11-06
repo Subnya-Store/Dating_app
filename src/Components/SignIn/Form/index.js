@@ -12,27 +12,11 @@ export default function index() {
   })
   const hitApi = () => {
     console.log("clicked")
-    // window.location.href ='/dashboard'
-    // axios.post("https://api101.investit.store/login", {
-    //   username: "waleed",
-    //   password: "admin"
-    // })
-    // .then(x=>console.log(x))
+
     API.fetchPost(credentials, '/login')
       .then(x => {
         // console.log(x,'data')
-        if (x?.data?.message == 'User not found') {
-          toast.error(x?.data?.message, {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          })
-        } else {
+        if (x?.data?.message === 'Logged in successfully') {
           toast.success(x?.data?.message, {
             position: "top-center",
             autoClose: 5000,
@@ -43,8 +27,20 @@ export default function index() {
             progress: undefined,
             theme: "light",
           })
-          localStorage.setItem('user',x?.data?.token)
-          window.location.href ='/dashboard'
+          localStorage.setItem('user', x?.data?.token)
+          window.location.href = '/dashboard'
+        } else {
+          toast.error(x?.data?.message, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          })
+
         }
         // localStorage.setItem('user',x.data.token)
       })
