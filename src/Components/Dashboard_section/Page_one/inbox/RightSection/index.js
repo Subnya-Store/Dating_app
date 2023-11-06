@@ -39,11 +39,11 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         .then(x => socket.emit('seen', 'hi')))
 
   }, [Selector_data.ConversationId])
- 
+
 
   useEffect(() => {
     socket.on('connection', () => {
-      console.log(socket.id,"<============== ye connected hy")
+      console.log(socket.id, "<============== ye connected hy")
     })
     socket.emit("join_room", Conversations_id)
     Conversations_id != null && API.fetchPost({ conversation_id: Conversations_id }, '/get_conversation')
@@ -56,14 +56,26 @@ export default function index({ Conversations_id, setConversation_id, setProfile
       })
       .catch(x => console.log(x))
 
-     
-  }, [Conversations_id, recieve_msgs])
+
+  }, [Conversations_id, recieve_msgs,socket])
+
+  useEffect(() => {
+    Conversations_id != null && API.fetchPost({ conversation_id: Conversations_id }, '/get_conversation')
+      .then(x => {
+        setUser_id(Decode(user))
+        setmsgArray(x.data.all_msgs)
+        console.log(x.data, '<==== for profile'),
+          setProfile(x.data.Profile)
+        scrollToBottom()
+      })
+      .catch(x => console.log(x))
+  }, [msg])
 
   useEffect(() => {
     socket.on('connection', () => {
       console.log(socket.id)
     })
-    
+
     socket.on('recieve_msg', (data) => {
       setrecieve_msg(data)
       console.log(data, '<== receiver')
@@ -80,7 +92,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
     socket.on('connection', () => {
       console.log(socket.id);
     });
-   
+
 
     const setIsTypingTrue = () => {
       isTyping = true;
@@ -124,7 +136,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
   useEffect(() => {
     // Add this useEffect to scroll to the bottom initially and whenever msgArray or isTyping changes.
     scrollToBottom();
-    Selector_data?.ConversationId&& API.fetchPost({ conversation_id: Selector_data?.ConversationId }, '/see_notify')
+    Selector_data?.ConversationId && API.fetchPost({ conversation_id: Selector_data?.ConversationId }, '/see_notify')
       .then(x => API.fetchPost({ conversation_id: Conversations_id }, '/seen')
         .then(x => socket.emit('seen', 'hi')))
   }, [msgArray, isTyping]);
@@ -178,9 +190,9 @@ export default function index({ Conversations_id, setConversation_id, setProfile
                     value={msg}
                     type="text"
                     placeholder="Type here"
-                    onFocus={async() => (
+                    onFocus={async () => (
                       await API.fetchPost({ conversation_id: Conversations_id }, '/see_notify').then(x => socket.emit('seen', 'hi')),
-                     await API.fetchPost({ conversation_id: Conversations_id }, '/seen')
+                      await API.fetchPost({ conversation_id: Conversations_id }, '/seen')
                         .then(x => socket.emit('seen', 'hi'))
                     )}
                     onChange={e => (setmsg(e.target.value), sendTypingIndicator(), socket.emit('seen', 'hi'))}
