@@ -22,7 +22,12 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
         API.fetchGet('/get_all_hookup')
             .then(x => (console.log(x), setConversation(x.data.users)))
             .catch(x => console.log(x))
-    }, [recieve_msgs, setrecieve_msg])
+    }, [recieve_msgs, setrecieve_msg,msg])
+    useEffect(() => {
+        API.fetchGet('/get_all_hookup')
+            .then(x => (console.log(x), setConversation(x.data.users)))
+            .catch(x => console.log(x))
+    }, [socket])
 
     useEffect(() => {
         socket.on('connection', () => {
