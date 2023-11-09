@@ -14,7 +14,7 @@ export default function Index({ setState, inputs }) {
     questions: questionIndex,
     answers: ''
   });
-  console.log({ Quest_answer, questionIndex })
+  
   const camerImg = "/Images/camera.png";
 
   const arrayquest = [
@@ -137,15 +137,12 @@ export default function Index({ setState, inputs }) {
     API.fetchPost(formData, '/quest_image')
       .then(x => {
         setQuestionIndex(questionIndex + 1)
-        // setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
-        // console.log(x)
       })
       .catch(x => console.log(x))
   }
 
   const Last_quest = (e) => {
     e.preventDefault()
-    // window.location.href = '/signin'
     API.fetchPost({ interest: Quest_answer.answers, username: inputs.username, full_name: inputs.full_name }, '/interestedin')
       .then(x => window.location.href = '/signin')
       .catch(x => console.log(x))
@@ -156,14 +153,12 @@ export default function Index({ setState, inputs }) {
     const uploadedFile = e.target.files[0];
 
     setfile_image(uploadedFile)
-    // setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
     if (uploadedFile) {
       const imageURL = URL.createObjectURL(uploadedFile);
-      // console.log(imageURL,uploadedFile)
       setImage(imageURL);
     }
   };
-  // console.log(Image,'checking')
+  
   return (
     <div className="h-screen flex justify-center">
       {arrayquest.map((e, index) => (

@@ -64,7 +64,7 @@ export default function DashboardMenu({ setStateHeader }) {
   return (
     <div className="side_menu text-xs md:text-lg ">
       {sideBar_arr.map((y,i) => (
-          <div key={i} onClick={() => console.log(y)} className="container mx-auto px-4">
+          <div key={i}  className="container mx-auto px-4">
             <div className="side_logo ">
               <img src={y.Logo} />
             </div>
@@ -107,7 +107,7 @@ export default function DashboardMenu({ setStateHeader }) {
 
       {Support_menu.map((x, i) => (
        
-          <div key={i} onClick={() => console.log(x)} className="container mx-auto px-4">
+          <div key={i} className="container mx-auto px-4">
 
             <h3>{x.heading}</h3>
           </div>

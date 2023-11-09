@@ -7,7 +7,7 @@ export default function index({ setState, inputs, setInputs }) {
   const [file_image, setfile_image] = useState('')
   const sign_up_img = '/Images/SignIn_logo.png'
   const id_varification = '/Images/id_varification.png'
-  console.log(file_image, 'checkin')
+  
   const handleImageChange = (e) => {
     // Access the uploaded file
     const uploadedFile = e.target.files[0];
@@ -19,7 +19,7 @@ export default function index({ setState, inputs, setInputs }) {
     // Set the image in the state
     if (uploadedFile) {
       const imageURL = URL.createObjectURL(uploadedFile);
-      // console.log(imageURL,uploadedFile)
+      
       setImage(imageURL);
     }
   };

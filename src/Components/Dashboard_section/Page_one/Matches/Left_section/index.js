@@ -15,7 +15,7 @@ export default function index({ setStateHeader, setuser_index }) {
   const [Hover, setHover] = useState(null)
   const [following, setfollowing] = useState(null)
 
-  console.log(Hover)
+  
   useEffect(() => {
     Socket.on('connection')
     Socket.on('show_notify', () => {
@@ -31,7 +31,7 @@ export default function index({ setStateHeader, setuser_index }) {
         .catch(x => console.log(x))
     })
 
-  }, [Socket])
+  }, [])
   useEffect(() => {
     API.fetchGet('/matches')
       .then(x => (
@@ -49,7 +49,7 @@ export default function index({ setStateHeader, setuser_index }) {
 
     <div className='md:flex bg-white my-4 rounded-md grid grid-cols-2'>
       {Matches && Matches.map((e, i) => (
-        <div onClick={() => console.log(e)} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} key={i} className='p-4 relative'>
+        <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} key={i} className='p-4 relative'>
           {Hover && <div className='w-[200px] h-[200px] flex flex-col justify-evenly items-center rounded-md bg-opacity-20 bg-red-600 absolute'>
             <div onClick={() => {
               dispatch({ type: 'matches_index', payload: i })

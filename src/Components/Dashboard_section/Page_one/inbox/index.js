@@ -10,8 +10,8 @@ export default function index({ setStateHeader }) {
     const [Profile, setProfile] = useState(null)
     const [recieve_msgs, setrecieve_msg] = useState('')
     const [msg, setmsg] = useState('')
-    // Matches
-    const Socket = io(apiUrl)
+   
+    
     return (
         <div className=" relative bg-[url('/Images/Dashboard_pg1.png')]     w-[100%] h-screen  bg-center  bg-cover  bg-no-repeat   ">
             <div className="  absolute  before:content-[]   bg-[#0500629e] md:overflow-hidden overflow-y-scroll   bottom-0 top-0 left-0 w-[100%]  h-[100%] ">

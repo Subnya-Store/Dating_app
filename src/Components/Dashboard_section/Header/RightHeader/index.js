@@ -10,8 +10,7 @@ export default function index() {
       .then(x => setUser_info(x.data))
       .catch(x => console.log(x))
   }, [])
-  // console.log(apiUrl + '/Uploads/' + user_info?.profile?.img)
-  // console.log(user_info.profile.img)
+  
   return (
     <div className="right_header flex ">
 

@@ -7,7 +7,6 @@ import API from '@/API/API'
 export default function index({ setState, inputs, setInputs }) {
 
   const VerifyNow = () => {
-    // console.log(inputs.code)
     API.fetchPost(inputs, '/verify_code')
       .then(x => {
         if (x.data.msg == 'Verified successfully !') {

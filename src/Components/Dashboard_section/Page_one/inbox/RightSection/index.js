@@ -13,7 +13,7 @@ const socket = io(apiUrl)
 export default function index({ Conversations_id, setConversation_id, setProfile, Profile, recieve_msgs, setrecieve_msg, msg, setmsg }) {
   // const socket = io.8080
   const Selector_data = useSelector(x => x)
-  const [conversation_id, setConversation] = useState(1)
+  
   const messagesContainerRef = useRef(null);
 
   const [msgArray, setmsgArray] = useState({})
@@ -50,43 +50,43 @@ export default function index({ Conversations_id, setConversation_id, setProfile
       .then(x => {
         setUser_id(Decode(user))
         setmsgArray(x.data.all_msgs)
-        console.log(x.data, '<==== for profile'),
-          setProfile(x.data.Profile)
+        setProfile(x.data.Profile)
         scrollToBottom()
       })
       .catch(x => console.log(x))
 
 
-  }, [Conversations_id, recieve_msgs,socket])
+  }, [Conversations_id])
 
   useEffect(() => {
     Conversations_id != null && API.fetchPost({ conversation_id: Conversations_id }, '/get_conversation')
       .then(x => {
         setUser_id(Decode(user))
         setmsgArray(x.data.all_msgs)
-        console.log(x.data, '<==== for profile'),
-          setProfile(x.data.Profile)
+        setProfile(x.data.Profile)
         scrollToBottom()
       })
       .catch(x => console.log(x))
-  }, [msg])
+  }, [msg,recieve_msgs])
 
-  useEffect(() => {
-    socket.on('connection', () => {
-      console.log(socket.id)
-    })
-
-    socket.on('recieve_msg', (data) => {
-      setrecieve_msg(data)
-      console.log(data, '<== receiver')
-      scrollToBottom()
-    })
-  }, [])
+ 
+  socket.on('recieve_msg', (data) => {
+    setrecieve_msg(data)
+    Conversations_id != null && API.fetchPost({ conversation_id: Conversations_id }, '/get_conversation')
+      .then(x => {
+        setUser_id(Decode(user))
+        setmsgArray(x.data.all_msgs)
+        setProfile(x.data.Profile)
+        scrollToBottom()
+      })
+      .catch(x => console.log(x))
+    scrollToBottom()
+  })
 
 
   useEffect(() => {
     let typingTimeout;
-    let isTyping = false;
+    let isTypings = false;
     let duration = 200; // Default duration
 
     socket.on('connection', () => {
@@ -95,14 +95,14 @@ export default function index({ Conversations_id, setConversation_id, setProfile
 
 
     const setIsTypingTrue = () => {
-      isTyping = true;
-      setIsTyping(isTyping);
+      isTypings = true;
+      setIsTyping(isTypings);
       clearTimeout(typingTimeout);
 
       // Set a new timeout with the updated duration
       typingTimeout = setTimeout(() => {
-        isTyping = false;
-        setIsTyping(isTyping);
+        isTypings = false;
+        setIsTyping(isTypings);
       }, duration);
     };
 
@@ -115,7 +115,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
       socket.off('show_typing');
       clearTimeout(typingTimeout);
     };
-  }, [socket]);
+  }, []);
 
 
   const sendTypingIndicator = () => {
@@ -141,7 +141,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         .then(x => socket.emit('seen', 'hi')))
   }, [msgArray, isTyping]);
   return (
-    <div onClick={() => console.log(Conversations_id)} className='  bg-white md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[700px] '>
+    <div className='  bg-white md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[700px] '>
       <div >
         <div className='flex  justify-between items-center gap-3 p-4 m-2 '>
           <div className='flex gap-2'>
@@ -164,7 +164,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
       <div className='h-full'>
         <div className='overflow-y-scroll h-[75%] ' ref={messagesContainerRef} >
           {msgArray.length > 0 && msgArray.map((e, i) =>
-            <div key={i} onClick={() => console.log(e)} className="">
+            <div key={i} className="">
               <div className={`flex ${e.from == User_id.id ? 'justify-end px-4 mb-5' : 'justify-start px-4'}`} >
                 <p className={`p-2 m-2 rounded-xl  ${e.from == User_id.id ? 'bg-[#D9D9D9]' : 'bg-[#FD166F]'}`}>
                   {e.message}
@@ -195,7 +195,8 @@ export default function index({ Conversations_id, setConversation_id, setProfile
                       await API.fetchPost({ conversation_id: Conversations_id }, '/seen')
                         .then(x => socket.emit('seen', 'hi'))
                     )}
-                    onChange={e => (setmsg(e.target.value), sendTypingIndicator(), socket.emit('seen', 'hi'))}
+                    // onClick={()=>  socket.emit('seen', 'hi')}
+                    onChange={e => (setmsg(e.target.value), sendTypingIndicator())}
                   />
                 </div>
 

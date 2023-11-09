@@ -21,13 +21,13 @@ export default function index({ setStateHeader }) {
         .then(x => setArr(x.data))
         .catch(x => console.log(x))
     })
-  }, [socket])
+  }, [])
   useEffect(() => {
     API.fetchGet('/get_notify')
       .then(x => setArr(x.data))
       .catch(x => console.log(x))
   }, [])
-  console.log(activit_arr, "<=========================")
+  
   const users = "/Images/user_img.png";
   const email = "/Images/email-icon.png";
   const search = "/Images/search-icon.png";

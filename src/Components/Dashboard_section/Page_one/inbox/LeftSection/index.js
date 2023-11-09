@@ -8,42 +8,31 @@ import io from 'socket.io-client'
 
 const socket = io(apiUrl)
 
-export default function index({ setProfile, setConversation_id, recieve_msgs, setrecieve_msg, msg, setmsg }) {
+export default function index({ setProfile, setConversation_id, recieve_msgs, setrecieve_msg, msg, setmsg, Conversations_id }) {
 
 
     const [Conversations, setConversation] = useState('')
     const [update, setupd] = useState('')
     useEffect(() => {
         API.fetchGet('/get_all_hookup')
-            .then(x => (console.log(x), setConversation(x.data.users)))
+            .then(x => setConversation(x.data.users))
             .catch(x => console.log(x))
     }, [])
     useEffect(() => {
         API.fetchGet('/get_all_hookup')
-            .then(x => (console.log(x), setConversation(x.data.users)))
+            .then(x => setConversation(x.data.users))
             .catch(x => console.log(x))
-    }, [recieve_msgs, setrecieve_msg,msg])
-    useEffect(() => {
-        API.fetchGet('/get_all_hookup')
-            .then(x => (console.log(x), setConversation(x.data.users)))
-            .catch(x => console.log(x))
-    }, [socket])
+    }, [recieve_msgs,msg, Conversations_id])
 
-    useEffect(() => {
-        socket.on('connection', () => {
-            console.log(socket.id)
-        })
-        socket.on('show_seen', () => {
-            API.fetchGet('/get_all_hookup')
-                .then(x => (console.log(x), setConversation(x.data.users)))
-                .catch(x => console.log(x))
-        })
-    }, [socket])
+
+    // socket.on('recieve_msg', (data) => {
+    //     API.fetchGet('/get_all_hookup')
+    //         .then(x => setConversation(x.data.users))
+    //         .catch(x => console.log(x))
+    // })
     return (
         <div className=' bg-white md:m-4  rounded-2xl h-[400px]   md:w-[80%] w-full py-2 md:px-1'>
-            {/* <div className="p-2">
-        <Input icon={<MagnifyingGlassIcon className="h-5 w-5" />} label="Search" />
-      </div> */}
+
             <div> <div className='flex justify-between p-4 '>
                 <div className='  bg-[#D9D9D9] p-2 rounded-2xl  justify-middle flex'>
                     <form className="flex">
@@ -84,6 +73,8 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
                                     setConversation_id(e.conve_id),
                                     setProfile(e.user),
                                     API.fetchPost({ conversation_id: e.conve_id }, '/seen').then(x => (socket.emit('seen', 'hi'), setupd('hi')))
+                                    // socket.on('connection'),
+                                    // socket.emit("join_room", Conversations_id)
                                 )} className="bg-[#e4cffc] text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
                                     Reply
                                 </button>
@@ -92,7 +83,7 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
                     </div>
                 )}
             </div>
-        </div>
+        </div >
     )
 }
 

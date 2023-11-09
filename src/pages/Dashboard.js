@@ -20,13 +20,11 @@ export default function Dashboard() {
   const [datas, setdatas] = useState('')
   const [user_index, setuser_index] = useState(null);
   const Socket = io(apiUrl)
-  // useEffect(() => {
 
-  // }, [Socket])
 
   useEffect(() => {
     Socket.on('connection',(data)=>{
-      console.log(Socket.id,'<=== chech me')
+      console.log(Socket.id,'<=== check me')
     });
     Socket.on('recieve_hookup', (data) => {
       API.fetchGet('/get_hook_up')
@@ -34,7 +32,7 @@ export default function Dashboard() {
         .catch(x => console.log(x))
     })
 
-  }, [Socket])
+  }, [])
 
 
   return (

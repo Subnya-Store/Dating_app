@@ -56,13 +56,11 @@ export default function index({ setStateHeader }) {
     useEffect(() => {
         Socket.on('connection');
         Socket.on('recieve_request', (data) => {
-            // setdatas(data)
             API.fetchGet('/request_find')
                 .then(x => (
                     sethow_many_request(x.data)
                 ))
                 .catch(x => console.log(x))
-            // console.log(data)
         })
     }, [])
 
@@ -79,16 +77,7 @@ export default function index({ setStateHeader }) {
         API.fetchPost({ hook_up_with: e.user_id }, '/hook_up')
             .then(x => (
                 setdatas(x),
-                // setdatas(x)
-                // dispatch({
-                //     type: 'state',
-                //     payload: 'Inbox'
-                // }),
-                // setStateHeader('Inbox'),
                 Socket.emit('send_hookup', 'hi')
-                // Socket.emit('send_hookup', 'hi')
-                // window.location.href = '/dashboard/',
-                // window.location.reload()
 
             ))
             .catch(x => console.log(x))

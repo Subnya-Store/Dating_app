@@ -55,12 +55,7 @@ export default function Index() {
     Selector_data.matches[(currentIndex + 1) % Selector_data.matches.length],
     Selector_data.matches[(currentIndex + 2) % Selector_data.matches.length]
   ];
-  // const visibleItemsforselectingCurrentUser =  [
-
-  //   Selector_data.matches[(currentIndex ) % Selector_data.matches.length]
-  // ];
-
-  // console.log(IndexUser);
+  
 
   const request_found = () => {
     setLoading(true)
@@ -69,7 +64,6 @@ export default function Index() {
         if (x.data.request != undefined) {
           setRequest_found(x.data.request)
           setLoading(false)
-          console.log(x.data)
         } else {
           setRequest_found(null)
           setLoading(false)
@@ -87,7 +81,6 @@ export default function Index() {
   }, [])
 
 
-  // console.log(check)
   return (
     <div className=" relative bg-[url('/Images/Dashboard_pg1.png')]     w-[100%] h-full  bg-center  bg-cover  bg-no-repeat   ">
       <div className="  absolute  before:content-[]   bg-[#0500629e]  overflow-y-auto  bottom-0 top-0 left-0 w-[100%]  h-[100%] ">
@@ -95,7 +88,6 @@ export default function Index() {
           <div className='md:flex justify-center'>
             {visibleItems.map((x, index) => (
               <div
-                // onClick={() => console.log(x)}
                 className={`bg-white p-8 md:w-fit flex gap-2 rounded-xl ${index === 1
                   ? 'lg:w-fit  bg-white  md:mx-10 p-8 h-2/3 '
                   : 'lg:w-fit bg-white md:blur-sm h-2/3  p-8  mt-10'

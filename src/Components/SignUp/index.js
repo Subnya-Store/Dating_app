@@ -25,7 +25,7 @@ export default function index() {
     LegalID: '',
     gender: ''
   })
-  // console.log(inputs)
+  
   return (
     <div className=" relative bg-[url('/Images/Signup_img.png')] md:py-4 bg-center  bg-no-repeat md:h-screen  ">
       <div className="  absolute  flex items-center  bg-[#0500629e]    bottom-0 top-0 left-0 w-[100%]  h-[100%] ">

@@ -294,7 +294,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
             theme: "dark",
           })
         }
-        // console.log(x.data.check)
+        
       })
       .catch(x => console.log(x))
   }

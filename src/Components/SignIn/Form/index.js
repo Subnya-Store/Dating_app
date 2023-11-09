@@ -11,8 +11,6 @@ export default function index() {
     password: ''
   })
   const hitApi = () => {
-    console.log("clicked")
-
     API.fetchPost(credentials, '/login')
       .then(x => {
         // console.log(x,'data')
@@ -42,7 +40,7 @@ export default function index() {
           })
 
         }
-        // localStorage.setItem('user',x.data.token)
+        
       })
       .catch(x => console.log(x, 'error'))
   }

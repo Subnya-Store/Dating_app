@@ -170,7 +170,7 @@ export default function Index() {
       {/* question section */}
       <div>
         {arrayquest.map((x, i) => (
-          <div key={i} onClick={() => console.log(x)} className={`${i === questionIndex ? "flex  flex-col" : "hidden"}`}>
+          <div key={i} className={`${i === questionIndex ? "flex  flex-col" : "hidden"}`}>
             {x.questionis}
             <div className=" border-[#7000ED] border  rounded-xl md:mr-10"> 
                <div className="grid grid-cols-2 grid-rows-3 gap-4 text-center px-5">
