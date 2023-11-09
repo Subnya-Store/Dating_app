@@ -22,7 +22,7 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
         API.fetchGet('/get_all_hookup')
             .then(x => setConversation(x.data.users))
             .catch(x => console.log(x))
-    }, [recieve_msgs,msg, Conversations_id])
+    }, [recieve_msgs, msg, Conversations_id])
 
 
     // socket.on('recieve_msg', (data) => {
@@ -69,13 +69,17 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
                                 </div>}
                             </div>
                             <div>
-                                <button onClick={() => (
-                                    setConversation_id(e.conve_id),
-                                    setProfile(e.user),
-                                    API.fetchPost({ conversation_id: e.conve_id }, '/seen').then(x => (socket.emit('seen', 'hi'), setupd('hi')))
-                                    // socket.on('connection'),
-                                    // socket.emit("join_room", Conversations_id)
-                                )} className="bg-[#e4cffc] text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
+                                <button
+
+                                    onClick={() => (
+                                        setConversation_id(e.conve_id),
+                                        setProfile(e.user),
+                                        setupd('hi'),
+                                        API.fetchGet('/get_all_hookup')
+                                            .then(x => setConversation(x.data.users))
+                                            .catch(x => console.log(x))
+
+                                    )} className="bg-[#e4cffc] text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
                                     Reply
                                 </button>
                             </div>

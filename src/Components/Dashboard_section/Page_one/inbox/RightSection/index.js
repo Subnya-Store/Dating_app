@@ -70,18 +70,20 @@ export default function index({ Conversations_id, setConversation_id, setProfile
   }, [msg,recieve_msgs])
 
  
-  socket.on('recieve_msg', (data) => {
-    setrecieve_msg(data)
-    Conversations_id != null && API.fetchPost({ conversation_id: Conversations_id }, '/get_conversation')
-      .then(x => {
-        setUser_id(Decode(user))
-        setmsgArray(x.data.all_msgs)
-        setProfile(x.data.Profile)
-        scrollToBottom()
-      })
-      .catch(x => console.log(x))
-    scrollToBottom()
-  })
+  useEffect(()=>{
+    socket.on('recieve_msg', (data) => {
+      setrecieve_msg(data)
+      Conversations_id != null && API.fetchPost({ conversation_id: Conversations_id }, '/get_conversation')
+        .then(x => {
+          setUser_id(Decode(user))
+          setmsgArray(x.data.all_msgs)
+          setProfile(x.data.Profile)
+          scrollToBottom()
+        })
+        .catch(x => console.log(x))
+      scrollToBottom()
+    })
+  },[])
 
 
   useEffect(() => {
