@@ -6,25 +6,25 @@ import API from '@/API/API'
 // import SectionSteps from '@/Components/SectionSteps'
 
 export default function index({ setState, setInputs, inputs }) {
-  
+
   const sign_up_img = '/Images/SignIn_logo.png'
 
   return (
     <div>
       <div className=" md:w-[400px]  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg  opacity-90">
         <div className=" flex w-full">
-          <ul className="flex justify-between w-full">
-            <li>
+          <div className="flex justify-between w-full">
+            <div>
               <img className="flex" src={sign_up_img} />
-            </li>
-            <li className=' w-32'>
+            </div>
+            <div className=' w-32'>
 
               <Link href='signin' className="  text-[#7000ED]">
                 Already have a account? <br />Sign In.
               </Link>
 
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
         <div className=" text-4xl font-bold py-4 capitalize cursor-pointer"> Sign up </div>
         <div className="inline-flex gap-5 pt-1 pb-1 ">
@@ -36,79 +36,86 @@ export default function index({ setState, setInputs, inputs }) {
             <img src="/Images/facbook_signin.png" className=" object-contain" />
           </button>
         </div>
-        <div className=" flex">
-          <ul className="flex gap-4 ">
-            <li>
+        <form onSubmit={() => {
+          setState("AccountDetails")
+        }}>
+          <div className=" flex">
+            <div className="flex gap-4 ">
               <div>
-                <label> Full name</label>
-                <input
-                  onChange={e => setInputs({ ...inputs, full_name: e.target.value })}
-                  className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none"
-                  type="text"
-                  placeholder="Micheal"
-                />
+                <div>
+                  <label> Full name</label>
+                  <input
+                    required
+                    onChange={e => setInputs({ ...inputs, full_name: e.target.value })}
+                    className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none"
+                    type="text"
+                    placeholder="Micheal"
+                  />
+                </div>
               </div>
-            </li>
-            <li>
+              <div>
 
-              <div>
-                <label> Middle name</label>
-                <input
-                  onChange={e => setInputs({ ...inputs, middle_name: e.target.value })}
-                  className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none "
-                  type="text"
-                  placeholder="Jhon"
-                />
+                <div>
+                  <label> Middle name</label>
+                  <input
+                    required
+                    onChange={e => setInputs({ ...inputs, middle_name: e.target.value })}
+                    className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none "
+                    type="text"
+                    placeholder="Jhon"
+                  />
+                </div>
               </div>
-            </li>
-          </ul>
-        </div>
-        <div className='flex gap-4'>
-          <div className="pt-1 pb-1 font-medium ">
-            <label> Last name</label>
+            </div>
+          </div>
+          <div className='flex gap-4'>
+            <div className="pt-1 pb-1 font-medium ">
+              <label> Last name</label>
+              <input
+                required
+                onChange={e => setInputs({ ...inputs, last_name: e.target.value })}
+                className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  "
+                type="text"
+                placeholder="Angelo"
+              />
+            </div>
+            <div className="pt-1 pb-1 font-medium ">
+              <label> gender</label>
+              <select
+                required
+                className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED] " name='Gender'
+                placeholder='select gender'
+                onChange={e => (console.log(e.target.value), setInputs({ ...inputs, gender: e.target.value }))}>
+                <option></option>
+                <option>male</option>
+                <option>female</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <div className="flex w-72">
+              <div className="mb-3">
+
+                <label>Username</label>
+              </div>
+
+            </div>
             <input
-              onChange={e => setInputs({ ...inputs, last_name: e.target.value })}
-              className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  "
+              required
+              onChange={e => setInputs({ ...inputs, username: e.target.value })}
+
+              className=" rounded-xl bg-[#FFF]  p-2 flex border outline-none border-[#7000ED] w-44"
               type="text"
-              placeholder="Angelo"
+              placeholder="Micheal jhon angelo"
             />
           </div>
-          <div className="pt-1 pb-1 font-medium ">
-            <label> gender</label>
-            <select
-              className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED] " name='Gender'
-              placeholder='select gender'
-              onChange={e => (console.log(e.target.value),setInputs({ ...inputs, gender: e.target.value }))}>
-              <option></option>
-              <option>male</option>
-              <option>female</option>
-            </select>
+          <div className="pt-1 pb-1">
+            <button type='submit'
+              className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+              Next
+            </button>
           </div>
-        </div>
-        <div>
-          <ul className="flex w-72">
-            <li className="mb-3">
-
-              <label>Username</label>
-            </li>
-
-          </ul>
-          <input
-            onChange={e => setInputs({ ...inputs, username: e.target.value })}
-
-            className=" rounded-xl bg-[#FFF]  p-2 flex border outline-none border-[#7000ED] w-44"
-            type="text"
-            placeholder="Micheal jhon angelo"
-          />
-        </div>
-        <div className="pt-1 pb-1">
-          <button
-            onClick={() => setState("AccountDetails")}
-            //  onClick={() => hitApi()}
-            className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
-            Next
-          </button>
-        </div>
+        </form>
       </div>
     </div>
   )

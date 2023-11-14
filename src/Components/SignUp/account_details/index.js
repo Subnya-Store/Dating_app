@@ -260,7 +260,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
       ]
     }
   ];
-  
+
 
   const handleCountryChange = (e) => {
     const selectedCountry = e.target.value;
@@ -294,7 +294,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
             theme: "dark",
           })
         }
-        
+
       })
       .catch(x => console.log(x))
   }
@@ -322,87 +322,97 @@ export default function index({ setState, setInputs, inputs, toast }) {
             <img src="/Images/facbook_signin.png" className=" object-contain" />
           </button>
         </div>
-        <div className="pt-1 pb-1 font-medium ">
-          <label> Email Address</label>
-          <input
-            onChange={e => setInputs({ ...inputs, email: e.target.value })}
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          if (inputs.password === inputs.confirm)
+            return Make_acount();
+          // console.log({pass:inputs.password,Cpass:inputs.confirm})
+        }}>
+          <div className="pt-1 pb-1 font-medium ">
+            <label> Email Address</label>
+            <input
+              required
+              onChange={e => setInputs({ ...inputs, email: e.target.value })}
 
-            className=" rounded-xl p-2  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  w-72"
-            type="email"
-            placeholder="Michealjohn@gmail.com"
-          />
-        </div>
-        <div className=" flex">
-          <ul className="flex gap-4 ">
-            <li>
-              <div>
-                <label> Password</label>
-                <input
-                  onChange={e => setInputs({ ...inputs, password: e.target.value })}
+              className=" rounded-xl p-2  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  w-72"
+              type="email"
+              placeholder="Michealjohn@gmail.com"
+            />
+          </div>
+          <div className=" flex">
+            <ul className="flex gap-4 ">
+              <li>
+                <div>
+                  <label> Password</label>
+                  <input
+                    required
+                    onChange={e => setInputs({ ...inputs, password: e.target.value })}
 
-                  className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none"
-                  type="password"
-                  placeholder=""
-                />
-              </div>
-            </li>
-            <li>
-              <div>
-                <label> confirm</label>
-                <input
-                  onChange={e => setInputs({ ...inputs, confirm: e.target.value })}
-                  type="password"
-                  className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none "
-                  placeholder=""
-                />
-              </div>
-            </li>
-          </ul>
-        </div>
+                    className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none"
+                    type="password"
+                    placeholder=""
+                  />
+                </div>
+              </li>
+              <li>
+                <div>
+                  <label> confirm</label>
+                  <input
+                    required
+                    onChange={e => setInputs({ ...inputs, confirm: e.target.value })}
+                    type="password"
+                    className= {`${inputs.password != inputs.confirm?'rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#ed0004]  outline-none':'rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none'} `}
+                    placeholder=""
+                  />
+                </div>
+              </li>
+            </ul>
+          </div>
 
-        <div className="flex">
-          <ul className="flex gap-4">
-            <li>
-              <div>
-                <label>Country</label>
-                <select
-                  className="rounded-xl p-2 w-32 bg-[#FFF] mt-3 flex border border-[#7000ED] outline-none"
-                  value={inputs.country}
-                  onChange={handleCountryChange}
-                >
-                  <option value="">Select a country</option>
-                  {Country.map((x) => (
-                    <option key={x.country} value={x.country}>
-                      {x.country}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </li>
-            <li>
-              <div>
-                <label>City</label>
-                <select
-                  className="rounded-xl p-2 w-32 bg-[#FFF] mt-3 flex border border-[#7000ED] outline-none"
-                  value={inputs.city}
-                  onChange={handleCityChange}
-                >
-                  <option value="">Select a city</option>
-                  {filteredCities.map((city) => (
-                    <option key={city} value={city}>
-                      {city}
-                    </option>
-                  ))}
-                </select>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div className="pt-1 pb-1">
-          <button onClick={Make_acount} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
-            Next
-          </button>
-        </div>
+          <div className="flex">
+            <ul className="flex gap-4">
+              <li>
+                <div>
+                  <label>Country</label>
+                  <select
+                    className="rounded-xl p-2 w-32 bg-[#FFF] mt-3 flex border border-[#7000ED] outline-none"
+                    value={inputs.country}
+                    onChange={handleCountryChange}
+                  >
+                    <option value="">Select a country</option>
+                    {Country.map((x) => (
+                      <option key={x.country} value={x.country}>
+                        {x.country}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </li>
+              <li>
+                <div>
+                  <label>City</label>
+                  <select
+                    className="rounded-xl p-2 w-32 bg-[#FFF] mt-3 flex border border-[#7000ED] outline-none"
+                    value={inputs.city}
+                    onChange={handleCityChange}
+                  >
+                    <option value="">Select a city</option>
+                    {filteredCities.map((city) => (
+                      <option key={city} value={city}>
+                        {city}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div className="pt-1 pb-1">
+            <button type='submit' className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+              Next
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   )

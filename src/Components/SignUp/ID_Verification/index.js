@@ -7,8 +7,9 @@ export default function index({ setState, inputs, setInputs }) {
   const [file_image, setfile_image] = useState('')
   const sign_up_img = '/Images/SignIn_logo.png'
   const id_varification = '/Images/id_varification.png'
-  
+
   const handleImageChange = (e) => {
+    e.preventDefault()
     // Access the uploaded file
     const uploadedFile = e.target.files[0];
 
@@ -19,13 +20,13 @@ export default function index({ setState, inputs, setInputs }) {
     // Set the image in the state
     if (uploadedFile) {
       const imageURL = URL.createObjectURL(uploadedFile);
-      
+
       setImage(imageURL);
     }
   };
   const ID_Verify = (e) => {
     // setState("questions")
-
+    e.preventDefault()
     const formData = new FormData();
     formData.append('images', file_image);
     formData.append('age', inputs.age);
@@ -66,12 +67,15 @@ export default function index({ setState, inputs, setInputs }) {
             ID Verification
           </div>
         </div>
-
-        <div className=" flex">
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          ID_Verify(e)
+        }}>
           <div className="flex gap-4 ">
             <div className='flex flex-col'>
               <label> ID Card</label>
               <input
+
                 className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3  border border-[#7000ED]  outline-none "
                 type="image"
                 // id="myfile"
@@ -79,11 +83,12 @@ export default function index({ setState, inputs, setInputs }) {
                 // onChange={handleImageChange}
                 placeholder=""
               />
-              <label htmlFor="myfile" className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex justify-center border border-[#7000ED]  outline-none ">
+              <label htmlFor="myfile" className="z-40 rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex justify-center border border-[#7000ED]  outline-none ">
                 upload
               </label >
               <input
-                className="hidden"
+                required
+                className="-mt-10 mb-2 w-1 ml-10 bg-red-300 z-10"
                 type="file"
                 id="myfile"
                 src="/Images/input_image.png"
@@ -94,6 +99,7 @@ export default function index({ setState, inputs, setInputs }) {
             <div>
               <label> Age</label>
               <input
+                required
                 className=" rounded-xl p-2 w-34  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none"
                 type="number"
                 placeholder=""
@@ -104,22 +110,24 @@ export default function index({ setState, inputs, setInputs }) {
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="pt-1 pb-1 font-medium ">
-          <label> Legal ID</label>
-          <input
-            className=" rounded-xl p-2  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  w-72"
-            type="number"
-            placeholder=""
-            onChange={e => setInputs({ ...inputs, LegalID: e.target.value })}
-          />
-        </div>
-        <div className="pt-1 pb-1">
-          <button onClick={ID_Verify} className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
-            Next
-          </button>
-        </div>
+
+          <div className="pt-1 pb-1 font-medium ">
+            <label> Legal ID</label>
+            <input
+              required
+              className=" rounded-xl p-2  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  w-72"
+              type="number"
+              placeholder=""
+              onChange={e => setInputs({ ...inputs, LegalID: e.target.value })}
+            />
+          </div>
+          <div className="pt-1 pb-1">
+            <button type='submit' className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+              Next
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   )

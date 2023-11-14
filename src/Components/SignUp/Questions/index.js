@@ -8,7 +8,7 @@ export default function Index({ setState, inputs }) {
   const [optionIndexselected1, setoptionIndexselected1] = useState(null);
   const [optionIndexselected2, setoptionIndexselected2] = useState(null);
   const [optionIndexselected3, setoptionIndexselected3] = useState(null);
-  const [file_image, setfile_image] = useState('');
+  const [file_image, setfile_image] = useState(null);
   const [Image, setImage] = useState("/Images/camera.png");
   const [Quest_answer, setQuest_answer] = useState({
     questions: questionIndex,
@@ -116,10 +116,12 @@ export default function Index({ setState, inputs }) {
       .then(x => {
         if (questionIndex == 5) {
           setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
+          setQuest_answer({ ...Quest_answer, answers: '' })
           // window.location.href = '/signin'
         } else {
           setQuestionIndex(questionIndex + 1),
             setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 }),
+            setQuest_answer({ ...Quest_answer, answers: '' })
             console.log(x)
         }
 
@@ -308,46 +310,46 @@ export default function Index({ setState, inputs }) {
             )
           }
 
-          <div className="border w-[20%] text-center text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md">
-            {questionIndex == 0 &&
+          <div className=" text-center ">
+            {questionIndex == 0 && file_image != null&&
               <button
                 onClick={First_Quest}
-                className="cursor-pointer capitalize"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
               </button> ||
-              questionIndex == 1 &&
+              questionIndex == 1 &&Quest_answer.answers != ''&&
               <button
                 onClick={Quest_ans}
-                className="cursor-pointer capitalize"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
               </button> ||
-              questionIndex == 2 &&
+              questionIndex == 2 &&Quest_answer.answers != ''&&
               <button
                 onClick={Quest_ans}
-                className="cursor-pointer capitalize"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
               </button> ||
-              questionIndex == 3 &&
+              questionIndex == 3 &&Quest_answer.answers != ''&&
               <button
                 onClick={Quest_ans}
-                className="cursor-pointer capitalize"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
               </button> ||
-              questionIndex == 4 &&
+              questionIndex == 4 &&Quest_answer.answers != ''&&
               <button
                 onClick={Quest_ans}
-                className="cursor-pointer capitalize"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
               </button> ||
-              questionIndex == 5 &&
+              questionIndex == 5 &&Quest_answer.answers != ''&&
               <button
                 onClick={Last_quest}
-                className="cursor-pointer capitalize"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
               </button>
