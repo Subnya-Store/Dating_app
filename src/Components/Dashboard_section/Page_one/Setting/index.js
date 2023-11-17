@@ -20,9 +20,18 @@ export default function index() {
           <LeftSection SetStateSetting={SetStateSetting} />
         </div>
         <div className="md:w-[70%]">
-          {StateSetting == "Account" && <RightSection /> || StateSetting == 'Notifications' && < Rightsectionone /> ||
-            StateSetting == 'Data Export' && < Rightsectiontwo /> || StateSetting == 'Apperance' && <RightsectionThree /> ||
-            StateSetting == "Privacy Settings" && <RightsectionFour />
+          {StateSetting == "Account" &&
+            <RightSection /> ||
+            StateSetting == 'Notifications' &&
+            < Rightsectionone /> ||
+
+            StateSetting == 'Data Export' &&
+            < Rightsectiontwo /> ||
+            StateSetting == 'Apperance' &&
+            <RightsectionThree /> 
+
+            // StateSetting == "Privacy Settings" &&
+            // <RightsectionFour />
           }
         </div>
 

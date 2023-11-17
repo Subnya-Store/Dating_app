@@ -143,9 +143,9 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         .then(x => socket.emit('seen', 'hi')))
   }, [msgArray, isTyping]);
   return (
-    <div className='  bg-white md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[600px] '>
+    <div className='  bg-white md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[550px] '>
 
-      <div className='flex  justify-between items-center gap-3 px-2 '>
+      <div className='flex  justify-between items-center gap-3 px-2 h-[5%]'>
         <div className='flex gap-2'>
           <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + Profile?.profile?.img || '/Images/video.png'} />
           <div className='text-[#050062] '>
@@ -161,7 +161,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
           <div> <img className=' w-5  h-3  md:h-6 md:w-6' src="/Images/info.png" /></div>
         </div>
       </div>
-      <div className='h-full'>
+      <div className=' flex justify-between  flex-col h-[95%]'>
         <div className='overflow-y-scroll h-[70%] ' ref={messagesContainerRef} >
           {msgArray.length > 0 && msgArray.map((e, i) =>
             <div key={i} className="">
@@ -176,7 +176,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         </div>
         {isTyping ? <p className='h-[9%] w-full '>typing...</p> : <div className='h-[9%] w-full '></div>}
 
-        <div className='h-[20%]'>
+        <div className='h-[10%] flex justify-center items-center '>
           <div className='flex justify-between bg-[#D9D9D9] rounded-full  w-full'>
             <div className=' rounded-full justify-middle flex w-full'>
               <form className="flex w-full" onSubmit={Msg_now}>

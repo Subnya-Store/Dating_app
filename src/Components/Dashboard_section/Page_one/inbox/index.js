@@ -28,7 +28,7 @@ export default function index({ setStateHeader }) {
 
                     <div className='md:w-[50%] w-full'>
 
-                        <Rightsection msg={msg} setmsg={setmsg} recieve_msgs={recieve_msgs} setrecieve_msg={setrecieve_msg} Conversations_id={Conversations_id} setConversation_id={setConversation_id} Profile={Profile} setProfile={setProfile} />
+                      {Profile !=null&&  <Rightsection msg={msg} setmsg={setmsg} recieve_msgs={recieve_msgs} setrecieve_msg={setrecieve_msg} Conversations_id={Conversations_id} setConversation_id={setConversation_id} Profile={Profile} setProfile={setProfile} />}
                     </div>
                 </div>
             </div>

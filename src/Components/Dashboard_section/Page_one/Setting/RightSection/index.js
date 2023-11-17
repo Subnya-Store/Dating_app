@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function index() {
   return (
-    <div className=" md:w-[70%] ">
-      <div className="bg-[#FFF] p-10   rounded-3xl  shadow-2xl">
+    
+      <div className="bg-[#FFF] p-10  md:w-[90%] h-[60%] overflow-y-scroll rounded-3xl  shadow-2xl">
         <h4 className="text-[#050062]  py-3 md:text-3xl capitalize font-bold text-xl">
           Account
         </h4>
@@ -156,6 +156,5 @@ export default function index() {
           </form>
         </div>
       </div>
-    </div>
   );
 }
