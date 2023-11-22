@@ -12,6 +12,20 @@ import API from '@/API/API';
 // import Matches 
 import io from 'socket.io-client'
 import apiUrl from '@/API/constant';
+import { initializeApp } from 'firebase/app';
+import { getMessaging, onMessage, getToken } from "firebase/messaging";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyA5iWSQw61-km2u2XusWWgy6SX3wQH24x4",
+  authDomain: "forpush-notify.firebaseapp.com",
+  projectId: "forpush-notify",
+  storageBucket: "forpush-notify.appspot.com",
+  messagingSenderId: "565931321714",
+  appId: "1:565931321714:web:10907b4c5ceeb765cc95eb",
+  measurementId: "G-F2412L8SLH"
+};
+
+let messaging
 
 export default function Dashboard() {
   const data = useSelector(x => x)
@@ -21,19 +35,44 @@ export default function Dashboard() {
   const [user_index, setuser_index] = useState(null);
   const Socket = io(apiUrl)
 
+  let user
+
+
 
   useEffect(() => {
-    Socket.on('connection',(data)=>{
-      console.log(Socket.id,'<=== check me')
+    Socket.on('connection', (data) => {
+      console.log(Socket.id, '<=== check me')
     });
     Socket.on('recieve_hookup', (data) => {
       API.fetchGet('/get_hook_up')
         .then(x => setdatas(x))
         .catch(x => console.log(x))
     })
-
+    user = localStorage.getItem('user') 
+    console.log(user)
+    if (user != undefined) {
+      const app = initializeApp(firebaseConfig);
+      messaging = getMessaging(app);
+      requestForToken()
+    }
   }, [])
+  const requestForToken = () => {
+    return getToken(messaging, { vapidKey: "BAiuRjrYmAoyKmoIy2uqbajt3iH2B0KP-_ovjbuazcGOCupx9XhaI5v4qV4pJO2UCZfEai-D8jBgLw_jwDAZapU" })
+      .then((currentToken) => {
+        if (currentToken) {
+          console.log('current token for client: ', currentToken);
+          // Perform any other neccessary action with the token
+        } else {
+          // Show permission request UI
+          console.log('No registration token available. Request permission to generate one.');
+        }
+      })
+      .catch((err) => {
+        console.log('An error occurred while retrieving token. ', err);
+      });
+  };
 
+ 
 
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
