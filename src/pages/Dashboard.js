@@ -48,7 +48,7 @@ export default function Dashboard() {
         .then(x => setdatas(x))
         .catch(x => console.log(x))
     })
-    user = localStorage.getItem('user') 
+    user = localStorage.getItem('user')
     console.log(user)
     if (user != undefined) {
       const app = initializeApp(firebaseConfig);
@@ -60,7 +60,10 @@ export default function Dashboard() {
     return getToken(messaging, { vapidKey: "BAiuRjrYmAoyKmoIy2uqbajt3iH2B0KP-_ovjbuazcGOCupx9XhaI5v4qV4pJO2UCZfEai-D8jBgLw_jwDAZapU" })
       .then((currentToken) => {
         if (currentToken) {
-          console.log('current token for client: ', currentToken);
+          // console.log('current token for client: ', currentToken);
+          API.fetchPost({ notification_id: currentToken }, '/set_notification')
+            .then(x => console.log(x))
+            .catch(x => console.log(x))
           // Perform any other neccessary action with the token
         } else {
           // Show permission request UI
@@ -72,7 +75,7 @@ export default function Dashboard() {
       });
   };
 
- 
+
 
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
