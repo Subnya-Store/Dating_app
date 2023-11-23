@@ -8,23 +8,20 @@ export default function index() {
             option: "Light"
         },
         {
-            option: "ksxncjkns"
-        },
-        {
-            option: "ghegdh"
+            option: "Dark"
         }
     ]
-    const option_two = [
-        {
-            option: "Choose"
-        },
-        {
-            option: "ksxncjkns"
-        },
-        {
-            option: "ghegdh"
-        }
-    ]
+    // const option_two = [
+    //     {
+    //         option: "Choose"
+    //     },
+    //     {
+    //         option: "ksxncjkns"
+    //     },
+    //     {
+    //         option: "ghegdh"
+    //     }
+    // ]
 
     return (
         <div className=" md:w-[70%] ">
@@ -49,7 +46,7 @@ export default function index() {
                         }
                     </select>
                 </div>
-                <div>
+                {/* <div>
                     <p className="text-[#FD2579]  font-semibold py-4 text-sm md:text-base">Chat Background</p>
                     <select className=" text-[#050062] text-sm md:text-base">
                         {
@@ -61,7 +58,7 @@ export default function index() {
                             ))
                         }
                     </select>
-                </div>
+                </div> */}
 
 
             </div>
