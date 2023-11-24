@@ -61,7 +61,7 @@ export default function index() {
             {texttwo.map((x, i) => (
                 <div key={i} className="flex gap-4 py-4 text-[#050062]" >
 
-                    <Switch color="pink" checked={isTrue} onClick={() => {
+                    <Switch className='bg-[var(--pink-color)]' checked={isTrue} onClick={() => {
                          setIsTrue(!isTrue),
                          API.fetchGet('/turn_notification')
                     }} />
