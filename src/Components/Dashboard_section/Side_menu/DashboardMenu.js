@@ -92,7 +92,7 @@ const dispatch=useDispatch()
 
               <ul className="flex gap-4" >
                 <li>
-                  <img src={x.listImg} />
+                  <img  src={x.listImg} />
                 </li>
                 <li>
                   <button onClick={() => setStateHeader(x.listHeading)} className="text-[#050062] font-bold"> {x.listHeading}</button>

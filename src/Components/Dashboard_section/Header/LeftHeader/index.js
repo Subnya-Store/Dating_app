@@ -8,10 +8,10 @@ export default function Index({setStateHeader}) {
     <nav className="nav_list">
       <ul className="flex">
         {/* <li onClick={() => SetState('Inbox')}><span><MdEmail /></span> Inbox</li> */}
-        <li  onClick={() => setStateHeader('Inbox')}><span ><MdEmail /></span> <p  className="md:text-lg text-sm "> Inbox</p></li>
+        <li  onClick={() => setStateHeader('Inbox')}><span ><MdEmail className="text-pinkColor" /></span> <p  className="md:text-lg text-sm "> Inbox</p></li>
 
-        <li  ><span className="text-sm"><FaSmile /></span> <p className="md:text-lg text-sm "> Mood</p></li>
-        <li><span><AiFillStar /></span> <p  className="md:text-lg text-sm "> Favorites</p></li>
+        <li  ><span className="text-sm"><FaSmile className="text-pinkColor" /></span> <p className="md:text-lg text-sm "> Mood</p></li>
+        <li><span><AiFillStar className="text-pinkColor" /></span> <p  className="md:text-lg text-sm "> Favorites</p></li>
       </ul>
     </nav>
   );
