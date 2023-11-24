@@ -24,7 +24,7 @@ export default function index() {
   ]
   return (
 
-    <div className=' rounded-3xl  bg-[#FD166F] p-20  drop-shadow-xl hover:drop-shadow-2xl '>
+    <div className=' rounded-3xl  bg-[var(--pink-color)] p-20  drop-shadow-xl hover:drop-shadow-2xl '>
 
 
 
@@ -67,7 +67,7 @@ export default function index() {
         <button className=' bg-[#FFF] py-2 px-6 rounded-xl'>
           <ul className=' flex justify-center'>
 
-            <li className=' text-[21px]  text-[#FD166F]'>  Buy</li>
+            <li className=' text-[21px]  text-[var(--pink-color)]'>  Buy</li>
             <li className=' flex place-items-center'> <img className=' w-8 h-5' src='/Images/Buynow.svg' /></li>
           </ul></button>
       </div>

@@ -8,7 +8,7 @@ export default function index({page}) {
   let ABOUT = page == "about"
   return (
     <div className={`md:w-[48%]  pb-14 ${ABOUT ? 'pt-10':'pt-2'}`} >
-      {page == 'about'?'':<h6 className="text-[#FD166F]   font-bold  border-b-2   w-36  mb-2 text-lg md:text-2xl ">
+      {page == 'about'?'':<h6 className="text-[var(--pink-color)]   font-bold  border-b-2   w-36  mb-2 text-lg md:text-2xl ">
         About Us
       </h6>}
       <h5 className={`  md:text-5xl text-lg   font-medium ${ABOUT ?'text-black':'text-white'} `}>
@@ -34,7 +34,7 @@ export default function index({page}) {
                 <IoIosArrowDown />
               </span>
             </li>
-            <li className="text-[#FD166F]  font-bold text-3xl">
+            <li className="text-[var(--pink-color)]  font-bold text-3xl">
               <AiOutlineHeart />
             </li>
             <li className="relative">
@@ -68,7 +68,7 @@ export default function index({page}) {
       <div className="flex justify-between  mt-10">
         <div className=" mr-4">
           <ul className="flex">
-            <li className="text-[#FD166F]  font-bold text-4xl">
+            <li className="text-[var(--pink-color)]  font-bold text-4xl">
               <HiOutlineUserGroup />
             </li>
             <li>
@@ -85,7 +85,7 @@ export default function index({page}) {
         </div>
         <div>
           <ul className="flex ">
-            <li className="text-[#FD166F]  font-bold text-4xl">
+            <li className="text-[var(--pink-color)]  font-bold text-4xl">
               <AiOutlineHeart />
             </li>
             <li>

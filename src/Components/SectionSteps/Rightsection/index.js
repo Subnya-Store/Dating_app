@@ -8,7 +8,7 @@ export default function index() {
   return (
     <div className="felx  pl-5">
       <div className=" justify-end flex">
-        <h3 className="border-b-4 border-[#212121] md:text-xl text-base pt-3 pb-3 w-32 text-right font-bold text-[#FD166F]">
+        <h3 className="border-b-4 border-[#212121] md:text-xl text-base pt-3 pb-3 w-32 text-right font-bold text-[var(--pink-color)]">
           How it works
         </h3>
       </div>

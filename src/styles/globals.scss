@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 :root {
-  --pink-color: #fd166f;
+  --pink-color: #16fd3c;
   --blue-color: #7000ed;
   --light-gray: #d9d9d9;
   --black-color: #000000;
@@ -35,7 +35,7 @@ input::-webkit-inner-spin-button {
     @apply text-[#050062]  mt-7 text-xl font-bold;
   }
   .matches_box{
-    @apply bg-[#FD2579] text-center mt-5 py-2;
+    @apply bg-[var(--pink-color)] text-center mt-5 py-2;
    h4 {
    @apply  text-xl  font-medium text-[#fff]
     }
@@ -49,7 +49,7 @@ input::-webkit-inner-spin-button {
 
    @apply flex text-[#050062] text-lg  font-medium  leading-10 items-center;
    span{
-    @apply text-[#FD2579] pr-2 
+    @apply text-[var(--pink-color)] pr-2 
    }
    img{
     @apply w-[80%] object-contain

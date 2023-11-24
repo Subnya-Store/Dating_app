@@ -28,8 +28,8 @@ export default function index() {
 
 
 
-      <div className=' border-b-2 border-[#FD166F] flex justify-center mb-8 py-2'>
-        <h2 className=' text-[23px]   text-[#FD166F] font-bold p-1'> BASIC</h2>
+      <div className=' border-b-2 border-[var(--pink-color)] flex justify-center mb-8 py-2'>
+        <h2 className=' text-[23px]   text-[var(--pink-color)] font-bold p-1'> BASIC</h2>
 
       </div>
 
@@ -54,8 +54,8 @@ export default function index() {
       {
         price.map((x, i) => (
           <div className=' flex justify-center place-items-center'>
-            <h2 key={i} className=' text-[20px]   text-[#FD166F] font-bold' >{x.currancy} </h2>
-            <h2 className=' text-[23px]   text-[#FD166F] font-bold'> {x.prices}</h2>
+            <h2 key={i} className=' text-[20px]   text-[var(--pink-color)] font-bold' >{x.currancy} </h2>
+            <h2 className=' text-[23px]   text-[var(--pink-color)] font-bold'> {x.prices}</h2>
           </div>
 
 
@@ -63,7 +63,7 @@ export default function index() {
       }
 
       <div className=' flex justify-center'>
-        <button className=' bg-[#FD166F] py-2 px-6 rounded-xl'>
+        <button className=' bg-[var(--pink-color)] py-2 px-6 rounded-xl'>
           <ul className=' flex justify-center'>
 
             <li className=' text-[21px]  text-white'>  Buy</li>

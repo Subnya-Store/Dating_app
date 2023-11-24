@@ -166,7 +166,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
           {msgArray.length > 0 && msgArray.map((e, i) =>
             <div key={i} className="">
               <div className={`flex ${e.from == User_id.id ? 'justify-end px-4 mb-5' : 'justify-start px-4'}`} >
-                <p className={`p-2 m-2 rounded-xl  ${e.from == User_id.id ? 'bg-[#D9D9D9]' : 'bg-[#FD166F]'}`}>
+                <p className={`p-2 m-2 rounded-xl  ${e.from == User_id.id ? 'bg-[#D9D9D9]' : 'bg-[var(--pink-color)]'}`}>
                   {e.message}
                 </p>
               </div>
@@ -187,7 +187,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
                     < AiOutlinePlus size={"25px"} className="text-red-700" />
                   </i>
                   <input
-                    className='w-full outline-none bg-[#D9D9D9] text-[#FD166F] placeholder:text-[#FD166F]'
+                    className='w-full outline-none bg-[#D9D9D9] text-[var(--pink-color)] placeholder:text-[var(--pink-color)]'
                     value={msg}
                     type="text"
                     placeholder="Type here"

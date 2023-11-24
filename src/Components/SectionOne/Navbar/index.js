@@ -7,7 +7,7 @@ export default function Navbar() {
     <header className=" pt-4">
       <nav>
         <ul className="flex  justify-start gap-3 md:gap-0">
-          <li className=" cursor-pointer inline-flex hover:text-pinkColor capitalize  text-black  active:text-[#FD166F] text-base sm:pr-2 md:pr-4 lg:pr-5 md:text-base ">
+          <li className=" cursor-pointer inline-flex hover:text-pinkColor capitalize  text-black  active:text-[var(--pink-color)] text-base sm:pr-2 md:pr-4 lg:pr-5 md:text-base ">
             <Link href={'/'}>
               Home
             </Link>
