@@ -22,7 +22,7 @@ input::-webkit-inner-spin-button {
   @apply m-0 p-0;
   
 }
-  .side_menu {
+.side_menu {
   @apply bg-white h-[50%] ;
  .side_logo  {
     @apply mt-7;
@@ -32,39 +32,22 @@ input::-webkit-inner-spin-button {
   }
 
   h3{
-    @apply text-[var(--pink-color)]  mt-7 text-xl font-bold;
+    @apply  mt-7 text-xl font-bold;
   }
   .matches_box{
-    @apply bg-[#FD2579] text-center mt-5 py-2;
+    @apply  text-center mt-5 py-2;
    h4 {
-   @apply  text-xl  font-medium text-[#fff]
+   @apply  text-xl  font-medium 
     }
-  }
-  .support_links {
-   h5 {
-    @apply text-[var(--pink-color)] font-medium  text-xl mt-7  capitalize mb-3
-    }
-    @apply mt-2 ;
-    ul li{
-
-   @apply flex text-[var(--pink-color)] text-lg  font-medium  leading-10 items-center;
-   span{
-    @apply text-[#FD2579] pr-2 
-   }
-   img{
-    @apply w-[80%] object-contain
-   }
-    }
-    
   }
 } 
 
 .dash_header {
   .nav_list ul li {
-    @apply flex items-center text-[var(--pink-color)] text-lg font-medium pr-5
+    @apply flex items-center text-lg font-medium pr-5
   }
   .nav_list ul li span{
-    @apply  text-[#FD2579] pr-2
+    @apply  pr-2
   }
   .right_header {
      ul{
@@ -73,7 +56,7 @@ input::-webkit-inner-spin-button {
         @apply inline
       }
       li span {
-        @apply  mr-2 text-base font-medium text-[var(--pink-color)]
+        @apply  mr-2 text-base font-medium
       }
     }
     figure {
