@@ -3,7 +3,14 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+
+[data-theme='dark'] {
+  body{
+    background-color: #fff
+  };
+  p{
+    color: #111111
+  };
   --pink-color: #fd166f;
   --blue-color: #7000ed;
   --light-gray: #d9d9d9;
@@ -11,6 +18,18 @@
   --white-color: #fff;
   --color-primary: rgba(255, 255, 255, 0.63);
 }
+[data-theme='light'] {
+  p{
+    color: #111111
+  };
+  --pink-color: #2a8f34;
+  --blue-color: #7000ed;
+  --light-gray: #d9d9d9;
+  --black-color: #000000;
+  --white-color: #fff;
+  --color-primary: rgba(255, 255, 255, 0.63);
+}
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

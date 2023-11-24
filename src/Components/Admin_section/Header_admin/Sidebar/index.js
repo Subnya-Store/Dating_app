@@ -10,7 +10,7 @@ export default function index() {
 
         <li>
           <button className="bg-pinkColor mr-8 rounded-full items-center text-center cursor-pointer font-semibold text-white py-2 px-4 text-sm ">
-            <p className="text-xs md:text-base">   Upgrade now</p>
+            <div className="text-xs md:text-base text-[#fff]">   Upgrade now</div>
           </button>
         </li>
         <li>

@@ -1,14 +1,16 @@
-
+"use client"
 import React from "react";
-
+import { useTheme } from "next-themes";
+import { Switch } from '@material-tailwind/react'
 
 export default function index() {
+    const { theme, setTheme } = useTheme()
     const option_one = [
         {
-            option: "Light"
+            option: "light"
         },
         {
-            option: "Dark"
+            option: "dark"
         }
     ]
     // const option_two = [
@@ -31,15 +33,14 @@ export default function index() {
                 </h4>
                 <hr />
 
-                <p className="text-pinkColor text-sm md:text-basefont-semibold py-4">Export your data to your drive</p>
+                {/* <p className="text-pinkColor text-sm md:text-basefont-semibold py-4">Export your data to your drive</p> */}
                 <p className="py-5 text-[#050062]text-sm md:text-base ">Theme</p>
-
                 <div>
-                    <select className=" text-[#050062] ">
+                    <select onChange={(e)=> setTheme(e.target.value)} className=" text-[#050062] bg-white">
                         {
                             option_one.map((x, i) => (
 
-                                <option key={i}>{x.option}</option>
+                                <option value={x.option} key={i}>{x.option.toUpperCase()}</option>
 
 
                             ))
