@@ -9,7 +9,7 @@ export default function index() {
         
 
         <li>
-          <button className="bg-[#FD2579] mr-8 rounded-full items-center text-center cursor-pointer font-semibold text-white py-2 px-4 text-sm ">
+          <button className="bg-pinkColor mr-8 rounded-full items-center text-center cursor-pointer font-semibold text-white py-2 px-4 text-sm ">
             <p className="text-xs md:text-base">   Upgrade now</p>
           </button>
         </li>

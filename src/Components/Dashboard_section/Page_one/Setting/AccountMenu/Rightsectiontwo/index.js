@@ -24,10 +24,10 @@ export default function index() {
                 </h4>
                 <hr />
 
-                <p className="text-[#FD2579] font-semibold py-4 text-sm md:text-base">Export your data to your drive</p>
+                <p className="text-pinkColor font-semibold py-4 text-sm md:text-base">Export your data to your drive</p>
                 <p  className="py-5">Total Size: 125 mb</p>
 
-                <div className="py-5"> <button className=" bg-[#FD2579] px-4 py-2 rounded-2xl text-white font-medium text-sm md:text-base">Export now</button> </div>
+                <div className="py-5"> <button className=" bg-pinkColor px-4 py-2 rounded-2xl text-white font-medium text-sm md:text-base">Export now</button> </div>
                
 
 

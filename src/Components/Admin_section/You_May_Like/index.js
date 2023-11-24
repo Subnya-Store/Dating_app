@@ -40,7 +40,7 @@ export default function index() {
                                         <ul className='text-[#050062]'>
                                             <li className='font-bold '>{e.text}
                                             </li>
-                                            <li className='text-[#FD2579] '>
+                                            <li className='text-pinkColor '>
                                                 {e.text2}
                                             </li>
                                         </ul>
@@ -48,7 +48,7 @@ export default function index() {
                                 </li>
 
                                 <li>
-                                    <button className="bg-[#e4cffc] text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
+                                    <button className="bg-[#e4cffc] text-pinkColor rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
                                         {e.button_text}
                                     </button>
                                 </li>

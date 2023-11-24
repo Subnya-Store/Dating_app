@@ -103,7 +103,7 @@ export default function index({ setStateHeader }) {
                         </li>
 
                         <li>
-                            <button onClick={() => HookItUp(e)} className="bg-[#e4cffc] text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
+                            <button onClick={() => HookItUp(e)} className="bg-[#e4cffc] text-pinkColor rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
                                 reply
                             </button>
                         </li>

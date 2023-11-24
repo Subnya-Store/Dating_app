@@ -58,13 +58,13 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
                                         {e?.user?.full_name}
                                     </div>
                                     <div className='flex justify-between w-full'>
-                                        <div className='text-[#FD2579] '>
+                                        <div className='text-pinkColor '>
                                             {e?.lastMessage}
                                         </div>
                                     </div>
                                 </div>
 
-                                {e?.unseenMessages?.length > 0 && <div className='text-[#FD2579] p-1  text-xs w-[200px] flex justify-center items-center'>
+                                {e?.unseenMessages?.length > 0 && <div className='text-pinkColor p-1  text-xs w-[200px] flex justify-center items-center'>
                                     {e?.unseenMessages?.length} unread message
                                 </div>}
                             </div>
@@ -79,7 +79,7 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
                                             .then(x => setConversation(x.data.users))
                                             .catch(x => console.log(x))
 
-                                    )} className="bg-[#e4cffc] text-[#FD2579] rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
+                                    )} className="bg-[#e4cffc] text-pinkColor rounded-md items-center text-center cursor-pointer font-semibold py-2 px-4">
                                     Reply
                                 </button>
                             </div>

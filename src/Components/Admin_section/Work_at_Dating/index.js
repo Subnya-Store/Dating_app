@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function index() {
   return (
-    <div className='flex bg-[#FD2579] py-6 m-2 rounded-xl '>
+    <div className='flex bg-pinkColor py-6 m-2 rounded-xl '>
         <div className=''>
             <h2 className='text-white font-bold text-[25px] px-4 py-3'> Work at Dating</h2>
             <p className='text-white text-[21px] px-4'>Would you fight for your work or partner?</p>

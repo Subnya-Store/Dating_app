@@ -25,12 +25,12 @@ export default function index() {
                 />
               </li>
               <li>
-                <button className=" md:text-base text-sm bg-[#FD2579]  rounded-md items-center text-center cursor-pointer font-semibold text-white py-2 px-4">
+                <button className=" md:text-base text-sm bg-pinkColor  rounded-md items-center text-center cursor-pointer font-semibold text-white py-2 px-4">
                   Upload
                 </button>
               </li>
               <li>
-                <button className=" md:text-base text-sm bg-[#fff] border-[#FD2579] border  rounded-md items-center text-center cursor-pointer font-semibold text-[#FD2579] py-2 px-4 mt-1">
+                <button className=" md:text-base text-sm bg-[#fff] border-pinkColor border  rounded-md items-center text-center cursor-pointer font-semibold text-pinkColor py-2 px-4 mt-1">
                   Remove
                 </button>
               </li>
@@ -48,7 +48,7 @@ export default function index() {
                 <input
                   type="text"
                   placeholder="Alex"
-                  className=" placeholder:text-[#FD2579] w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                  className=" placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
                 />
               </div>
               <div>
@@ -58,7 +58,7 @@ export default function index() {
                 <input
                   type="text"
                   placeholder="Alex"
-                  className=" placeholder:text-[#FD2579] w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                  className=" placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
                 />
               </div>
             </div>
@@ -75,7 +75,7 @@ export default function index() {
                 <input
                   type="email"
                   placeholder="alexmercer@yahoo.com"
-                  className=" placeholder:text-[#FD2579] w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                  className=" placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
                 />
               </div>
               <div>
@@ -85,7 +85,7 @@ export default function index() {
                 <input
                   type="number"
                   placeholder="Alex"
-                  className=" placeholder:text-[#FD2579] w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                  className=" placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
                 />
               </div>
             </div>
@@ -109,7 +109,7 @@ export default function index() {
                   />
                   <a
                     href="/"
-                    className="text-[#FD2579] text-base font-semibold  md:text-base text-sm"
+                    className="text-pinkColor text-base font-semibold  md:text-base text-sm"
                   >
                     Sign in with Google
                   </a>
@@ -118,7 +118,7 @@ export default function index() {
               <div>
                 <span className="block text-right items-center">
                
-                  <button className="bg-[#fff]  border-[#FD2579] border  rounded-md items-center text-center cursor-pointer font-semibold text-[#FD2579] py-2 px-4  md:text-base text-sm">
+                  <button className="bg-[#fff]  border-pinkColor border  rounded-md items-center text-center cursor-pointer font-semibold text-pinkColor py-2 px-4  md:text-base text-sm">
                     Connect
                   </button>
                 </span>
@@ -134,7 +134,7 @@ export default function index() {
                 <label className="block text-[#050062] pb-2  font-semibold capitalize  md:text-lg text-sm">
                   Linked Accounts
                 </label>
-                <p className="text-[#FD2579] font-semibold  md:text-base text-sm">
+                <p className="text-pinkColor font-semibold  md:text-base text-sm">
                   By deleting your account you will lose your data.
                 </p>
               </div>
@@ -149,7 +149,7 @@ export default function index() {
             </span>
 
             <div className="flex justify-end">
-              <button className="bg-[#FD2579]  rounded-md items-center text-center cursor-pointer font-semibold text-white py-2 px-4  md:text-base text-sm">
+              <button className="bg-pinkColor  rounded-md items-center text-center cursor-pointer font-semibold text-white py-2 px-4  md:text-base text-sm">
                 Save Changes
               </button>
             </div>

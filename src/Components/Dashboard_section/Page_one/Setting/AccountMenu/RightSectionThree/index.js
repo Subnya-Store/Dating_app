@@ -31,7 +31,7 @@ export default function index() {
                 </h4>
                 <hr />
 
-                <p className="text-[#FD2579] text-sm md:text-basefont-semibold py-4">Export your data to your drive</p>
+                <p className="text-pinkColor text-sm md:text-basefont-semibold py-4">Export your data to your drive</p>
                 <p className="py-5 text-[#050062]text-sm md:text-base ">Theme</p>
 
                 <div>
@@ -47,7 +47,7 @@ export default function index() {
                     </select>
                 </div>
                 {/* <div>
-                    <p className="text-[#FD2579]  font-semibold py-4 text-sm md:text-base">Chat Background</p>
+                    <p className="text-pinkColor  font-semibold py-4 text-sm md:text-base">Chat Background</p>
                     <select className=" text-[#050062] text-sm md:text-base">
                         {
                             option_two.map((x, i) => (

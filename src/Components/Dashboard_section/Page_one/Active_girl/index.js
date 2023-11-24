@@ -110,7 +110,7 @@ export default function Index() {
                             </div>
                           </div>
                           <div>
-                            <button className={` flex  text-white bg-[#FD2579] rounded-xl  px-6 ${index === 1 ? 'py-2 ' : ' py-1 px-3 text-sm'} `}>
+                            <button className={` flex  text-white bg-pinkColor rounded-xl  px-6 ${index === 1 ? 'py-2 ' : ' py-1 px-3 text-sm'} `}>
                               90% Match
                             </button>
                           </div>
@@ -141,7 +141,7 @@ export default function Index() {
                     <div className='flex justify-between '>
                       <div>
                         <div className={`bg-[#DBDBDB] rounded-xl  py-2 px-4 ${index === 1 ? 'text-sm' : 'text-xs'}`} >
-                          <div><button className=' text-[#FD2579]'>
+                          <div><button className=' text-pinkColor'>
                             10+ Same Interests.
                           </button>
                           </div>
@@ -157,12 +157,12 @@ export default function Index() {
                           Request_found && Request_found == 'pending' ?
                             <button
 
-                              className={` bg-[#FD2579] rounded-xl text-white py-3 px-6 ${index === 1 ? 'text-base' : ' text-xs py-0 px-6 '}`}>
+                              className={` bg-pinkColor rounded-xl text-white py-3 px-6 ${index === 1 ? 'text-base' : ' text-xs py-0 px-6 '}`}>
                               {Request_found}
                             </button> :
                             <button
                               onClick={() => { Request_sent(x.user_id) }}
-                              className={` bg-[#FD2579] rounded-xl text-white py-3 px-6 ${index === 1 ? 'text-base' : ' text-xs py-0 px-6 '}`}>
+                              className={` bg-pinkColor rounded-xl text-white py-3 px-6 ${index === 1 ? 'text-base' : ' text-xs py-0 px-6 '}`}>
                               Send Request
                             </button>
                         }
@@ -182,7 +182,7 @@ export default function Index() {
                 src='/Images/Arrow1.svg' />
 
               <img
-                className='bg-[#FD2579] rounded-full h-16 w-16 text-white py-3 px-6'
+                className='bg-pinkColor rounded-full h-16 w-16 text-white py-3 px-6'
                 onClick={nextItem}
                 src='/Images/Arrow.svg' />
 

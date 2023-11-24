@@ -46,11 +46,11 @@ export default function index() {
                             <div className='flex w-full justify-between px-2 items-center'>
                                 <div>
                                     <div className='font-bold '>{e.text}</div>
-                                    <div className='text-[#FD2579] '>
+                                    <div className='text-pinkColor '>
                                         {e.text2}
                                     </div>
                                 </div>
-                                <div className="bg-[#e4cffc] text-[#FD2579] flex rounded-xl items-center text-center cursor-pointer font-semibold p-2">
+                                <div className="bg-[#e4cffc] text-pinkColor flex rounded-xl items-center text-center cursor-pointer font-semibold p-2">
                                     {e.button_text}
                                 </div>
                             </div>

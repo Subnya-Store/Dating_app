@@ -73,7 +73,7 @@ export default function DashboardMenu({ setStateHeader }) {
       ))}
       {
         main_manu.map((x, i) => (
-          <div key={i} onClick={() => setStateHeader('Matches')} className="matches_box cursor-pointer">
+          <div key={i} onClick={() => setStateHeader('Matches')} className="matches_box bg-pinkColor cursor-pointer">
             <ul className="flex justify-center gap-2">
               <li> <img src="/Images/Dashboard.svg" /></li>
               <li>

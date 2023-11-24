@@ -35,7 +35,7 @@ export default function index() {
             </h4>
             <hr />
 {/*
-            <p className="text-[#FD2579] md:text-base font-semibold py-2 text-sm ">Email Notifications</p>
+            <p className="text-pinkColor md:text-base font-semibold py-2 text-sm ">Email Notifications</p>
             <p className="text-[#050062] text-sm md:text-base">Get emails to find out what’s going on when you’re not online. You can turn these off.</p> */}
 
 
@@ -47,7 +47,7 @@ export default function index() {
                         API.fetchGet('/turn_notification')
                     }} />
                     <div>
-                        <p className="text-[#FD2579] md:text-base font-semibold text-sm ">{x.firstheading}</p>
+                        <p className="text-pinkColor md:text-base font-semibold text-sm ">{x.firstheading}</p>
                         <p className="text-sm md:text-base">{x.secondheading}</p>
                     </div>
 
@@ -55,7 +55,7 @@ export default function index() {
             ))}
 
             <hr /> */}
-            <p className="text-[#FD2579] md:text-base font-semibold py-2 text-sm">Push notifications</p>
+            <p className="text-pinkColor md:text-base font-semibold py-2 text-sm">Push notifications</p>
             <p className="text-[#050062] text-sm md:text-base">Get Notification to find out what’s going on when you’re not online. You can turn these off.</p>
 
             {texttwo.map((x, i) => (
@@ -66,7 +66,7 @@ export default function index() {
                          API.fetchGet('/turn_notification')
                     }} />
                     <div>
-                        <p className="text-[#FD2579] font-semibold text-sm md:text-base">{x.firstheading}</p>
+                        <p className="text-pinkColor font-semibold text-sm md:text-base">{x.firstheading}</p>
                         <p className="text-sm md:text-base">{x.secondheading}</p>
                     </div>
 
