@@ -2,6 +2,9 @@ import React from "react";
 import { AiFillSetting } from "react-icons/ai";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
+import { IoSettings } from "react-icons/io5";
+import { IoIosHelpCircle } from "react-icons/io";
+import { FaSignOutAlt } from "react-icons/fa";
 //humay state yahan tak lani hay 
 export default function DashboardMenu({ setStateHeader }) {
   const sideBar_arr = [
@@ -40,12 +43,12 @@ export default function DashboardMenu({ setStateHeader }) {
 
   ]
   const Logo = "/Images/logo-img.png";
-const dispatch=useDispatch()
+  const dispatch = useDispatch()
   return (
     <div className="side_menu text-xs md:text-lg">
       {sideBar_arr.map((y, i) => (
-        <div  key={i}>
-          <div  className="container mx-auto px-4">
+        <div key={i}>
+          <div className="container mx-auto px-4">
             <div className="side_logo ">
               <img src={y.Logo} />
             </div>
@@ -55,12 +58,12 @@ const dispatch=useDispatch()
       ))}
       {
         main_manu.map((x, i) => (
-          <div  key={i}>
+          <div key={i}>
 
             <div onClick={() => (dispatch({
-              type:'state',
-              payload:x.menu
-            }),setStateHeader('Matches'))} className="matches_box cursor-pointer">
+              type: 'state',
+              payload: x.menu
+            }), setStateHeader('Matches'))} className="matches_box cursor-pointer">
               <h4 className="" >{x.menu}</h4>
             </div>
           </div>
@@ -71,8 +74,8 @@ const dispatch=useDispatch()
       </div>
 
       {Support_menu.map((x, i) => (
-        <div  key={i}>
-          <div  className="container mx-auto px-4">
+        <div key={i}>
+          <div className="container mx-auto px-4">
             <h3>{x.heading}</h3>
           </div>
         </div>
@@ -83,16 +86,20 @@ const dispatch=useDispatch()
       <div className=" pt-10">
         {
           list.map((x, i) => (
-            <div  key={i} onClick={() => {
+            <div key={i} onClick={() => {
               if (x.listHeading == 'Logout') {
                 localStorage.removeItem('user')
                 window.location.href = '/signin'
               }
             }} className="container mx-auto px-6 py-1">
 
-              <ul className="flex gap-4" >
+              <ul className="flex gap-4  items-center" >
                 <li>
-                  <img  src={x.listImg} />
+                  {
+                    x.listHeading == 'Setting' && <IoSettings className="text-pinkColor"/> ||
+                    x.listHeading == 'Help' && <IoIosHelpCircle className="text-pinkColor"/> ||
+                    x.listHeading == 'Logout' && <FaSignOutAlt className="text-pinkColor"/>
+                  }
                 </li>
                 <li>
                   <button onClick={() => setStateHeader(x.listHeading)} className="text-[#050062] font-bold"> {x.listHeading}</button>

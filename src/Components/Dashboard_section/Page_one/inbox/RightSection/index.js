@@ -6,6 +6,9 @@ import Decode from 'jwt-decode'
 import io from 'socket.io-client'
 import apiUrl from '@/API/constant'
 import { useDispatch, useSelector } from 'react-redux'
+import { IoIosInformationCircleOutline } from "react-icons/io"
+import { FaMicrophoneAlt } from "react-icons/fa";
+import { IoAddOutline } from "react-icons/io5";
 // import io from Socket
 
 const socket = io(apiUrl)
@@ -158,7 +161,9 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         <div className="flex md:gap-6 gap-2">
           {/* <div> <img className=' w-5 h-3 md:h-6 md:w-8' src="/Images/video.png" /></div>
           <div> <img className=' w-5  h-3 md:h-6 md:w-6' src="/Images/phone.png" /></div> */}
-          <div> <img className=' w-5  h-3  md:h-6 md:w-6' src="/Images/info.png" /></div>
+          <div>
+            <IoIosInformationCircleOutline className='text-pinkColor' size={26} />
+          </div>
         </div>
       </div>
       <div className=' flex justify-between  flex-col h-[95%]'>
@@ -184,7 +189,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
                 <div className=" flex gap-3 w-full justify-between items-center">
 
                   <i className='rounded-[100%] shadow-lg p-3'>
-                    < AiOutlinePlus size={"25px"} className="text-red-700" />
+                    < IoAddOutline size={25} className="text-pinkColor" />
                   </i>
                   <input
                     className='w-full outline-none bg-[#D9D9D9] text-[var(--pink-color)] placeholder:text-[var(--pink-color)]'
@@ -203,7 +208,9 @@ export default function index({ Conversations_id, setConversation_id, setProfile
 
               </form>
             </div>
-            <div className='p-4'><img src="/Images/mic.png" /></div>
+            <div className='p-4'>
+              <FaMicrophoneAlt className='text-pinkColor' size={20}/>
+            </div>
           </div>
         </div>
       </div>
