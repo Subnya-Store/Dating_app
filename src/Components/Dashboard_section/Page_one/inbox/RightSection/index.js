@@ -145,7 +145,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
   return (
     <div className='  bg-white md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[550px] '>
 
-      <div className='flex  justify-between items-center gap-3 px-2 h-[5%]'>
+      <div className='flex  justify-between items-center gap-3 px-2 h-auto'>
         <div className='flex gap-2'>
           <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + Profile?.profile?.img || '/Images/video.png'} />
           <div className='text-[#050062] '>
@@ -162,7 +162,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         </div>
       </div>
       <div className=' flex justify-between  flex-col h-[95%]'>
-        <div className='overflow-y-scroll h-[70%] ' ref={messagesContainerRef} >
+        <div className='overflow-y-scroll h-[79%] ' ref={messagesContainerRef} >
           {msgArray.length > 0 && msgArray.map((e, i) =>
             <div key={i} className="">
               <div className={`flex ${e.from == User_id.id ? 'justify-end px-4 mb-5' : 'justify-start px-4'}`} >
@@ -172,11 +172,11 @@ export default function index({ Conversations_id, setConversation_id, setProfile
               </div>
             </div>
           )}
-          <div className='mb-10'></div>
+          <div className='mb-5'></div>
         </div>
-        {isTyping ? <p className='h-[9%] w-full '>typing...</p> : <div className='h-[9%] w-full '></div>}
+        {isTyping ? <p className='h-[9%] w-full '>typing...</p> : <div className='h-[20px]  w-full '></div>}
 
-        <div className='h-[10%] flex justify-center items-center '>
+        <div className='h-[22%] flex justify-center items-center '>
           <div className='flex justify-between bg-[#D9D9D9] rounded-full  w-full'>
             <div className=' rounded-full justify-middle flex w-full'>
               <form className="flex w-full" onSubmit={Msg_now}>
