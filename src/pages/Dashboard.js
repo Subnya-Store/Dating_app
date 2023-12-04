@@ -59,6 +59,7 @@ export default function Dashboard() {
   const requestForToken = () => {
     return getToken(messaging, { vapidKey: "BAiuRjrYmAoyKmoIy2uqbajt3iH2B0KP-_ovjbuazcGOCupx9XhaI5v4qV4pJO2UCZfEai-D8jBgLw_jwDAZapU" })
       .then((currentToken) => {
+        // console.log(currentToken,'hellow !')
         if (currentToken) {
           // console.log('current token for client: ', currentToken);
           API.fetchPost({ notification_id: currentToken }, '/set_notification')
