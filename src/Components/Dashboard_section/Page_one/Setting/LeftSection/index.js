@@ -12,10 +12,10 @@ export default function Index({ SetStateSetting }) {
       id: 1,
       heading: "Notifications"
     },
-    {
-      id: 2,
-      heading: "Data Export"
-    },
+    // {
+    //   id: 2,
+    //   heading: "Data Export"
+    // },
     {
       id: 3,
       heading: "Apperance"

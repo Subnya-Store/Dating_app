@@ -35,7 +35,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
   };
 
   useEffect(() => {
-    setConversation_id(Selector_data.ConversationId)
+    
     //api now for seen
     API.fetchPost({ conversation_id: Selector_data.ConversationId }, '/see_notify')
       .then(x => API.fetchPost({ conversation_id: Conversations_id }, '/seen')

@@ -154,7 +154,7 @@ export default function Index() {
     },
   ];
   return (
-    <div className="bg-white md:m-4  md:w-[50%] rounded-md  md:px-10 px-3 py-2 ">
+    <div className="bg-white md:m-4 hidden  md:w-[50%] rounded-md  md:px-10 px-3 py-2 ">
       <div className="   py-2 flex justify-between ">
 
         <div>
