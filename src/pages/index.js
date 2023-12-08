@@ -22,12 +22,13 @@ const firebaseConfig = {
   measurementId: "G-F2412L8SLH"
 };
 
-let messaging
 
 // if (app != null) {
-// }
-export default function index() {
-
+  // }
+  export default function index() {
+  let messaging, user
+ 
+  // console.log(user)
   const [contruction, setConstruction] = useState(true)
   const requestForToken = () => {
     return getToken(messaging, { vapidKey: "BAiuRjrYmAoyKmoIy2uqbajt3iH2B0KP-_ovjbuazcGOCupx9XhaI5v4qV4pJO2UCZfEai-D8jBgLw_jwDAZapU" })
@@ -45,9 +46,12 @@ export default function index() {
       });
   };
   useEffect(() => {
-    const app = initializeApp(firebaseConfig);
-    messaging = getMessaging(app);
-    requestForToken()
+    user = localStorage.getItem('user')
+    if (user != undefined) {
+      const app = initializeApp(firebaseConfig);
+      messaging = getMessaging(app);
+      requestForToken()
+    }
   }, [])
   return (
     <div>
@@ -57,7 +61,7 @@ export default function index() {
         </div>
         :
         <>
-        {/* <button onClick={requestForToken}>click me</button> */}
+          {/* <button onClick={requestForToken}>click me</button> */}
           <div className=" bg-gradient-to-r border-1 rounded-b-[46%] overflow-hidden relative from-[#D74EFF] to-[#FF80B4]  md:pt-16 pt-4">
             <div className="bg-[url('/Images/banner-shape.png')]     md:mx-14 mx-4 rounded-t-3xl h-full bg-center pt-16   pb-36 bg-no-repeat bg-cover">
               <div className="container mx-auto md:px-20 px-10">

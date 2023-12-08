@@ -135,7 +135,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         conversation_id: Conversations_id,
         msg
       }, '/msg')
-        .then(x => (socket.emit('send_msg', { msg, room: Conversations_id }), setmsg(''), scrollToBottom()))
+        .then(x => (socket.emit('send_msg', { msg, room: Conversations_id }),socket.emit('all_notify',{msg:'hello'}), setmsg(''), scrollToBottom()))
         .catch(x => console.log(x))
   }
   useEffect(() => {

@@ -14,9 +14,16 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
     const [Conversations, setConversation] = useState('')
     const [update, setupd] = useState('')
     useEffect(() => {
-        API.fetchGet('/get_all_hookup')
-            .then(x => setConversation(x.data.users))
-            .catch(x => console.log(x))
+        socket.on('connection', () => {
+            console.log(socket.id, "<============== ye connected hy")
+        })
+        // Listen for the 'show_all_notify' event
+        socket.on('show_all_notify', (data) => {
+            // Assuming setConversation is a state updater function
+            API.fetchGet('/get_all_hookup')
+                .then(x => setConversation(x.data.users))
+                .catch(x => console.log(x));
+        });
     }, [])
     useEffect(() => {
         API.fetchGet('/get_all_hookup')
@@ -24,12 +31,6 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
             .catch(x => console.log(x))
     }, [recieve_msgs, msg, Conversations_id])
 
-
-    // socket.on('recieve_msg', (data) => {
-    //     API.fetchGet('/get_all_hookup')
-    //         .then(x => setConversation(x.data.users))
-    //         .catch(x => console.log(x))
-    // })
     return (
         <div className=' bg-white md:m-4  rounded-2xl h-[400px]   md:w-[80%] w-full py-2 md:px-1'>
 

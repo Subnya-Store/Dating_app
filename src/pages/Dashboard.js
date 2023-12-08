@@ -48,14 +48,16 @@ export default function Dashboard() {
         .then(x => setdatas(x))
         .catch(x => console.log(x))
     })
-    user = localStorage.getItem('user')
-    console.log(user)
-    if (user != undefined) {
-      const app = initializeApp(firebaseConfig);
-      messaging = getMessaging(app);
-      requestForToken()
-    }
+
+
   }, [])
+  // useEffect(() => {
+
+  //   const app = initializeApp(firebaseConfig);
+  //   messaging = getMessaging(app);
+  //   requestForToken()
+
+  // }, [])
   const requestForToken = () => {
     return getToken(messaging, { vapidKey: "BAiuRjrYmAoyKmoIy2uqbajt3iH2B0KP-_ovjbuazcGOCupx9XhaI5v4qV4pJO2UCZfEai-D8jBgLw_jwDAZapU" })
       .then((currentToken) => {

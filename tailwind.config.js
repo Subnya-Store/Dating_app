@@ -19,7 +19,9 @@ module.exports = withMT({
         primary: 'rgb(var(--color-primary)',
         pinkColor: "var(--pink-color)",
         blueColor:"var(--blue-color)",
-        lightGray:"var(--light-gray)"
+        lightGray:"var(--light-gray)",
+        whiteColor:"var(--white-color)",
+        blackColor:"var(--black-color)",
       },
       backgroundImage: {
         'hero-pattern': "url('/ImagesEllipse.png')",
