@@ -19,7 +19,7 @@ export default function Index({setStateHeader}) {
 
             <div className="pt-1 flex">
 
-              <input className=' bg-[#D9D9D9] text-[#050062] placeholder:text-[#050062]' type="text" placeholder="Search here" name="search" />
+              <input className=' bg-[#D9D9D9] text-blackColor placeholder:text-blackColor' type="text" placeholder="Search here" name="search" />
               <button type="submit"><i> < AiOutlineSearch size={"25px"} /> </i></button>
             </div>
           </form></li>

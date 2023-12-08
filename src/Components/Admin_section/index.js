@@ -24,7 +24,7 @@ export default function index() {
                 <div className='w-full flex flex-col md:flex-row '>
 
                   <div className=' rounded-2x pt-9  px-2 w-full'>
-                    <div className='w-[100%] mt-1 rounded-2xl h-[360px] bg-white'>
+                    <div className='w-[100%] mt-1 rounded-2xl h-[360px] bg-whiteColor'>
                       hello
                     </div>
                     <div className='flex'>

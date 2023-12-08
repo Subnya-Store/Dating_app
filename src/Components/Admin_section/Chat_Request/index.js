@@ -34,7 +34,7 @@ export default function index() {
     return (
         <div>
             <h2 className=' text-white font-bold text-[29px] px-4'> Chat Request</h2>
-            <div className=' bg-white   rounded-2xl   min-w-[250px]  w-full py-2 px-2'>
+            <div className=' bg-whiteColor   rounded-2xl   min-w-[250px]  w-full py-2 px-2'>
 
                 {/* <div className=' '> */}
                 {array.map((e,i) =>

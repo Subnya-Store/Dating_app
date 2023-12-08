@@ -29,7 +29,7 @@ export default function index() {
     return (
         <div className='pt-8 '>
             <h2 className=' text-white font-bold text-[29px] '> You May Like</h2>
-            <div className=' bg-white   rounded-2xl  w-full py-2 md:px-1'>
+            <div className=' bg-whiteColor   rounded-2xl  w-full py-2 md:px-1'>
                 <div className='min-w-[250px]'>
                     {array.map((e,i) =>
                         <div key={i} >
@@ -37,7 +37,7 @@ export default function index() {
                                 <li>
                                     <figure className='flex gap-2'>
                                         <img className=' w-14 rounded-[50%]' src={e.img} />
-                                        <ul className='text-[#050062]'>
+                                        <ul className='text-blackColor'>
                                             <li className='font-bold '>{e.text}
                                             </li>
                                             <li className='text-pinkColor '>

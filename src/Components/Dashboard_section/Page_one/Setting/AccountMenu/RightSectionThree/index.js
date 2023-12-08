@@ -28,15 +28,15 @@ export default function index() {
     return (
         <div className=" md:w-[70%] ">
             <div className="bg-[#FFF] p-10   rounded-3xl  shadow-2xl">
-                <h4 className="text-[#050062]  py-3 md:text-3xl text=lg capitalize font-bold">
+                <h4 className="text-black  py-3 md:text-3xl text=lg capitalize font-bold">
                     Apperance
                 </h4>
                 <hr />
 
                 {/* <p className="text-pinkColor text-sm md:text-basefont-semibold py-4">Export your data to your drive</p> */}
-                <p className="py-5 text-[#050062]text-sm md:text-base ">Theme</p>
+                <div className="py-5 text-blackColortext-sm md:text-base ">Theme</div>
                 <div>
-                    <select onChange={(e)=> setTheme(e.target.value)} className=" text-[#050062] bg-white">
+                    <select onChange={(e)=> setTheme(e.target.value)} className=" text-blackColor bg-whiteColor">
                         {
                             option_one.map((x, i) => (
 
@@ -49,7 +49,7 @@ export default function index() {
                 </div>
                 {/* <div>
                     <p className="text-pinkColor  font-semibold py-4 text-sm md:text-base">Chat Background</p>
-                    <select className=" text-[#050062] text-sm md:text-base">
+                    <select className=" text-blackColor text-sm md:text-base">
                         {
                             option_two.map((x, i) => (
 

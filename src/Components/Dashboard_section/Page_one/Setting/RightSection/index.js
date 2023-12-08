@@ -60,12 +60,12 @@ export default function index() {
   return (
 
     <div className="bg-[#FFF] p-10  md:w-[90%] h-[60%] overflow-y-scroll rounded-3xl  shadow-2xl">
-      <h4 className="text-[#050062]  py-3 md:text-3xl capitalize font-bold text-xl">
+      <h4 className="text-black  py-3 md:text-3xl capitalize font-bold text-xl">
         Account
       </h4>
       <hr />
       <div className=" my-2">
-        <h6 className="text-[#050062] md:text-base text-sm  font-semibold capitalize">
+        <h6 className="text-black md:text-base text-sm  font-semibold capitalize">
           Avatar
         </h6>
         <div className=" my-4">
@@ -91,7 +91,7 @@ export default function index() {
               <div className="flex justify-center items-center flex-col">
 
                 <div className="w-[144.78px] h-[37.54px] text-center flex justify-center items-center my-2 bg-pinkColor rounded-[8.94px] border border-violet-700">
-                  <label htmlFor="myfile" className=" text-white text-base  font-medium capitalize m-auto">
+                  <label htmlFor="myfile" className=" text-whiteColor text-base  font-medium capitalize m-auto">
                     Upload
                   </label>
                   <input type="file" id="myfile" className="hidden" onChange={handleImageChange} />
@@ -108,25 +108,25 @@ export default function index() {
           <div className=" grid  grid-cols-2  gap-4">
 
             <div>
-              <label className="block text-[#050062] pb-2  md:text-base text-sm font-semibold capitalize">
+              <label className="block text-black pb-2  md:text-base text-sm font-semibold capitalize">
                 Full name
               </label>
               <input
                 type="text"
                 onChange={e => setInputs({ ...Inputs, full_name: e.target.value })}
                 placeholder={Inputs.full_name}
-                className="bg-white placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                className="bg-whiteColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
               />
             </div>
             <div>
-              <label className="block text-[#050062] pb-2  md:text-base text-sm font-semibold capitalize">
+              <label className="block text-black pb-2  md:text-base text-sm font-semibold capitalize">
                 User name
               </label>
               <input
                 type="text"
                 onChange={e => setInputs({ ...Inputs, username: e.target.value })}
                 placeholder={Inputs.username}
-                className="bg-white placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                className="bg-whiteColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
               />
             </div>
           </div>
@@ -137,39 +137,39 @@ export default function index() {
 
           <div className=" grid  grid-cols-2  gap-4">
             <div>
-              <label className="block text-[#050062] pb-2 text-lg font-semibold capitalize  md:text-base ">
+              <label className="block text-black pb-2 text-lg font-semibold capitalize  md:text-base ">
                 Email Address
               </label>
               <input
                 type="email"
                 onChange={e => setInputs({ ...Inputs, email: e.target.value })}
                 placeholder={Inputs.email}
-                className="bg-white placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                className="bg-whiteColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
               />
             </div>
             <div>
-              <label className="block text-[#050062] pb-2 text-lg font-semibold capitalize  md:text-base ">
+              <label className="block text-black pb-2 text-lg font-semibold capitalize  md:text-base ">
                 Phone Number
               </label>
               <input
                 type="number"
                 onChange={e => setInputs({ ...Inputs, phone: e.target.value })}
                 placeholder={Inputs.phone}
-                className="bg-white placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                className="bg-whiteColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
               />
             </div>
-            <button onClick={SubmitData} className="bg-pinkColor p-2 rounded-xl text-white">
+            <button onClick={SubmitData} className="bg-pinkColor p-2 rounded-xl text-whiteColor">
               Update now!
             </button>
           </div>
-          <span className=" block my-5">
+          {/* <span className=" block my-5">
             {" "}
             <hr />
           </span>
 
           <div className=" flex justify-between items-center">
             <div>
-              <label className="block text-[#050062]  pb-4 text-lg font-semibold capitalize  md:text-base">
+              <label className="block text-black  pb-4 text-lg font-semibold capitalize  md:text-base">
                 Linked Accounts
               </label>
               <div className="flex items-center">
@@ -204,7 +204,7 @@ export default function index() {
 
           <div className="flex justify-between items-center">
             <div>
-              <label className="block text-[#050062] pb-2  font-semibold capitalize  md:text-lg text-sm">
+              <label className="block text-black pb-2  font-semibold capitalize  md:text-lg text-sm">
                 Linked Accounts
               </label>
               <p className="text-pinkColor font-semibold  md:text-base text-sm">
@@ -212,20 +212,20 @@ export default function index() {
               </p>
             </div>
             <div>
-              <label className="block text-[#050062] pb-2  md:text-lg text-sm font-semibold capitalize">
+              <label className="block text-black pb-2  md:text-lg text-sm font-semibold capitalize">
                 Delete Account.
               </label>
             </div>
           </div>
           <span className=" block my-5">
             <hr />
-          </span>
+          </span> */}
 
-          <div className="flex justify-end">
+          {/* <div className="flex justify-end">
             <button className="bg-pinkColor  rounded-md items-center text-center cursor-pointer font-semibold text-white py-2 px-4  md:text-base text-sm">
               Save Changes
             </button>
-          </div>
+          </div> */}
         </form>
       </div>
     </div>

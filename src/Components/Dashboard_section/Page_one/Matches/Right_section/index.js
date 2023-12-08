@@ -154,18 +154,18 @@ export default function Index() {
     },
   ];
   return (
-    <div className="bg-white md:m-4 hidden  md:w-[50%] rounded-md  md:px-10 px-3 py-2 ">
+    <div className="bg-whiteColor md:m-4 hidden  md:w-[50%] rounded-md  md:px-10 px-3 py-2 ">
       <div className="   py-2 flex justify-between ">
 
         <div>
-          <h2 className="text-[#050062] text-lg font-bold">Improve your Matches</h2>
+          <h2 className="text-blackColor text-lg font-bold">Improve your Matches</h2>
         </div>
         <div className="text-center cursor-pointer">
           {questionIndex + 1} of 5
         </div>
       </div>
       <div>
-        <p className="text-[#050062]  font-bold  ">Continue answering Profile Questions</p>
+        <p className="text-blackColor  font-bold  ">Continue answering Profile Questions</p>
       </div>
       {/* question section */}
       <div>

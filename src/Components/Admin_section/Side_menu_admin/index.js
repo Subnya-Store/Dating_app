@@ -91,7 +91,7 @@ export default function DashboardMenu({ setStateHeader }) {
               <ul className="flex gap-4" >
                 <li><img src={x.listImg} /></li>
                 <li>
-                  <button onClick={() => setStateHeader(x.listHeading)} className="text-[#050062] font-bold"> {x.listHeading}</button>
+                  <button onClick={() => setStateHeader(x.listHeading)} className="text-blackColor font-bold"> {x.listHeading}</button>
                 </li>
 
               </ul>
@@ -123,7 +123,7 @@ export default function DashboardMenu({ setStateHeader }) {
               <ul className="flex gap-4" >
                 <li><img src={x.listImg} /></li>
                 <li>
-                  <button onClick={() => setStateHeader(x.listHeading)} className="text-[#050062] font-bold"> {x.listHeading}</button>
+                  <button onClick={() => setStateHeader(x.listHeading)} className="text-blackColor font-bold"> {x.listHeading}</button>
                 </li>
 
               </ul>

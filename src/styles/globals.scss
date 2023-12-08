@@ -6,25 +6,28 @@
 
 [data-theme='dark'] {
   body{
-    background-color: #fff
+    background-color: #000000
+  };
+  p{
+    color: #fafafa  
+  };
+  color: #000000;
+  --pink-color: #fffdfd;
+  --blue-color: #7000ed;
+  --light-gray: #d9d9d9;
+  --black-color: #f7f5f5;
+  --white-color: #000000;
+  --color-primary: rgba(255, 255, 255, 0.63);
+}
+[data-theme='light'] {
+  body{
+    background-color: #f8f8f8
   };
   p{
     color: #111111
   };
   color: #000000;
   --pink-color: #fd166f;
-  --blue-color: #7000ed;
-  --light-gray: #d9d9d9;
-  --black-color: #000000;
-  --white-color: #fff;
-  --color-primary: rgba(255, 255, 255, 0.63);
-}
-[data-theme='light'] {
-  p{
-    color: #111111
-  };
-  color: #000000;
-  --pink-color: #2a8f34;
   --blue-color: #7000ed;
   --light-gray: #d9d9d9;
   --black-color: #000000;
@@ -43,8 +46,8 @@ input::-webkit-inner-spin-button {
   @apply m-0 p-0;
   
 }
-  .side_menu {
-  @apply bg-white h-[50%] ;
+.side_menu {
+  @apply bg-white  ;
  .side_logo  {
     @apply mt-7;
     img{
@@ -53,25 +56,23 @@ input::-webkit-inner-spin-button {
   }
 
   h3{
-    @apply text-[#050062]  mt-7 text-xl font-bold;
+    @apply   pt-7 text-xl font-bold;
   }
   .matches_box{
     @apply bg-[var(--pink-color)] text-center mt-5 py-2;
    h4 {
-   @apply  text-xl  font-medium text-[#fff]
+   @apply  text-xl  font-medium 
     }
   }
   .support_links {
    h5 {
-    @apply text-[#050062] font-medium  text-xl mt-7  capitalize mb-3
+    @apply  font-medium  text-xl mt-7  capitalize mb-3
     }
     @apply mt-2 ;
     ul li{
 
-   @apply flex text-[#050062] text-lg  font-medium  leading-10 items-center;
-   span{
-    @apply text-[var(--pink-color)] pr-2 
-   }
+   @apply flex  text-lg  font-medium  leading-10 items-center;
+   
    img{
     @apply w-[80%] object-contain
    }

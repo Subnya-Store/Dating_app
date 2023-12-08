@@ -11,7 +11,7 @@ export default function index({ setState, setInputs, inputs }) {
 
   return (
     <div>
-      <div className=" md:w-[400px]  bg-white p-8  my-12  mx-16 rounded-2xl shadow-lg  opacity-90">
+      <div className=" md:w-[400px]  bg-whiteColor p-8  my-12  mx-16 rounded-2xl shadow-lg  opacity-90">
         <div className=" flex w-full">
           <div className="flex justify-between w-full">
             <div>

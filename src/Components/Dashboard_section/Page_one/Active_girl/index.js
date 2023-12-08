@@ -88,9 +88,9 @@ export default function Index() {
           <div className='md:flex justify-center'>
             {visibleItems.map((x, index) => (
               <div
-                className={`bg-white p-8 md:w-fit flex gap-2 rounded-xl ${index === 1
-                  ? 'lg:w-fit  bg-white  md:mx-10 p-8 h-2/3 '
-                  : 'lg:w-fit bg-white md:blur-sm h-2/3  p-8  mt-10'
+                className={`bg-whiteColor p-8 md:w-fit flex gap-2 rounded-xl ${index === 1
+                  ? 'lg:w-fit  bg-whiteColor  md:mx-10 p-8 h-2/3 '
+                  : 'lg:w-fit bg-whiteColor md:blur-sm h-2/3  p-8  mt-10'
                   }`}
                 key={index}
               >
@@ -121,7 +121,7 @@ export default function Index() {
                   <div className=' py-5'>
                     <div>
                       <div className='flex justify-between'>
-                        <div className=' text-[#050062] text-[20px]'>
+                        <div className=' text-blackColor text-[20px]'>
                           {x?.user?.full_name}
                         </div>
                         <div>
@@ -146,7 +146,7 @@ export default function Index() {
                           </button>
                           </div>
                           <div>
-                            <button className=' text-[#050062]'>
+                            <button className=' text-blackColor'>
                               See All
                             </button>
                           </div>
@@ -177,7 +177,7 @@ export default function Index() {
 
             <div className='flex justify-between mt-4 absolute top-[40%] w-[40%]'>
               <img
-                className='bg-white rounded-full h-16 w-16 text-white py-3 px-6  shadow-sm'
+                className='bg-whiteColor rounded-full h-16 w-16 text-white py-3 px-6  shadow-sm'
                 onClick={prevItem}
                 src='/Images/Arrow1.svg' />
 

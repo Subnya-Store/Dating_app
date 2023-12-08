@@ -5,7 +5,7 @@ import { AiFillStar } from 'react-icons/ai'
 // ye tuh bhut door hay dashboard sections mien eik kaam akrty hay
 export default function Index({setStateHeader}) {
   return (
-    <nav className="nav_list">
+    <nav className="nav_list bg-whiteColor">
       <ul className="flex">
         {/* <li onClick={() => SetState('Inbox')}><span><MdEmail /></span> Inbox</li> */}
         <li  onClick={() => setStateHeader('Inbox')}><span ><MdEmail className="text-pinkColor" /></span> <p  className="md:text-lg text-sm "> Inbox</p></li>

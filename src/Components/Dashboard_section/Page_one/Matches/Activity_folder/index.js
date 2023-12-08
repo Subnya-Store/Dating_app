@@ -32,17 +32,17 @@ export default function index({ setStateHeader }) {
   const email = "/Images/email-icon.png";
   const search = "/Images/search-icon.png";
   return (
-    <div className="activity_box my-10  rounded-2xl bg-white py-6">
+    <div className="activity_box my-10  rounded-2xl bg-whiteColor py-6">
       <div className="container mx-auto min-w-[300px]   px-6">
 
         <ul className="flex justify-between items-center">
           <li>
-            <h4 className="text-[#050062] text-xl  font-bold">
+            <h4 className="text-blackColor text-xl  font-bold">
               Activity
             </h4>
           </li>
           <li>
-            <span className="text-[#050062] text-xl  font-bold">
+            <span className="text-blackColor text-xl  font-bold">
               <BsThreeDots />
             </span>
           </li>
@@ -107,6 +107,6 @@ export default function index({ setStateHeader }) {
                   <div className="text-sm">{e?.hours}</div>
                 </div>
               </div>
-               <p className="text-[#050062]  font-bold text-base">{e.hours}</p> 
+               <p className="text-blackColor  font-bold text-base">{e.hours}</p> 
             </div>
             <hr /> */}

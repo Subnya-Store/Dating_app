@@ -83,7 +83,7 @@ export default function index({ setStateHeader }) {
             .catch(x => console.log(x))
     }
     return (
-        <div className='  bg-white md:m-4  rounded-2xl grid grid-cols-2 gap-x-8 '>
+        <div className='  bg-whiteColor md:m-4  rounded-2xl grid grid-cols-2 gap-x-8 '>
 
             {how_many_request.length > 0 && how_many_request.map((e, i) =>
                 <div key={i} >
@@ -91,7 +91,7 @@ export default function index({ setStateHeader }) {
                         <li>
                             <figure className='md:flex md:gap-2 sm:gap-1'>
                                 <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + e?.user.profile?.img} />
-                                <ul className='text-[#050062]'>
+                                <ul className='text-blackColor'>
                                     <li className='font-bold '>
                                         {e?.user?.full_name}
                                     </li>

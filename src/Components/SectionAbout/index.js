@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function index({page}) {
   return (
-    <div className={` ${page != 'about'?'bg-[#7000ED]':'bg-white'} pt-36 relative pb-10 -z-10   md:px-16 md:mt-[-40%] -mt-[94%]  `}>
+    <div className={` ${page != 'about'?'bg-[#7000ED]':'bg-whiteColor'} pt-36 relative pb-10 -z-10   md:px-16 md:mt-[-40%] -mt-[94%]  `}>
       <div className="container mx-auto px-20 md:pt-96 xl:pt-[700px] ">
         <div className="md:flex justify-between ">
           <AboutLeft page={page}/>

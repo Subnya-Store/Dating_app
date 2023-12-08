@@ -32,14 +32,14 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
     }, [recieve_msgs, msg, Conversations_id])
 
     return (
-        <div className=' bg-white md:m-4  rounded-2xl h-[400px]   md:w-[80%] w-full py-2 md:px-1'>
+        <div className=' bg-whiteColor md:m-4  rounded-2xl h-[400px]   md:w-[80%] w-full py-2 md:px-1'>
 
             <div> <div className='flex justify-between p-4 '>
                 <div className='  bg-[#D9D9D9] p-2 rounded-2xl  justify-middle flex'>
                     <form className="flex">
                         <div className="pt-1 flex">
 
-                            <input className=' bg-[#D9D9D9] text-[#050062] placeholder:text-[#050062]' type="text" placeholder="Type here" name="search" />
+                            <input className=' bg-[#D9D9D9] text-blackColor placeholder:text-blackColor' type="text" placeholder="Type here" name="search" />
                             <button type="submit"><i> < AiOutlineSearch size={"25px"} /> </i></button>
                         </div>
                     </form></div>
@@ -54,7 +54,7 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
 
                                 <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + e?.user?.profile?.img} />
 
-                                <div className='text-[#050062] w-full'>
+                                <div className='text-blackColor w-full'>
                                     <div className='font-bold '>
                                         {e?.user?.full_name}
                                     </div>

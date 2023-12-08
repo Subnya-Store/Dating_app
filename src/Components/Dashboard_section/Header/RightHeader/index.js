@@ -21,7 +21,7 @@ export default function index() {
       <div className="w-[120px] flex flex-col justify-center items-center">
         <div className="text-[#000]">change Them</div>
         <Switch 
-        className={`${theme == 'light'?'bg-black':'bg-[var(--pink-color)]'}`}
+        className={`${theme == 'light'?'bg-blackColor':'bg-[var(--pink-color)]'}`}
         onClick={()=>{
           if(theme=='dark'){
             setTheme('light')
@@ -32,7 +32,7 @@ export default function index() {
          />
       </div>
       <button className="bg-pinkColor mr-8 rounded-full items-center text-center cursor-pointer font-semibold text-white py-2 px-4 text-sm ">
-        <div className="text-xs md:text-base text-white">Upgrade now</div>
+        <div className="text-xs md:text-base text-whiteColor">Upgrade now</div>
       </button>
 
       <div className="flex justify-center items-center ">

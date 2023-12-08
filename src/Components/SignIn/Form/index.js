@@ -46,7 +46,7 @@ export default function index() {
   }
   const Singin_logo = "/Images/SignIn_logo.png";
   return (
-    <div className=" md:w-[450px]  bg-white p-8  flex flex-col  mx-16 rounded-2xl shadow-lg-z-10 opacity-90">
+    <div className=" md:w-[450px]  bg-whiteColor p-8  flex flex-col  mx-16 rounded-2xl shadow-lg-z-10 opacity-90">
       <ToastContainer />
       <div className=" flex">
         <ul className="flex justify-between w-full">

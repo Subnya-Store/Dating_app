@@ -48,13 +48,13 @@ export default function Index() {
   ];
 
   return (
-    <div className="md:flex bg-white my-2 pt-2 px-10 rounded-md">
+    <div className="md:flex bg-whiteColor my-2 pt-2 px-10 rounded-md">
       <Carousel cols={6} rows={1} gap={10} loop>
         {array.map((e, i) => (
           // <div key={pageIndex} className="flex">
           <Carousel.Item key={i}>
             <img className="w-full rounded-md" src={e.img} />
-            <div className=" mt-1 font-semibold flex justify-center text-[#050062] text-lg">
+            <div className=" mt-1 font-semibold flex justify-center text-blackColor text-lg">
               {e.heading}
             </div>
           </Carousel.Item>

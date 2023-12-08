@@ -47,7 +47,7 @@ export default function index({ setStateHeader, setuser_index }) {
   }, [])
   return (
 
-    <div className={`md:flex  ${Matches&&Matches?.length > 0&&'bg-white' } my-4 rounded-md grid grid-cols-2`}>
+    <div className={`md:flex  ${Matches&&Matches?.length > 0&&'bg-whiteColor' } my-4 rounded-md grid grid-cols-2`}>
       {Matches?.length > 0 ? Matches.map((e, i) => (
         <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} key={i} className='p-4 relative'>
           {Hover && <div className='w-[200px] h-[200px] flex flex-col justify-evenly items-center rounded-md bg-opacity-20 bg-red-600 absolute'>
@@ -70,10 +70,10 @@ export default function index({ setStateHeader, setuser_index }) {
             className='w-[200px] h-[200px] rounded-md'
             src={apiUrl + "/Uploads/" + e.img}
           />
-          <div className='p-1 mt-2 font-semibold flex justify-center text-[#050062] text-lg'>{e?.user?.full_name}</div>
+          <div className='p-1 mt-2 font-semibold flex justify-center text-blackColor text-lg'>{e?.user?.full_name}</div>
         </div>
       )) :
-        <div className='bg-white font-extrabold text-lg p-5  h-[200px] flex justify-center items-center w-full'>
+        <div className='bg-whiteColor font-extrabold text-lg p-5  h-[200px] flex justify-center items-center w-full'>
           there is no matches
         </div>
       }

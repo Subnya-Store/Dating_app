@@ -146,12 +146,12 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         .then(x => socket.emit('seen', 'hi')))
   }, [msgArray, isTyping]);
   return (
-    <div className='  bg-white md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[550px] '>
+    <div className='  bg-whiteColor md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[550px] '>
 
       <div className='flex  justify-between items-center gap-3 px-2 h-auto'>
         <div className='flex gap-2'>
           <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + Profile?.profile?.img || '/Images/video.png'} />
-          <div className='text-[#050062] '>
+          <div className='text-blackColor '>
             <div className='font-bold  mt-4'>
               {Profile?.full_name}
             </div>

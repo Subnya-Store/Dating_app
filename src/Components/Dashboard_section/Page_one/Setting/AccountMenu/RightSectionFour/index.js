@@ -59,7 +59,7 @@ export default function index() {
 
     return (
         <div className="bg-[#FFF] p-10  h-[60%] md:w-[90%] overflow-y-scroll   rounded-3xl  shadow-2xl">
-            <h4 className="text-[#050062]  py-3 md:text-3xl text-lg capitalize font-bold">
+            <h4 className="text-blackColor  py-3 md:text-3xl text-lg capitalize font-bold">
                 Privacy Settings
             </h4>
             <hr />
@@ -68,7 +68,7 @@ export default function index() {
 
 
             <div>
-                <select className=" text-[#050062] text-sm md:text-base ">
+                <select className=" text-blackColor text-sm md:text-base ">
                     {
                         option_one.map((x, i) => (
                             <option key={i}>{x.option}</option>
@@ -78,7 +78,7 @@ export default function index() {
             </div>
             <div>
                 <p className="text-pinkColor text-base font-semibold py-4">Who can add me</p>
-                <select className=" text-[#050062] ">
+                <select className=" text-blackColor ">
                     {
                         option_two.map((x, i) => (
 
@@ -91,7 +91,7 @@ export default function index() {
             </div>
             <div>
                 <p className="text-pinkColor text-sm md:text-base font-semibold py-4">Who can add me</p>
-                <select className=" text-[#050062] ">
+                <select className=" text-blackColor ">
                     {
                         option_Three.map((x, i) => (
 
@@ -104,7 +104,7 @@ export default function index() {
             </div>
             <div className=" pb-4">
                 <p className="text-pinkColor font-semibold py-4 text-sm md:text-base">Who can message me</p>
-                <select className=" text-[#050062] ">
+                <select className=" text-blackColor ">
                     {
                         option_Four.map((x, i) => (
 
@@ -118,7 +118,7 @@ export default function index() {
             <hr />
             <div>
                 <p className="text-pinkColor text-sm md:text-base font-semibold py-4">Blocked Person’s List</p>
-                <select className=" text-[#050062] ">
+                <select className=" text-blackColor ">
                     {
                         block_list.map((x, i) => (
 

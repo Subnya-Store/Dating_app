@@ -11,7 +11,7 @@ export default function index() {
 
         <ul className='md:flex  md:justify-start justify-center pt-4'>
             <li className=' cursor-pointer  pr-6'><button className='  bg-pinkColor shadow-lg  py-2  px-6  md:font-medium rounded-full text-sm md:text-lg text-white '>Find your love</button></li>
-            <li className=' cursor-pointer  pr-6'><button className=' text-pinkColor shadow-lg  py-2  px-6  md:font-medium rounded-full text-sm md:text-lg bg-white mt-3 md:mt-0'> Find your friendship</button></li>
+            <li className=' cursor-pointer  pr-6'><button className=' text-pinkColor shadow-lg  py-2  px-6  md:font-medium rounded-full text-sm md:text-lg bg-whiteColor mt-3 md:mt-0'> Find your friendship</button></li>
         </ul>
     </div>
   )

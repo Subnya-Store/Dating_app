@@ -9,7 +9,7 @@ export default function index() {
         <div className="md:w-[55%]  ">
           <Leftsection />
         </div>
-        <div className="md:w-[45%] p-5  bg-white rounded-l-[15%] ml-[-80px] ">
+        <div className="md:w-[45%] p-5  bg-whiteColor rounded-l-[15%] ml-[-80px] ">
           <Rightsection />
         </div>
       </div>
