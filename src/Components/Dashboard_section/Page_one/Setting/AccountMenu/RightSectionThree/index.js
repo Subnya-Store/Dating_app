@@ -1,29 +1,28 @@
 "use client"
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Switch } from '@material-tailwind/react'
+import API from "@/API/API";
 
 export default function index() {
     const { theme, setTheme } = useTheme()
+
+    useEffect(() => {
+        API.fetchGet('/get_theme')
+            .then(x => {
+                setTheme(x.data.theme)
+            })
+            .catch(x => console.log(x))
+    }, [])
+
     const option_one = [
         {
-            option: "light"
+            option: "dark"
         },
         {
-            option: "dark"
+            option: "light"
         }
     ]
-    // const option_two = [
-    //     {
-    //         option: "Choose"
-    //     },
-    //     {
-    //         option: "ksxncjkns"
-    //     },
-    //     {
-    //         option: "ghegdh"
-    //     }
-    // ]
 
     return (
         <div className=" md:w-[70%] ">
@@ -36,7 +35,7 @@ export default function index() {
                 {/* <p className="text-pinkColor text-sm md:text-basefont-semibold py-4">Export your data to your drive</p> */}
                 <div className="py-5 text-blackColortext-sm md:text-base ">Theme</div>
                 <div>
-                    <select onChange={(e)=> setTheme(e.target.value)} className=" text-blackColor bg-whiteColor">
+                    <select onChange={(e) => { setTheme(e.target.value), API.fetchGet('/put_theme') }} value={theme} className=" text-blackColor bg-whiteColor">
                         {
                             option_one.map((x, i) => (
 
@@ -47,21 +46,6 @@ export default function index() {
                         }
                     </select>
                 </div>
-                {/* <div>
-                    <p className="text-pinkColor  font-semibold py-4 text-sm md:text-base">Chat Background</p>
-                    <select className=" text-blackColor text-sm md:text-base">
-                        {
-                            option_two.map((x, i) => (
-
-                                <option key={i}>{x.option}</option>
-
-
-                            ))
-                        }
-                    </select>
-                </div> */}
-
-
             </div>
         </div>
     );

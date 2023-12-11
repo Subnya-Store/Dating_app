@@ -73,7 +73,7 @@ export default function index({ setStateHeader, setuser_index }) {
           <div className='p-1 mt-2 font-semibold flex justify-center text-blackColor text-lg'>{e?.user?.full_name}</div>
         </div>
       )) :
-        <div className='bg-whiteColor font-extrabold text-lg p-5  h-[200px] flex justify-center items-center w-full'>
+        <div className='bg-whiteColor text-blackColor font-extrabold text-lg p-5  h-[200px] flex justify-center items-center w-full'>
           there is no matches
         </div>
       }

@@ -115,18 +115,18 @@ export default function index() {
                 type="text"
                 onChange={e => setInputs({ ...Inputs, full_name: e.target.value })}
                 placeholder={Inputs.full_name}
-                className="bg-whiteColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                className="bg-whiteColor text-blackColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
               />
             </div>
             <div>
-              <label className="block text-black pb-2  md:text-base text-sm font-semibold capitalize">
+              <label className="block text-blackColor text-black pb-2  md:text-base text-sm font-semibold capitalize">
                 User name
               </label>
               <input
                 type="text"
                 onChange={e => setInputs({ ...Inputs, username: e.target.value })}
                 placeholder={Inputs.username}
-                className="bg-whiteColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                className="bg-whiteColor  text-blackColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
               />
             </div>
           </div>
@@ -144,21 +144,21 @@ export default function index() {
                 type="email"
                 onChange={e => setInputs({ ...Inputs, email: e.target.value })}
                 placeholder={Inputs.email}
-                className="bg-whiteColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                className="bg-whiteColor  text-blackColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
               />
             </div>
             <div>
-              <label className="block text-black pb-2 text-lg font-semibold capitalize  md:text-base ">
+              <label className="block  text-blackColor text-black pb-2 text-lg font-semibold capitalize  md:text-base ">
                 Phone Number
               </label>
               <input
                 type="number"
                 onChange={e => setInputs({ ...Inputs, phone: e.target.value })}
                 placeholder={Inputs.phone}
-                className="bg-whiteColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
+                className="bg-whiteColor  text-blackColor placeholder:text-pinkColor w-[100%] outline-none rounded-md  py-2 px-3 border border-[#05006]"
               />
             </div>
-            <button onClick={SubmitData} className="bg-pinkColor p-2 rounded-xl text-whiteColor">
+            <button onClick={SubmitData} className="bg-whiteColor  p-2 rounded-xl text-blackColor">
               Update now!
             </button>
           </div>
