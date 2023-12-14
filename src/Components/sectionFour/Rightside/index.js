@@ -21,7 +21,7 @@ export default function index() {
       </div>
 
       <div className=" justify-end flex pt-4 pb-4">
-         <button className=' bg-pinkColor shadow-lg text-right py-2  px-6  font-medium rounded-full  text-white '> Membership Details</button>
+         <button className=' bg-pinkColor shadow-lg text-right py-2  px-6  font-medium rounded-full  text-whiteColor '> Membership Details</button>
       </div>
     </div>
   );

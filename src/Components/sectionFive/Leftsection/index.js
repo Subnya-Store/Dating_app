@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function index() {
   return (
     <div className="bg-[var(--pink-color)]  ">
-      <div className="text-white py-20 px-20">
+      <div className="text-whiteColor py-20 px-20">
         <div className=" w-32 border-b-4 border-white">
           <h3 className="  text-2xl pt-5 pb-3"> Contact us</h3>
         </div>
@@ -28,7 +28,7 @@ export default function index() {
             alt="Picture"
           />
 
-          <p className="p-2 text-white text-lg"> 123456789</p>
+          <p className="p-2 text-whiteColor text-lg"> 123456789</p>
         </div>
         <br />
         <div className="inline-flex gap-4 pb-3 mb-3">
@@ -39,20 +39,20 @@ export default function index() {
             className=" object-contain"
             alt="Picture"
           />
-          <p className="p-2 text-white text-lg"> Youremail@company.com</p>
+          <p className="p-2 text-whiteColor text-lg"> Youremail@company.com</p>
         </div>
         <form className="">
           <input
-            className="rounded-full bg-[#FFFFFFA1] text-black py-2 mb-4  px-4 flex placeholder:text-black outline-none  w-80"
+            className="rounded-full bg-whiteColor text-blackColor py-2 mb-4  px-4 flex placeholder:text-blackColor outline-none  w-80"
             type="text"
             placeholder="Your Message"
           />
           <div className="md:inline-flex md:gap-5">
             <input
-            className="rounded-full bg-[#FFFFFFA1] text-black py-2 mb-4  px-4 flex placeholder:text-black outline-none  w-80"              type="text"
+            className="rounded-full bg-whiteColor text-blackColor py-2 mb-4  px-4 flex placeholder:text-blackColor outline-none  w-80"              type="text"
               placeholder="Your Message"
             />
-            <button className="bg-[#A629F6] cursor-pointer flex rounded-full capitalize font-medium text-white  py-2 mb-4  px-4 ">
+            <button className="bg-[#A629F6] cursor-pointer flex rounded-full capitalize font-medium text-whiteColor  py-2 mb-4  px-4 ">
               Send
             </button>
           </div>
