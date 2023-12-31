@@ -80,7 +80,7 @@ export default function index() {
                   alt="Picture of the author"
                 />
                 : <Image
-                  src={`${apiUrl}/uploads/${Inputs.images}`}
+                  src={Inputs.images}
                   width={80}
                   height={80}
                   className=" rounded-full mr-2 object-contain"

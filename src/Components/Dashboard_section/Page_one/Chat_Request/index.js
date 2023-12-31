@@ -90,7 +90,7 @@ export default function index({ setStateHeader }) {
                     <ul className='md:flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2 '>
                         <li>
                             <figure className='md:flex md:gap-2 sm:gap-1'>
-                                <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + e?.user.profile?.img} />
+                                <img className=' w-14 rounded-[50%]' src={e?.user.profile?.img} />
                                 <ul className='text-blackColor'>
                                     <li className='font-bold '>
                                         {e?.user?.full_name}

@@ -68,7 +68,7 @@ export default function index({ setStateHeader, setuser_index }) {
           </div>}
           <img
             className='w-[200px] h-[200px] rounded-md'
-            src={apiUrl + "/Uploads/" + e.img}
+            src={e.img}
           />
           <div className='p-1 mt-2 font-semibold flex justify-center text-blackColor text-lg'>{e?.user?.full_name}</div>
         </div>

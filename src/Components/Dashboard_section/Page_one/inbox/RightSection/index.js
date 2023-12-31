@@ -150,7 +150,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
 
       <div className='flex  justify-between items-center gap-3 px-2 h-auto'>
         <div className='flex gap-2'>
-          <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + Profile?.profile?.img || '/Images/video.png'} />
+          <img className=' w-14 rounded-[50%]' src={Profile?.profile?.img || '/Images/video.png'} />
           <div className='text-blackColor '>
             <div className='font-bold  mt-4'>
               {Profile?.full_name}

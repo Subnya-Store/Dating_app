@@ -52,7 +52,7 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
                         <div className={`flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2 ${e?.unseenMessages?.length > 0 && 'animate-pulse'}  `}>
                             <div className='flex gap-2 overflow-y w-full'>
 
-                                <img className=' w-14 rounded-[50%]' src={apiUrl + '/Uploads/' + e?.user?.profile?.img} />
+                                <img className=' w-14 rounded-[50%]' src={e?.user?.profile?.img} />
 
                                 <div className='text-blackColor w-full'>
                                     <div className='font-bold '>

@@ -96,7 +96,7 @@ export default function Index() {
               >
                 <div>
                   <div className=' w-[400px] bg-red-200 drop-shadow-2xl'>
-                    <img className='h-[400px] rounded-lg w-full bg-cover' src={`${apiUrl + "/Uploads/" + x.img}`} />
+                    <img className='h-[400px] rounded-lg w-full bg-cover' src={`${x.img}`} />
                     <div className=" mt-[-80px]   relative   h-16   rounded-b-xl ">
                       <img className=' h-20 rounded-b-lg w-full' src='/Images/backimg.png' />
                       <div className=' px-2    md:mt-[-50px] flex justify-between items-center'>
