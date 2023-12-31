@@ -63,9 +63,9 @@ export default function index({ setState, inputs, setInputs }) {
           </div>
         </div> */}
         <div className=" text-4xl font-bold py-4 capitalize">
-          <div className=' justify-between flex'>
+          <p className=' justify-between flex'>
             ID Verification
-          </div>
+          </p>
         </div>
         <form onSubmit={(e) => {
           e.preventDefault()
@@ -73,7 +73,7 @@ export default function index({ setState, inputs, setInputs }) {
         }}>
           <div className="flex gap-4 ">
             <div className='flex flex-col'>
-              <label> ID Card</label>
+              <p> ID Card</p>
               <input
 
                 className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3  border border-[#7000ED]  outline-none "
@@ -83,9 +83,9 @@ export default function index({ setState, inputs, setInputs }) {
                 // onChange={handleImageChange}
                 placeholder=""
               />
-              <label htmlFor="myfile" className="z-40 rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex justify-center border border-[#7000ED]  outline-none ">
+              <p htmlFor="myfile" className="z-40 rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex justify-center border border-[#7000ED]  outline-none ">
                 upload
-              </label >
+              </p >
               <input
                 required
                 className="-mt-10 mb-2 w-1 ml-10 bg-red-300 z-10"
@@ -97,7 +97,7 @@ export default function index({ setState, inputs, setInputs }) {
               />
             </div>
             <div>
-              <label> Age</label>
+              <p> Age</p>
               <input
                 required
                 className=" rounded-xl p-2 w-34  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none"
@@ -112,8 +112,8 @@ export default function index({ setState, inputs, setInputs }) {
           </div>
 
 
-          <div className="pt-1 pb-1 font-medium ">
-            <label> Legal ID</label>
+          {/* <div className="pt-1 pb-1 font-medium ">
+            <p> Legal ID</p>
             <input
               required
               className=" rounded-xl p-2  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  w-72"
@@ -121,7 +121,7 @@ export default function index({ setState, inputs, setInputs }) {
               placeholder=""
               onChange={e => setInputs({ ...inputs, LegalID: e.target.value })}
             />
-          </div>
+          </div> */}
           <div className="pt-1 pb-1">
             <button type='submit' className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
               Next

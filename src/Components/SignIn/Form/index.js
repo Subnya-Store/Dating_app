@@ -62,7 +62,7 @@ export default function index() {
           </li>
         </ul>
       </div>
-      <div className=" text-4xl font-bold py-8 capitalize"> Sign In</div>
+      <p className=" text-4xl font-bold py-8 capitalize"> Sign In</p>
       <div className="inline-flex gap-5 pt-6 pb-6 ">
         <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
           <img className=" object-contain px-4" src="/Images/Google_img.png " />
@@ -73,7 +73,7 @@ export default function index() {
         </button>
       </div>
       <div className="pt-4 pb-4 font-medium ">
-        <label> Username or Email Address</label>
+        <p> Username or Email Address</p>
         <input
           className=" rounded-xl p-3  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none  w-72"
           type="email"
@@ -85,10 +85,10 @@ export default function index() {
         <ul className="flex justify-between w-72">
           <li className="mb-3">
 
-            <label> Password</label>
+            <p> Password</p>
           </li>
           <li className=" text-[#7000ED]">
-            <label> Forgot password?</label>
+            <p> Forgot password?</p>
           </li>
         </ul>
         <input

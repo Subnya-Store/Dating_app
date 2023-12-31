@@ -26,7 +26,7 @@ export default function index({ setState, setInputs, inputs }) {
             </div>
           </div>
         </div>
-        <div className=" text-4xl font-bold py-4 capitalize cursor-pointer"> Sign up </div>
+        <p className=" text-4xl font-bold py-4 capitalize cursor-pointer"> Sign up </p>
         <div className="inline-flex gap-5 pt-1 pb-1 ">
           <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
             <img className=" object-contain px-4" src="/Images/Google_img.png " /> Sign in
@@ -43,7 +43,7 @@ export default function index({ setState, setInputs, inputs }) {
             <div className="flex gap-4 ">
               <div>
                 <div>
-                  <label> Full name</label>
+                  <p> Full name</p>
                   <input
                     required
                     onChange={e => setInputs({ ...inputs, full_name: e.target.value })}
@@ -56,7 +56,7 @@ export default function index({ setState, setInputs, inputs }) {
               <div>
 
                 <div>
-                  <label> Middle name</label>
+                  <p> Middle name</p>
                   <input
                     required
                     onChange={e => setInputs({ ...inputs, middle_name: e.target.value })}
@@ -70,7 +70,7 @@ export default function index({ setState, setInputs, inputs }) {
           </div>
           <div className='flex gap-4'>
             <div className="pt-1 pb-1 font-medium ">
-              <label> Last name</label>
+              <p> Last name</p>
               <input
                 required
                 onChange={e => setInputs({ ...inputs, last_name: e.target.value })}
@@ -80,7 +80,7 @@ export default function index({ setState, setInputs, inputs }) {
               />
             </div>
             <div className="pt-1 pb-1 font-medium ">
-              <label> gender</label>
+              <p> gender</p>
               <select
                 required
                 className=" rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED] " name='Gender'
@@ -96,7 +96,7 @@ export default function index({ setState, setInputs, inputs }) {
             <div className="flex w-72">
               <div className="mb-3">
 
-                <label>Username</label>
+                <p>Username</p>
               </div>
 
             </div>

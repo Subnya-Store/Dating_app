@@ -313,7 +313,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
             </li>
           </ul>
         </div>
-        <div className=" text-4xl font-bold py-4 capitalize"> Account Details</div>
+        <p className=" text-4xl font-bold py-4 capitalize"> Account Details</p>
         <div className="inline-flex gap-5 pt-1 pb-1">
           <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5" >
             <img className=" object-contain px-4" src="/Images/Google_img.png " /> signin with google
@@ -329,7 +329,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
           // console.log({pass:inputs.password,Cpass:inputs.confirm})
         }}>
           <div className="pt-1 pb-1 font-medium ">
-            <label> Email Address</label>
+            <p> Email Address</p>
             <input
               required
               onChange={e => setInputs({ ...inputs, email: e.target.value })}
@@ -343,7 +343,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
             <ul className="flex gap-4 ">
               <li>
                 <div>
-                  <label> Password</label>
+                  <p> Password</p>
                   <input
                     required
                     onChange={e => setInputs({ ...inputs, password: e.target.value })}
@@ -356,7 +356,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
               </li>
               <li>
                 <div>
-                  <label> confirm</label>
+                  <p> confirm</p>
                   <input
                     required
                     onChange={e => setInputs({ ...inputs, confirm: e.target.value })}
@@ -373,7 +373,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
             <ul className="flex gap-4">
               <li>
                 <div>
-                  <label>Country</label>
+                  <p>Country</p>
                   <select
                     className="rounded-xl p-2 w-32 bg-[#FFF] mt-3 flex border border-[#7000ED] outline-none"
                     value={inputs.country}
@@ -390,7 +390,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
               </li>
               <li>
                 <div>
-                  <label>City</label>
+                  <p>City</p>
                   <select
                     className="rounded-xl p-2 w-32 bg-[#FFF] mt-3 flex border border-[#7000ED] outline-none"
                     value={inputs.city}
