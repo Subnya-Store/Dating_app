@@ -162,70 +162,7 @@ export default function index() {
               Update now!
             </button>
           </div>
-          {/* <span className=" block my-5">
-            {" "}
-            <hr />
-          </span>
-
-          <div className=" flex justify-between items-center">
-            <div>
-              <label className="block text-black  pb-4 text-lg font-semibold capitalize  md:text-base">
-                Linked Accounts
-              </label>
-              <div className="flex items-center">
-                <Image
-                  src="/Images/google-img.svg"
-                  width={40}
-                  height={40}
-                  className=" rounded-full mr-2 object-contain"
-                  alt="Picture of the author"
-                />
-                <a
-                  href="/"
-                  className="text-pinkColor text-base font-semibold  md:text-base"
-                >
-                  Sign in with Google
-                </a>
-              </div>
-            </div>
-            <div>
-              <span className="block text-right items-center">
-
-                <button className="bg-[#fff]  border-pinkColor border  rounded-md items-center text-center cursor-pointer font-semibold text-pinkColor py-2 px-4  md:text-base text-sm">
-                  Connect
-                </button>
-              </span>
-            </div>
-          </div>
-          <span className=" block my-5">
-
-            <hr />
-          </span>
-
-          <div className="flex justify-between items-center">
-            <div>
-              <label className="block text-black pb-2  font-semibold capitalize  md:text-lg text-sm">
-                Linked Accounts
-              </label>
-              <p className="text-pinkColor font-semibold  md:text-base text-sm">
-                By deleting your account you will lose your data.
-              </p>
-            </div>
-            <div>
-              <label className="block text-black pb-2  md:text-lg text-sm font-semibold capitalize">
-                Delete Account.
-              </label>
-            </div>
-          </div>
-          <span className=" block my-5">
-            <hr />
-          </span> */}
-
-          {/* <div className="flex justify-end">
-            <button className="bg-pinkColor  rounded-md items-center text-center cursor-pointer font-semibold text-white py-2 px-4  md:text-base text-sm">
-              Save Changes
-            </button>
-          </div> */}
+         
         </form>
       </div>
     </div>
