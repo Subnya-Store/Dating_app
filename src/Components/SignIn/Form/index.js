@@ -40,7 +40,7 @@ export default function index() {
           })
 
         }
-        
+
       })
       .catch(x => console.log(x, 'error'))
   }
@@ -64,16 +64,20 @@ export default function index() {
       </div>
       <p className=" text-4xl font-bold py-8 capitalize"> Sign In</p>
       <div className="inline-flex gap-5 pt-6 pb-6 ">
-        <button onClick={()=>
-        {
-          API.fetchGet('/auth/google/callback')
-          .then(x=>console.log(x))
-          .catch(x=>console.log(x))
-        }
-        } className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
-          <img className=" object-contain px-4" src="/Images/Google_img.png " />
-          Sign in with google
-        </button>
+        <Link href={'http://localhost:8080/auth/google'}>
+          <button 
+          // onClick={() => {
+            // API.fetchGet('/auth/google')
+            //   .then(x => console.log(x))
+            //   .catch(x => console.log(x))
+          // }
+          // } 
+          className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
+            <img className=" object-contain px-4" src="/Images/Google_img.png " />
+            Sign in with google
+          </button>
+
+        </Link>
         <button className="bg-[#7000ED] flex rounded-xl text-white  px-4 p-2">
           <img src="/Images/facbook_signin.png" className=" object-contain" />
         </button>
