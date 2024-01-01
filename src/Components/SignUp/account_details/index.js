@@ -299,8 +299,8 @@ export default function index({ setState, setInputs, inputs, toast }) {
       .catch(x => console.log(x))
   }
   return (
-    <div>
-      <div className=" md:w-fit  bg-whiteColor p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
+    <div className='h-full w-fit mx-12'>
+      <div className="w-fit mx-auto mt-14  bg-whiteColor p-8 rounded-2xl shadow-lg opacity-90">
         <div className=" flex">
           <ul className="flex justify-between w-80">
             <li>
@@ -361,7 +361,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
                     required
                     onChange={e => setInputs({ ...inputs, confirm: e.target.value })}
                     type="password"
-                    className= {`${inputs.password != inputs.confirm?'rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#ed0004]  outline-none':'rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none'} `}
+                    className={`${inputs.password != inputs.confirm ? 'rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#ed0004]  outline-none' : 'rounded-xl p-2 w-32  bg-[#FFF] mt-3 flex border border-[#7000ED]  outline-none'} `}
                     placeholder=""
                   />
                 </div>

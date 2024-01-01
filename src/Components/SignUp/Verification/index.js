@@ -18,8 +18,8 @@ export default function index({ setState, inputs, setInputs }) {
 
   const sign_up_img = '/Images/SignIn_logo.png'
   return (
-    <div>
-      <div className=" md:w-fit  bg-whiteColor p-8  my-12  mx-16 rounded-2xl shadow-lg -z-10 opacity-90">
+    <div className="h-screen flex items-center justify-center">
+      <div className="bg-whiteColor p-8 mx-4 rounded-2xl shadow-lg max-w-md w-full">
       
         <p className=" text-4xl font-bold py-4 capitalize"> Email <br />
           Verification</p>

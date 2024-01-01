@@ -3,7 +3,7 @@ import API from "@/API/API";
 import React, { useState } from "react";
 
 export default function Index({ setState, inputs }) {
-  const [questionIndex, setQuestionIndex] = useState(0);
+  const [questionIndex, setQuestionIndex] = useState(5);
   const [optionIndexselected, setoptionIndexselected] = useState(null);
   const [optionIndexselected1, setoptionIndexselected1] = useState(null);
   const [optionIndexselected2, setoptionIndexselected2] = useState(null);
@@ -167,7 +167,7 @@ export default function Index({ setState, inputs }) {
         <div
           key={index}
           className={`${index === questionIndex
-            ? "bg-[#FFF] shadow-xl opacity-[0.92] backdrop-blur-[6.084905624389648px] w-[65%] m-auto  py-12 px-10  rounded-xl"
+            ? "bg-[#FFF] shadow-xl opacity-[0.92] backdrop-blur-[6.084905624389648px] w-full m-auto  py-12 px-10  rounded-xl"
             : "hidden"
             }`}
         >
@@ -186,13 +186,13 @@ export default function Index({ setState, inputs }) {
             questionIndex === 0 && (
               <div>
                 <div className="flex justify-center items-center flex-col">
-                  <div className="border w-[100px] py-4 px-4 m-auto bg-whiteColor">
+                  <div className="border w-[100px] py-4 px-4 m-auto bg-white">
                     <img
                       src={Image}
                       className="w-full m-auto align-middle text-center object-contain"
                     />
                   </div>
-                  <div className="w-[144.78px] h-[37.54px] text-center flex justify-center items-center my-2 bg-whiteColor rounded-[8.94px] border border-violet-700">
+                  <div className="w-[144.78px] h-[37.54px] text-center flex justify-center items-center my-2 bg-white rounded-[8.94px] border border-violet-700">
                     <label htmlFor="myfile" className="opacity-70 text-black text-base  font-medium capitalize m-auto">
                       Upload
                     </label>
@@ -204,13 +204,13 @@ export default function Index({ setState, inputs }) {
             questionIndex === 1 && (
               <div>
                 <div className="flex justify-center items-center flex-col">
-                  <div className="py-2 px-7 text-center bg-whiteColor rounded-[3.94px] border border-violet-700 m-4">
+                  <div className="py-2 px-7 text-center bg-white rounded-[3.94px] border border-violet-700 m-4">
 
                     <select
                       onChange={(e) =>
                         setQuest_answer({ questions: questionIndex + 1, answers: e.target.value })
                       }
-                      className="opacity-70 text-black text-base py-3 font-medium capitalize outline-none"
+                      className=" bg-white text-black text-base py-3 font-medium capitalize outline-none w-full"
                     >
                       <option value="">Select a tradition</option>
                       {Traditions.map((tradition, index) => (
@@ -281,9 +281,9 @@ export default function Index({ setState, inputs }) {
                     <div
                       onClick={() => (setQuest_answer({ questions: questionIndex + 1, answers: option }), setoptionIndexselected2(optionIndex))}
                       key={optionIndex}
-                      className={`w-[360.78px] text-center mb-3 mt-4 bg-whiteColor rounded-[3.94px] border border-violet-700 ${optionIndex == optionIndexselected2 && ' text-white  border-[#7000ED]'}`}
+                      className={`w-full text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700 ${optionIndex == optionIndexselected2 && ' text-white  border-[#7000ED]'}`}
                     >
-                      <div className="opacity-70 text-black text-base py-3 font-medium capitalize">
+                      <div className="opacity-70 text-black text-base py-3 font-medium capitalize ">
                         {option}
                       </div>
                     </div>
@@ -293,14 +293,14 @@ export default function Index({ setState, inputs }) {
             ) ||
             questionIndex === 5 && e.options && e.options.length > 0 && (
               <div>
-                <div className="flex justify-center items-center flex-col">
+                <div className="flex justify-center items-center flex-col w-full">
                   {e.options.map((option, optionIndex) => (
                     <div
                       onClick={() => (setQuest_answer({ questions: questionIndex + 1, answers: option }), setoptionIndexselected3(optionIndex))}
                       key={optionIndex}
-                      className={`w-[360.78px] text-center mb-3 mt-4 bg-whiteColor rounded-[3.94px] border border-violet-700 ${optionIndex == optionIndexselected3 && ' text-white  border-[#7000ED]'}`}
+                      className={`w-full text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700 ${optionIndex == optionIndexselected3 && ' text-white  border-[#7000ED]'}`}
                     >
-                      <div className="opacity-70 text-black text-base py-3 font-medium capitalize">
+                      <div className="opacity-70 text-black text-base py-3 font-medium capitalize ">
                         {option}
                       </div>
                     </div>
