@@ -9,11 +9,20 @@ export default function index() {
   const { themes, setThemes } = useState('')
   const User_img = "/Images/imgsecond.png";
   const [user_info, setUser_info] = useState(null)
+
+  let  storage
+
+  if (typeof window !== 'undefined') {
+    // Access localStorage here
+    storage = localStorage.getItem('user');
+    // ...rest of your code
+  }
+
   useEffect(() => {
-    API.fetchGet('/info')
+    storage&& API.fetchGet('/info')
       .then(x => setUser_info(x.data))
       .catch(x => console.log(x))
-    API.fetchGet('/get_theme')
+      storage&& API.fetchGet('/get_theme')
       .then(x =>
         setTheme(x.data.theme)
         // (setTheme(x.data.theme),setThemes(x.data.theme))
@@ -21,7 +30,7 @@ export default function index() {
       .catch(x => console.log(x))
   }, [])
   useEffect(() => {
-    API.fetchGet('/create_theme')
+    storage&& API.fetchGet('/create_theme')
       .then(x => {
         if (x.data == 'Created!') {
           setTheme('light')

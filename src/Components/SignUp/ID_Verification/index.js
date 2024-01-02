@@ -1,13 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import API from '@/API/API'
+import { useRouter } from 'next/router'
 
 export default function index({ setState, inputs, setInputs }) {
+  const router= useRouter()
   const [image, setImage] = useState('/Images/input_image.png')
   const [file_image, setfile_image] = useState('')
   const sign_up_img = '/Images/SignIn_logo.png'
   const id_varification = '/Images/id_varification.png'
-
+  // useEffect(()=>{
+  //   console.log(router)
+  // },[])
+  console.log(router.query.name)
+  console.log(router.query.username)
   const handleImageChange = (e) => {
     e.preventDefault()
     // Access the uploaded file
@@ -31,8 +37,8 @@ export default function index({ setState, inputs, setInputs }) {
     formData.append('images', file_image);
     formData.append('age', inputs.age);
     formData.append('legal_id', inputs.LegalID);
-    formData.append('username', inputs.username);
-    formData.append('full_name', inputs.full_name);
+    formData.append('username', router?.query?.username||inputs?.username);
+    formData.append('full_name', router?.query?.name||inputs?.full_name);
 
     API.fetchPost(
       formData

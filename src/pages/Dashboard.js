@@ -14,6 +14,7 @@ import io from 'socket.io-client'
 import apiUrl from '@/API/constant';
 import { initializeApp } from 'firebase/app';
 import { getMessaging, onMessage, getToken } from "firebase/messaging";
+import { useRouter } from 'next/router';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA5iWSQw61-km2u2XusWWgy6SX3wQH24x4",
@@ -28,6 +29,7 @@ const firebaseConfig = {
 let messaging
 
 export default function Dashboard() {
+  const router = useRouter()
   const data = useSelector(x => x)
   const [State, SetState] = useState(data.state)
   const [stateHeader, setStateHeader] = useState('Matches');
@@ -35,7 +37,13 @@ export default function Dashboard() {
   const [user_index, setuser_index] = useState(null);
   const Socket = io(apiUrl)
 
-  let user
+  let user, storage
+
+  if (typeof window !== 'undefined') {
+    // Access localStorage here
+    storage = localStorage.getItem('user');
+    // ...rest of your code
+  }
 
 
 
@@ -52,12 +60,15 @@ export default function Dashboard() {
 
   }, [])
   useEffect(() => {
+    if (!storage && router.query.ref) {
 
-    const app = initializeApp(firebaseConfig);
-    messaging = getMessaging(app);
-    requestForToken()
-
-  }, [])
+      localStorage.setItem('user', router.query.ref)
+    } else {
+      const app = initializeApp(firebaseConfig);
+      messaging = getMessaging(app);
+      requestForToken()
+    }
+  }, [router.query.ref])
   const requestForToken = () => {
     return getToken(messaging, { vapidKey: "BAiuRjrYmAoyKmoIy2uqbajt3iH2B0KP-_ovjbuazcGOCupx9XhaI5v4qV4pJO2UCZfEai-D8jBgLw_jwDAZapU" })
       .then((currentToken) => {
@@ -86,11 +97,11 @@ export default function Dashboard() {
       <div className='w-[100%] overflow-y-hidden'>
         <Header stateHeader={stateHeader} setStateHeader={setStateHeader} />
         {
-          stateHeader == 'Matches' && <Dashboard_section setuser_index={setuser_index} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          stateHeader == 'Setting' && <Setting stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          stateHeader == 'Inbox' && <Inbox stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          stateHeader == 'Admin' && <Admin_section stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          stateHeader == 'Active_girl' && <Active_girl user_index={user_index} stateHeader={stateHeader} setStateHeader={setStateHeader} />
+          stateHeader == 'Matches' && <Dashboard_section storage={storage} setuser_index={setuser_index} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          stateHeader == 'Setting' && <Setting storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          stateHeader == 'Inbox' && <Inbox storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          stateHeader == 'Admin' && <Admin_section storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          stateHeader == 'Active_girl' && <Active_girl storage={storage} user_index={user_index} stateHeader={stateHeader} setStateHeader={setStateHeader} />
 
         }
       </div>

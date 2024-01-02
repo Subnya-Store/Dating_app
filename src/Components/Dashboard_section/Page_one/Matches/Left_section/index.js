@@ -6,7 +6,7 @@ import { FaUser } from 'react-icons/fa'
 import { BsStarFill } from 'react-icons/bs'
 import io from 'socket.io-client'
 
-export default function index({ setStateHeader, setuser_index }) {
+export default function index({storage, setStateHeader, setuser_index }) {
   const dispatch = useDispatch()
 
   const Socket = io(apiUrl)
@@ -19,7 +19,7 @@ export default function index({ setStateHeader, setuser_index }) {
   useEffect(() => {
     Socket.on('connection')
     Socket.on('show_notify', () => {
-      API.fetchGet('/matches')
+      storage&& API.fetchGet('/matches')
         .then(x => (
           dispatch({
             type: 'matches',
@@ -33,7 +33,7 @@ export default function index({ setStateHeader, setuser_index }) {
 
   }, [])
   useEffect(() => {
-    API.fetchGet('/matches')
+    storage&& API.fetchGet('/matches')
       .then(x => (
         dispatch({
           type: 'matches',
@@ -48,7 +48,7 @@ export default function index({ setStateHeader, setuser_index }) {
   return (
 
     <div className={`md:flex  ${Matches&&Matches?.length > 0&&'bg-whiteColor' } my-4 rounded-md grid grid-cols-2`}>
-      {Matches?.length > 0 ? Matches.map((e, i) => (
+      {storage&&Matches?.length > 0 ? Matches.map((e, i) => (
         <div onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} key={i} className='p-4 relative'>
           {Hover && <div className='w-[200px] h-[200px] flex flex-col justify-evenly items-center rounded-md bg-opacity-20 bg-red-600 absolute'>
             <div onClick={() => {

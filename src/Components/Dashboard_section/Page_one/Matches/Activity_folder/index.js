@@ -8,7 +8,13 @@ import apiUrl from '@/API/constant'
 
 
 export default function index({ setStateHeader }) {
+  let user, storage
 
+  if (typeof window !== 'undefined') {
+    // Access localStorage here
+    storage = localStorage.getItem('user');
+    // ...rest of your code
+  }
   const socket = io(apiUrl)
   const [activit_arr, setArr] = useState([])
   const dispatch = useDispatch()
@@ -17,13 +23,13 @@ export default function index({ setStateHeader }) {
   useEffect(() => {
     socket.on('connection')
     socket.on('show_notify', () => {
-      API.fetchGet('/get_notify')
+      storage&& API.fetchGet('/get_notify')
         .then(x => setArr(x.data))
         .catch(x => console.log(x))
     })
   }, [])
   useEffect(() => {
-    API.fetchGet('/get_notify')
+    storage&& API.fetchGet('/get_notify')
       .then(x => setArr(x.data))
       .catch(x => console.log(x))
   }, [])

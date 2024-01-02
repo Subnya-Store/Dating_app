@@ -1,8 +1,10 @@
 
 import API from "@/API/API";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 export default function Index({ setState, inputs }) {
+  const router = useRouter()
   const [questionIndex, setQuestionIndex] = useState(5);
   const [optionIndexselected, setoptionIndexselected] = useState(null);
   const [optionIndexselected1, setoptionIndexselected1] = useState(null);
@@ -14,7 +16,10 @@ export default function Index({ setState, inputs }) {
     questions: questionIndex,
     answers: ''
   });
-  
+
+  console.log(router.query.name)
+  console.log(router.query.username)
+
   const camerImg = "/Images/camera.png";
 
   const arrayquest = [
@@ -110,8 +115,8 @@ export default function Index({ setState, inputs }) {
     API.fetchPost({
       questions: Quest_answer.questions,
       answers: Quest_answer.answers,
-      username: inputs.username,
-      full_name: inputs.full_name
+      username: router?.query?.username || inputs?.username,
+      full_name: router?.query?.name || inputs?.full_name
     }, '/questionair')
       .then(x => {
         if (questionIndex == 5) {
@@ -122,7 +127,7 @@ export default function Index({ setState, inputs }) {
           setQuestionIndex(questionIndex + 1),
             setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 }),
             setQuest_answer({ ...Quest_answer, answers: '' })
-            console.log(x)
+          console.log(x)
         }
 
       })
@@ -133,8 +138,8 @@ export default function Index({ setState, inputs }) {
     e.preventDefault()
     const formData = new FormData();
     formData.append('images', file_image);
-    formData.append('username', inputs.username);
-    formData.append('full_name', inputs.full_name);
+    formData.append('username', router?.query?.username || inputs?.username,);
+    formData.append('full_name', router?.query?.name || inputs?.full_name);
 
     API.fetchPost(formData, '/quest_image')
       .then(x => {
@@ -145,7 +150,11 @@ export default function Index({ setState, inputs }) {
 
   const Last_quest = (e) => {
     e.preventDefault()
-    API.fetchPost({ interest: Quest_answer.answers, username: inputs.username, full_name: inputs.full_name }, '/interestedin')
+    API.fetchPost({
+      interest: Quest_answer.answers,
+      username: router?.query?.username || inputs?.username,
+      full_name: router?.query?.name || inputs?.full_name
+    }, '/interestedin')
       .then(x => window.location.href = '/signin')
       .catch(x => console.log(x))
   }
@@ -160,7 +169,7 @@ export default function Index({ setState, inputs }) {
       setImage(imageURL);
     }
   };
-  
+
   return (
     <div className="h-screen flex justify-center">
       {arrayquest.map((e, index) => (
@@ -311,42 +320,42 @@ export default function Index({ setState, inputs }) {
           }
 
           <div className=" text-center ">
-            {questionIndex == 0 && file_image != null&&
+            {questionIndex == 0 && file_image != null &&
               <button
                 onClick={First_Quest}
                 className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
               </button> ||
-              questionIndex == 1 &&Quest_answer.answers != ''&&
+              questionIndex == 1 && Quest_answer.answers != '' &&
               <button
                 onClick={Quest_ans}
                 className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
               </button> ||
-              questionIndex == 2 &&Quest_answer.answers != ''&&
+              questionIndex == 2 && Quest_answer.answers != '' &&
               <button
                 onClick={Quest_ans}
                 className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
               </button> ||
-              questionIndex == 3 &&Quest_answer.answers != ''&&
+              questionIndex == 3 && Quest_answer.answers != '' &&
               <button
                 onClick={Quest_ans}
                 className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
               </button> ||
-              questionIndex == 4 &&Quest_answer.answers != ''&&
+              questionIndex == 4 && Quest_answer.answers != '' &&
               <button
                 onClick={Quest_ans}
                 className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
               </button> ||
-              questionIndex == 5 &&Quest_answer.answers != ''&&
+              questionIndex == 5 && Quest_answer.answers != '' &&
               <button
                 onClick={Last_quest}
                 className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"

@@ -1,15 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Sign_up from './Sign_up'
 import Account_details from './account_details'
 import Id_verification from './ID_Verification'
 import Email_verifaction from '@/Components/SignUp/Verification'
 import Questions from './Questions'
+import { useRouter } from 'next/router'
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function index() {
   const [state, setState] = useState("signup")
+  const router = useRouter()
   const [inputs, setInputs] = useState({
     username: '',
     email: '',
@@ -25,6 +27,14 @@ export default function index() {
     LegalID: '',
     gender: ''
   })
+  // console.log(router.asPath.includes('ref'))
+  useEffect(() => {
+    if (router?.asPath?.includes('ref')) {
+      setState('Id_verification')
+    } else {
+      console.log('ref not available')
+    }
+  }, [])
 
   return (
     <div className="relative bg-[url('/Images/Signup_img.png')] bg-center bg-no-repeat min-h-screen flex justify-center items-center">

@@ -49,14 +49,18 @@ export default function index({ setStateHeader }) {
     const [how_many_request, sethow_many_request] = useState({})
     const [datas, setdatas] = useState('')
 
-    // useEffect(() => {
+    let user, storage
 
-    // }, [datas])
+  if (typeof window !== 'undefined') {
+    // Access localStorage here
+    storage = localStorage.getItem('user');
+    // ...rest of your code
+  }
 
     useEffect(() => {
         Socket.on('connection');
         Socket.on('recieve_request', (data) => {
-            API.fetchGet('/request_find')
+            storage&& API.fetchGet('/request_find')
                 .then(x => (
                     sethow_many_request(x.data)
                 ))
@@ -65,7 +69,7 @@ export default function index({ setStateHeader }) {
     }, [])
 
     useEffect(() => {
-        API.fetchGet('/request_find')
+        storage&& API.fetchGet('/request_find')
             .then(x => (
                 sethow_many_request(x.data)
             ))
@@ -74,7 +78,7 @@ export default function index({ setStateHeader }) {
 
     const HookItUp = (e) => {
 
-        API.fetchPost({ hook_up_with: e.user_id }, '/hook_up')
+        storage&& API.fetchPost({ hook_up_with: e.user_id }, '/hook_up')
             .then(x => (
                 setdatas(x),
                 Socket.emit('send_hookup', 'hi')
@@ -85,7 +89,7 @@ export default function index({ setStateHeader }) {
     return (
         <div className='  bg-whiteColor md:m-4  rounded-2xl grid grid-cols-2 gap-x-8 '>
 
-            {how_many_request.length > 0 && how_many_request.map((e, i) =>
+            {storage&&how_many_request.length > 0 && how_many_request.map((e, i) =>
                 <div key={i} >
                     <ul className='md:flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2 '>
                         <li>
