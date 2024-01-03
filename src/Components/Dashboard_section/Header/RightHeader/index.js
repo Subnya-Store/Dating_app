@@ -13,16 +13,14 @@ export default function index() {
   let  storage
 
   if (typeof window !== 'undefined') {
-    // Access localStorage here
     storage = localStorage.getItem('user');
-    // ...rest of your code
   }
 
   useEffect(() => {
-    storage&& API.fetchGet('/info')
+    typeof storage !== 'undefined' && API.fetchGet('/info')
       .then(x => setUser_info(x.data))
       .catch(x => console.log(x))
-      storage&& API.fetchGet('/get_theme')
+       API.fetchGet('/get_theme')
       .then(x =>
         setTheme(x.data.theme)
         // (setTheme(x.data.theme),setThemes(x.data.theme))
@@ -30,7 +28,7 @@ export default function index() {
       .catch(x => console.log(x))
   }, [])
   useEffect(() => {
-    storage&& API.fetchGet('/create_theme')
+     API.fetchGet('/create_theme')
       .then(x => {
         if (x.data == 'Created!') {
           setTheme('light')

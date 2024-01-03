@@ -7,7 +7,7 @@ export default function index({storage,setuser_index,setStateHeader}) {
   return (
     <div className=" py-6 mx-auto">
       <div className="md:container mx-auto px-6">
-        {/* <h2 className=" text-white text-lg "> Matches</h2> */}
+        <div className=" text-white text-lg "> Matches</div>
         <div className="md:flex">
           <Left_section storage={storage} setuser_index={setuser_index} setStateHeader={setStateHeader}/>
           <Right_section setStateHeader={setStateHeader}/>
@@ -18,7 +18,7 @@ export default function index({storage,setuser_index,setStateHeader}) {
           </div>
           
           <div className=" md:w-[65%] ">
-            <h2 className=" text-white text-lg px-4 font-bold" >Chat Request</h2>
+            <div className=" text-white text-lg px-4 font-bold" >Chat Request</div>
             <Chat_request  setStateHeader={setStateHeader}/>
           </div>
 

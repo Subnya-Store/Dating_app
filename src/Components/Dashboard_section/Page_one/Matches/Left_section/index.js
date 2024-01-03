@@ -19,7 +19,7 @@ export default function index({storage, setStateHeader, setuser_index }) {
   useEffect(() => {
     Socket.on('connection')
     Socket.on('show_notify', () => {
-      storage&& API.fetchGet('/matches')
+       API.fetchGet('/matches')
         .then(x => (
           dispatch({
             type: 'matches',
@@ -33,7 +33,7 @@ export default function index({storage, setStateHeader, setuser_index }) {
 
   }, [])
   useEffect(() => {
-    storage&& API.fetchGet('/matches')
+    API.fetchGet('/matches')
       .then(x => (
         dispatch({
           type: 'matches',

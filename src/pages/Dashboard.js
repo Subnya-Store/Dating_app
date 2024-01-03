@@ -40,19 +40,29 @@ export default function Dashboard() {
   let user, storage
 
   if (typeof window !== 'undefined') {
-    // Access localStorage here
     storage = localStorage.getItem('user');
-    // ...rest of your code
   }
 
-
+  console.log(storage, '<========')
 
   useEffect(() => {
     Socket.on('connection', (data) => {
       console.log(Socket.id, '<=== check me')
     });
     Socket.on('recieve_hookup', (data) => {
-      API.fetchGet('/get_hook_up')
+      storage !== 'undefined' && API.fetchGet('/get_hook_up')
+        .then(x => setdatas(x))
+        .catch(x => console.log(x))
+    })
+
+
+  }, [storage])
+  useEffect(() => {
+    Socket.on('connection', (data) => {
+      console.log(Socket.id, '<=== check me')
+    });
+    Socket.on('recieve_hookup', (data) => {
+      storage !== 'undefined' && API.fetchGet('/get_hook_up')
         .then(x => setdatas(x))
         .catch(x => console.log(x))
     })
@@ -60,22 +70,25 @@ export default function Dashboard() {
 
   }, [])
   useEffect(() => {
-    if (!storage && router.query.ref) {
+    if (typeof storage !== 'undefined' && router.query.ref) {
 
       localStorage.setItem('user', router.query.ref)
+      const app = initializeApp(firebaseConfig);
+      messaging = getMessaging(app);
+      requestForToken()
     } else {
       const app = initializeApp(firebaseConfig);
       messaging = getMessaging(app);
       requestForToken()
     }
-  }, [router.query.ref])
+  }, [router?.query?.ref, storage])
   const requestForToken = () => {
     return getToken(messaging, { vapidKey: "BAiuRjrYmAoyKmoIy2uqbajt3iH2B0KP-_ovjbuazcGOCupx9XhaI5v4qV4pJO2UCZfEai-D8jBgLw_jwDAZapU" })
       .then((currentToken) => {
         // console.log(currentToken,'hellow !')
         if (currentToken) {
           // console.log('current token for client: ', currentToken);
-          API.fetchPost({ notification_id: currentToken }, '/set_notification')
+          typeof storage !== 'undefined' && API.fetchPost({ notification_id: currentToken }, '/set_notification')
             .then(x => console.log(x))
             .catch(x => console.log(x))
           // Perform any other neccessary action with the token
@@ -97,11 +110,11 @@ export default function Dashboard() {
       <div className='w-[100%] overflow-y-hidden'>
         <Header stateHeader={stateHeader} setStateHeader={setStateHeader} />
         {
-          stateHeader == 'Matches' && <Dashboard_section storage={storage} setuser_index={setuser_index} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          stateHeader == 'Setting' && <Setting storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          stateHeader == 'Inbox' && <Inbox storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          stateHeader == 'Admin' && <Admin_section storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          stateHeader == 'Active_girl' && <Active_girl storage={storage} user_index={user_index} stateHeader={stateHeader} setStateHeader={setStateHeader} />
+          // typeof storage !== 'undefined' && stateHeader == 'Matches' && <Dashboard_section storage={storage} setuser_index={setuser_index} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          typeof storage !== 'undefined' && stateHeader == 'Setting' && <Setting storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          typeof storage !== 'undefined' && stateHeader == 'Inbox' && <Inbox storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          typeof storage !== 'undefined' && stateHeader == 'Admin' && <Admin_section storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          typeof storage !== 'undefined' && stateHeader == 'Active_girl' && <Active_girl storage={storage} user_index={user_index} stateHeader={stateHeader} setStateHeader={setStateHeader} />
 
         }
       </div>

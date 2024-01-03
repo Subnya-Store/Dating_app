@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 export default function Index({ setState, inputs }) {
   const router = useRouter()
-  const [questionIndex, setQuestionIndex] = useState(5);
+  const [questionIndex, setQuestionIndex] = useState(0);
   const [optionIndexselected, setoptionIndexselected] = useState(null);
   const [optionIndexselected1, setoptionIndexselected1] = useState(null);
   const [optionIndexselected2, setoptionIndexselected2] = useState(null);
