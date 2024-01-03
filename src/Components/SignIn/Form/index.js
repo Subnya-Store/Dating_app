@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from 'next/link'
 import axios from 'axios'
 import API from "@/API/API";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import apiUrl from "@/API/constant";
 
 export default function index() {
+
+  useEffect(()=>{
+    localStorage.removeItem('user')
+  },[])
   const [credentials, setCredentials] = useState({
     username: '',
     password: ''
@@ -64,7 +69,7 @@ export default function index() {
       </div>
       <p className=" text-4xl font-bold py-8 capitalize"> Sign In</p>
       <div className="inline-flex gap-5 pt-6 pb-6 ">
-        <Link href={'http://localhost:8080/auth/google'}>
+        <Link href={`${apiUrl}/auth/google`}>
           <button 
           // onClick={() => {
             // API.fetchGet('/auth/google')

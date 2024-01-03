@@ -23,13 +23,13 @@ export default function index({ setStateHeader }) {
   useEffect(() => {
     socket.on('connection')
     socket.on('show_notify', () => {
-      storage&& API.fetchGet('/get_notify')
+       API.fetchGet('/get_notify')
         .then(x => setArr(x.data))
         .catch(x => console.log(x))
     })
   }, [])
   useEffect(() => {
-    storage&& API.fetchGet('/get_notify')
+     API.fetchGet('/get_notify')
       .then(x => setArr(x.data))
       .catch(x => console.log(x))
   }, [])

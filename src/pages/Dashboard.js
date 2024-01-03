@@ -35,6 +35,7 @@ export default function Dashboard() {
   const [stateHeader, setStateHeader] = useState('Matches');
   const [datas, setdatas] = useState('')
   const [user_index, setuser_index] = useState(null);
+  const [users, setUsers] = useState(false);
   const Socket = io(apiUrl)
 
   let user, storage
@@ -43,21 +44,26 @@ export default function Dashboard() {
     storage = localStorage.getItem('user');
   }
 
+
   console.log(storage, '<========')
 
-  useEffect(() => {
-    Socket.on('connection', (data) => {
-      console.log(Socket.id, '<=== check me')
-    });
-    Socket.on('recieve_hookup', (data) => {
-      storage !== 'undefined' && API.fetchGet('/get_hook_up')
-        .then(x => setdatas(x))
-        .catch(x => console.log(x))
-    })
+  // useEffect(() => {
+  //   Socket.on('connection', (data) => {
+  //     console.log(Socket.id, '<=== check me')
+  //   });
+  //   Socket.on('recieve_hookup', (data) => {
+  //     storage !== 'undefined' && API.fetchGet('/get_hook_up')
+  //       .then(x => setdatas(x))
+  //       .catch(x => console.log(x))
+  //   })
 
 
-  }, [storage])
+  // }, [storage])
+
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      localStorage.setItem('user', router?.query?.ref);
+    }
     Socket.on('connection', (data) => {
       console.log(Socket.id, '<=== check me')
     });
@@ -69,6 +75,7 @@ export default function Dashboard() {
 
 
   }, [])
+
   useEffect(() => {
     if (typeof storage !== 'undefined' && router.query.ref) {
 
@@ -82,6 +89,7 @@ export default function Dashboard() {
       requestForToken()
     }
   }, [router?.query?.ref, storage])
+
   const requestForToken = () => {
     return getToken(messaging, { vapidKey: "BAiuRjrYmAoyKmoIy2uqbajt3iH2B0KP-_ovjbuazcGOCupx9XhaI5v4qV4pJO2UCZfEai-D8jBgLw_jwDAZapU" })
       .then((currentToken) => {
@@ -101,20 +109,29 @@ export default function Dashboard() {
         console.log('An error occurred while retrieving token. ', err);
       });
   };
-
-
+  // let users,store = false
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (typeof window !== 'undefined') {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser !== 'undefined') {
+          setUsers(true);
+        }
+      }
+    }, 1000);
+  })
 
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
       <Side_menu setStateHeader={setStateHeader} />
       <div className='w-[100%] overflow-y-hidden'>
-        <Header stateHeader={stateHeader} setStateHeader={setStateHeader} />
+        {users && <Header stateHeader={stateHeader} setStateHeader={setStateHeader} />}
         {
-          // typeof storage !== 'undefined' && stateHeader == 'Matches' && <Dashboard_section storage={storage} setuser_index={setuser_index} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          typeof storage !== 'undefined' && stateHeader == 'Setting' && <Setting storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          typeof storage !== 'undefined' && stateHeader == 'Inbox' && <Inbox storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          typeof storage !== 'undefined' && stateHeader == 'Admin' && <Admin_section storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          typeof storage !== 'undefined' && stateHeader == 'Active_girl' && <Active_girl storage={storage} user_index={user_index} stateHeader={stateHeader} setStateHeader={setStateHeader} />
+          users && stateHeader == 'Matches' && <Dashboard_section storage={storage} setuser_index={setuser_index} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          users && stateHeader == 'Setting' && <Setting storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          users && stateHeader == 'Inbox' && <Inbox storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          users && stateHeader == 'Admin' && <Admin_section storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          users && stateHeader == 'Active_girl' && <Active_girl storage={storage} user_index={user_index} stateHeader={stateHeader} setStateHeader={setStateHeader} />
 
         }
       </div>

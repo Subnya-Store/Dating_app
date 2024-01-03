@@ -11,7 +11,5 @@ export default function index({storage, setuser_index, stateHeader, setStateHead
         <Matches storage={storage} setuser_index={setuser_index} setStateHeader={setStateHeader} />
       </div>
     </div>
-
-
   );
 }

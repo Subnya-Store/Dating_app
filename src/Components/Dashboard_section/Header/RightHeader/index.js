@@ -9,24 +9,33 @@ export default function index() {
   const { themes, setThemes } = useState('')
   const User_img = "/Images/imgsecond.png";
   const [user_info, setUser_info] = useState(null)
-
-  let  storage
+  const [users, setUsers] = useState(false);
+  let storage
 
   if (typeof window !== 'undefined') {
     storage = localStorage.getItem('user');
   }
 
   useEffect(() => {
-    typeof storage !== 'undefined' && API.fetchGet('/info')
+    if (typeof window !== 'undefined') {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser !== 'undefined') {
+        setUsers(true);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+     API.fetchGet('/info')
       .then(x => setUser_info(x.data))
       .catch(x => console.log(x))
-       API.fetchGet('/get_theme')
+        API.fetchGet('/get_theme')
       .then(x =>
         setTheme(x.data.theme)
         // (setTheme(x.data.theme),setThemes(x.data.theme))
       )
       .catch(x => console.log(x))
-  }, [])
+  }, 1000)
   useEffect(() => {
      API.fetchGet('/create_theme')
       .then(x => {

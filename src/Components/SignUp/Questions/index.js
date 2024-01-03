@@ -1,7 +1,7 @@
 
 import API from "@/API/API";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function Index({ setState, inputs }) {
   const router = useRouter()
@@ -34,22 +34,27 @@ export default function Index({ setState, inputs }) {
     },
     {
       question: "Question 3",
+      questionis: "Gender",
+      options: ["male", "female"],
+    },
+    {
+      question: "Question 4",
       questionis: "What is your primary preferred meeting Age Group? ",
       options: ["18-30", "31-40", "41-55", "56-66", "67-78", "79-89", "90-200"],
     },
     {
-      question: "Question 4",
+      question: "Question 5",
       questionis: "How far are you willing to travel to meet up? ",
       options: ["0-20 miles ", "Up to 50 miles away ", "I can travel far up to 100 miles", "I love travel 200 miles ", "Air travel is no problem 200 miles"],
     },
     {
-      question: "Question 5",
+      question: "Question 6",
       questionis:
         "Are you comfortable with meeting people from a different background than yourself?  ",
       options: ["Yes", "No"],
     },
     {
-      question: "Question 6",
+      question: "Question 7",
       questionis:
         "Who are you interested in?",
       options: ["male", "female"],
@@ -109,7 +114,11 @@ export default function Index({ setState, inputs }) {
     "Tamils",
     "Vietnamese Americans"
   ];
-
+useEffect(()=>{
+  if(router?.query?.name){
+    setQuestionIndex(1)
+  }
+},[])
 
   const Quest_ans = () => {
     API.fetchPost({
@@ -123,6 +132,29 @@ export default function Index({ setState, inputs }) {
           setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
           setQuest_answer({ ...Quest_answer, answers: '' })
           // window.location.href = '/signin'
+          setQuestionIndex(questionIndex + 1)
+        } else {
+          setQuestionIndex(questionIndex + 1),
+            setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 }),
+            setQuest_answer({ ...Quest_answer, answers: '' })
+          console.log(x)
+        }
+
+      })
+      .catch(x => console.log(x))
+  }
+  const Gender = () => {
+    API.fetchPost({
+      gender: Quest_answer.answers,
+      username: router?.query?.username || inputs?.username,
+      full_name: router?.query?.name || inputs?.full_name
+    }, '/gender')
+      .then(x => {
+        if (questionIndex == 2) {
+          setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
+          setQuest_answer({ ...Quest_answer, answers: '' })
+          // window.location.href = '/signin'
+          setQuestionIndex(questionIndex + 1)
         } else {
           setQuestionIndex(questionIndex + 1),
             setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 }),
@@ -234,6 +266,23 @@ export default function Index({ setState, inputs }) {
 
             ) ||
             questionIndex === 2 && e.options && e.options.length > 0 && (
+              <div>
+                <div className="flex justify-center items-center flex-col">
+                  {e.options.map((option, optionIndex) => (
+                    <div
+                      onClick={() => (setQuest_answer({ questions: questionIndex + 1, answers: option }), setoptionIndexselected2(optionIndex))}
+                      key={optionIndex}
+                      className={`w-full text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700 ${optionIndex == optionIndexselected2 && ' text-white  border-[#7000ED]'}`}
+                    >
+                      <div className="opacity-70 text-black text-base py-3 font-medium capitalize ">
+                        {option}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ) ||
+            questionIndex === 3 && e.options && e.options.length > 0 && (
               <div >
                 <div className="flex justify-center items-center flex-col">
                   <div className="w-full">
@@ -257,7 +306,7 @@ export default function Index({ setState, inputs }) {
               </div>
 
             ) ||
-            questionIndex === 3 && e.options && e.options.length > 0 && (
+            questionIndex === 4 && e.options && e.options.length > 0 && (
               <div>
                 <div className="flex justify-center items-center flex-col">
                   <div className="">
@@ -283,7 +332,7 @@ export default function Index({ setState, inputs }) {
               </div>
 
             ) ||
-            questionIndex === 4 && e.options && e.options.length > 0 && (
+            questionIndex === 5 && e.options && e.options.length > 0 && (
               <div>
                 <div className="flex justify-center items-center flex-col">
                   {e.options.map((option, optionIndex) => (
@@ -300,7 +349,7 @@ export default function Index({ setState, inputs }) {
                 </div>
               </div>
             ) ||
-            questionIndex === 5 && e.options && e.options.length > 0 && (
+            questionIndex === 6 && e.options && e.options.length > 0 && (
               <div>
                 <div className="flex justify-center items-center flex-col w-full">
                   {e.options.map((option, optionIndex) => (
@@ -336,7 +385,7 @@ export default function Index({ setState, inputs }) {
               </button> ||
               questionIndex == 2 && Quest_answer.answers != '' &&
               <button
-                onClick={Quest_ans}
+                onClick={Gender}
                 className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
                 Next
@@ -357,6 +406,13 @@ export default function Index({ setState, inputs }) {
               </button> ||
               questionIndex == 5 && Quest_answer.answers != '' &&
               <button
+                onClick={Quest_ans}
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
+              >
+                Next
+              </button> ||
+              questionIndex == 6 && Quest_answer.answers != '' &&
+              <button
                 onClick={Last_quest}
                 className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
               >
@@ -365,7 +421,7 @@ export default function Index({ setState, inputs }) {
             }
           </div>
           <div className="text-center cursor-pointer mt-3">
-            {questionIndex + 1} of 6
+            {questionIndex + 1} of 7
           </div>
         </div>
       ))}
