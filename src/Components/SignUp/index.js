@@ -45,13 +45,12 @@ export default function index() {
             state == "signup" && <Sign_up setInputs={setInputs} inputs={inputs} setState={setState} /> ||
             state == "AccountDetails" && <Account_details toast={toast} setInputs={setInputs} inputs={inputs} setState={setState} /> ||
             state == "email_vericaction" && <Email_verifaction setInputs={setInputs} inputs={inputs} setState={setState} /> ||
-            state == "Id_verification" && <Id_verification setInputs={setInputs} inputs={inputs} setState={setState} />
+            state == "Id_verification" && <Id_verification setInputs={setInputs} inputs={inputs} setState={setState} /> ||
+            state == 'questions' && <Questions setState={setState} inputs={inputs} />
           }
         </div>
       </div>
-      <div>
-        {state == 'questions' && <Questions setState={setState} inputs={inputs} />}
-      </div>
+
     </div>
   )
 }

@@ -203,12 +203,12 @@ useEffect(()=>{
   };
 
   return (
-    <div className="h-screen flex justify-center">
+    <div className="h-screen flex justify-center w-full ">
       {arrayquest.map((e, index) => (
         <div
           key={index}
           className={`${index === questionIndex
-            ? "bg-[#FFF] shadow-xl opacity-[0.92] backdrop-blur-[6.084905624389648px] w-full m-auto  py-12 px-10  rounded-xl"
+            ? "bg-[#FFF]  shadow-xl opacity-[0.92] backdrop-blur-[6.084905624389648px] w-[50%] m-auto  py-12 px-10  rounded-xl"
             : "hidden"
             }`}
         >
@@ -266,21 +266,20 @@ useEffect(()=>{
 
             ) ||
             questionIndex === 2 && e.options && e.options.length > 0 && (
-              <div>
-                <div className="flex justify-center items-center flex-col">
+              
+                <div className="flex justify-center items-center flex-col w-full">
                   {e.options.map((option, optionIndex) => (
                     <div
                       onClick={() => (setQuest_answer({ questions: questionIndex + 1, answers: option }), setoptionIndexselected2(optionIndex))}
                       key={optionIndex}
                       className={`w-full text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700 ${optionIndex == optionIndexselected2 && ' text-white  border-[#7000ED]'}`}
                     >
-                      <div className="opacity-70 text-black text-base py-3 font-medium capitalize ">
+                      <div className="opacity-70 w-full text-black text-base py-3 font-medium capitalize ">
                         {option}
                       </div>
                     </div>
                   ))}
                 </div>
-              </div>
             ) ||
             questionIndex === 3 && e.options && e.options.length > 0 && (
               <div >
@@ -386,7 +385,7 @@ useEffect(()=>{
               questionIndex == 2 && Quest_answer.answers != '' &&
               <button
                 onClick={Gender}
-                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
+                className="cursor-pointer  capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-full"
               >
                 Next
               </button> ||

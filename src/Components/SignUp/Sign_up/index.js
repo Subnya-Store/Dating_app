@@ -2,6 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import axios from 'axios'
 import API from '@/API/API'
+import apiUrl from '@/API/constant'
 
 // import SectionSteps from '@/Components/SectionSteps'
 
@@ -28,10 +29,12 @@ export default function index({ setState, setInputs, inputs }) {
         </div>
         <p className=" text-4xl font-bold py-4 capitalize cursor-pointer"> Sign up </p>
         <div className="inline-flex gap-5 pt-1 pb-1 ">
+        <Link href={`${apiUrl}/auth/google`}>
           <button className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
             <img className=" object-contain px-4" src="/Images/Google_img.png " /> Sign in
             with google
           </button>
+          </Link>
           <button className="bg-[#7000ED] flex rounded-xl text-white  px-4 p-2">
             <img src="/Images/facbook_signin.png" className=" object-contain" />
           </button>
