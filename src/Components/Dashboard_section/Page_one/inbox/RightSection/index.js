@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { IoIosInformationCircleOutline } from "react-icons/io"
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { IoAddOutline } from "react-icons/io5";
+
 // import io from Socket
 
 const socket = io(apiUrl)
@@ -18,13 +19,13 @@ export default function index({ Conversations_id, setConversation_id, setProfile
   const Selector_data = useSelector(x => x)
 
   const messagesContainerRef = useRef(null);
-
+  const [alt_msg,setAlt_msg]=useState('')
   const [msgArray, setmsgArray] = useState({})
   const [User_id, setUser_id] = useState(null)
   const [Typing, setType] = useState('')
   const [isTyping, setIsTyping] = useState(false);
 
-  const [aik, setaik] = useState(null)
+  const [after_msg, setafter_mg] = useState('')
   const user = localStorage.getItem('user')
 
   const scrollToBottom = () => {
@@ -34,13 +35,21 @@ export default function index({ Conversations_id, setConversation_id, setProfile
     }
   };
 
+  if(!socket){
+    socket.on('connection', () => {
+        console.log(socket.id)
+      })
+  }
+
   useEffect(() => {
-    
+
     //api now for seen
     API.fetchPost({ conversation_id: Selector_data.ConversationId }, '/see_notify')
       .then(x => API.fetchPost({ conversation_id: Conversations_id }, '/seen')
         .then(x => socket.emit('seen', 'hi')))
-
+    return () => {
+      socket.disconnect();
+    };
   }, [Selector_data.ConversationId])
 
 
@@ -58,7 +67,9 @@ export default function index({ Conversations_id, setConversation_id, setProfile
       })
       .catch(x => console.log(x))
 
-
+    return () => {
+      socket.disconnect();
+    };
   }, [Conversations_id])
 
   useEffect(() => {
@@ -70,11 +81,12 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         scrollToBottom()
       })
       .catch(x => console.log(x))
-  }, [msg, recieve_msgs])
+  }, [after_msg])
 
 
   useEffect(() => {
     socket.on('recieve_msg', (data) => {
+      console.log(data)
       setrecieve_msg(data)
       Conversations_id != null && API.fetchPost({ conversation_id: Conversations_id }, '/get_conversation')
         .then(x => {
@@ -86,41 +98,45 @@ export default function index({ Conversations_id, setConversation_id, setProfile
         .catch(x => console.log(x))
       scrollToBottom()
     })
-  }, [])
-
-
-  useEffect(() => {
-    let typingTimeout;
-    let isTypings = false;
-    let duration = 200; // Default duration
-
-    socket.on('connection', () => {
-      console.log(socket.id);
-    });
-
-
-    const setIsTypingTrue = () => {
-      isTypings = true;
-      setIsTyping(isTypings);
-      clearTimeout(typingTimeout);
-
-      // Set a new timeout with the updated duration
-      typingTimeout = setTimeout(() => {
-        isTypings = false;
-        setIsTyping(isTypings);
-      }, duration);
-    };
-
-    socket.on('show_typing', (data) => {
-      setIsTypingTrue();
-      duration += 25; // Increase the duration based on a condition
-    });
-
     return () => {
-      socket.off('show_typing');
-      clearTimeout(typingTimeout);
+      socket.disconnect();
     };
-  }, []);
+  }, [socket])
+
+
+  // useEffect(() => {
+  //   let typingTimeout;
+  //   let isTypings = false;
+  //   let duration = 200; // Default duration
+
+  //   socket.on('connection', () => {
+  //     console.log(socket.id);
+  //   });
+
+
+  //   const setIsTypingTrue = () => {
+  //     isTypings = true;
+  //     setIsTyping(isTypings);
+  //     clearTimeout(typingTimeout);
+
+  //     // Set a new timeout with the updated duration
+  //     typingTimeout = setTimeout(() => {
+  //       isTypings = false;
+  //       setIsTyping(isTypings);
+  //     }, duration);
+  //   };
+
+  //   socket.on('show_typing', (data) => {
+  //     setIsTypingTrue();
+  //     duration += 25; // Increase the duration based on a condition
+  //   });
+
+  //   return () => {
+  //     socket.disconnect();
+  //     clearTimeout(typingTimeout);
+  //   };
+
+  // }, []);
 
 
   const sendTypingIndicator = () => {
@@ -129,13 +145,27 @@ export default function index({ Conversations_id, setConversation_id, setProfile
     })
     socket.emit('typing', { userId: socket.id });
   };
+
+
   const Msg_now = (e) => {
     e.preventDefault(),
       API.fetchPost({
         conversation_id: Conversations_id,
-        msg
+        msg:alt_msg
       }, '/msg')
-        .then(x => (socket.emit('send_msg', { msg, room: Conversations_id }),socket.emit('all_notify',{msg:'hello'}), setmsg(''), scrollToBottom()))
+        .then(x => (
+          // socket.on('connection', () => {
+          //   console.log(socket.id)
+          // }),
+          socket.emit('send_msg', { msg, room: Conversations_id }),
+          socket.emit('all_notify', { msg: 'hello' }),
+          setmsg(alt_msg),
+          setAlt_msg(''),
+          setafter_mg(alt_msg),
+          scrollToBottom()
+          // socket.disconnect()
+        )
+        )
         .catch(x => console.log(x))
   }
   useEffect(() => {
@@ -145,6 +175,9 @@ export default function index({ Conversations_id, setConversation_id, setProfile
       .then(x => API.fetchPost({ conversation_id: Conversations_id }, '/seen')
         .then(x => socket.emit('seen', 'hi')))
   }, [msgArray, isTyping]);
+
+
+  
   return (
     <div className='  bg-whiteColor md:m-4 mt-4  rounded-2xl md:w-[80%] w-full py-2 px-1 h-[400px] md:h-[550px] '>
 
@@ -179,7 +212,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
           )}
           <div className='mb-5'></div>
         </div>
-        {isTyping ? <p className='h-[9%] w-full '>typing...</p> : <div className='h-[20px]  w-full '></div>}
+        {/* {isTyping ? <p className='h-[9%] w-full '>typing...</p> : <div className='h-[20px]  w-full '></div>} */}
 
         <div className='h-[22%] flex justify-center items-center '>
           <div className='flex justify-between bg-[#D9D9D9] rounded-full  w-full'>
@@ -193,7 +226,7 @@ export default function index({ Conversations_id, setConversation_id, setProfile
                   </i>
                   <input
                     className='w-full outline-none bg-[#D9D9D9] text-[var(--pink-color)] placeholder:text-[var(--pink-color)]'
-                    value={msg}
+                    value={alt_msg}
                     type="text"
                     placeholder="Type here"
                     onFocus={async () => (
@@ -202,14 +235,16 @@ export default function index({ Conversations_id, setConversation_id, setProfile
                         .then(x => socket.emit('seen', 'hi'))
                     )}
                     // onClick={()=>  socket.emit('seen', 'hi')}
-                    onChange={e => (setmsg(e.target.value), sendTypingIndicator())}
+                    // onChange={e => (setmsg(e.target.value))}
+                    onChange={e => (setAlt_msg(e.target.value))}
                   />
+                  {/* <input type='text'/> */}
                 </div>
 
               </form>
             </div>
             <div className='p-4'>
-              <FaMicrophoneAlt className='text-pinkColor' size={20}/>
+              <FaMicrophoneAlt className='text-pinkColor' size={20} />
             </div>
           </div>
         </div>

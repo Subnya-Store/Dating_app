@@ -24,12 +24,15 @@ export default function index({ setProfile, setConversation_id, recieve_msgs, se
                 .then(x => setConversation(x.data.users))
                 .catch(x => console.log(x));
         });
+        return () => {
+            socket.disconnect();
+        };
     }, [])
     useEffect(() => {
         API.fetchGet('/get_all_hookup')
             .then(x => setConversation(x.data.users))
             .catch(x => console.log(x))
-    }, [recieve_msgs, msg, Conversations_id])
+    }, [recieve_msgs,msg, Conversations_id])
 
     return (
         <div className=' bg-whiteColor md:m-4  rounded-2xl h-[400px]   md:w-[80%] w-full py-2 md:px-1'>

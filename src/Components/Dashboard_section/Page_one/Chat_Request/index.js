@@ -60,7 +60,7 @@ export default function index({ setStateHeader }) {
     useEffect(() => {
         Socket.on('connection');
         Socket.on('recieve_request', (data) => {
-            storage&& API.fetchGet('/request_find')
+             API.fetchGet('/request_find')
                 .then(x => (
                     sethow_many_request(x.data)
                 ))
@@ -69,7 +69,7 @@ export default function index({ setStateHeader }) {
     }, [])
 
     useEffect(() => {
-        storage&& API.fetchGet('/request_find')
+         API.fetchGet('/request_find')
             .then(x => (
                 sethow_many_request(x.data)
             ))
@@ -78,7 +78,7 @@ export default function index({ setStateHeader }) {
 
     const HookItUp = (e) => {
 
-        storage&& API.fetchPost({ hook_up_with: e.user_id }, '/hook_up')
+         API.fetchPost({ hook_up_with: e.user_id }, '/hook_up')
             .then(x => (
                 setdatas(x),
                 Socket.emit('send_hookup', 'hi')
@@ -89,7 +89,7 @@ export default function index({ setStateHeader }) {
     return (
         <div className='  bg-whiteColor md:m-4  rounded-2xl grid grid-cols-2 gap-x-8 '>
 
-            {storage&&how_many_request.length > 0 && how_many_request.map((e, i) =>
+            {how_many_request.length > 0 && how_many_request.map((e, i) =>
                 <div key={i} >
                     <ul className='md:flex  justify-between items-center gap-3  border-[#BAAEAE] p-2  border-b m-2 '>
                         <li>
