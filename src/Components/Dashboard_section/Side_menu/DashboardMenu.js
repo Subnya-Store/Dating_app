@@ -6,7 +6,7 @@ import { IoSettings } from "react-icons/io5";
 import { IoIosHelpCircle } from "react-icons/io";
 import { FaSignOutAlt } from "react-icons/fa";
 //humay state yahan tak lani hay 
-export default function DashboardMenu({ setStateHeader }) {
+export default function DashboardMenu({ setStateHeader, setHamburger, hamburger }) {
   const sideBar_arr = [
     {
       Logo: "/Images/logo-img.png",
@@ -45,7 +45,12 @@ export default function DashboardMenu({ setStateHeader }) {
   const Logo = "/Images/logo-img.png";
   const dispatch = useDispatch()
   return (
-    <div className="side_menu  text-xs md:text-lg bg-whiteColor">
+    <div class="side_menu relative text-xs md:text-lg bg-red-300 w-full">
+      <div class="flex justify-end w-full md:hidden">
+        <div onClick={() => setHamburger(false)} class="border absolute  text-white bg-black text-lg rounded-full w-10 h-10 p-3 m-2 flex justify-center items-center">
+          x
+        </div>
+      </div>
       {sideBar_arr.map((y, i) => (
         <div className="bg-whiteColor" key={i}>
           <div className=" mx-auto px-4 bg-whiteColor">
@@ -72,7 +77,7 @@ export default function DashboardMenu({ setStateHeader }) {
         ))
       }
       <div className="border-b-blackColor border-2 bg-whiteColor">
- 
+
       </div>
 
       {Support_menu.map((x, i) => (

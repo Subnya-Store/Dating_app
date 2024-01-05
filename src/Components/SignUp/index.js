@@ -10,7 +10,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export default function index() {
-  const [state, setState] = useState("questions")
+  const [state, setState] = useState("signup")
   const router = useRouter()
   const [inputs, setInputs] = useState({
     username: '',

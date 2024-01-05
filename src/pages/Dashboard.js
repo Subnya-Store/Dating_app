@@ -36,6 +36,7 @@ export default function Dashboard() {
   const [datas, setdatas] = useState('')
   const [user_index, setuser_index] = useState(null);
   const [users, setUsers] = useState(false);
+  const [hamburger, setHamburger] = useState(true);
   const Socket = io(apiUrl)
 
   let user, storage
@@ -123,9 +124,9 @@ export default function Dashboard() {
 
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
-      <Side_menu setStateHeader={setStateHeader} />
+      {hamburger&& <Side_menu hamburger={hamburger} setHamburger={setHamburger} setStateHeader={setStateHeader} />}
       <div className='w-[100%] overflow-y-hidden'>
-        {users && <Header stateHeader={stateHeader} setStateHeader={setStateHeader} />}
+        {users && <Header hamburger={hamburger} setHamburger={setHamburger} stateHeader={stateHeader} setStateHeader={setStateHeader} />}
         {
           users && stateHeader == 'Matches' && <Dashboard_section storage={storage} setuser_index={setuser_index} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
           users && stateHeader == 'Setting' && <Setting storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
