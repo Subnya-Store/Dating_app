@@ -5,7 +5,7 @@ export default function index({ stateHeader, setStateHeader,setHamburger,hamburg
   return (
     <div className="dash_header shadow-lg bg-whiteColor py-4">
       <div className="container mx-auto px-4">
-        <div className=' md:flex  justify-between items-center'>
+        <div className=' flex  justify-between items-center'>
           <LeftHeader hamburger={hamburger} setHamburger={setHamburger} stateHeader={stateHeader} setStateHeader={setStateHeader} />
           <RightHeader />
         </div>

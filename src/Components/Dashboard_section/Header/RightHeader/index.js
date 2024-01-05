@@ -49,8 +49,8 @@ export default function index() {
 
   return (
     <div className="right_header flex ">
-      <div className="w-[120px] flex flex-col justify-center items-center">
-        <div className="text-blackColor">change Theme</div>
+      <div className=" flex flex-col  justify-center items-center">
+        <div className="text-blackColor">Theme</div>
         <Switch
           className={`${themes == 'light' ? 'bg-blackColor' : 'bg-[var(--pink-color)]'}`}
           onClick={() => {
@@ -66,11 +66,11 @@ export default function index() {
           }}
         />
       </div>
-      <button className="bg-pinkColor mr-8 rounded-full items-center text-center cursor-pointer font-semibold text-white py-2 px-4 text-sm ">
+      {/* <button className="bg-pinkColor mr-8 rounded-full items-center text-center cursor-pointer font-semibold text-white py-2 px-4 text-sm ">
         <div className="text-xs md:text-base text-whiteColor">Upgrade now</div>
-      </button>
+      </button> */}
 
-      <div className="flex justify-center items-center ">
+      <div className="flex  items-center justify-end">
         {user_info && <span className="mx-2" > <p className="text-sm md:text-base">{'hi! ' + user_info?.Users?.full_name || 'Loading..'}</p></span>}
         {user_info && user_info?.profile?.img != null ? <img src={user_info?.profile?.img} width={50} className="rounded-full" /> : "its loading..."}
       </div>

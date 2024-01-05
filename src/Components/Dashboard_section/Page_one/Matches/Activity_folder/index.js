@@ -37,6 +37,44 @@ export default function index({ setStateHeader }) {
   const users = "/Images/user_img.png";
   const email = "/Images/email-icon.png";
   const search = "/Images/search-icon.png";
+
+  const act =[
+    {
+      id:1,
+      type:'follow',
+      name:"waleed"
+    },
+    {
+      id:2,
+      type:'follow',
+      name:"waleed"
+    },
+    {
+      id:3,
+      type:'follow',
+      name:"waleed"
+    },
+    {
+      id:4,
+      type:'follow',
+      name:"waleed"
+    },
+    {
+      id:5,
+      type:'follow',
+      name:"waleed"
+    },
+    {
+      id:6,
+      type:'follow',
+      name:"waleed"
+    },
+    {
+      id:7,
+      type:'follow',
+      name:"waleed"
+    },
+  ]
   return (
     <div className="activity_box my-10  rounded-2xl bg-whiteColor py-6">
       <div className="container mx-auto min-w-[300px]   px-6">
