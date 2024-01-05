@@ -1,16 +1,18 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 import API from '@/API/API'
-
+import Loading from '@/Components/Loading/index'
 
 export default function index({ setState, inputs, setInputs }) {
-
+  const [loading, setLoading] = useState(false)
   const VerifyNow = () => {
+    setLoading(true)
     API.fetchPost(inputs, '/verify_code')
       .then(x => {
         if (x.data.msg == 'Verified successfully !') {
           setState("Id_verification")
+          setLoading(false)
         }
       })
       .catch(x => console.log(x))
@@ -20,7 +22,7 @@ export default function index({ setState, inputs, setInputs }) {
   return (
     <div className="h-screen flex items-center justify-center">
       <div className="bg-whiteColor p-8 mx-4 rounded-2xl shadow-lg max-w-md w-full">
-      
+
         <p className=" text-4xl font-bold py-4 capitalize"> Email <br />
           Verification</p>
         <div className=" flex mb-5">
@@ -49,6 +51,7 @@ export default function index({ setState, inputs, setInputs }) {
             Next
           </button>
         </div>
+        {loading && <Loading />}
       </div>
     </div>
   )

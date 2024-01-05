@@ -1,10 +1,11 @@
 import API from '@/API/API'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
+import Loading from '@/Components/Loading/index'
 
 
 export default function index({ setState, setInputs, inputs, toast }) {
-
+  const [loading, setLoading] = useState(false)
   const countries = [
     { Country: "Afghanistan" },
     { Country: "Albania" },
@@ -277,12 +278,13 @@ export default function index({ setState, setInputs, inputs, toast }) {
   const sign_up_img = '/Images/SignIn_logo.png'
   const Make_acount = () => {
     // setState("email_vericaction")
+    setLoading(true)
     API.fetchPost(inputs, '/register')
       .then(x => {
         if (x.data.message == 'Verification email sent') {
           setState("email_vericaction")
         } else {
-
+          setLoading(false)
           toast.error(x.data.check, {
             position: "top-center",
             autoClose: 5000,
@@ -315,7 +317,7 @@ export default function index({ setState, setInputs, inputs, toast }) {
         </div>
         <p className=" text-4xl font-bold py-4 capitalize"> Account Details</p>
         <div className="inline-flex gap-5 pt-1 pb-1">
-          <button onClick={()=>console.log('pressed')} className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5" >
+          <button onClick={() => console.log('pressed')} className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5" >
             <img className=" object-contain px-4" src="/Images/Google_img.png " /> signin with google
           </button>
           <button className="bg-[#7000ED] flex rounded-xl text-white  px-4 p-2">
@@ -408,9 +410,12 @@ export default function index({ setState, setInputs, inputs, toast }) {
             </ul>
           </div>
           <div className="pt-1 pb-1">
-            <button type='submit' className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
-              Next
-            </button>
+            {
+              !loading ? <button type='submit' className="bg-[#7000ED] font-medium flex rounded-xl text-white px-6 py-2">
+                Next
+              </button> :
+                <Loading />
+            }
           </div>
         </form>
       </div>

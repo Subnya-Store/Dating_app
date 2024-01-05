@@ -2,6 +2,7 @@
 import API from "@/API/API";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
+import Loading from '@/Components/Loading/index'
 
 export default function Index({ setState, inputs }) {
   const router = useRouter()
@@ -10,6 +11,7 @@ export default function Index({ setState, inputs }) {
   const [optionIndexselected1, setoptionIndexselected1] = useState(null);
   const [optionIndexselected2, setoptionIndexselected2] = useState(null);
   const [optionIndexselected3, setoptionIndexselected3] = useState(null);
+  const [loading, setLoading] = useState(false)
   const [file_image, setfile_image] = useState(null);
   const [Image, setImage] = useState("/Images/camera.png");
   const [Quest_answer, setQuest_answer] = useState({
@@ -114,13 +116,14 @@ export default function Index({ setState, inputs }) {
     "Tamils",
     "Vietnamese Americans"
   ];
-useEffect(()=>{
-  if(router?.query?.name){
-    setQuestionIndex(1)
-  }
-},[])
+  useEffect(() => {
+    if (router?.query?.name) {
+      setQuestionIndex(1)
+    }
+  }, [])
 
   const Quest_ans = () => {
+    setLoading(true)
     API.fetchPost({
       questions: Quest_answer.questions,
       answers: Quest_answer.answers,
@@ -128,12 +131,14 @@ useEffect(()=>{
       full_name: router?.query?.name || inputs?.full_name
     }, '/questionair')
       .then(x => {
+        setLoading(false)
         if (questionIndex == 5) {
           setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
           setQuest_answer({ ...Quest_answer, answers: '' })
           // window.location.href = '/signin'
           setQuestionIndex(questionIndex + 1)
         } else {
+          setLoading(false)
           setQuestionIndex(questionIndex + 1),
             setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 }),
             setQuest_answer({ ...Quest_answer, answers: '' })
@@ -144,18 +149,21 @@ useEffect(()=>{
       .catch(x => console.log(x))
   }
   const Gender = () => {
+    setLoading(true)
     API.fetchPost({
       gender: Quest_answer.answers,
       username: router?.query?.username || inputs?.username,
       full_name: router?.query?.name || inputs?.full_name
     }, '/gender')
       .then(x => {
+        setLoading(false)
         if (questionIndex == 2) {
           setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 })
           setQuest_answer({ ...Quest_answer, answers: '' })
           // window.location.href = '/signin'
           setQuestionIndex(questionIndex + 1)
         } else {
+          setLoading(false)
           setQuestionIndex(questionIndex + 1),
             setQuest_answer({ ...Quest_answer, questions: questionIndex + 1 }),
             setQuest_answer({ ...Quest_answer, answers: '' })
@@ -168,6 +176,7 @@ useEffect(()=>{
 
   const First_Quest = (e) => {
     e.preventDefault()
+    setLoading(true)
     const formData = new FormData();
     formData.append('images', file_image);
     formData.append('username', router?.query?.username || inputs?.username,);
@@ -175,6 +184,7 @@ useEffect(()=>{
 
     API.fetchPost(formData, '/quest_image')
       .then(x => {
+        setLoading(false)
         setQuestionIndex(questionIndex + 1)
       })
       .catch(x => console.log(x))
@@ -182,12 +192,13 @@ useEffect(()=>{
 
   const Last_quest = (e) => {
     e.preventDefault()
+    setLoading(true)
     API.fetchPost({
       interest: Quest_answer.answers,
       username: router?.query?.username || inputs?.username,
       full_name: router?.query?.name || inputs?.full_name
     }, '/interestedin')
-      .then(x => window.location.href = '/signin')
+      .then(x => { setLoading(false), window.location.href = '/signin' })
       .catch(x => console.log(x))
   }
 
@@ -208,7 +219,7 @@ useEffect(()=>{
         <div
           key={index}
           className={`${index === questionIndex
-            ? "bg-[#FFF]  shadow-xl opacity-[0.92] backdrop-blur-[6.084905624389648px] w-[50%] m-auto  py-12 px-10  rounded-xl"
+            ? "bg-[#FFF]  shadow-xl opacity-[0.92] backdrop-blur-[6.084905624389648px] w-[90%] md:w-[50%] m-auto  py-12 px-10  rounded-xl"
             : "hidden"
             }`}
         >
@@ -225,20 +236,18 @@ useEffect(()=>{
           {/* Answers  */}
           {
             questionIndex === 0 && (
-              <div>
-                <div className="flex justify-center items-center flex-col">
-                  <div className="border w-[100px] py-4 px-4 m-auto bg-white">
-                    <img
-                      src={Image}
-                      className="w-full m-auto align-middle text-center object-contain"
-                    />
-                  </div>
-                  <div className="w-[144.78px] h-[37.54px] text-center flex justify-center items-center my-2 bg-white rounded-[8.94px] border border-violet-700">
-                    <label htmlFor="myfile" className="opacity-70 text-black text-base  font-medium capitalize m-auto">
-                      Upload
-                    </label>
-                    <input type="file" id="myfile" className="hidden" onChange={handleImageChange} />
-                  </div>
+              <div className="flex justify-center items-center flex-col ">
+                <div className="border w-[100px] py-4 px-4 m-auto bg-white">
+                  <img
+                    src={Image}
+                    className="w-full m-auto align-middle text-center object-contain"
+                  />
+                </div>
+                <div className="w-[144.78px] h-[37.54px] text-center flex justify-center items-center my-2 bg-white rounded-[8.94px] border border-violet-700">
+                  <label htmlFor="myfile" className="opacity-70 text-black text-base  font-medium capitalize m-auto">
+                    Upload
+                  </label>
+                  <input type="file" id="myfile" className="hidden" onChange={handleImageChange} />
                 </div>
               </div>
             ) ||
@@ -266,20 +275,20 @@ useEffect(()=>{
 
             ) ||
             questionIndex === 2 && e.options && e.options.length > 0 && (
-              
-                <div className="flex justify-center items-center flex-col w-full">
-                  {e.options.map((option, optionIndex) => (
-                    <div
-                      onClick={() => (setQuest_answer({ questions: questionIndex + 1, answers: option }), setoptionIndexselected2(optionIndex))}
-                      key={optionIndex}
-                      className={`w-full text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700 ${optionIndex == optionIndexselected2 && ' text-white  border-[#7000ED]'}`}
-                    >
-                      <div className="opacity-70 w-full text-black text-base py-3 font-medium capitalize ">
-                        {option}
-                      </div>
+
+              <div className="flex justify-center items-center flex-col w-full">
+                {e.options.map((option, optionIndex) => (
+                  <div
+                    onClick={() => (setQuest_answer({ questions: questionIndex + 1, answers: option }), setoptionIndexselected2(optionIndex))}
+                    key={optionIndex}
+                    className={`w-full text-center mb-3 mt-4 bg-white rounded-[3.94px] border border-violet-700 ${optionIndex == optionIndexselected2 && ' text-white  border-[#7000ED]'}`}
+                  >
+                    <div className="opacity-70 w-full text-black text-base py-3 font-medium capitalize ">
+                      {option}
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
+              </div>
             ) ||
             questionIndex === 3 && e.options && e.options.length > 0 && (
               <div >
@@ -367,18 +376,18 @@ useEffect(()=>{
             )
           }
 
-          <div className=" text-center ">
+          <div className=" text-center w-full">
             {questionIndex == 0 && file_image != null &&
               <button
                 onClick={First_Quest}
-                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-full"
               >
                 Next
               </button> ||
               questionIndex == 1 && Quest_answer.answers != '' &&
               <button
                 onClick={Quest_ans}
-                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-full"
               >
                 Next
               </button> ||
@@ -392,28 +401,28 @@ useEffect(()=>{
               questionIndex == 3 && Quest_answer.answers != '' &&
               <button
                 onClick={Quest_ans}
-                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-full"
               >
                 Next
               </button> ||
               questionIndex == 4 && Quest_answer.answers != '' &&
               <button
                 onClick={Quest_ans}
-                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-full"
               >
                 Next
               </button> ||
               questionIndex == 5 && Quest_answer.answers != '' &&
               <button
                 onClick={Quest_ans}
-                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-full"
               >
                 Next
               </button> ||
               questionIndex == 6 && Quest_answer.answers != '' &&
               <button
                 onClick={Last_quest}
-                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-[20%]"
+                className="cursor-pointer capitalize text-white bg-[#7000ED] border-[#7000ED] py-2 m-auto rounded-md border w-full"
               >
                 Next
               </button>
@@ -422,6 +431,7 @@ useEffect(()=>{
           <div className="text-center cursor-pointer mt-3">
             {questionIndex + 1} of 7
           </div>
+          {loading && <Loading />}
         </div>
       ))}
     </div>
