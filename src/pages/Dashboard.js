@@ -77,12 +77,12 @@ export default function Dashboard() {
     //   Socket.off('connection')
     // }
   }, [])
-  // useEffect(() => {
-  //   API.fetchGet('/isadmin')
-  //     .then(x => (console.log(x.data),setStateHeader(x.data.role)))
-  //     .catch(x => console.log(x))
+  useEffect(() => {
+    API.fetchGet('/isadmin')
+      .then(x => (console.log(x.data),setStateHeader(x.data.role)))
+      .catch(x => console.log(x))
 
-  // }, [])
+  }, [])
 
   useEffect(() => {
     if (typeof storage !== 'undefined' && router.query.ref) {

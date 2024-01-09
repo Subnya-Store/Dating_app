@@ -14,25 +14,25 @@ export default function index() {
       
       <div className="w-full relative bg-[url('/Images/Dashboard_pg1.png')] h-screen  bg-center  bg-cover  bg-no-repeat">
         <div className="absolute flex justify-center  bg-[#0500629e]  overflow-y-auto  bottom-0 top-0 left-0 w-full ">
-          <div className=' w-[98%] h-10 '>
+          <div className=' w-[98%]  h-screen overflow-y-auto'>
             <Slider />
-            <div className='flex justify-between flex-col md:flex-row  w-full'>
+            <div className='flex justify-between flex-col md:flex-row h-[50%]  w-full bg-red-200'>
               <Activity />
               <div className='w-full flex flex-col md:flex-row '>
 
                 <div className=' rounded-2x pt-9  px-2 w-full'>
-                  <div className='w-[100%] mt-1 rounded-2xl h-[360px] bg-whiteColor'>
+                  {/* <div className='w-[100%] mt-1 rounded-2xl h-[360px] bg-whiteColor'>
                     hello
-                  </div>
-                  <div className='flex'>
+                  </div> */}
+                  {/* <div className='flex'>
                     <Work_at_Dating />
                     <Improve_your_Matches />
-                  </div>
+                  </div> */}
                 </div>
-                <div>
+                {/* <div>
                   <May_Like />
                   <Chat_Request />
-                </div>
+                </div> */}
               </div>
             </div>
 

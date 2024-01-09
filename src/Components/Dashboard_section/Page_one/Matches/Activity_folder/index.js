@@ -76,22 +76,22 @@ export default function index({ setStateHeader }) {
     },
   ]
   return (
-    <div className="activity_box my-10  rounded-2xl bg-whiteColor py-6">
+    <div className="activity_box h-auto  rounded-2xl bg-whiteColor py-6">
       <div className="container mx-auto min-w-[300px]   px-6">
 
-        <ul className="flex justify-between items-center">
-          <li>
+        <div className="flex justify-between items-center">
+          <div>
             <h4 className="text-blackColor text-xl  font-bold">
               Activity
             </h4>
-          </li>
-          <li>
+          </div>
+          <div>
             <span className="text-blackColor text-xl  font-bold">
               <BsThreeDots />
             </span>
-          </li>
-        </ul>
-        {activit_arr?.length > 0 && activit_arr?.map((e, i) => (
+          </div>
+        </div>
+        {/* {activit_arr?.length > 0 && activit_arr?.map((e, i) => (
           <div
             onClick={() => {
               e?.type == 'msg' && dispatch({
@@ -125,32 +125,8 @@ export default function index({ setStateHeader }) {
             </div>
             <hr />
           </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
 }
-
-{/* <div className="flex justify-between  items-center w-full  mt-10">
-              <div className="flex w-full items-center">
-                <span>
-                  <img
-                    src={
-                      e?.type == 'user' && users ||
-                      e?.type == 'msg' && email ||
-                      e?.type == 'search' && search
-                    }
-                    className="w-[100%] object-contain h-[100%]"
-                  />
-                </span>
-                <div className="flex justify-between items-center w-full px-2">
-                  <div className="text-sm">
-                    <div><strong>{e?.activity}</strong></div>
-                    <div>{e?.user_follow}</div>
-                  </div>
-                  <div className="text-sm">{e?.hours}</div>
-                </div>
-              </div>
-               <p className="text-blackColor  font-bold text-base">{e.hours}</p> 
-            </div>
-            <hr /> */}
