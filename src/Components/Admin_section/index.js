@@ -10,40 +10,35 @@ import Improve_your_Matches from '@/Components/Admin_section/Improve_your_Matche
 
 export default function index() {
   return (
-    <div>
-      <div className='flex w-full'>
-        <div className='hidden md:flex md:w-[15%]'>
-          <Side_bar />
-        </div>
-        <div className="w-full relative bg-[url('/Images/Dashboard_pg1.png')] h-screen  bg-center  bg-cover  bg-no-repeat">
-          <div className="absolute flex justify-center  bg-[#0500629e]  overflow-y-auto  bottom-0 top-0 left-0 w-full ">
-            <div className=' w-[98%] h-10 '>
-              <Slider />
-              <div className='flex justify-between flex-col md:flex-row  w-full'>
-                <Activity />
-                <div className='w-full flex flex-col md:flex-row '>
+    <div className='flex w-full'>
+      
+      <div className="w-full relative bg-[url('/Images/Dashboard_pg1.png')] h-screen  bg-center  bg-cover  bg-no-repeat">
+        <div className="absolute flex justify-center  bg-[#0500629e]  overflow-y-auto  bottom-0 top-0 left-0 w-full ">
+          <div className=' w-[98%] h-10 '>
+            <Slider />
+            <div className='flex justify-between flex-col md:flex-row  w-full'>
+              <Activity />
+              <div className='w-full flex flex-col md:flex-row '>
 
-                  <div className=' rounded-2x pt-9  px-2 w-full'>
-                    <div className='w-[100%] mt-1 rounded-2xl h-[360px] bg-whiteColor'>
-                      hello
-                    </div>
-                    <div className='flex'>
-                      <Work_at_Dating />
-                      <Improve_your_Matches />
-                    </div>
+                <div className=' rounded-2x pt-9  px-2 w-full'>
+                  <div className='w-[100%] mt-1 rounded-2xl h-[360px] bg-whiteColor'>
+                    hello
                   </div>
-                  <div>
-                    <May_Like />
-                    <Chat_Request />
+                  <div className='flex'>
+                    <Work_at_Dating />
+                    <Improve_your_Matches />
                   </div>
                 </div>
+                <div>
+                  <May_Like />
+                  <Chat_Request />
+                </div>
               </div>
-
             </div>
+
           </div>
         </div>
       </div>
     </div>
-
   )
 }

@@ -65,17 +65,24 @@ export default function Dashboard() {
     if (typeof window === 'undefined') {
       localStorage.setItem('user', router?.query?.ref);
     }
-    Socket.on('connection', (data) => {
-      console.log(Socket.id, '<=== check me')
-    });
-    Socket.on('recieve_hookup', (data) => {
-      storage !== 'undefined' && API.fetchGet('/get_hook_up')
-        .then(x => setdatas(x))
-        .catch(x => console.log(x))
-    })
-
-
+    // Socket.on('connection', (data) => {
+    //   console.log(Socket.id, '<=== check me')
+    // });
+    // Socket.on('recieve_hookup', (data) => {
+    //   storage !== 'undefined' && API.fetchGet('/get_hook_up')
+    //     .then(x => setdatas(x))
+    //     .catch(x => console.log(x))
+    // })
+    // return () => {
+    //   Socket.off('connection')
+    // }
   }, [])
+  // useEffect(() => {
+  //   API.fetchGet('/isadmin')
+  //     .then(x => (console.log(x.data),setStateHeader(x.data.role)))
+  //     .catch(x => console.log(x))
+
+  // }, [])
 
   useEffect(() => {
     if (typeof storage !== 'undefined' && router.query.ref) {
@@ -124,14 +131,14 @@ export default function Dashboard() {
 
   return (
     <div className='flex  h-screen w-[100%] flex-row  '>
-      {hamburger&& <Side_menu hamburger={hamburger} setHamburger={setHamburger} setStateHeader={setStateHeader} />}
+      {hamburger && <Side_menu hamburger={hamburger} setHamburger={setHamburger} setStateHeader={setStateHeader} />}
       <div className='w-[100%] overflow-y-hidden'>
         {users && <Header hamburger={hamburger} setHamburger={setHamburger} stateHeader={stateHeader} setStateHeader={setStateHeader} />}
         {
           users && stateHeader == 'Matches' && <Dashboard_section storage={storage} setuser_index={setuser_index} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
           users && stateHeader == 'Setting' && <Setting storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
           users && stateHeader == 'Inbox' && <Inbox storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
-          users && stateHeader == 'Admin' && <Admin_section storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
+          users && stateHeader == 'admin' && <Admin_section storage={storage} stateHeader={stateHeader} setStateHeader={setStateHeader} /> ||
           users && stateHeader == 'Active_girl' && <Active_girl storage={storage} user_index={user_index} stateHeader={stateHeader} setStateHeader={setStateHeader} />
 
         }

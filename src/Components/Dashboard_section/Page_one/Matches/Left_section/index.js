@@ -39,7 +39,11 @@ export default function Index({ storage, setStateHeader, setuser_index }) {
         setFollowing(x.data.Follower[0]?.isFollowing || false); // Set 'following' state
       })
       .catch((error) => console.log(error));
-  }, [dispatch, Socket]);
+
+      return()=>{
+        Socket.off('connection')
+      }
+  }, []);
 
   return (
     <div className={`md:flex ${Matches.length > 0 && 'bg-whiteColor'} my-4 rounded-md grid grid-cols-2`}>
