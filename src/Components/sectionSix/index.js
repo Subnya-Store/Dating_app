@@ -5,9 +5,9 @@ export default function index() {
   return (
     <div >
       <div className="bg-gradient-to-r from-[#D74EFF] to-[#FF80B4] ">
-        <div className="flex flex-col md:flex-row justify-evenly items-center px-10">
-          <div className="w-full flex flex-col justify-center items-center text-center">
-            <div>
+        <div className="flex flex-col md:flex-row justify-evenly items-center px-10 py-5">
+          <div className="w-full flex flex-col justify-center text-white items-center text-center">
+            <div className="text-3xl">
               Featured Product
             </div>
             <div>
@@ -29,11 +29,6 @@ export default function index() {
                   className="object-contain pb-4"
                   alt="Picture"
                 />
-
-                <p className="text-white md:text-lg text-base  mb-3  m-auto md:w-2/5">
-                  Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt
-                  iaculis mollis.
-                </p>
               </div>
               <div className=" w-auto flex align-middle justify-center mt-3 gap-4">
                 <a href="/">
