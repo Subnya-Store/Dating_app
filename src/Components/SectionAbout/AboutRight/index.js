@@ -6,7 +6,7 @@ export default function index() {
   return (
     <div className=' md:w-[50%]'> 
      <Image
-      src="/Images/about-img.png"
+      src="/Images/whitePhoto.png"
       width={700}
       height={700}
       alt="about img"

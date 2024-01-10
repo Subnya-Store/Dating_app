@@ -6,7 +6,7 @@ import { RiSearchLine } from 'react-icons/ri'
 export default function index() {
   return (
     <div>
-      <ul className='md:flex flex  justify-between'>
+      <ul className='md:flex flex  justify-between gap-4'>
         <li className=' cursor-pointer  '>
           <Link href='signin'>
             <button className=' bg-pink-400  text-base shadow-lg  py-2   px-5 font-medium rounded-full  text-white min-w-[100px]'>Sign in</button>
@@ -17,7 +17,7 @@ export default function index() {
             <button className=' bg-pink-400 shadow-lg text-base py-2  px-5 font-medium rounded-full  text-white min-w-[150px]'>Create Account</button>
           </Link>
         </li>
-        <li className='cursor-pointer  pt-3  text-2xl font-medium text-blackColor'><RiSearchLine /></li>
+        {/* <li className='cursor-pointer  pt-3  text-2xl font-medium text-blackColor'><RiSearchLine /></li> */}
       </ul>
     </div >
   )

@@ -3,19 +3,19 @@ import Rightside from "./Rightside";
 import Leftside from "./Leftside";
 export default function index() {
   return (
-    <div className=" bg-[#7000ED]   py-32 ">
+    <div className=" bg-[#7000ED]   py-10 ">
       <div className="container px-20 mx-auto">
 
-     <div className="md:flex justify-between">
-     <div className="md:w-[50%]">
-        <Leftside />
+        <div className="md:flex justify-between items-center">
+          <div className="md:w-[50%]">
+            <Leftside />
+          </div>
+          <div className="md:w-[50%]">
+            <Rightside />
+          </div>
+        </div>
+
       </div>
-      <div className="md:w-[50%]">
-        <Rightside />
-      </div>
-     </div>
-     
-    </div>
     </div>
   );
 }

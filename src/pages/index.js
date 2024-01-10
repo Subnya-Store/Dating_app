@@ -11,6 +11,7 @@ import SectionSteps from "@/Components/SectionSteps";
 // import { requestFortoken } from '@/Firebase';
 import { initializeApp } from 'firebase/app';
 import { getMessaging, onMessage, getToken } from "firebase/messaging";
+import Image from 'next/image';
 
 const firebaseConfig = {
   apiKey: "AIzaSyA5iWSQw61-km2u2XusWWgy6SX3wQH24x4",
@@ -24,10 +25,10 @@ const firebaseConfig = {
 
 
 // if (app != null) {
-  // }
-  export default function index() {
+// }
+export default function index() {
   let messaging, user
- 
+
   // console.log(user)
   const [contruction, setConstruction] = useState(true)
   const requestForToken = () => {
@@ -61,23 +62,24 @@ const firebaseConfig = {
         </div>
         :
         <>
-          {/* <button onClick={requestForToken}>click me</button> */}
-          <div className=" bg-gradient-to-r border-1 rounded-b-[46%] overflow-hidden relative from-[#D74EFF] to-[#FF80B4]  md:pt-16 pt-4">
-            <div className="bg-[url('/Images/banner-shape.png')]     md:mx-14 mx-4 rounded-t-3xl h-full bg-center pt-16   pb-36 bg-no-repeat bg-cover">
-              <div className="container mx-auto md:px-20 px-10">
-                <SectionOne />
-                <SectionTwo />
-              </div>
-            </div>
+          {/* START */}
+          <div className=" bg-gradient-to-r border-1 overflow-hidden relative from-[#D74EFF] to-[#FF80B4] py-5 px-5">
+          
+            <SectionOne />
           </div>
-          <div className='-mt-[50px]'>
-            <SectionAbout />
+          <SectionTwo />
+          <div className=" bg-gradient-to-r border-1 overflow-hidden relative from-[#D74EFF] to-[#FF80B4] py-5 px-10 flex flex-col justify-center items-center">
+            <div className='text-5xl text-blue-gray-50'>SPECIAL OFFER</div>
+            <div className='text-xl text-blue-gray-50'>The FULL Training for just $67.00! SAVE $1997.00 for a limited time.</div>
+            <img src='/Images/btn.png' />
           </div>
+          <SectionAbout />
           <SectionSteps />
-          <SectionThree />
-          <SectionFour />
-          <SectionFive />
-          <SectionSix />
+          {/* <SectionThree /> */}
+        <SectionFour />
+           {/* <SectionFive /> */}
+          <SectionSix />  
+          {/* STOP */}
         </>
       }
 

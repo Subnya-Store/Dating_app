@@ -14,10 +14,10 @@ export default function index() {
         </h1>
       </div>
       <div className=" justify-end flex pt-4 pb-4">
-        <p className="flex  text-right text-lg">
+        <div className="flex  text-right text-lg text-white">
           Simple to sign up as a member. The process usually takes less than 10
           minutes, including your basic profile of your Ruleset of Desires.{" "}
-        </p>
+        </div>
       </div>
 
       <div className=" justify-end flex pt-4 pb-4">

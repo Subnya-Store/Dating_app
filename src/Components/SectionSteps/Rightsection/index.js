@@ -6,21 +6,23 @@ export default function index() {
   const Comparison = "/Images/Comparison.png";
 
   return (
-    <div className="felx  pl-5">
-      <div className=" justify-end flex">
-        <h3 className="border-b-4 border-[#212121] md:text-xl text-base pt-3 pb-3 w-32 text-right font-bold text-[var(--pink-color)]">
-          How it works
-        </h3>
-      </div>
-      <div className=" justify-end flex pt-4  ">
-        <h1 className="flex md:text-3xl text-lg font-bold w-54 text-right">
-          You’re Just
-        </h1>
-      </div>
-      <div className=" justify-end flex  pb-4 ">
-        <h1 className="flex md:text-3xl text-lg font-bold w-54 text-right  text-[#7000ED]">
-          3 Steps Away
-        </h1>
+    <div className="">
+      <div className="flex flex-col justify-end ">
+        <div className=" justify-end flex">
+          <h3 className="border-b-4 border-[#212121] text-sm pt-3 font-sans  w-32 text-right font-bold text-[var(--pink-color)]">
+            How it works
+          </h3>
+        </div>
+        <div className=" justify-end flex pt-4  ">
+          <h1 className="flex md:text-3xl text-lg font-bold w-54 text-right">
+            You’re Just
+          </h1>
+        </div>
+        <div className=" justify-end flex  pb-4 ">
+          <h1 className="flex md:text-3xl text-lg font-bold w-54 text-right  text-[#7000ED]">
+            3 Steps Away
+          </h1>
+        </div>
       </div>
       <ul className="flex justify-between w-52 ">
         <li>
@@ -53,7 +55,7 @@ export default function index() {
         </li>
       </ul>
 
-      
+
       <div className=" justify-end flex pt-4 pb-4">
         <p className="flex font-medium  text-sm">
           Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt
@@ -75,7 +77,7 @@ export default function index() {
       </ul>
       <div className=" justify-end flex pt-4 pb-4">
         <p className="flex font-medium  text-sm">
-        
+
           Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt
           iaculis mollis eget. Facilisis dolor nisi tincidunt augue volutpat
           amet diam odio lacus. Urna tellus sed scelerisque.
