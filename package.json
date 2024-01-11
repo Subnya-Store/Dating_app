@@ -11,6 +11,7 @@
   "dependencies": {
     "@firebase/app": "^0.9.23",
     "@material-tailwind/react": "^2.1.1",
+    "@stripe/stripe-js": "^2.3.0",
     "axios": "^1.5.0",
     "bootstrap": "^5.3.2",
     "firebase": "^10.6.0",
