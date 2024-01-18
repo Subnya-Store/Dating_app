@@ -8,9 +8,9 @@ import apiUrl from "@/API/constant";
 
 export default function index() {
 
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.removeItem('user')
-  },[])
+  }, [])
   const [credentials, setCredentials] = useState({
     username: '',
     password: ''
@@ -31,7 +31,18 @@ export default function index() {
             theme: "light",
           })
           localStorage.setItem('user', x?.data?.token)
-          window.location.href = '/dashboard'
+          //purchase api check
+          API.fetchGet('/check_pkg')
+            .then(xs => {
+              if (xs?.data == 'you got!') {
+                window.location.href = '/dashboard'
+              } else {
+                window.location.href = '/payment'
+              }
+            })
+            .catch()
+
+          //purchase api check END
         } else {
           toast.error(x?.data?.message, {
             position: "top-center",
@@ -70,14 +81,14 @@ export default function index() {
       <p className=" text-4xl font-bold py-8 capitalize"> Sign In</p>
       <div className="inline-flex gap-5 pt-6 pb-6 ">
         <Link href={`${apiUrl}/auth/google`}>
-          <button 
-          // onClick={() => {
+          <button
+            // onClick={() => {
             // API.fetchGet('/auth/google')
             //   .then(x => console.log(x))
             //   .catch(x => console.log(x))
-          // }
-          // } 
-          className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
+            // }
+            // } 
+            className="bg-[#7000ED] flex rounded-xl text-white py-2 pr-5">
             <img className=" object-contain px-4" src="/Images/Google_img.png " />
             Sign in with google
           </button>
