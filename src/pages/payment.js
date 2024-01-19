@@ -5,15 +5,20 @@ import apiUrl from '@/API/constant';
 export default function Payment() {
   //   const [cart, setCart] = useState([]); // Use a state variable for cart items
   const [isLoading, setIsLoading] = useState(false); // Add a loading state
+  const [buy_product, set_buy_product] = useState({})
   let save_data
   let Product = [
     {
       img: 'https://opportunitymarketing.co.uk/wp-content/uploads/2020/01/Product_Marketing-1030x586.jpg',
-      price: '12'
+      price: '109.99'
+    },
+    {
+      img: 'https://opportunitymarketing.co.uk/wp-content/uploads/2020/01/Product_Marketing-1030x586.jpg',
+      price: '9.99'
     }
   ]
   // console.log(save_data)
-  const handlePayNow = async () => {
+  const handlePayNow = async (price, img) => {
     setIsLoading(true);
 
     try {
@@ -21,7 +26,14 @@ export default function Payment() {
       const response = await fetch(`${apiUrl}/create-checkout-session`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ Product }),
+        body: JSON.stringify({
+          Product: [
+            {
+              img,
+              price
+            }
+          ]
+        }),
       });
 
       if (!response.ok) {
@@ -45,21 +57,35 @@ export default function Payment() {
   return (
     <div className=" bg-[url('/Images/purchase.png')] h-screen w-full bg-cover bg-no-repeat flex justify-between items-center">
       <div className='hidden md:flex justify-center items-center w-full'>
-        hi
+
       </div>
-      <div className='flex justify-end p-10 w-full h-[80%] '>
-        <div className='flex justify-center items-center flex-col'>
-          <div className='flex flex-col'>
-            <div className='text-[#FD166F] text-xl font-bold'>
-              MemberShip
+      <div className='flex justify-end px-10 w-full h-[80%] '>
+        <div className='flex items-end justify-between flex-col'>
+          <div className='flex items-end flex-col'>
+            <div className='flex flex-col items-end'>
+              <div className='text-[#FD166F] text-xl font-bold flex justify-end'>
+                Membership
+              </div>
+              <div className='h-1 w-[150px] bg-white rounded-full '></div>
             </div>
-            <div className='h-1 w-[150px] bg-white rounded-full -ml-6'></div>
+            <div className='text-3xl font-extrabold text-white'>
+              PACKAGE PLAN
+            </div>
+            <img src='/Images/logo-img.png' width={100} />
           </div>
-          <div className='text-3xl font-extrabold text-white'>
-            PACKAGE PLAN
+          <div className='flex justify-between w-full gap-3'>
+            {
+              Product.map((x, i) => (
+                <img key={i} onClick={() => (
+                  handlePayNow(x.price, x.img),
+                  set_buy_product(x),
+                  localStorage.setItem('strip_wala', x.price)
+                )} src={x.price == "109.99" ? "/Images/yearly.png" : "/Images/monthly.png"} />
+              ))
+            }
           </div>
-          <img src='/Images/logo-img.png'/>
         </div>
+
       </div>
 
       {/* <button onClick={handlePayNow}>Make payment</button> */}

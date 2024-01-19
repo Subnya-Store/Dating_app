@@ -28,10 +28,6 @@ export default function success() {
           click here to Redirect to Dashboard
         </Link>
       </div>
-      {/* successfully purchased!
-      <Link href={'dashboard'}>
-        Redirect to Dashboard
-      </Link> */}
     </div>
   )
 }

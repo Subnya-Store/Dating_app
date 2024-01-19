@@ -4,25 +4,23 @@ import { IoIosArrowDown } from "react-icons/io";
 import { HiOutlineUserGroup } from "react-icons/hi";
 
 
-export default function index({page}) {
+export default function index({ page }) {
   let ABOUT = page == "about"
   return (
-    <div className={`md:w-[48%]  pb-14 ${ABOUT ? 'pt-10':'pt-2'}`} >
-      {page == 'about'?'':<h6 className="text-[var(--pink-color)]   font-bold  border-b-2   w-36  mb-2 text-lg md:text-2xl ">
+    <div className={`md:w-[48%]  pb-14 ${ABOUT ? 'pt-10' : 'pt-2'}`} >
+      {page == 'about' ? '' : <h6 className="text-[var(--pink-color)]   font-bold  border-b-2   w-36  mb-2 text-lg md:text-2xl ">
         About Us
       </h6>}
-      <h5 className={`  md:text-5xl text-lg   font-medium ${ABOUT ?'text-black':'text-white'} `}>
+      <h5 className={`  md:text-5xl text-lg   font-medium ${ABOUT ? 'text-black' : 'text-white'} `}>
         <span className="text-[#FFA500]">Love </span>Can Happen
       </h5>
       <h4 className="md:text-5xl text-lg   capitalize font-medium text-[#66D300] mt-2">
         Any where , Any time
       </h4>
-      <p className={`mt-2 ${ABOUT?"text-black":"text-white"} md:text-base text-sm`}>
-        Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt
-        iaculis mollis eget. Facilisis dolor nisi tincidunt augue volutpat amet
-        diam odio lacus. Urna tellus sed scelerisque.
+      <p className={`mt-2 ${ABOUT ? "text-black" : "text-white"} md:text-base text-sm`}>
+        At Your Destiny Dating, we believe in the magic of face-to-face interactions. Our platform is not just another online space for digital dating or virtual friendships; it's a gateway to real-life connections. We encourage you to step away from the screen and embrace the excitement of meeting new people in person.
       </p>
-      <div className=" relative my-4">
+      {/* <div className=" relative my-4">
         <form className=" py-8 ">
           <ul className="flex justify-between">
             <li className=" relative">
@@ -63,7 +61,7 @@ export default function index({page}) {
           </button>
         </form>
 
-      </div>
+      </div> */}
 
       <div className="flex justify-between  mt-10">
         <div className=" mr-4">
@@ -72,15 +70,13 @@ export default function index({page}) {
               <HiOutlineUserGroup />
             </li>
             <li>
-              <span className={`mt-6 ${ABOUT?"text-black":"text-white"} pl-2   font-medium  text-xl`}>
+              <span className={`mt-6 ${ABOUT ? "text-black" : "text-white"} pl-2   font-medium  text-xl`}>
                 10k+ Members
               </span>
             </li>
           </ul>
-          <p className={`mt-2  text-base ${ABOUT?"text-black":"text-white"}`}>
-            Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt
-            iaculis mollis eget. Facilisis dolor nisi tincidunt augue volutpat
-            amet diam odio lacus. Urna tellus sed scelerisque.
+          <p className={`mt-2  text-base ${ABOUT ? "text-black" : "text-white"}`}>
+            Start your journey towards meaningful connections. Whether you're seeking a romantic partner or simply looking to expand your circle of friends, Your Destiny Dating provides the platform for you to pursue the relationships you desire.
           </p>
         </div>
         <div>
@@ -89,15 +85,13 @@ export default function index({page}) {
               <AiOutlineHeart />
             </li>
             <li>
-              <span className={` mt-6 pl-2  font-medium  text-xl ${ABOUT?"text-black":"text-white"}`}>
+              <span className={` mt-6 pl-2  font-medium  text-xl ${ABOUT ? "text-black" : "text-white"}`}>
                 90% Progress
               </span>
             </li>
           </ul>
-          <p className={`mt-2 ${ABOUT?"text-black":"text-white"}  text-base`}>
-            Lorem ipsum dolor sit amet consectetur. Facilisis congue tincidunt
-            iaculis mollis eget. Facilisis dolor nisi tincidunt augue volutpat
-            amet diam odio lacus. Urna tellus sed scelerisque.
+          <p className={`mt-2 ${ABOUT ? "text-black" : "text-white"}  text-base`}>
+            Say goodbye to endless swiping and hello to genuine encounters. Navigate through the sea of possibilities and discover the joy of meeting someone special in the real world. Create memories, share laughter, and explore the beauty of authentic connections.
           </p>
         </div>
       </div>

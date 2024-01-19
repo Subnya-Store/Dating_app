@@ -68,15 +68,18 @@ export default function index() {
             <SectionOne />
           </div>
           <SectionTwo />
-          <div className=" bg-gradient-to-r border-1 overflow-hidden relative from-[#D74EFF] to-[#FF80B4] py-5 px-10 flex flex-col justify-center items-center">
+          {/* <div className=" bg-gradient-to-r border-1 overflow-hidden relative from-[#D74EFF] to-[#FF80B4] py-5 px-10 flex flex-col justify-center items-center">
             <div className='text-5xl text-blue-gray-50'>SPECIAL OFFER</div>
             <div className='text-xl text-blue-gray-50'>The FULL Training for just $67.00! SAVE $1997.00 for a limited time.</div>
             <img src='/Images/btn.png' />
-          </div>
+          </div> */}
           <SectionAbout />
           <SectionSteps />
           {/* <SectionThree /> */}
         <SectionFour />
+        <div>
+          <img src='/Images/Group.png'/>
+        </div>
            {/* <SectionFive /> */}
           <SectionSix />  
           {/* STOP */}
