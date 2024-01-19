@@ -64,6 +64,30 @@ export default function index() {
           </div>
           <div className="w-full flex flex-col justify-center items-center ">
             <div className="text-white">
+              INFO
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <div className="flex flex-col justify-center items-center">
+                <div className="font-extrabold text-lg text-white">Phone no.</div>
+                <div>(413) 450-8056</div>
+              </div>
+              <div className="flex flex-col justify-center items-center">
+                <div className="font-extrabold text-lg text-white">Email</div>
+                <div>info@yourdestinydating.com</div>
+              </div>
+            </div>
+            <div className="flex flex-col justify-center items-center">
+              <div className="flex flex-col justify-center items-center">
+                <div className="font-extrabold text-lg text-white">Address</div>
+                <div>196 Pondview Dr
+                  Amherst, MA 01002
+                  USA</div>
+              </div>
+
+            </div>
+          </div>
+          <div className="w-full flex flex-col justify-center items-center ">
+            <div className="text-white">
               Quick Links
             </div>
             <ul>
